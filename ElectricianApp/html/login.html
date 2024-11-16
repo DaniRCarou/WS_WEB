@@ -49,7 +49,7 @@
         rel="stylesheet": Especifica la relación entre el documento HTML y el archivo vinculado. stylesheet indica que el archivo contiene estilos CSS que se deben aplicar a la página.
         href="styles.css": Proporciona la ruta al archivo CSS. En este ejemplo, styles.css es el nombre del archivo y se asume que está en el mismo directorio que el archivo HTML. También se puede usar una ruta completa si el archivo CSS está ubicado en otro lugar.
         Usar archivos CSS externos es una práctica recomendada en diseño web porque mantiene los estilos separados del contenido, facilitando el mantenimiento y la actualización de la página web. -->
-        <link rel ="stylesheet" href="../css/styles.css">
+        <link rel ="stylesheet" href="../css/login.css">
 
         <title>Login</title>
         
@@ -83,7 +83,7 @@
             action="AnfrageBearbeiten.jsp": Este atributo especifica la URL (en este caso, un archivo JSP) a la que se enviarán los datos del formulario cuando el usuario lo envíe. Cuando el formulario se envía, los datos se enviarán a AnfrageBearbeiten.jsp para ser procesados.
             method="post": Este atributo indica el método HTTP que se utilizará para enviar los datos del formulario. post es uno de los métodos más comunes, que envía los datos de manera oculta en el cuerpo de la solicitud, lo que es más seguro para datos sensibles en comparación con el método get, que envía los datos en la URL.
             -->
-            <form action = "AnfrageBearbeiten.jsp" method = "post">
+            <form action = "Anmelden.jsp" method = "post">
 
 
 
@@ -99,7 +99,7 @@
                 <div class = "input-box">
 
                     <input id="nombre" type="text" title="Personalnummer" placeholder="Personalnummer" required/>  
-                    <img src="../icons/user_circle_fill_icon.png" alt="User icon" class="icon-small"/>
+                    <img src="../assets/icons/user_circle_fill_icon.png" alt="User icon" class="icon-small"/>
 
 
                     <!--This allows you to use the icons from the library in your HTML by simply adding the appropriate classes to the HTML elements. 
@@ -116,14 +116,14 @@
 
                 <div class = "input-box">
                     <input id="pass" type="password" title="Password" placeholder="Passwort" required/>    
-                    <img src="../icons/closed_lock_icon.svg" alt="Lock icon" class="icon-small"/>
+                    <img src="../assets/icons/closed_lock_icon.svg" alt="Lock icon" class="icon-small"/>
                 </div>
                     
 
 
                 <div class="remember-forgot">
                     <label> <input id="pass" type="checkbox"/> Erinnere dich an mich</label>  
-                    <a href="#">Passwort vergessen</a>
+                    <a href="forgot_password.html">Passwort vergessen</a>
                 </div> 
 
 
@@ -146,26 +146,8 @@
 
             </form>
 
-
-
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </body>
+
 </html>

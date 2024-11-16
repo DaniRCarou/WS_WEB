@@ -101,7 +101,7 @@ body {
     justify-content: center; /* This property aligns the child elements along the horizontal axis (left to right) and centers them within the container. In this case, all elements inside the <body> will be centered horizontally. */
     align-items: center; /* This property aligns the child elements along the vertical axis (top to bottom) and centers them within the container. This means all elements inside the <body> will be centered vertically. */
     min-height: 100vh; /* This property sets the minimum height of the <body> to 100 viewport height units. This means the body will take up at least 100% of the height of the browser window, ensuring it always fills the screen, even if there is not enough content. */
-    background: url('../Images/green.jpg'); /* Sets an image located at 'Images/e.png' as the background. */
+    background: url('../assets/images/green.jpg'); /* Sets an image located at 'Images/e.png' as the background. */
     background-size: cover; /* Scales the image to cover the entire background area without distorting its proportions */
     background-position: center; /* Positions the center of the image in the center of the viewport. */
     
@@ -136,7 +136,7 @@ WE CAN USE BOTH OF THEM:
     color:white; /* This property sets the text color inside the element. By setting it to white, the text will be easily readable against the light green background.  */
     border-radius: 10px; /* Rounds the corners of the box with a 10-pixel radius. */ 
     padding: 30px 40px; /* Adds 30 pixels of space at the top and bottom, and 40 pixels at the left and right, inside the box to provide padding between content and edges. */
-    margin: 0 10px;
+    margin: 0 10px; /* The margin creates space outside the element: 0px of margin at the top and bottom. 10px of margin on the left and right sides. The margin ensures that there is space between this element and any other surrounding elements. */
 
 }
 
@@ -440,7 +440,7 @@ The rule .remember-forgot a:hover applies styles to <a> (anchor/link) elements w
 
 .remember-forgot a:hover {
    
-    text-decoration: underline; /* Adds an underline to the link text when the user hovers over it, highlighting it and indicating that it’s interactive. */
+   text-decoration: underline; /* Adds an underline to the link text when the user hovers over it, highlighting it and indicating that it’s interactive. */
 
 }
 
@@ -539,18 +539,21 @@ The rule .register-link p a:hover applies styles to anchor link elements (typica
 
 
 
-/* This is to adapt the inputs to the window*/
+/* This is to adapt the inputs to the window. 
+This rule is a media query that applies styles to the elements inside it when the screen width is 576px or less (typically on small devices like smartphones).
+@media (max-width: 576px) -> This part defines a media query, which applies styles only when the screen width is 576px or less.
+max-width: 576px means the styles inside this query will be activated when the browser window or device screen is smaller than or equal to 576px. This is often used to apply responsive design, ensuring that the layout adapts for smaller screens. */
 @media (max-width: 576px) {
 
     .input-box .input-field{
     
-        width:100%;
-        margin: 10 px 0;
+        width:100%; /* This sets the width of the .input-field element to 100% of the parent container's width (in this case, the .input-box). This is done to ensure that the input field takes up the full width of the available space on small screens, making it easier to interact with on mobile devices. */
+        margin: 10 px 0; /* This adds a margin of 10px to the top and bottom of the .input-field element, and 0px margin on the left and right. The margin ensures there is space above and below the input field, providing better visual separation and preventing the input from being too close to other elements. */
     
     }
     
     
-    }
+}
 
 
 

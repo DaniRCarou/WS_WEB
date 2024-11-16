@@ -35,7 +35,7 @@ body {
     justify-content: center; 
     align-items: center; 
     min-height: 100vh; 
-    background: url('../Images/e.png');
+    background: url('../assets/images/e.png');
     background-size: cover; 
     background-position: center; /* Positions the center of the image in the center of the viewport. */
     
