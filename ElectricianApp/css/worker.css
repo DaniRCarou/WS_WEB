@@ -1,0 +1,159 @@
+
+
+* {
+
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+body {
+
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    background: url('../assets/images/green.jpg');
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+.wrapper {
+
+    width: 1600px;    
+    background:transparent;
+    border: 2px solid rgba(244, 244, 253, 0.295);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color:white;
+    border-radius: 10px;
+    padding: 30px 40px;
+    
+}
+
+
+h1 {
+
+    font-size: 36px; 
+    /* text-align: center;*/
+    margin:20px;
+
+}
+
+
+
+
+
+
+.tasks {
+    
+    /* margin: 20px auto;  Like the button */   
+    margin: 60px 140px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+        
+}
+
+
+.date {
+
+    display: flex;    
+
+}
+
+
+.date label {
+
+    margin-right: 10px; 
+    
+}
+
+
+
+/*IMPORTANT
+When you convert an element to a block-level element (using display: block;), it takes up the entire available width of its container. 
+Block-level elements, such as <div>, <p>, and <h1>, stretch across the container's width, allowing you to more predictably control their width and margins.
+When you apply display: block; to a button, it becomes a block-level element, occupying the full width of its container. 
+At this point, margin: auto; works as expected: it evenly distributes the left and right margins, centering the button within its container. 
+However, margin: auto; only works when the element has a defined width. 
+Inline elements (such as buttons by default) do not have a fixed width, so margin: auto; cannot distribute space equally. 
+By changing the button to display: block;, you inform the browser that the button should occupy 100% of the available width (or a specific width that you set), enabling automatic margins to work correctly.
+Now, with display: block;, the button occupies the entire available width (or a custom width, like width: 200px;), and margin: auto; ensures that the left and right margins are evenly distributed, centering the button within the container.
+Using display: block; transforms an element into a block-level element, allowing it to be assigned a full or relative width and enabling the use of automatic margins to center it. Inline elements, on the other hand, do not respond to margin: auto; because they lack a defined width. This is why it is necessary to use display: block; for margin: auto; to function properly and center the element.
+For instance, if a button remains as an inline element (with display: inline;) and you apply margin: auto;, the button will not center. Inline elements cannot have a full width assigned, which is required for margins to be distributed automatically. By default, inline elements (like buttons) align with the text flow and do not occupy a defined width. Consequently, margin: auto; has no effect on them because automatic margins rely on having a specific width to calculate and distribute space.
+*/
+button {
+
+    width: 300px; 
+    height: 65px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;   
+    margin: 20px; /* auto;  margin: auto; solo funciona cuando el elemento tiene un ancho definido. 
+                          Los elementos inline (como los botones por defecto) no tienen un ancho fijo, por lo que margin: auto; no puede distribuirse equitativamente. 
+                          Al cambiar el botón a display: block;, estás diciéndole al navegador que el botón debe ocupar el 100% del ancho disponible (o el ancho que tú determines), lo que permite que los márgenes automáticos se distribuyan correctamente. */
+    
+    /* display: block; Cuando conviertes un elemento en bloque (con display: block;), este ocupa todo el ancho disponible de su contenedor. 
+                       Los elementos de tipo bloque, como los div, p, y h1, se extienden hasta el borde de su contenedor, por lo que puedes controlar su ancho y los márgenes de manera más predecible.
+                       Al aplicar display: block; a un botón, este elemento se convierte en un bloque, ocupando toda la anchura disponible del contenedor. 
+                       Y ahora, margin: auto; funciona como se espera: distribuye los márgenes izquierdo y derecho de manera equitativa, centrando el botón. 
+                       Ahora, el botón tiene un display: block;, lo que significa que ocupa todo el ancho disponible (o un ancho específico si lo defines, como width: 200px;), y con margin: auto; los márgenes izquierdo y derecho se distribuyen uniformemente, centrando el botón en su contenedor. */ 
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

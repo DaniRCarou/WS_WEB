@@ -1,0 +1,48 @@
+.wrapper {
+    text-align: center;
+    margin: 20px auto;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+#timeInputs {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+label {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+input[type="time"] {
+    width: 80%;
+    padding: 5px;
+    margin: 5px 0;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
