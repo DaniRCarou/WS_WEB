@@ -32,7 +32,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     color:white;
     border-radius: 10px;
-    padding: 30px 40px;
+    padding: 40px 40px;
     
 }
 
@@ -41,7 +41,7 @@ h1 {
 
     font-size: 36px; 
     /* text-align: center;*/
-    margin:20px;
+    margin:40px;
 
 }
 
@@ -50,10 +50,10 @@ h1 {
 
 
 
-.tasks {
+.prompt {
     
     /* margin: 20px auto;  Like the button */   
-    margin: 60px 140px 20px 20px;
+    margin: 70px 140px 20px 40px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -88,7 +88,7 @@ Now, with display: block;, the button occupies the entire available width (or a 
 Using display: block; transforms an element into a block-level element, allowing it to be assigned a full or relative width and enabling the use of automatic margins to center it. Inline elements, on the other hand, do not respond to margin: auto; because they lack a defined width. This is why it is necessary to use display: block; for margin: auto; to function properly and center the element.
 For instance, if a button remains as an inline element (with display: inline;) and you apply margin: auto;, the button will not center. Inline elements cannot have a full width assigned, which is required for margins to be distributed automatically. By default, inline elements (like buttons) align with the text flow and do not occupy a defined width. Consequently, margin: auto; has no effect on them because automatic margins rely on having a specific width to calculate and distribute space.
 */
-button {
+.task_btn {
 
     width: 300px; 
     height: 65px;
@@ -101,7 +101,7 @@ button {
     font-size: 20px;
     color: #333;
     font-weight: 600;   
-    margin: 20px; /* auto;  margin: auto; solo funciona cuando el elemento tiene un ancho definido. 
+    margin: 30px; /* auto;  margin: auto; solo funciona cuando el elemento tiene un ancho definido. 
                           Los elementos inline (como los botones por defecto) no tienen un ancho fijo, por lo que margin: auto; no puede distribuirse equitativamente. 
                           Al cambiar el botón a display: block;, estás diciéndole al navegador que el botón debe ocupar el 100% del ancho disponible (o el ancho que tú determines), lo que permite que los márgenes automáticos se distribuyan correctamente. */
     
@@ -116,6 +116,81 @@ button {
 
 
 
+.formular{
+
+    margin: 0px 140px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+   
+}
+
+
+
+
+.working_hours {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     
+
+}
+
+
+.hours{
+
+    display: flex;
+    margin-right: 50px;
+   
+}
+
+
+.hours label{
+
+    margin-right: 10px;   
+
+}
+
+
+.from_hours{
+
+    margin-right: 120px;   
+    
+}
+
+
+
+
+
+
+.hours label{
+
+    font-size: 20px;
+    color:white; 
+
+}
+
+input[type="time"] {
+
+    width: 55px;
+    height: 25px; 
+    font-size: 15px;     
+    border-radius: 5px;
+
+  }
+
+
+
+  .formular input {
+
+    appearance: textfield;
+    border-radius: 5px;
+    height: 25px; 
+    font-size: 15px;  
+
+  }
 
 
 
@@ -124,24 +199,40 @@ button {
 
 
 
+/* delete and confirm buttons */
 
+.delete_btn{
 
+    width: 120px; 
+    height: 35px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;  
+    margin: 0 10px;  
 
+}
 
+.confirm_btn{
 
+    width: 120px; 
+    height: 35px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;    
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 

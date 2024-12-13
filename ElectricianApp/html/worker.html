@@ -27,47 +27,161 @@
 
                 
 
-                <h1>Hi, ........</h1>
+
+
+
+                <h1>Hallo, ........</h1>
                 
                
 
-                <div class="tasks">
 
-                    <h2 >Tasks completed:  </h2>  
+
+
+
+
+
+                <div class="prompt">
+
+                    <h2 >Ausgeführte Aufgaben:  </h2>  
                       
                     <div class = "date">
 
-                    <label for="date"><h2 type= "Date">Date: </h2></label>
+                    <label for="date"><h2 type= "Date">Datum: </h2></label>
 
                     <input type="date" id="date" name="date" required>
 
                     </div>
 
-                </div>              
+                </div>         
+                
+                
 
-                <div>
 
-                    <button type = "submit" class = "wrng_btn">Wiring and Assembly</button>
+
+
+
+
+
+
+
+
+
+                <div class="formular">               
+                    
+
+                    <button type = "button" class = "task_btn">Montage und Verdrahtung</button>
+                    
+                    <div class = "hours">
+
+                        <label for="fa">FA Nummer: </label>
+                        <input type="number" id="fa_number" name="fa">
+    
+                    </div>
+                        
+                        
+
+
+                    <div class = "hours">
+
+                            <label for="start">Von: </label>
+                            <input type="time" id="start" name="start" required class="from_hours"><br><br>
+
+                            
+                            <label for="end">Bis: </label>
+                            <input type="time" id="end" name="end" required class="until_hours"><br><br>
+                
+                    </div>
+
+                    <div class="hours_btn">
+
+                            <button type="button" class = "delete_btn">Löschen</button>
+                            <button type="button" class = "confirm_btn">Bestätigen</button>
+
+                    </div>
+                      
+                    
 
                 </div>
 
-                <div>
 
-                    <button type = "submit" class = "spcls_btn">Specials</button>
+
+
+
+
+
+
+                
+                <div class="formular">
+                                        
+                    <button type = "button" class = "task_btn">Teamrunde</button>  
+                              
+
+
+                    <div class = "hours">
+
+                        <label for="start">Von: </label>
+                        <input type="time" id="start" name="start" required class="from_hours"><br><br>
+
+                    
+                        <label for="end">Bis: </label>
+                        <input type="time" id="end" name="end" required class="until_hours"><br><br>
+        
+                    </div>
+
+
+                    <div class="hours_btn">
+
+                        <button type="button" class = "delete_btn">Löschen</button>
+                        <button type="button" class = "confirm_btn">Bestätigen</button>
+
+                    </div>   
+                    
 
                 </div>
 
-                <div>
 
-                    <button type = "submit" class = "meeting_btn">Team meeting</button>
+
+
+
+                
+
+
+                <div class="formular">
+          
+                    <button type = "button" class = "task_btn">Aufräumen</button>                              
+
+                    <div class = "hours">
+
+                        <label for="start">Von: </label>
+                        <input type="time" id="start" name="start" required class="from_hours"><br><br>
+
+                    
+                        <label for="end">Bis: </label>
+                        <input type="time" id="end" name="end" required class="until_hours"><br><br>
+        
+                    </div>
+
+
+                    <div class="hours_btn">
+
+                        <button type="button" class = "delete_btn">Löschen</button>
+                        <button type="button" class = "confirm_btn">Bestätigen</button>
+
+                    </div>             
 
                 </div>
 
+
+
+
+
+
                 <div>
 
-                    <button type = "submit" class = "clean_btn">Clean up</button>
+                    <button type = "button" class = "task_btn">Besondere</button>
 
                 </div>
+
 
 
             </form>
