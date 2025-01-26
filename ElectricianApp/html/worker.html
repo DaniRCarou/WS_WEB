@@ -10,7 +10,7 @@
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <link rel ="stylesheet" href="../css/worker.css">
+        <link rel ="stylesheet" href="../css/worker.css">        
 
         <title>Daten eingaben</title>
         
@@ -27,16 +27,23 @@
 
                 
 
-
+                <div class="greeting">
 
 
                 <h1>Hallo, ........</h1>
-                
+
+                    <div class = "duration">
+
+                        <label for="totaltime"><h2>Gesamtzeit: </h2></label>
+
+                        <input type="time" id="start" name="start" required class="totaltime"><br><br>
+                    
+                    </div>
+
+                </div> 
+
+
                
-
-
-
-
 
 
 
@@ -71,7 +78,7 @@
 
                     <button type = "button" class = "task_btn">Montage und Verdrahtung</button>
                     
-                    <div class = "hours">
+                    <div class = "fa">
 
                         <label for="fa">FA Nummer: </label>
                         <input type="number" id="fa_number" name="fa">
@@ -113,11 +120,11 @@
                 
                 <div class="formular">
                                         
-                    <button type = "button" class = "task_btn">Teamrunde</button>  
+                    <button type = "button" class = "teammeeting_btn">Teamrunde</button>  
                               
 
 
-                    <div class = "hours">
+                    <div class = "meeting_time">
 
                         <label for="start">Von: </label>
                         <input type="time" id="start" name="start" required class="from_hours"><br><br>
@@ -129,7 +136,7 @@
                     </div>
 
 
-                    <div class="hours_btn">
+                    <div class="agree_btn">
 
                         <button type="button" class = "delete_btn">Löschen</button>
                         <button type="button" class = "confirm_btn">Bestätigen</button>
@@ -148,9 +155,9 @@
 
                 <div class="formular">
           
-                    <button type = "button" class = "task_btn">Aufräumen</button>                              
+                    <button type = "button" class = "cleanup_btn">Aufräumen</button>                              
 
-                    <div class = "hours">
+                    <div class = "cleanup_time">
 
                         <label for="start">Von: </label>
                         <input type="time" id="start" name="start" required class="from_hours"><br><br>
@@ -162,7 +169,7 @@
                     </div>
 
 
-                    <div class="hours_btn">
+                    <div class="cleanup_agree_btn">
 
                         <button type="button" class = "delete_btn">Löschen</button>
                         <button type="button" class = "confirm_btn">Bestätigen</button>
@@ -176,9 +183,110 @@
 
 
 
-                <div>
+                <div class ="formular">
 
-                    <button type = "button" class = "task_btn">Besondere</button>
+                    <button type = "button" class = "special_btn">Besondere</button>
+
+
+                    <div class = "special_wrapper">
+
+                        <div class = "scroll_wrapper">
+
+                            <form>
+                                
+                                
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="M"/> Música
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="M"/> Música
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="M"/> Música
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="M"/> Música
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="M"/> Música
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
+                                </label>
+                                <hr>
+                                <label>
+                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
+                                </label>
+                            </form>
+                        </div>
+
+
+                        <div class="scroll_btn">
+
+                            <button type="button" class = "delete_btn">Löschen</button>
+                            <button type="button" class = "confirm_btn">Bestätigen</button>
+    
+                        </div>   
+
+
+                    </div>
 
                 </div>
 
@@ -189,7 +297,8 @@
 
         </div>
 
-
+        <script src="../js/worker.js"></script>
+        
     </body>
 
 

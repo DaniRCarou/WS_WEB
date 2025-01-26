@@ -23,6 +23,7 @@ body {
 }
 
 
+
 .wrapper {
 
     width: 1600px;    
@@ -37,33 +38,126 @@ body {
 }
 
 
+.formular:last-of-type {
+    position: relative;
+}
+
+.special_wrapper {
+    
+    position: absolute;
+    bottom: 30px; /* Alinea el borde inferior de special_wrapper con el borde inferior del botón */
+    left: 30%; /* Coloca el special_wrapper a la derecha del special_btn */
+    width: 1000px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(244, 244, 253, 0.295);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    border-radius: 10px; 
+    
+}
+
+
+.scroll_wrapper {
+         
+    position: absolute;
+    width: 80%;  
+    height: 75%; 
+    top: 5%;
+    left: 10%;
+    background: white;
+    color: black; /* Cambiado para que el texto sea visible sobre fondo blanco */
+    border-radius: 5px;
+    overflow-y: scroll;    
+    flex-direction: column; /* Alinea elementos en una columna */
+    
+    
+}
+
+/* Alineación de los checkbox con el texto */
+input[type="checkbox"] {
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina rellenos por defecto */
+    vertical-align: middle; /* Alinea el checkbox verticalmente con el texto */
+}
+
+/* Espaciado y alineación de los labels */
+label {
+    display: flex; /* Usamos flex para asegurar que el texto y el checkbox estén alineados */
+    align-items: center; /* Alinea verticalmente los elementos dentro del label */
+    gap: 5px; /* Espaciado entre el checkbox y el texto */
+    padding: 5px; /* Espaciado alrededor del texto*/
+}
+
+hr{
+
+    color:black;
+
+}
+
 h1 {
 
-    font-size: 36px; 
-    /* text-align: center;*/
-    margin:40px;
+    font-size: 36px;      
 
 }
 
 
 
 
+.greeting{
+    
+    margin: 20px 125px 100px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+
+.duration{
+
+    display: flex;
+    align-items: center;
+    
+}
+
+
+
+.duration label {
+
+    margin-right: 10px; 
+    
+    
+}
 
 
 .prompt {
     
     /* margin: 20px auto;  Like the button */   
-    margin: 70px 140px 20px 40px;
+    margin: 70px 125px 20px 40px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-        
+    align-items: center;
+    
+}
+
+.prompt input{
+
+    width: 135px;
+    height: 35px; 
+    font-size: 18px;     
+    border-radius: 5px;
+
 }
 
 
 .date {
 
-    display: flex;    
+    display: flex;
+    align-items: center;    
 
 }
 
@@ -114,11 +208,66 @@ For instance, if a button remains as an inline element (with display: inline;) a
 }
 
 
+.teammeeting_btn {
+
+    width: 300px; 
+    height: 65px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;   
+    margin: 30px; 
+
+}
+
+
+.cleanup_btn {
+
+    width: 300px; 
+    height: 65px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;   
+    margin: 30px; 
+
+}
+
+
+.special_btn {
+
+    width: 300px; 
+    height: 65px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;   
+    margin: 30px; 
+
+}
+
+
+
 
 
 .formular{
 
-    margin: 0px 140px 0px 0px;
+    margin: 0px 100px 0px 0px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -126,32 +275,91 @@ For instance, if a button remains as an inline element (with display: inline;) a
    
 }
 
-
-
-
-.working_hours {
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-     
+/* Hide the divs by default */
+.fa {
+    
+    font-size: 20px;
+    display: none;
 
 }
 
-
 .hours{
 
-    display: flex;
+    display: none;   
     margin-right: 50px;
    
 }
 
 
-.hours label{
+.meeting_time{
 
-    margin-right: 10px;   
+    display: none;   
+    margin-right: 50px;
+   
+}
+
+.cleanup_time{
+
+    display: none;   
+    margin-right: 50px;
+   
+}
+
+
+.hours_btn {
+
+    display: none;
 
 }
+
+.agree_btn {
+
+    display: none;
+
+}
+
+.cleanup_agree_btn {
+
+    display: none;
+
+}
+
+.special_wrapper {
+
+    display: none;
+
+}
+
+
+.fa label{
+
+    margin-right: 10px;  
+
+}
+
+
+.hours label{
+
+    margin-right: 10px;  
+    font-size: 20px;   
+
+}
+
+.meeting_time label{
+
+    margin-right: 10px;  
+    font-size: 20px;   
+
+}
+
+
+.cleanup_time label{
+
+    margin-right: 10px;  
+    font-size: 20px;   
+
+}
+
 
 
 .from_hours{
@@ -162,35 +370,43 @@ For instance, if a button remains as an inline element (with display: inline;) a
 
 
 
+.totaltime {
 
-
-
-.hours label{
-
-    font-size: 20px;
-    color:white; 
+    width: 50%;
+    height: 50px; 
+    font-size: 30px;     
+    border-radius: 5px;
 
 }
 
-input[type="time"] {
+.from_hours{
 
-    width: 55px;
+    width: 50px;
     height: 25px; 
     font-size: 15px;     
     border-radius: 5px;
 
-  }
+}
 
+.until_hours{
 
-
-  .formular input {
-
-    appearance: textfield;
-    border-radius: 5px;
+    width: 50px;
     height: 25px; 
-    font-size: 15px;  
+    font-size: 15px;     
+    border-radius: 5px;
 
-  }
+}
+
+
+
+.formular input {
+
+appearance: textfield;
+border-radius: 5px;
+height: 25px; 
+font-size: 15px;  
+
+}
 
 
 
@@ -214,7 +430,7 @@ input[type="time"] {
     font-size: 20px;
     color: #333;
     font-weight: 600;  
-    margin: 0 10px;  
+    margin: 0 30px;  
 
 }
 
@@ -236,7 +452,15 @@ input[type="time"] {
 
 
 
+.scroll_btn{    
+    
+    position: absolute; /* Necesario para posicionar dentro del special_wrapper */
+    bottom: 5%; /* Espaciado desde el fondo */
+    right: 10%; /* Espaciado desde el lado derecho */
+    display: flex; /* Alinea botones en fila */
+    gap: 10px; /* Espaciado entre los botones */
 
+}
 
 
 
