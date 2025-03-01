@@ -35,7 +35,7 @@ body {
     justify-content: center; 
     align-items: center; 
     min-height: 100vh; 
-    background: url('../assets/images/e.png');
+    background: url('../assets/images/green.jpg');
     background-size: cover; 
     background-position: center; /* Positions the center of the image in the center of the viewport. */
     
@@ -98,8 +98,8 @@ margin: 13px 0;
     position: relative;
     width: 48%;
     height: 50px;
-    margin: 13px 0;
-
+    margin: 13px 0;   
+    
 }
 
 
@@ -112,8 +112,18 @@ margin: 13px 0;
     font-size: 16px;
     border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 6px;
-    color: #fff;  
+    color: #fff; 
     
+    
+    /*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */    
+    
+}
+
+.input-box-number .input-field-number label{    
+        
+    position:absolute;    
+    font-size: 16px;   
+    padding:5px 0px 0px 5px;
     /*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */    
     
 }
@@ -122,7 +132,7 @@ margin: 13px 0;
 /*new*/
 .input-box-number .input-field-number input {
 
-    width:70%;
+    width:30%;
     height:100%;
     background: transparent;
     border: transparent;
@@ -134,7 +144,19 @@ margin: 13px 0;
     /*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */
     
     
-    }
+}
+
+
+.input-box-number .label_team label{
+    
+    color:  #fff;
+    opacity: 1;
+    position:absolute;
+    
+    font-size: 16px;    
+   
+
+}
 
 .input-box .input-field input {
 
@@ -195,6 +217,7 @@ opacity: 1;
 
 
 }
+
 
 
 .wrapper label {

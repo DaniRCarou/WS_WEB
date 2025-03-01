@@ -30,11 +30,11 @@
                 <div class="greeting">
 
 
-                <h1>Hallo, ........</h1>
+                    <h1>Hallo, ........</h1>
 
                     <div class = "duration">
 
-                        <label for="totaltime"><h2>Gesamtzeit: </h2></label>
+                        <label for="totaltime"><h2>GESAMTEZEIT: </h2></label>
 
                         <input type="time" id="start" name="start" required class="totaltime"><br><br>
                     
@@ -73,10 +73,12 @@
 
 
 
-                <div class="formular">               
+                <div class="formular" id = "ftask">               
                     
 
                     <button type = "button" class = "task_btn">Montage und Verdrahtung</button>
+
+                      
                     
                     <div class = "fa">
 
@@ -91,11 +93,11 @@
                     <div class = "hours">
 
                             <label for="start">Von: </label>
-                            <input type="time" id="start" name="start" required class="from_hours"><br><br>
+                            <input type="time" id="start" name="start" required class="montage_start_time"><br><br>
 
                             
                             <label for="end">Bis: </label>
-                            <input type="time" id="end" name="end" required class="until_hours"><br><br>
+                            <input type="time" id="end" name="end" required class="montage_end_time"><br><br>
                 
                     </div>
 
@@ -118,7 +120,7 @@
 
 
                 
-                <div class="formular">
+                <div class="formular" id="fmeeting">
                                         
                     <button type = "button" class = "teammeeting_btn">Teamrunde</button>  
                               
@@ -127,11 +129,11 @@
                     <div class = "meeting_time">
 
                         <label for="start">Von: </label>
-                        <input type="time" id="start" name="start" required class="from_hours"><br><br>
+                        <input type="time" id="start" name="start" required class="start_time"><br><br>
 
                     
                         <label for="end">Bis: </label>
-                        <input type="time" id="end" name="end" required class="until_hours"><br><br>
+                        <input type="time" id="end" name="end" required class="end_time"><br><br>
         
                     </div>
 
@@ -153,18 +155,18 @@
                 
 
 
-                <div class="formular">
+                <div class="formular" id="fcleanup">
           
                     <button type = "button" class = "cleanup_btn">Aufräumen</button>                              
 
                     <div class = "cleanup_time">
 
                         <label for="start">Von: </label>
-                        <input type="time" id="start" name="start" required class="from_hours"><br><br>
+                        <input type="time" id="start" name="start" required class="start_time"><br><br>
 
                     
                         <label for="end">Bis: </label>
-                        <input type="time" id="end" name="end" required class="until_hours"><br><br>
+                        <input type="time" id="end" name="end" required class="end_time"><br><br>
         
                     </div>
 
@@ -183,100 +185,93 @@
 
 
 
-                <div class ="formular">
+                <div class ="special_formular">
 
-                    <button type = "button" class = "special_btn">Besondere</button>
+                    <button type = "button" class = "special_btn">Zeitverzögerung</button>
 
 
                     <div class = "special_wrapper">
 
-                        <div class = "scroll_wrapper">
+                        <button type = "button" class = "extern_tab">Externer Dienstleister</button>
 
-                            <form>
+                        <button type = "button" class = "intern_tab">General Electric</button>
+
+                        <div class = "scroll_wrapper">                            
+
+                            <form>                                
                                 
-                                
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="M"/> Música
-                                </label>
+                                <p><strong>1.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
-                                </label>
+                                <p><strong>2.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
-                                </label>
+                                <p><strong>3.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
-                                </label>
+                                <p><strong>4.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="M"/> Música
-                                </label>
+                                <p><strong>5.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
-                                </label>
+                                <p><strong>6.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
-                                </label>
+                                <p><strong>7.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
-                                </label>
+                                <p><strong>8.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="M"/> Música
-                                </label>
+                                <p><strong>9.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
-                                </label>
+                                <p><strong>10.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
-                                </label>
+                                <p><strong>11.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
-                                </label>
+                                <p><strong>12.</strong> THIS IS THE FIRST TAB</p>
                                 <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="M"/> Música
-                                </label>
-                                <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
-                                </label>
-                                <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
-                                </label>
-                                <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
-                                </label>
-                                <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="M"/> Música
-                                </label>
-                                <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="L"/> Lectura
-                                </label>
-                                <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="D" /> Deportes
-                                </label>
-                                <hr>
-                                <label>
-                                    <input type="checkbox" name="hobbies" value="V" /> Videojuegos
-                                </label>
+
                             </form>
+
                         </div>
 
+                        <div class = "intern_scroll_wrapper">                            
+
+                            <form>                            
+                                                                
+                                <p><strong>1.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>2.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>3.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>4.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>5.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>6.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>7.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>8.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>9.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>10.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>11.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+                                <p><strong>12.</strong> THIS IS THE SECOND TAB</p>
+                                <hr>
+
+                            </form>
+
+                        </div>
+                        
+                        <div class = "mistake_time">
+
+                            <label for="start">Von: </label>
+                            <input type="time" id="start" name="start" required class="start_mistaketime"><br><br>
+    
+                        
+                            <label for="end">Bis: </label>
+                            <input type="time" id="end" name="end" required class="end_mistaketime"><br><br>
+            
+                        </div>
 
                         <div class="scroll_btn">
 
@@ -295,9 +290,59 @@
             </form>
 
 
+            <div class = "check_wrapper">                            
+
+                <form>                                
+                    
+                    <p><strong>1.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>2.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>3.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>4.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>5.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>6.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>7.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>8.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>9.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>10.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>11.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+                    <p><strong>12.</strong> THIS IS THE FIRST TAB</p>
+                    <hr>
+
+                </form>
+
+            </div>
+
+
+
+
+
+
+
+            <div role="button" class="check-container">
+                
+                <img src="../assets/icons/check1.png" alt="check icon" class="check"/>
+
+                <p class="check-text">ÜBERPRÜFEN</p>
+                
+            </div>
+
+
         </div>
 
+
         <script src="../js/worker.js"></script>
+
         
     </body>
 
