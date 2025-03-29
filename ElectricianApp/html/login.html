@@ -82,63 +82,83 @@
 
             action="AnfrageBearbeiten.jsp": Este atributo especifica la URL (en este caso, un archivo JSP) a la que se enviarán los datos del formulario cuando el usuario lo envíe. Cuando el formulario se envía, los datos se enviarán a AnfrageBearbeiten.jsp para ser procesados.
             method="post": Este atributo indica el método HTTP que se utilizará para enviar los datos del formulario. post es uno de los métodos más comunes, que envía los datos de manera oculta en el cuerpo de la solicitud, lo que es más seguro para datos sensibles en comparación con el método get, que envía los datos en la URL.
+            
             -->
+
             <form action = "Anmelden.jsp" method = "post">
 
 
 
 
 
+                <!-- This tag uses the largest letters to announce the current page -->
 
                 <h1>Login</h1>
 
 
 
-
                 
+
+                <!-- This tag contains other two tags which create an Text input field to enter the personal number and an user image -->
+
                 <div class = "input-box">
 
-                    <input id="nombre" type="text" title="Personalnummer" placeholder="Personalnummer" required/>  
-                    <img src="../assets/icons/user_circle_fill_icon.png" alt="User icon" class="icon-small"/>
+                    <input id="nombre" type="text" title="Personalnummer" placeholder="Personalnummer" required/> 
 
-
-                    <!--This allows you to use the icons from the library in your HTML by simply adding the appropriate classes to the HTML elements. 
-                    The line of code links your HTML document to the Boxicons icon library.  (<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>)-->
-                    <!--Esto te permite utilizar los íconos de la biblioteca en tu HTML simplemente añadiendo las clases apropiadas a los elementos HTML. 
-                    La línea de código vincula tu documento HTML a la biblioteca de íconos Boxicons. (<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>)-->
-                                        <!-- <i class='bx bxs-user'></i> -->
-
+                    <img src="../assets/icons/user_circle_fill_icon.png" alt="User icon" class="icon-small"/> <!-- This is an image tag in HTML, used to display images on a webpage. 
+                                                                                                                   The src attribute specifies the source (location) of the image. 
+                                                                                                                   The alt attribute provides an alternative text description for the image. If the image cannot be displayed for any reason. 
+                                                                                                                   The class attribute is used to assign a CSS class to the image. -->                   
                 </div>
                 
+
+
                 
 
-
+                <!-- This tag contains other two tags which create an Text input field to introduce the password and an lock image -->
 
                 <div class = "input-box">
+
                     <input id="pass" type="password" title="Password" placeholder="Passwort" required/>    
+
                     <img src="../assets/icons/closed_lock_icon.svg" alt="Lock icon" class="icon-small"/>
+
                 </div>
-                    
+                 
+                
 
 
+              
+                <!-- This tag contains two other tags which create a text input field with a checkbox to remember the user during the session. 
+                     The checkbox is associated with the label "Erinnere dich an mich" which translates to "Remember me" in English. This allows the user to select the option to keep their session active, typically used in login forms to avoid having to log in again during future visits. -->
+                               
                 <div class="remember-forgot">
-                    <label> <input id="pass" type="checkbox"/> Erinnere dich an mich</label>  
-                    <a href="forgot_password.html">Passwort vergessen</a>
+
+                    <label> <input id="pass" type="checkbox"/> Erinnere dich an mich</label>
+
+                    <a href="forgot_password.html">Passwort vergessen</a> <!-- This anchor tag creates a hyperlink that, when clicked, takes the user to the "forgot_password.html" page. The text of the link, "Forgot password," suggests that this page is where the user can reset or recover their password. -->
+                
                 </div> 
 
 
+
+
+
+                <!-- This is the tag for the button which send the login information -->
 
                 <button type = "submit" class = "btn">Login</button>
 
 
 
+
+
+                <!-- This tag contains another tag to do an two tags which create an Text input field to introduce the password and an lock image -->
+
                 <div class = "register-link">
+
                     <p>Haben Sie keine Konto?<a href = "register.html" title="Register page"> Registrieren</a></p>
-                </div> 
 
-
-
-                
+                </div>                
 
 
 

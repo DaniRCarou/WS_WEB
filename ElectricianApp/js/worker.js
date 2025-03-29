@@ -207,7 +207,7 @@ cleanUpButton.addEventListener('click', () => {
 
 
 
-// 1. Get the "cleanup_btn" button and the elements inside the .formular container
+// 1. Get the "special_btn" button and the elements inside the .formular container
 
 const specialButton = document.querySelector('.special_btn');
 const specialWrapper = document.querySelector('.special_wrapper');
@@ -291,7 +291,7 @@ externTab.addEventListener('click', () => {
 
 
 
-const check = document.querySelector('.check-container');
+const check = document.querySelector('.check-btn');
 const sFormular = document.querySelector('.special_formular');
 const tFormular = document.querySelector('#ftask');
 const mFormular = document.querySelector('#fmeeting');
@@ -335,5 +335,58 @@ check.addEventListener('click', () => {
         }      
       
 });
+
+
+
+
+
+
+
+
+
+// This function will be used to clean everything when you click on the (https://www.youtube.com/watch?v=8GvC6pMoh0I)
+
+// 'e' es solo un nombre de variable, y en ella se almacena automáticamente la información del evento que ocurre (en este caso, el clic).
+// Cuando usamos addEventListener("click", function(e) {...}), el navegador hace lo siguiente:
+
+// 1️⃣ Cuando el usuario hace clic, el navegador crea automáticamente un objeto con información sobre ese clic.
+// 2️⃣ Ese objeto se guarda en la variable que pusimos en los paréntesis (e).
+// 3️⃣ Ahora podemos usar 'e' para acceder a los datos del evento.
+
+document.addEventListener("click", (e)=>{
+
+    if (!e.target.matches(".check-btn") && !e.target.matches(".special_btn") && !e.target.matches(".cleanup_btn") && !e.target.matches(".teammeeting_btn") && !e.target.matches(".task_btn") && !e.target.matches(".check_wrapper")) {
+
+        specialWrapper.style.display = 'none';
+        cleaninUpTime.style.display = 'none';
+        cleanUpAgreeButton.style.display = 'none';
+        fa.style.display = 'none';
+        hours.style.display = 'none';
+        hoursBtn.style.display = 'none';
+        meetingTime.style.display = 'none';
+        agreeButton.style.display = 'none';              
+
+    }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

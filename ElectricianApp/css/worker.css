@@ -22,10 +22,12 @@ body {
 }
 
 
+/* 1. This is the main wrapper */ 
+
 .wrapper {
 
     width: 1300px; 
-    min-height: 800px; /* Establece la altura mínima como 100% de la altura de la ventana */   
+    min-height: 800px; 
     background:transparent;
     border: 2px solid rgba(244, 244, 253, 0.295);
     backdrop-filter: blur(10px);
@@ -662,10 +664,27 @@ p:last-of-type { padding-bottom: 15px; }
 
 
 
-.check-container {   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* This is the checklist, to check if everything is ok before saving*/
+
+.check-btn {   
+    
     position: absolute;
-    bottom: 30px; /* Ajusta el valor para moverlo más arriba o abajo */
-    right: 30px;  /* Ajusta el valor para moverlo más a la derecha o izquierda */    
+    bottom: 15px; 
+    right: 50px;    
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -687,10 +706,6 @@ p:last-of-type { padding-bottom: 15px; }
     height: 40px; /* Mantiene la proporción */
     
 }
-
-
-
-
 
 
 .check_wrapper {  
