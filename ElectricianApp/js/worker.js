@@ -340,22 +340,127 @@ check.addEventListener('click', () => {
 
 
 
+/* --------------------------------------------------------------------------- When clicking anywhere outside on the screen, the elements are hidden ----------------------------------------------------------------------------------------------------------- */ 
+   
+
+
+
+// La razón por la cual closest() funciona en este caso, mientras que matches() no, se debe a cómo ambos métodos interactúan con el árbol de elementos y la propagación de eventos en el DOM.
+// !e.target.matches(selector): Este método se usa para verificar si el elemento específico sobre el cual ocurrió el evento (es decir, e.target) coincide directamente con el selector proporcionado. Si haces clic sobre el .fa, e.target.matches('.fa') devolverá true solo si el elemento sobre el cual se hizo clic tiene la clase .fa directamente. No afecta a los ancestros ni a los elementos contenedores. Es una coincidencia exacta del elemento donde ocurrió el clic.
+// !e.target.closest(selector): Este método, en cambio, busca recursivamente hacia arriba desde el elemento donde ocurrió el clic (e.target), y devuelve el primer ancestro que coincida con el selector. Si el clic fue sobre un elemento que está dentro de un contenedor con la clase .fa, closest('.fa') devolverá ese contenedor. Si el clic fue sobre .fa directamente, closest('.fa') también devolverá el mismo .fa. Si no encuentra ningún ancestro que coincida, devuelve null.
+
+document.addEventListener("click", (e) => {
+
+
+
+/* 
+
+    Cuando haces clic en cualquier parte del documento, el navegador dispara un evento click.
+    Dentro de ese evento, e.target es el elemento exacto donde hiciste clic.
+
+    Ejemplo:
+    Si haces clic en un <span> dentro de un botón, e.target será el <span>, no el botón entero.
+
+*/
+
+    const target = e.target; 
+
+/* Esto simplemente guarda e.target en una variable para que no tengas que escribir e.target una y otra vez, si no habría que escribir lo siguiente: 
+
+    if (!e.target.closest('.check_wrapper') && !e.target.closest('.check-btn')) {
+
+        checkWrapper.style.display = 'none';
+
+    }
+
+*/
+    
 
 
 
 
-// This function will be used to clean everything when you click on the (https://www.youtube.com/watch?v=8GvC6pMoh0I)
 
-// 'e' es solo un nombre de variable, y en ella se almacena automáticamente la información del evento que ocurre (en este caso, el clic).
-// Cuando usamos addEventListener("click", function(e) {...}), el navegador hace lo siguiente:
+    // Si haces clic FUERA de #ftask
 
-// 1️⃣ Cuando el usuario hace clic, el navegador crea automáticamente un objeto con información sobre ese clic.
-// 2️⃣ Ese objeto se guarda en la variable que pusimos en los paréntesis (e).
-// 3️⃣ Ahora podemos usar 'e' para acceder a los datos del evento.
+    if (!target.closest('#ftask')) {
 
-document.addEventListener("click", (e)=>{
+        fa.style.display = 'none';
+        hours.style.display = 'none';
+        hoursBtn.style.display = 'none';
 
-    if (!e.target.matches(".check-btn") && !e.target.matches(".special_btn") && !e.target.matches(".cleanup_btn") && !e.target.matches(".teammeeting_btn") && !e.target.matches(".task_btn") && !e.target.matches(".check_wrapper")) {
+    }
+
+    // Si haces clic FUERA de #fmeeting
+
+    if (!target.closest('#fmeeting')) {
+
+        meetingTime.style.display = 'none';
+        agreeButton.style.display = 'none';
+
+    }
+
+    // Si haces clic FUERA de #fcleanup
+
+    if (!target.closest('#fcleanup')) {
+
+        cleaninUpTime.style.display = 'none';
+        cleanUpAgreeButton.style.display = 'none';
+
+    }
+
+    // Si haces clic FUERA de .special_formular
+
+    if (!target.closest('.special_formular')) {
+
+        specialWrapper.style.display = 'none';
+
+    }
+
+    // Si haces clic FUERA de .check_wrapper
+    // Este caso es diferente a los anteriores. 
+    // Porque, cuando haces clic en el botón .check-btn para mostrar .check_wrapper, ese mismo clic también activa el document.addEventListener('click'), y como .check_wrapper aún no está visible en ese momento, se oculta inmediatamente. ¡Se abre y se cierra al instante!
+
+    if (!target.closest('.check_wrapper') && !target.closest(".check-btn") ) {
+
+        checkWrapper.style.display = 'none';
+
+    }
+
+
+
+});
+
+
+
+
+
+
+
+/*
+
+
+    Esto es otra ejemplo, fíjate en .matches.
+
+
+    🔹 .matches(selector)
+
+    Comprueba si el elemento exacto sobre el que ocurrió el evento (e.target) coincide con el selector que le pasas.
+
+    No sube por los elementos padres.
+
+    ✅ Útil para verificar si el clic fue directamente sobre un botón o elemento específico.
+
+
+    🔹 .closest(selector)
+
+    Recorre hacia arriba en el DOM desde el e.target, buscando el primer ancestro (o él mismo) que coincida con el selector.
+
+    Si encuentra uno, lo devuelve. Si no, devuelve null.
+
+    ✅ Útil cuando el clic puede ocurrir dentro de un contenedor, y quieres saber si pertenece a una "zona" específica.
+
+
+    if (!e.target.matches(".check-btn") && !e.target.matches(".special_btn") && !e.target.matches(".cleanup_btn") && !e.target.matches(".teammeeting_btn") && !e.target.matches(".task_btn") && !e.target.matches(".check_wrapper") && !e.target.closest('#ftask') && !e.target.closest('#fmeeting') && !e.target.closest('#fcleanup') && !e.target.closest('.special_formular')) {
 
         specialWrapper.style.display = 'none';
         cleaninUpTime.style.display = 'none';
@@ -368,25 +473,12 @@ document.addEventListener("click", (e)=>{
 
     }
 
-})
+
+
+*/
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */ 
+   
