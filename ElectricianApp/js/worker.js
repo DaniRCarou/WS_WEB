@@ -97,8 +97,7 @@ taskButton.addEventListener('click', () => {
         meetingTime.style.display = 'none';
         agreeButton.style.display = 'none';
         cleaninUpTime.style.display = 'none';
-        cleanUpAgreeButton.style.display = 'none';
-        specialWrapper.style.display = 'none';
+        cleanUpAgreeButton.style.display = 'none';       
 
     }
 
@@ -145,8 +144,7 @@ teamMeetingButton.addEventListener('click', () => {
         hours.style.display = 'none';
         hoursBtn.style.display = 'none';
         cleaninUpTime.style.display = 'none';
-        cleanUpAgreeButton.style.display = 'none';
-        specialWrapper.style.display = 'none';
+        cleanUpAgreeButton.style.display = 'none';        
 
     }
 
@@ -192,8 +190,7 @@ cleanUpButton.addEventListener('click', () => {
         agreeButton.style.display = 'none';
         fa.style.display = 'none';
         hours.style.display = 'none';
-        hoursBtn.style.display = 'none';
-        specialWrapper.style.display = 'none';
+        hoursBtn.style.display = 'none';        
 
     }
 
@@ -207,84 +204,10 @@ cleanUpButton.addEventListener('click', () => {
 
 
 
-// 1. Get the "special_btn" button and the elements inside the .formular container
-
-const specialButton = document.querySelector('.special_btn');
-const specialWrapper = document.querySelector('.special_wrapper');
-const scrollWrapper = document.querySelector('.scroll_wrapper');
-
-// 2. Add a click event to the button
-
-specialButton.addEventListener('click', () => {
-
-    // 3. To checik if the elements are visible
-
-    if (specialWrapper.style.display === 'flex') {
-
-    // 4. If they are visible, hide them
-
-        specialWrapper.style.display = 'none';
-        
-
-       
-
-
-    } else {
-
-    // 5. If they are not visible, show them
-
-        specialWrapper.style.display = 'flex';
-        scrollWrapper.style.display = 'flex';
-
-        cleaninUpTime.style.display = 'none';
-        cleanUpAgreeButton.style.display = 'none';        
-        meetingTime.style.display = 'none';
-        agreeButton.style.display = 'none';
-        fa.style.display = 'none';
-        hours.style.display = 'none';
-        hoursBtn.style.display = 'none';
-        internScrollWrapper.style.display = 'none';
-
-    }
-
-});
 
 
 
 
-
-
-
-// 1. Get the "cleanup_btn" button and the elements inside the .formular container
-
-const internTab = document.querySelector('.intern_tab');
-const internScrollWrapper = document.querySelector('.intern_scroll_wrapper');
-
-
-// 2. Add a click event to the button
-
-internTab.addEventListener('click', () => {
-            
-    internScrollWrapper.style.display = 'flex';   
-    internTab.style.backgroundColor = 'white'; 
-    externTab.style.backgroundColor = 'rgb(231, 227, 227)';   
-
-});
-
-
-// 1. Get the "cleanup_btn" button and the elements inside the .formular container
-
-const externTab = document.querySelector('.extern_tab');
-
-// 2. Add a click event to the button
-
-externTab.addEventListener('click', () => {
-            
-    internScrollWrapper.style.display = 'none';  
-    externTab.style.backgroundColor = 'white';   
-    internTab.style.backgroundColor = 'rgb(231, 227, 227)';
-      
-});
 
 
 
@@ -292,49 +215,10 @@ externTab.addEventListener('click', () => {
 
 
 const check = document.querySelector('.check-btn');
-const sFormular = document.querySelector('.special_formular');
 const tFormular = document.querySelector('#ftask');
 const mFormular = document.querySelector('#fmeeting');
 const cFormular = document.querySelector('#fcleanup');
-const checkWrapper = document.querySelector('.check_wrapper');
 
-
-check.addEventListener('click', () => {
-            
-    if (checkWrapper.style.display === 'flex') {
-
-        // 4. If they are visible, hide them
-    
-            specialWrapper.style.display = 'none';
-            sFormular.style.display = 'flex';
-            tFormular.style.display = 'flex';
-            mFormular.style.display = 'flex';
-            cFormular.style.display = 'flex';
-            checkWrapper.style.display = 'none';
-    
-        } else {
-    
-        // 5. If they are not visible, show them
-    
-            specialWrapper.style.display = 'flex';
-            scrollWrapper.style.display = 'flex';
-    
-            cleaninUpTime.style.display = 'none';
-            cleanUpAgreeButton.style.display = 'none';        
-            meetingTime.style.display = 'none';
-            agreeButton.style.display = 'none';
-            fa.style.display = 'none';
-            hours.style.display = 'none';
-            hoursBtn.style.display = 'none';
-            internScrollWrapper.style.display = 'none';
-            sFormular.style.display = 'none';
-            tFormular.style.display = 'none';
-            mFormular.style.display = 'none';
-            cFormular.style.display = 'none';
-            checkWrapper.style.display = 'flex';
-        }      
-      
-});
 
 
 
@@ -408,13 +292,7 @@ document.addEventListener("click", (e) => {
 
     }
 
-    // Si haces clic FUERA de .special_formular
-
-    if (!target.closest('.special_formular')) {
-
-        specialWrapper.style.display = 'none';
-
-    }
+    
 
     // Si haces clic FUERA de .check_wrapper
     // Este caso es diferente a los anteriores. 
