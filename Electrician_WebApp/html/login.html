@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+
+        <!--  is used to define the character encoding for the HTML document. 
+        <meta>: This tag provides metadata about the HTML document (information not visible to users).
+        charset="UTF-8": Specifies the character encoding to use. UTF-8 is a standard encoding that supports a wide range of characters, including special characters and symbols from various languages.
+        Setting UTF-8 is essential for web pages to display characters from different languages and symbols correctly, ensuring compatibility across browsers and devices. This is a best practice for most modern websites. -->
+        <!-- Esta etiqueta se utiliza para definir la codificación de caracteres del documento HTML. 
+        <meta>: Esta etiqueta proporciona metadatos sobre el documento HTML (información que no es visible para los usuarios).
+        charset="UTF-8": Especifica la codificación de caracteres a utilizar. UTF-8 es una codificación estándar que admite una amplia gama de caracteres, incluidos caracteres especiales y símbolos de varios idiomas.
+        Configurar UTF-8 es esencial para que las páginas web muestren correctamente caracteres de diferentes idiomas y símbolos, garantizando la compatibilidad en distintos navegadores y dispositivos. Esta es una práctica recomendada para la mayoría de sitios web modernos. -->
+        <meta charset="UTF-8">
+
+        <!-- tag is used to control the layout and scaling of the webpage on different devices, particularly on mobile devices.
+        name="viewport": Specifies that this tag controls the viewport settings, which influence how a webpage is displayed on devices with different screen sizes.
+        content="width=device-width": Sets the width of the webpage to match the width of the device’s screen, meaning the content will scale to fit the device's full width.
+        initial-scale=1.0: Defines the initial zoom level for the page when it loads. A value of 1.0 means no zoom; the page is displayed at its natural size on the screen.
+        This meta tag is essential for responsive design, helping webpages adjust automatically for an optimal view on smartphones, tablets, and desktops. -->
+        <!-- Esta etiqueta se usa para controlar el diseño y el escalado de la página en diferentes dispositivos, especialmente en dispositivos móviles.
+        name="viewport": Especifica que esta etiqueta controla la configuración del viewport, la cual influye en cómo se muestra una página web en dispositivos con tamaños de pantalla diferentes.
+        content="width=device-width": Establece el ancho de la página para que coincida con el ancho de la pantalla del dispositivo, lo que significa que el contenido se ajustará para cubrir todo el ancho del dispositivo.
+        initial-scale=1.0: Define el nivel de zoom inicial de la página cuando se carga. Un valor de 1.0 significa sin zoom, por lo que la página se muestra en su tamaño natural en la pantalla.
+        Esta etiqueta meta es esencial para el diseño responsivo, ayudando a que las páginas web se ajusten automáticamente para una visualización óptima en smartphones, tablets y computadoras de escritorio. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- This tag instructs Internet Explorer to render the page using the latest available rendering mode. The value IE=edge tells the browser to use the latest version of its rendering engine, ignoring any previous compatibility modes.
+        Importance: This is important to ensure that modern features of HTML, CSS, and JavaScript are processed correctly, improving compatibility and user experience. -->
+        <!-- Esta etiqueta le dice a Internet Explorer que debe renderizar la página utilizando el modo de compatibilidad más reciente disponible. El valor IE=edge indica que el navegador debe utilizar la versión más reciente de su motor de renderizado, ignorando cualquier modo de compatibilidad anterior.
+        Importancia: Esto es crucial para garantizar que las características más modernas de HTML, CSS y JavaScript se procesen correctamente, mejorando la compatibilidad y la experiencia del usuario. -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!--En esta etiqueta se vincula tu documento HTML a un archivo CSS específico que contiene estilos para un conjunto de íconos llamado Boxicons. 
+        Al incluir esta línea en tu documento HTML, estás permitiendo que el navegador descargue y aplique los estilos de Boxicons a tu página web. Esto te permite utilizar los íconos de la biblioteca en tu HTML simplemente añadiendo las clases apropiadas a los elementos HTML.
+        EN ESTE CASO NO LA NECESITAMOS PORQUE HEMOS GUARDADO NUESTRAS PROPIAS IMÁGENES EN UN DIRECTORIO -->
+        <!--This tag links your HTML document to a specific CSS file that contains styles for a set of icons called Boxicons. 
+        By including this line in your HTML document, you are allowing the browser to download and apply the Boxicons styles to your web page. This allows you to use the icons from the library in your HTML by simply adding the appropriate classes to the HTML elements.
+        IN THIS CASE, WE DON’T NEED IT BECAUSE WE HAVE SAVED OUR OWN IMAGES IN A DIRECTORY. 
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+
+        <!-- This tag is used in HTML to connect an external CSS file to the webpage.
+        <link>: This tag links external resources to the document.
+        rel="stylesheet": Specifies the relationship between the HTML document and the linked file. stylesheet indicates that the file contains CSS styles that should apply to the webpage.
+        href="styles.css": Provides the path to the CSS file. In this example, styles.css is the filename, and it’s assumed to be in the same directory as the HTML file. You can also use a full path if the CSS file is located elsewhere.
+        Using external CSS files is a best practice for web design because it keeps styles separate from content, making it easier to maintain and update the webpage. -->
+        <!-- Esta etiqueta se utiliza en HTML para conectar un archivo CSS externo a la página web.
+        <link>: Esta etiqueta enlaza recursos externos con el documento.
+        rel="stylesheet": Especifica la relación entre el documento HTML y el archivo vinculado. stylesheet indica que el archivo contiene estilos CSS que se deben aplicar a la página.
+        href="styles.css": Proporciona la ruta al archivo CSS. En este ejemplo, styles.css es el nombre del archivo y se asume que está en el mismo directorio que el archivo HTML. También se puede usar una ruta completa si el archivo CSS está ubicado en otro lugar.
+        Usar archivos CSS externos es una práctica recomendada en diseño web porque mantiene los estilos separados del contenido, facilitando el mantenimiento y la actualización de la página web. -->
+        <link rel ="stylesheet" href="../css/login.css">
+
+        <title>Login</title>
+        
+    </head>
+
+
+
+
+
+    <body>
+
+
+
+
+        <!-- This div is the menu for selecting the language of the page. -->
+
+    
+        <div class="lang-menu">
+
+            <div class="selected-lang">
+                🇬🇧 English
+            </div>
+
+            <ul>
+
+                <li>
+
+                    <a href="#" >
+                     🇩🇪 <span  class="link-text">German</span>  <!-- href="#" -> recarga y sube al inicio de la página. Al hacer clic en ese enlace, no abre otra página, solo recarga la actual y te manda a la parte de arriba (porque # apunta al "top").
+                                                    href es el atributo que indica a dónde te lleva un enlace (<a>).
+                                                    "#" es un fragmento vacío, que apunta al inicio de la misma págin 
+                                                    1. Cuando el programador aún no sabe a dónde llevará el enlace, usa "#" como marcador temporal. 
+                                                    2. A veces no quieres que el enlace vaya a ninguna parte, sino que ejecute código. 
+                                                    Aquí el href="#" evita que dé error, y el onclick hace la acción. -->
+                    </a>
+                
+                </li>
+
+
+                <li>
+
+                    <a href="#" >
+
+                     🇪🇸 <span class="link-text">Spanish</span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#" >🇵🇹 Portuguese</a>
+
+                </li>                
+
+                <!--
+                
+                    Since I couldn’t find any icons with the flags of Catalonia, Galicia, and the Basque Country, I decided to look for them and create them.
+
+                -->
+                
+                <li>
+
+                    <a href="#" ><img src="../assets/icons/galicia.png" alt="galician flag icon" class="icon-flag"/> Galician</a>
+
+                </li>
+
+                <li>
+
+                    <a href="#" ><img src="../assets/icons/catalunya.png" alt=" Catalonia flag icon" class="icon-flag"/> Catalan</a>
+
+                </li>
+
+                <li>
+
+                    <a href="#" ><img src="../assets/icons/pais_vasco.png" alt="Basque Country flag icon" class="icon-flag"/> Basque</a>
+                    
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <div class = "wrapper">
+
+
+
+
+            <!--
+                
+            This <form> element defines an HTML form that allows users to submit data.
+
+            action="AnfrageBearbeiten.jsp": This attribute specifies the URL (in this case, a JSP file) to which the form data will be sent when the user submits the form. When the form is submitted, the data will be sent to AnfrageBearbeiten.jsp for processing.
+            method="post": This attribute indicates the HTTP method that will be used to send the form data. post is one of the most common methods, sending data in a hidden manner within the request body, making it more secure for sensitive data compared to the get method, which sends data in the URL.
+
+            Este elemento <form> define un formulario HTML que permite a los usuarios enviar datos.
+
+            action="AnfrageBearbeiten.jsp": Este atributo especifica la URL (en este caso, un archivo JSP) a la que se enviarán los datos del formulario cuando el usuario lo envíe. Cuando el formulario se envía, los datos se enviarán a AnfrageBearbeiten.jsp para ser procesados.
+            method="post": Este atributo indica el método HTTP que se utilizará para enviar los datos del formulario. post es uno de los métodos más comunes, que envía los datos de manera oculta en el cuerpo de la solicitud, lo que es más seguro para datos sensibles en comparación con el método get, que envía los datos en la URL.
+            
+            -->
+
+            <form action = "Anmelden.jsp" method = "post">
+
+
+
+
+
+                <!-- This tag uses the largest letters to announce the current page -->
+
+                <h1>Login</h1>
+
+
+
+                
+
+                <!-- This tag contains other two tags which create an Text input field to enter the personal number and an user image -->
+
+                <div class = "input-box">
+
+                    <input id="nombre" type="text" title="Personalnummer" placeholder="Personalnummer" required/> 
+
+                    <img src="../assets/icons/user_circle_fill_icon.png" alt="User icon" class="icon-small"/> <!-- This is an image tag in HTML, used to display images on a webpage. 
+                                                                                                                   The src attribute specifies the source (location) of the image. 
+                                                                                                                   The alt attribute provides an alternative text description for the image. If the image cannot be displayed for any reason. 
+                                                                                                                   The class attribute is used to assign a CSS class to the image. -->                   
+                </div>
+                
+
+
+                
+
+                <!-- This tag contains other two tags which create an Text input field to introduce the password and an lock image -->
+
+                <div class = "input-box">
+
+                    <input id="pass" type="password" title="Password" placeholder="Passwort" required/>    
+
+                    <img src="../assets/icons/closed_lock_icon.svg" alt="Lock icon" class="icon-small"/>
+
+                </div>
+                 
+                
+
+
+              
+                <!-- This tag contains two other tags which create a text input field with a checkbox to remember the user during the session. 
+                     The checkbox is associated with the label "Erinnere dich an mich" which translates to "Remember me" in English. This allows the user to select the option to keep their session active, typically used in login forms to avoid having to log in again during future visits. -->
+                               
+                <div class="remember-forgot">
+
+                    <label> <input id="pass" type="checkbox"/> Erinnere dich an mich</label>
+
+                    <a href="password_reset.html">Passwort vergessen</a> <!-- This anchor tag creates a hyperlink that, when clicked, takes the user to the "forgot_password.html" page. The text of the link, "Forgot password," suggests that this page is where the user can reset or recover their password. -->
+                
+                </div> 
+
+
+
+
+
+                <!-- This is the tag for the button which send the login information -->
+
+                <button type = "submit" class = "btn">Login</button>
+
+
+
+
+
+                <!-- This tag contains another tag to do an two tags which create an Text input field to introduce the password and an lock image -->
+
+                <div class = "register-link">
+
+                    <p>Haben Sie keine Konto?<a href = "register.html" title="Register page"> Registrieren</a></p>
+
+                </div>                
+
+
+
+
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
