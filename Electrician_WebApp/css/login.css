@@ -15,16 +15,11 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
 
 .icon-flag {
 
-    width: 16px;  /* Adjust the width */
-    height: 16px; /* Adjust the width */
+    width: 20px;  /* Adjust the width */
+    height: 20px; /* Adjust the width */
     vertical-align: middle; /* Adjust vertical alignment */
    
 }
-
-
-
-
-
 
 
 
@@ -52,32 +47,80 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
 
 
 
+
+
+
+
+
+/* Esta es la caja que contiene el logo principal para seleccionar el idioma */
+
+.selected-lang {
+
+    border-radius: 4px;    
+    background: transparent; 
+    border: 2px solid rgba(232, 232, 236, 0.795);
+    text-align: center;
+    
+}
+
+
+
+
+
+
+.lang-menu:hover ul {
+
+    display: block; /* separación desde arriba */
+
+}
+
+
+
+
+
+
 .lang-menu {
     
     color: #fff;
     position: absolute;
-    top: 40px;   /* separación desde arriba */
-    right: 5%;  /* margen relativo al ancho de la pantalla, separación desde la derecha */
+    top: 80px;   /* separación desde arriba */
+    right: 20%;  /* margen relativo al ancho de la pantalla, separación desde la derecha */
     z-index: 1000; /* asegura que quede encima de todo */
+    font-size: 20px;
+    width: 150px;
 
 }
+
+
+
+
 
 
 .lang-menu ul {
 
     border-radius: 2px;    
     background:transparent;    
-    box-shadow: 0 0 1px 1px rgb(223, 205, 205);  /* https://css3generator.com/  para probar la sombra y otras cosas*/
-    font-family: "Poppins", sans-serif;    
+    /* box-shadow: 0 0 1px 1px rgb(223, 205, 205);   https://css3generator.com/  para probar la sombra y otras cosas*/
+    border: 2px solid rgba(232, 232, 236, 0.795);
+    font-family: "Poppins", sans-serif;
+    display: none;    
 
 }
+
+
+
+
+
 
 .lang-menu ul li {
     
-    list-style: none;
-    width: 125px;
+    list-style: none; /* Le quita los puntos a la lista de banderas y palabras */
+    width: 150px; /* El hancho del recuadro donde están las banderas y las palabras */
        
 }
+
+
+
 
 
 .lang-menu ul li a {    
@@ -85,12 +128,17 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
     list-style: none;
     display: block;
     padding: 5px 10px;    
-    color: #fff;               /* blanco de inicio. Utilizo esto porque con 'href=' cambia el color de las letras a azul, como si estuviera ya pulsado */
+    color: #fff;             /* blanco de inicio. Utilizo esto porque con 'href=' cambia el color de las letras a azul, como si estuviera ya pulsado */
     text-decoration: none;     /* quita subrayado. Utilizo esto porque con 'href=' cambia el color de las letras a azul y aparece todo subrayado */
 
 
 }
 
+
+
+
+/* .lang-menu ul li a:hover ul -> Se activa cuando pasas el ratón sobre el <a>. Afecta al <ul> que está dentro del <a>. Es decir: hover en el padre (<a>), aplica estilo al hijo (<ul>).*/
+/* .lang-menu ul li a:hover -> Se activa cuando pasas el ratón sobre el <a> mismo. El hover ya está ocurriendo directamente sobre el <a> */
 
 .lang-menu ul li a:hover {
 
@@ -98,6 +146,14 @@ background-color: #f2f2f2;
 color: #36409b;
 
 }
+
+
+
+
+
+
+
+
 
 
 
