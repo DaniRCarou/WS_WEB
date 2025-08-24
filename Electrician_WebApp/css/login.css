@@ -125,8 +125,11 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
 
 .lang-menu ul li a {    
     
+
     list-style: none;
-    display: block;
+    display: flex;            /* coloca imagen y texto en la misma fila */
+    align-items: center;      /* los alinea verticalmente */
+    gap: 6px;                 /* espacio entre la bandera y el texto */
     padding: 5px 10px;    
     color: #fff;             /* blanco de inicio. Utilizo esto porque con 'href=' cambia el color de las letras a azul, como si estuviera ya pulsado */
     text-decoration: none;     /* quita subrayado. Utilizo esto porque con 'href=' cambia el color de las letras a azul y aparece todo subrayado */
