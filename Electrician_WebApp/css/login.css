@@ -16,11 +16,11 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
 .icon-flag {
 
     width: 20px;  /* Adjust the width */
-    height: 20px; /* Adjust the width */
+    height: 14px; /* Adjust the width */
     vertical-align: middle; /* Adjust vertical alignment */
+    align-items: center;
    
 }
-
 
 
 
@@ -60,12 +60,22 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
     background: transparent; 
     border: 2px solid rgba(232, 232, 236, 0.795);
     text-align: center;
-    
+    align-items: center; 
+
 }
 
 
 
 
+.selected-lang a {
+
+    display: flex;   
+    color: #fff;             
+    text-decoration: none;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+}
 
 
 .lang-menu:hover ul {
@@ -87,7 +97,7 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
     right: 20%;  /* margen relativo al ancho de la pantalla, separación desde la derecha */
     z-index: 1000; /* asegura que quede encima de todo */
     font-size: 20px;
-    width: 150px;
+    width: 170px;   
 
 }
 
@@ -102,7 +112,8 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
     background:transparent;    
     /* box-shadow: 0 0 1px 1px rgb(223, 205, 205);   https://css3generator.com/  para probar la sombra y otras cosas*/
     border: 2px solid rgba(232, 232, 236, 0.795);
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif; /* La primera tipografía es la que queremos y la segunda se aplica en caso de que la primera no funcione.*/
+                                        /* La tipografía 'system-ui' es la del sistema operativo que tenga*/
     display: none;    
 
 }
@@ -115,7 +126,7 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
 .lang-menu ul li {
     
     list-style: none; /* Le quita los puntos a la lista de banderas y palabras */
-    width: 150px; /* El hancho del recuadro donde están las banderas y las palabras */
+    width: 170px; /* El hancho del recuadro donde están las banderas y las palabras */
        
 }
 
