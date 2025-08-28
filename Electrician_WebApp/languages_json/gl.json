@@ -1,0 +1,14 @@
+{
+
+    "wrapper": {
+
+        "personalNumber": "Número persoal",
+        "password": "Contrasinal",
+        "rememberMe": "Recórdame",
+        "forgottenPassword": "Contrasinal olvidada",
+        "haveAccount": "Tes unha conta?",
+        "signUp": "Rexistrar"
+
+    }
+
+}

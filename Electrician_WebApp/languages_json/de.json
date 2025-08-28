@@ -1,0 +1,14 @@
+{
+
+    "wrapper": {
+
+        "personalNumber": "Personalnummer",
+        "password": "Passwort",
+        "rememberMe": "Erinnere dich an mich",
+        "forgottenPassword": "Passwort vergessen",
+        "haveAccount": "Haben Sie keine Konto?",
+        "signUp": "Registrieren"
+
+    }
+
+}

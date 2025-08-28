@@ -745,4 +745,13 @@ EXTRA NOTES
 
 
 
+.validation-icon {  
+    
+    position: absolute; /* igual que tu menú */
+    bottom: 20px;       /* separación desde abajo */
+    left: 20px;         /* separación desde la izquierda */   
+    width: 88px;        /* ancho del icono */
+    height: 31px;       /* alto del icono */
+
+}
 

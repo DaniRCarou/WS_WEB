@@ -1,0 +1,14 @@
+{
+
+    "wrapper": {
+
+        "personalNumber": "Número personal",
+        "password": "Contrasenya",
+        "rememberMe": "Recorda'm",
+        "forgottenPassword": "Contrasenya oblidada",
+        "haveAccount": "Tens un compte?",
+        "signUp": "Inscriu-te"
+
+    }
+
+}
