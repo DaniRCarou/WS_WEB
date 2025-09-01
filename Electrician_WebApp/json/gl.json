@@ -1,0 +1,29 @@
+{
+
+    "languageMenu": {
+
+        "german": "Alemán",
+        "english": "Inglés",
+        "spanish": "Español",
+        "portuguese": "Portugués",
+        "galician": "Galego",
+        "catalan": "Catalán",
+        "basque": "Éuscaro"
+
+    },
+
+
+    "wrapper": {
+
+        "logInTitle": "Inicio de sesión",
+        "personalNumber": "Número persoal",
+        "password": "Contrasinal",
+        "rememberMe": "Recórdame",
+        "forgotPassword": "Contrasinal olvidada",
+        "logInButton": "Iniciar sesión",
+        "haveAccount": "Tes unha conta?",        
+        "signUp": "Rexistrar"
+
+    }
+
+}

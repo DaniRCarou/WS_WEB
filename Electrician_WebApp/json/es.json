@@ -1,0 +1,29 @@
+{
+
+    "languageMenu": {
+
+        "german": "Alemán",
+        "english": "Inglés",
+        "spanish": "Español",
+        "portuguese": "Portugués",
+        "galician": "Gallego",
+        "catalan": "Catalán",
+        "basque": "Euskera"
+
+    },
+
+
+    "wrapper": {
+
+        "logInTitle": "Inicio de sesión",
+        "personalNumber": "Número personal",
+        "password": "Contraseña",
+        "rememberMe": "Recuérdame",
+        "forgotPassword": "Contraseña olvidada",        
+        "logInButton": "Iniciar sesión",
+        "haveAccount": "¿Tiene una cuenta?",
+        "singUp": "Registrar"
+
+    }
+
+}

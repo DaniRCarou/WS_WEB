@@ -1,0 +1,29 @@
+{
+
+    "languageMenu": {
+
+        "german": "Alemany",
+        "english": "Anglès",
+        "spanish": "Espanyol",
+        "portuguese": "Portuguès",
+        "galician": "Gallec",
+        "catalan": "Català",
+        "basque": "Basc"
+
+    },
+
+
+    "wrapper": {
+
+        "logInTitle": "Inici de sessió",
+        "personalNumber": "Número personal",
+        "password": "Contrasenya",
+        "rememberMe": "Recorda'm",
+        "forgotPassword": "Contrasenya oblidada",
+        "logInButton": "Iniciar sessió",
+        "haveAccount": "Tens un compte?",        
+        "signUp": "Inscriu-te"
+
+    }
+
+}

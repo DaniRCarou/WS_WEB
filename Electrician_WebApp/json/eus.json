@@ -1,0 +1,29 @@
+{
+
+    "languageMenu": {
+
+        "german": "Alemaniera",
+        "english": "Ingelesa",
+        "spanish": "Gaztelania",
+        "portuguese": "Portugesa",
+        "galician": "Galiziera",
+        "catalan": "Katalana",
+        "basque": "Euskara"
+
+    },
+
+
+    "wrapper": {
+
+        "logInTitle": "Saioa hasteko",
+        "personalNumber": "Zenbaki pertsonala",
+        "password": "Pasahitza",
+        "rememberMe": "Gogoratu nitaz",
+        "forgotPassword": "Pasahitza ahaztuta",
+        "logInButton": "Saioa hasi",
+        "haveAccount": "Konturik baduzu?",        
+        "signUp": "Abestu"
+
+    }
+
+}

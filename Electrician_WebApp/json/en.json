@@ -1,0 +1,29 @@
+{
+
+    "languageMenu": {
+
+        "german": "German",
+        "english": "English",
+        "spanish": "Spanish",
+        "portuguese": "Portuguese",
+        "galician": "Galician",
+        "catalan": "Catalan",
+        "basque": "Basque"
+
+    },
+
+
+    "wrapper": {
+
+        "logInTitle": "Log in",
+        "personalNumber": "Personal number",
+        "password": "Password",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot password",
+        "logInButton": "Log in",
+        "haveAccount": "Do you have an account?",
+        "signUp": "Sign up"
+
+    }
+
+}
