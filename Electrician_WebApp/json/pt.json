@@ -22,7 +22,13 @@
         "forgotPassword": "Senha esquecida",
         "logInButton": "Iniciar sessão",
         "haveAccount": "Você tem uma conta?",
-        "signUp": "Inscrever-se"
+        "signUp": "Inscrever-se",
+        "name": "Nome",
+        "surname": "Sobrenome",
+        "email": "Email",
+        "passwordConfirmation": "Confirmação da senha",
+        "next": "Próxima",
+        "terms": "Declaro, por este meio, que as informações fornecidas acima são verdadeiras e corretas"
 
     }
 

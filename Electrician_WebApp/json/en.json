@@ -22,7 +22,13 @@
         "forgotPassword": "Forgot password",
         "logInButton": "Log in",
         "haveAccount": "Do you have an account?",
-        "signUp": "Sign up"
+        "signUp": "Sign up",
+        "name": "Name",
+        "surname": "Surname",
+        "email": "Email",
+        "passwordConfirmation": "Password confirmation",
+        "next": "Next",
+        "terms": "I hereby declare that the information provided above is true and correct"
 
     }
 

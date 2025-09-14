@@ -22,7 +22,13 @@
         "forgotPassword": "Contrasinal olvidada",
         "logInButton": "Iniciar sesión",
         "haveAccount": "Tes unha conta?",        
-        "signUp": "Rexistrar"
+        "signUp": "Rexistrar",
+        "name": "Nome",
+        "surname": "Apelidos",
+        "email": "Email",
+        "passwordConfirmation": "Confirmación de contrasinal",
+        "next": "Seguinte",
+        "terms": "Por medio da presente declaro que os datos proporcionados anteriormente son verdadeiros e correctos"
 
     }
 

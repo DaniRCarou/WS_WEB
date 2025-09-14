@@ -1,0 +1,462 @@
+
+
+.icon-flag {
+
+    width: 20px;  /* Adjust the width */
+    height: 14px; /* Adjust the width */
+    vertical-align: middle; /* Adjust vertical alignment */
+    align-items: center;
+   
+}
+
+
+
+.icon-small {
+    width: 24px;  /* Adjust the width */
+    height: 24px; /* Adjust the width */
+    filter: brightness(0) invert(1); /* changes the icon color to white. IT CAN BE USED FOR 'PNG' and 'SVG' IMAGES */
+ /* vertical-align: middle; Adjust vertical alignment */
+
+}
+
+.icon-small-abteilung {
+    width: 24px;  /* Adjust the width */
+    height: 24px; /* Adjust the width */
+    filter: brightness(0) invert(1); /* changes the icon color to white. IT CAN BE USED FOR 'PNG' and 'SVG' IMAGES */
+    
+ /* vertical-align: middle; Adjust vertical alignment */
+
+}
+
+
+* {
+
+    margin: 0; /* This property sets the margin (outer space) of all elements to 0 pixels. This is useful for removing the default margins that some browsers apply to certain elements, ensuring that all elements start from a consistent position. */
+    padding: 0; /* This property sets the padding (inner space) of all elements to 0 pixels. Like the margin, this helps remove any default padding, providing a clean start for the layout. */
+    box-sizing: border-box; /* This property changes how the width and height of elements are calculated. With border-box, the width and height include the content, padding, and border, making it easier to manage the sizes of elements, as it avoids the total size increasing when adding padding or borders. */
+    font-family: "Poppins", sans-serif; /* (It must be imported in this file: @import url("https://fonts.googleapis.com/css2?family=Poppins:wght........")), sans-serif;: This property sets the font for all elements to the "Poppins" font. 
+    If this font is not available, any available sans-serif font on the system will be used. This ensures a consistent text appearance across the page. */
+
+}
+
+
+
+body {
+
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    background: url('../assets/images/green.jpg');
+    background-size: cover; 
+    background-position: center; /* Positions the center of the image in the center of the viewport. */
+    
+}
+
+
+
+
+
+
+
+/* Esta es la caja que contiene el logo principal para seleccionar el idioma */
+
+.selected-lang {
+
+    border-radius: 4px;    
+    background: transparent; 
+    border: 2px solid rgba(232, 232, 236, 0.795);
+    text-align: center;
+    align-items: center; 
+
+}
+
+
+
+
+.selected-lang a {
+
+    display: flex;   
+    color: #fff;             
+    text-decoration: none;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+}
+
+
+.lang-menu:hover ul {
+
+    display: block; /* separación desde arriba */
+
+}
+
+
+
+
+
+
+.lang-menu {
+    
+    color: #fff;
+    position: absolute;
+    top: 80px;   /* separación desde arriba */
+    right: 15%;  /* margen relativo al ancho de la pantalla, separación desde la derecha */
+    z-index: 1000; /* asegura que quede encima de todo */
+    font-size: 20px;
+    width: 170px;   
+
+}
+
+
+
+
+
+
+.lang-menu ul {
+
+    border-radius: 2px;    
+    background:transparent;    
+    /* box-shadow: 0 0 1px 1px rgb(223, 205, 205);   https://css3generator.com/  para probar la sombra y otras cosas*/
+    border: 2px solid rgba(232, 232, 236, 0.795);
+    font-family: "Poppins", sans-serif; /* La primera tipografía es la que queremos y la segunda se aplica en caso de que la primera no funcione.*/
+                                        /* La tipografía 'system-ui' es la del sistema operativo que tenga*/
+    display: none;    
+
+}
+
+
+
+
+
+
+.lang-menu ul li {
+    
+    list-style: none; /* Le quita los puntos a la lista de banderas y palabras */
+    width: 170px; /* El hancho del recuadro donde están las banderas y las palabras */
+       
+}
+
+
+
+
+
+.lang-menu ul li a {    
+    
+
+    list-style: none;
+    display: flex;            /* coloca imagen y texto en la misma fila */
+    align-items: center;      /* los alinea verticalmente */
+    gap: 6px;                 /* espacio entre la bandera y el texto */
+    padding: 5px 10px;    
+    color: #fff;             /* blanco de inicio. Utilizo esto porque con 'href=' cambia el color de las letras a azul, como si estuviera ya pulsado */
+    text-decoration: none;     /* quita subrayado. Utilizo esto porque con 'href=' cambia el color de las letras a azul y aparece todo subrayado */
+
+
+}
+
+
+
+
+/* .lang-menu ul li a:hover ul -> Se activa cuando pasas el ratón sobre el <a>. Afecta al <ul> que está dentro del <a>. Es decir: hover en el padre (<a>), aplica estilo al hijo (<ul>).*/
+/* .lang-menu ul li a:hover -> Se activa cuando pasas el ratón sobre el <a> mismo. El hover ya está ocurriendo directamente sobre el <a> */
+
+.lang-menu ul li a:hover {
+
+background-color: #f2f2f2;
+color: #36409b;
+
+}
+
+
+.wrapper {
+
+width: 750px;
+background:transparent;
+border: 2px solid rgba(244, 244, 253, 0.295);
+box-shadow: 0 0 10px rgba(0,0,0,.2);
+backdrop-filter: blur(10px);
+border-radius: 10px;
+color: #fff;
+padding: 40px 35px 55px;
+margin: 0 10px;
+
+}
+
+
+
+.wrapper h1 {
+
+   font-size: 36px;
+   text-align: center;
+   margin-bottom: 20px;
+    
+}
+
+
+
+.wrapper .input-box {
+
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+
+}
+
+
+
+.wrapper .input-box-id {
+
+display: flex;
+justify-content: center; /* eje horizontal */
+
+}
+
+
+
+
+
+.input-box .input-field {
+
+position: relative;
+width: 48%;
+height: 50px;
+margin: 13px 0;
+
+}
+
+
+
+.input-box-id .input-field {
+
+position: relative;
+width: 48%;
+height: 50px;
+margin: 13px 0;
+
+}
+
+
+
+/*new*/
+.input-box .input-box-number {
+
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;   
+    
+}
+
+
+
+/*new*/
+.input-box .input-box-number .input-field-number {
+
+    width:100%;
+    height:100%; 
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 6px;
+    color: #fff; 
+    
+    
+    /*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */    
+    
+}
+
+.input-box-number .input-field-number label{    
+        
+    position:absolute;    
+    font-size: 16px;   
+    padding:5px 0px 0px 5px;
+    /*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */    
+    
+}
+
+
+/*new*/
+.input-box-number .input-field-number input {
+
+    width:30%;
+    height:100%;
+    background: transparent;
+    border: transparent;
+    outline:none;
+    font-size: 16px;
+    color: #fff;
+    
+    padding:15px 15px 15px 40px;
+    /*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */
+    
+    
+}
+
+
+.input-box-number .label_team label{
+    
+    color:  #fff;
+    opacity: 1;
+    position:absolute;
+    
+    font-size: 16px;    
+   
+
+}
+
+.input-box .input-field input {
+
+width:100%;
+height:100%;
+background: transparent;
+border: 2px solid rgba(255, 255, 255, .2);
+outline:none;
+font-size: 16px;
+color: #fff;
+border-radius: 6px;
+padding:15px 15px 15px 40px;
+/*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */
+
+
+}
+
+
+
+
+.input-box-id .input-field input {
+
+width:100%;
+height:100%;
+background: transparent;
+border: 2px solid rgba(255, 255, 255, .2);
+outline:none;
+font-size: 16px;
+color: #fff;
+border-radius: 6px;
+padding:15px 15px 15px 40px;
+/*appearance: textfield; /* This declaration hide the arrows to increase or decrease the number */
+
+
+}
+
+    
+
+.input-box .input-field input::placeholder {
+
+color:  #fff;
+opacity: 1;
+
+}
+
+
+
+.input-box-id .input-field input::placeholder {
+
+color:  #fff;
+opacity: 1;
+
+}
+
+
+
+/**/
+.input-box-number .input-field-number input::placeholder {
+
+    color:  #fff;
+    opacity: 1;
+   
+
+}
+
+
+
+.input-box img{
+
+    position:absolute;
+    right: 20px; 
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+
+.input-box-id img{
+
+    position:absolute;
+    right: 20px; 
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+
+
+
+.input-box-number img{
+
+    position:absolute;
+    right: 20px;     
+    top: 48%;
+    transform: translateY(-50%);
+
+
+}
+
+
+
+.wrapper label {
+
+    display: inline-block;
+    font-size: 14.5px;
+    margin: 10px 0 23px;
+
+}
+
+.terms-text {
+    font-size: 16px; 
+}
+
+
+
+.wrapper label input {
+
+    accent-color: #fff;
+    margin-right: 5px;
+
+}
+
+
+
+
+.wrapper .btn {
+
+width:100%;
+height: 45px;
+background: #fff;
+border: none;
+outline: none;
+border-radius: 6px;
+box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+cursor: pointer;
+font-size: 16px;
+color: #333;
+font-weight: 600;
+
+}
+
+
+
+
+
+@media (max-width: 576px) {
+
+.input-box .input-field{
+
+    width:100%;
+    margin: 10 px 0;
+
+}
+
+
+}

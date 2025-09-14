@@ -94,7 +94,7 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
     color: #fff;
     position: absolute;
     top: 80px;   /* separación desde arriba */
-    right: 20%;  /* margen relativo al ancho de la pantalla, separación desde la derecha */
+    right: 15%;  /* margen relativo al ancho de la pantalla, separación desde la derecha */
     z-index: 1000; /* asegura que quede encima de todo */
     font-size: 20px;
     width: 170px;   

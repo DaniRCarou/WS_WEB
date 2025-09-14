@@ -22,7 +22,13 @@
         "forgotPassword": "Contrasenya oblidada",
         "logInButton": "Iniciar sessió",
         "haveAccount": "Tens un compte?",        
-        "signUp": "Inscriu-te"
+        "signUp": "Inscriu-te",
+        "name": "Nom",
+        "surname": "Cognoms",
+        "email": "Email",
+        "passwordConfirmation": "Confirmació de contrasenya",
+        "next": "Següent",
+        "terms": "Mitjançant la present declaro que les dades proporcionades anteriorment són veritables i correctes."
 
     }
 

@@ -22,7 +22,13 @@
         "forgotPassword": "Passwort vergessen",        
         "logInButton": "Anmelden",
         "haveAccount": "Haben Sie keine Konto?",
-        "signUp": "Registrieren"
+        "signUp": "Registrieren",
+        "name": "Vorname",
+        "surname": "Nachname",
+        "email": "E-mail",
+        "passwordConfirmation": "Passwort bestätigung",
+        "next": "Weiter",
+        "terms": "Hiermit erkläre ich, dass die oben gemachten Angaben wahrheitsgemäß und korrekt sind"
 
     }
 

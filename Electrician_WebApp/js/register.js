@@ -1,15 +1,7 @@
-
 const langLinks = document.querySelectorAll("[data-language]"); // Método que selecciona todos los elementos del DOM que coincidan con un selector CSS. Devuelve una NodeList, que es como un array de elementos HTML (aunque no es un array real, se puede recorrer con forEach).
 const textsToChange = document.querySelectorAll("[data-section]"); // Escogimos data-section porque también contiene los data-value. Esto también podría valer, const textsToChange = document.querySelectorAll("[data-section]");
-const selectedLangContainer = document.querySelector(".selected-lang"); // como no tiene dataset, utilizamos la clase para localizarlo
+const selectedLangContainer = document.querySelector(".selected-lang"); // como no tiene dataset, utilizamos la clase para localizarlo.
 
-
-
-
-
-// Primero, forEach recorre una sola vez todos los enlaces con data-language y les pone un listener.
-// Ese listener está esperando a que el usuario haga clic.
-// al mismo tiempo, solo cuando se hace clic en un enlace, se ejecuta la función que está dentro del listener, incluyendo el fetch, la actualización de textos y la actualización del idioma seleccionado.
 
 
 langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sola vez al cargar la página.
@@ -21,25 +13,25 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
                                                         // (`../json/${link.dataset.language}.json`) -> ruta para encontrar el archivo JSON. link es la variable que guarda el enlace en ese momento, 'datset.language' es para acceder a 'data-language=' del código html.
                                                         // Muy importante utilizar estas comillas `` -> ESTO DE AQUÍ REPRESENTA LAS LETRAS (ca,de, en, es, eus, gl, pt) QUE TIENEN EN EL TÍTULO LOS ARCHIVOS JSON: '${link.dataset.language}'
         
-        .then(res => res.json())    /* .then() es un método de las promesas en JavaScript. La función dentro de .then() se ejecuta solo cuando fetch ha recibido la respuesta.
-                                        Cuando haces un 'fetch': no devuelve directamente los datos del archivo JSON. Devuelve una promesa que, cuando se cumple, te da un objeto Response. 
-                                        Un objeto Response es como un “sobre” que contiene: El contenido del archivo que pediste (es.json) + Información extra de la respuesta (código HTTP, cabeceras…). No es un objeto JavaScript todavía
-                                        El contenido dentro del Response está en formato texto, como si leyéramos el archivo JSON crudo: "{ \"languageMenu\": { \"logInTitle\": \"Iniciar sesión\" } }"
-                                        Este texto no se puede usar directamente como un objeto en JS; sería solo una cadena.
-                                        res => res.json() es una función flecha que dice: Cuando la promesa se cumpla y llegue la respuesta (res), entonces ejecuta res.json(). res.json() -> Lee ese texto y lo convierte en un objeto JavaScript.
-                                        Es lo mismo que esto:
-                                        function(res) {
-                                            return res.json();
-                                        }
-                                        res -> es el objeto Response que devuelve fetch.
-                                        res.json() -> convierte el contenido en objeto JavaScript.
-                                    
-                                        res.json() -> también devuelve una promesa, por eso podemos encadenar otro .then(data => ...).
-                                    
-                                        Explicación rápida:
-                                        fetch → pide el archivo JSON, devuelve una promesa.
-                                        Primer .then(res => res.json()) → convierte la respuesta en objeto JS (otra promesa).
-                                        Segundo .then(data => ...) → recibe el objeto final listo para usar y actualizar la página. */
+        .then(res => res.json())    // .then() es un método de las promesas en JavaScript. La función dentro de .then() se ejecuta solo cuando fetch ha recibido la respuesta.
+                                    // Cuando haces un 'fetch': no devuelve directamente los datos del archivo JSON. Devuelve una promesa que, cuando se cumple, te da un objeto Response. 
+                                    // Un objeto Response es como un “sobre” que contiene: El contenido del archivo que pediste (es.json) + Información extra de la respuesta (código HTTP, cabeceras…). No es un objeto JavaScript todavía
+                                    // El contenido dentro del Response está en formato texto, como si leyéramos el archivo JSON crudo: "{ \"languageMenu\": { \"logInTitle\": \"Iniciar sesión\" } }"
+                                    // Este texto no se puede usar directamente como un objeto en JS; sería solo una cadena.
+                                    // res => res.json() es una función flecha que dice: Cuando la promesa se cumpla y llegue la respuesta (res), entonces ejecuta res.json(). res.json() -> Lee ese texto y lo convierte en un objeto JavaScript.
+                                    // Es lo mismo que esto:
+                                    // function(res) {
+                                    //      return res.json();
+                                    // }
+                                    // res -> es el objeto Response que devuelve fetch.
+                                    // res.json() -> convierte el contenido en objeto JavaScript.
+                                    //
+                                    // res.json() -> también devuelve una promesa, por eso podemos encadenar otro .then(data => ...).
+                                    // 
+                                    //Explicación rápida:
+                                    // fetch → pide el archivo JSON, devuelve una promesa.
+                                    // Primer .then(res => res.json()) → convierte la respuesta en objeto JS (otra promesa).
+                                    // Segundo .then(data => ...) → recibe el objeto final listo para usar y actualizar la página.
 
 
         .then(data => { // .then() -> es un método de las promesas en JavaScript. La función dentro de .then() se ejecuta solo cuando fetch ha recibido la respuesta.
@@ -190,7 +182,3 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
 
 
 })
-
-
-
-

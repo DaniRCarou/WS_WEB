@@ -22,7 +22,13 @@
         "forgotPassword": "Pasahitza ahaztuta",
         "logInButton": "Saioa hasi",
         "haveAccount": "Konturik baduzu?",        
-        "signUp": "Abestu"
+        "signUp": "Abestu",
+        "name": "Izena",
+        "surname": "Abizena",
+        "email": "Email",
+        "passwordConfirmation": "Pasahitzaren berrespena",
+        "next": "Hurrengoa",
+        "terms": "Horrela adierazten dut goiko emandako datuak egiazkoak eta zuzenak direla"
 
     }
 
