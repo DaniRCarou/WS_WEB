@@ -91,7 +91,14 @@
 
         <div class="wrapper">
 
-            <form action="">
+
+            <form action="" method="POST" id="form" onsubmit="return false;"> <!--  onsubmit -> es un evento de JavaScript que se dispara cuando el usuario intenta enviar el formulario. 
+                                                                                    Se recarga la página y se envían los datos a la URL definida en action. 
+                                                                                    Cuando pones onsubmit="return false;", estás deteniendo el envío del formulario.
+                                                                                    Esto evita que la página se recargue y que los datos se envíen de forma tradicional.
+                                                                                    Sirve para poder manejar los datos con JavaScript, por ejemplo:
+                                                                                    Validaciones antes de enviar.
+                                                                                    Enviar los datos con AJAX sin recargar la página. --> 
 
 
 
@@ -105,7 +112,8 @@
 
                     <div class="input-field">
 
-                        <input type="text" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" required>
+                        <!-- <input type="text" id="personal-number" class= "personal-number" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" required>    LA PALABRA DEBO ELIMINARLA PARA QUE PUEDAN MOSTRARSE LOS ALERTS. CADA NAVEGADOR FUNCIONA DIFERENTE -->
+                        <input type="text" id="personal-number" class= "personal-number" placeholder="Personal number" data-section="wrapper" data-value="personalNumber">
                         <img src="../assets/icons/id_card.png" alt="Idcardsymbol" class="icon-small"/>
 
                     </div>
@@ -119,7 +127,7 @@
 
                     <div class="input-field">
 
-                        <input type="text" placeholder="name" data-section="wrapper" data-value="name" required>
+                        <input type="text" id="name" class= "name" placeholder="name" data-section="wrapper" data-value="name">
                         <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="icon-small"/>
 
                     </div>
@@ -128,7 +136,7 @@
 
                     <div class="input-field">
 
-                        <input type="text" placeholder="surname" data-section="wrapper" data-value="surname" required>
+                        <input type="text" id="surname" class= "surname" placeholder="surname" data-section="wrapper" data-value="surname">
                         <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="icon-small"/>
 
                     </div>
@@ -149,7 +157,7 @@
 
                     <div class="input-field">
 
-                        <input type="text" placeholder="E-Mail" data-section="wrapper" data-value="email" required>
+                        <input type="text" id="e-mail" class= "e-mail" placeholder="E-Mail" data-section="wrapper" data-value="email">
                         <img src="../assets/icons/email.png" alt="E-Mailsymbol" class="icon-small"/>
 
                     </div>
@@ -160,7 +168,7 @@
 
                         <div class="input-field-number">
                             
-                            <input type="number" value="1" min="1" max="4" step="1" required>  
+                            <input type="number" id="department" class= "department" value="1" min="1" max="4" step="1">  
                             <label for="abteilung" data-section="wrapper" data-value="Department">Department</label>    
                             
                         </div>
@@ -199,7 +207,7 @@
 
                     <div class="input-field">
 
-                        <input type="password" placeholder="Password" data-section="wrapper" data-value="password" required>
+                        <input type="password" id="password" class= "password" placeholder="Password" data-section="wrapper" data-value="password">
                         <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="icon-small"/>
 
                     </div>
@@ -208,7 +216,7 @@
 
                     <div class="input-field">
 
-                        <input type="password" placeholder="Password confirmation" data-section="wrapper" data-value="passwordConfirmation" required>
+                        <input type="password" id="password-confirmation" class= "password-confirmation" placeholder="Password confirmation" data-section="wrapper" data-value="passwordConfirmation">
                         <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="icon-small"/>
 
                     </div>
@@ -218,19 +226,33 @@
 
                <label for="">
 
-                    <input type="checkbox" data-section="wrapper" data-value="terms"/>
+                    <input type="checkbox" id="check-point" class= "check-point" data-section="wrapper" data-value="terms"/>
 
                         <span class="terms-text">I hereby declare that the information provided above is true and correct</span>
 
                 </label>
 
-                <button type="submit" class="btn" data-section="wrapper" data-value="next">Next</button> 
+                <button type="submit" id="registerBtn" class="btn" data-section="wrapper" data-value="next">Sign Up</button> 
  
 
             </form>
 
         </div>
 
+
+
+
+       
+
+        <p class="validation-icon">
+
+            <a href="https://jigsaw.w3.org/css-validator/check/referer"> 
+                
+                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!" />
+
+            </a>
+
+        </p>
 
 
 

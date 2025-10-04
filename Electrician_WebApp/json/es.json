@@ -30,6 +30,20 @@
         "next": "Siguiente",
         "terms": "Por la presente declaro que los datos proporcionados arriba son veraces y correctos"
 
+    },
+
+
+    "alerts": {
+
+        "invalidPersonalNumber": "Número personal no válido",
+        "invalidName": "El nombre no es válido",
+        "invalidSurname": "El apellido no es válido",
+        "invalidEmail": "El correo electrónico no es válido",
+        "invalidPassword": "La contraseña no es válida. Debe tener al menos 8 caracteres, sin espacios, incluir una mayúscula, un número y un carácter especial.",
+        "passwordsDoNotMatch": "Las contraseñas no coinciden",
+        "termsNotAccepted": "Debe aceptar los términos"
+
     }
+
 
 }

@@ -30,6 +30,21 @@
         "next": "Weiter",
         "terms": "Hiermit erkläre ich, dass die oben gemachten Angaben wahrheitsgemäß und korrekt sind"
 
+    },
+
+
+    "alerts": {
+
+        "invalidPersonalNumber": "Ungültige Personalnummer",
+        "invalidName": "Der Name ist ungültig",
+        "invalidSurname": "Der Nachname ist ungültig",
+        "invalidEmail": "Die E-Mail-Adresse ist ungültig",
+        "invalidPassword": "Das Passwort ist ungültig. Es muss mindestens 8 Zeichen lang sein, darf keine Leerzeichen enthalten und muss einen Großbuchstaben, eine Zahl und ein Sonderzeichen enthalten.",
+        "passwordsDoNotMatch": "Die Passwörter stimmen nicht überein",
+        "termsNotAccepted": "Sie müssen die Bedingungen akzeptieren"
+
     }
+
+
 
 }

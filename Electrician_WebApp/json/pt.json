@@ -30,6 +30,20 @@
         "next": "Próxima",
         "terms": "Declaro, por este meio, que as informações fornecidas acima são verdadeiras e corretas"
 
+    },
+
+
+    "alerts": {
+
+        "invalidPersonalNumber": "Número pessoal inválido",
+        "invalidName": "O nome não é válido",
+        "invalidSurname": "O apelido não é válido",
+        "invalidEmail": "O e-mail não é válido",
+        "invalidPassword": "A palavra-passe não é válida",
+        "passwordsDoNotMatch": "As palavras-passe não coincidem",
+        "termsNotAccepted": "Deve aceitar os termos"
+        
     }
+
 
 }

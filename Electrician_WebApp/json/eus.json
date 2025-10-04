@@ -30,6 +30,21 @@
         "next": "Hurrengoa",
         "terms": "Horrela adierazten dut goiko emandako datuak egiazkoak eta zuzenak direla"
 
+    },
+
+
+    "alerts": {
+
+        "invalidPersonalNumber": "Zenbaki pertsonala ez da baliozkoa",
+        "invalidName": "Izena ez da baliozkoa",
+        "invalidSurname": "Abizena ez da baliozkoa",
+        "invalidEmail": "Posta elektronikoa ez da baliozkoa",
+        "invalidPassword": "Pasahitza ez da baliozkoa. Gutxienez 8 karaktere izan behar ditu, hutsunerik gabe, maiuskula bat, zenbaki bat eta karaktere berezi bat barne.",
+        "passwordsDoNotMatch": "Pasahitzak ez datoz bat",
+        "termsNotAccepted": "Baldintzak onartu behar dituzu"
+
     }
+
+
 
 }

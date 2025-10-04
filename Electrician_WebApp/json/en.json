@@ -30,6 +30,21 @@
         "next": "Next",
         "terms": "I hereby declare that the information provided above is true and correct"
 
+    },
+
+
+    "alerts": {
+
+        "invalidPersonalNumber": "Invalid personal number",
+        "invalidName": "The name is not valid",
+        "invalidSurname": "The surname is not valid",
+        "invalidEmail": "The email address is not valid",
+        "invalidPassword": "The password is not valid. It must be at least 8 characters long, contain no spaces, and include an uppercase letter, a number, and a special character.",
+        "passwordsDoNotMatch": "Passwords do not match",
+        "termsNotAccepted": "You must accept the terms"
+
     }
+
+
 
 }

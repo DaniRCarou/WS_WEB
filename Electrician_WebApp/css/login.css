@@ -747,7 +747,7 @@ EXTRA NOTES
 
 .validation-icon {  
     
-    position: absolute; /* igual que tu menú */
+    position: absolute;
     bottom: 20px;       /* separación desde abajo */
     left: 20px;         /* separación desde la izquierda */   
     width: 88px;        /* ancho del icono */

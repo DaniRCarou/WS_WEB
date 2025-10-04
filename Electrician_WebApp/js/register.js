@@ -1,12 +1,37 @@
 const langLinks = document.querySelectorAll("[data-language]"); // Método que selecciona todos los elementos del DOM que coincidan con un selector CSS. Devuelve una NodeList, que es como un array de elementos HTML (aunque no es un array real, se puede recorrer con forEach).
 const textsToChange = document.querySelectorAll("[data-section]"); // Escogimos data-section porque también contiene los data-value. Esto también podría valer, const textsToChange = document.querySelectorAll("[data-section]");
 const selectedLangContainer = document.querySelector(".selected-lang"); // como no tiene dataset, utilizamos la clase para localizarlo.
+let currentLang = "en"; // variable global que guarda el idioma por defecto
+let currentLanguageData = {};  // Esta es la nueva variable global que guardará el contenido de la variable data y así será accesible desde cualquier parte del código
+
+
+
+
+
+
+// SI NO SE SELECCIONA NINGÚN IDIOMA AL HACER CLICK EN EL MENÚ DE IDIOMAS, LA VARIABLE currentLanguageData QUE SE ENCARGARÁ DE SABER QUÉ IDIOMA ESTÁ SELECCIONADO, NO CONTENDRÁ NADA, ESTARÁ VACÍA. 
+// ES POR ESTO QUE DEBEMOS INICIALIZARLA CON EL LENGUAJE ACTUAL
+
+window.addEventListener("DOMContentLoaded", () => {
+  fetch(`../json/${currentLang}.json`)
+    .then(res => res.json())
+    .then(data => {
+      currentLanguageData = data; // Guarda los textos del idioma por defecto
+    })
+    .catch(err => console.error("Error al cargar idioma por defecto:", err));
+});
+
+
+
 
 
 
 langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sola vez al cargar la página.
 
     link.addEventListener("click", () => { // A cada enlace se le “asocia” un listener que está en espera de un clic.
+
+
+        currentLang = link.dataset.language; // Guardamos, el dataset seleccionado al pulsar el botón del lenguaje que contienen las etiquetas de cada botón de idioma.
 
         
         fetch(`../json/${link.dataset.language}.json`)  // fetch -> carga el archivo JSON (por ejemplo es.json correspondiente a ' data-language="es" '. 'es' -> es el nombre del archivo json), solo cuando el usuario ha hecho clic en un enlacepor ejemplo es.json, de.json, etc.), según el data-language del enlace.
@@ -24,9 +49,7 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
                                     //      return res.json();
                                     // }
                                     // res -> es el objeto Response que devuelve fetch.
-                                    // res.json() -> convierte el contenido en objeto JavaScript.
-                                    //
-                                    // res.json() -> también devuelve una promesa, por eso podemos encadenar otro .then(data => ...).
+                                    // res.json() -> convierte el contenido en objeto JavaScript. También devuelve una promesa, por eso podemos encadenar otro .then(data => ...).
                                     // 
                                     //Explicación rápida:
                                     // fetch → pide el archivo JSON, devuelve una promesa.
@@ -37,7 +60,9 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
         .then(data => { // .then() -> es un método de las promesas en JavaScript. La función dentro de .then() se ejecuta solo cuando fetch ha recibido la respuesta.
                         // data -> es el objeto JS creado a partir del JSON. La variable data solo existe dentro del segundo .then(data => { ... }), porque es el resultado de la promesa que devuelve res.json().
                         // res y data no son palabras reservadas en JavaScript. Son nombres de variables, completamente arbitrarios. Puedo usar cualquier otro nombre que tenga sentido para mi. -> .then(response => response.json()) -> .then(obj => {
-                            
+              
+            currentLanguageData = data; // Esta variable, es la variable global declarada al inicio, que guardará el contenido de data que ya es un objeto JS creado a partir del JSON.               
+
             textsToChange.forEach((el) => { // textsToChange contiene todos los elementos del HTML con data-section
                                             // forEach recorre cada uno de esos elementos para actualizarlos.
 
@@ -98,7 +123,7 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
 
                 }else {
 
-                el.textContent = data[section][value];
+                    el.textContent = data[section][value];
 
                 }
 
@@ -169,16 +194,77 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
 
 
 
+// ------------------------------------------------------------------------------ BOTON SUBMIT -----------------------------------------------------------------------------------------------------
+
+    // CON ESTA VARIABLE ACCEDEMOS AL BOTÓN PARA ENVIAR EL FORMULARIO
+
+    var form = document.querySelector('#form');
+
+    // AQUÍ INDICAMOS LO QUE DEBE HACER EL BOTÓN SUBMIT
+
+    form.addEventListener('submit', function(){
+
+        console.log("submit capturado");
+
+       
+
+        // Recogemos la información que se introduce en el formulario y la guardamos en variables para poder utilizarla más adelante.
+
+        var personalNumber = parseInt(document.querySelector('#personal-number').value);
+        var name = document.querySelector('#name').value;
+        var surname = document.querySelector('#surname').value;
+        var email = document.querySelector('#e-mail').value;      
+        var password = document.querySelector('#password').value;
+        var passConfirm = document.querySelector('#password-confirmation').value;
+        var isChecked = document.querySelector('#check-point').checked;
+
+
+
+        if (!personalNumber || isNaN(personalNumber)) { // Si el apellido está vacío o solo contiene espacios en blanco, muestra una alerta y detiene la ejecución de la función.
+            alert(currentLanguageData.alerts.invalidPersonalNumber); // Muestra una alerta al usuario indicando que el apellido no es válido.
+            return false; // Detiene la ejecución de la función y evita que el formulario se envíe si el apellido no es válido.
+        }   
+
+        if(name.trim().length === 0){
+            alert(currentLanguageData.alerts.invalidName);
+            // document.querySelector("#error_message_name").innerHTML = "Please enter a valid name (only letters)."; (Ver en mis apuntes de js 37_task9_dom) Muestra el mensaje de error debajo del campo de nombre si el nombre no es válido. Se debe quitar el required de html.
+            return false; 
+        }
+
+        if(surname.trim().length === 0){ 
+            alert(currentLanguageData.alerts.invalidSurname);
+            return false; 
+        }           
+
+        if( email.trim().length === 0 || !email.includes('@') || !email.includes(".")) {
+            alert(currentLanguageData.alerts.invalidEmail);
+            return false;
+        }
+       
+        if ( !password || password.includes(' ') || !/[A-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*]/.test(password) || password.length < 8 ) {
+            alert(currentLanguageData.alerts.invalidPassword);
+            return false;
+        }       
+
+        if (passConfirm !== password) {
+            alert(currentLanguageData.alerts.passwordsDoNotMatch);
+            return false;
+        }
+
+        if (!isChecked) {
+            alert(currentLanguageData.alerts.termsNotAccepted);
+            return false;
+        }
+
+
 
         
 
-
-
-
-
-
-
+    });
 
 
 
 })
+
+
+

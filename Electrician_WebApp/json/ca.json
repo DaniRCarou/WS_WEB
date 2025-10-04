@@ -30,6 +30,22 @@
         "next": "Següent",
         "terms": "Mitjançant la present declaro que les dades proporcionades anteriorment són veritables i correctes."
 
+    },
+
+
+           
+    "alerts": {
+
+        "invalidPersonalNumber": "Número personal no vàlid",
+        "invalidName": "El nom no és vàlid",
+        "invalidSurname": "El cognom no és vàlid",
+        "invalidEmail": "El correu electrònic no és vàlid",
+        "invalidPassword": "La contrasenya no és vàlida. Ha de tenir almenys 8 caràcters, sense espais, incloure una majúscula, un número i un caràcter especial.",
+        "passwordsDoNotMatch": "Les contrasenyes no coincideixen",
+        "termsNotAccepted": "Has d'acceptar els termes"
+
     }
+
+
 
 }

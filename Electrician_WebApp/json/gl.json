@@ -30,6 +30,20 @@
         "next": "Seguinte",
         "terms": "Por medio da presente declaro que os datos proporcionados anteriormente son verdadeiros e correctos"
 
+    },
+
+
+    "alerts": {
+
+        "invalidPersonalNumber": "Número persoal non válido",
+        "invalidName": "O nome non é válido",
+        "invalidSurname": "O apelido non é válido",
+        "invalidEmail": "O correo electrónico non é válido",
+        "invalidPassword": "O contrasinal non é válido. Debe ter polo menos 8 caracteres, sen espazos, incluír unha maiúscula, un número e un carácter especial.",
+        "passwordsDoNotMatch": "Os contrasinais non coinciden",
+        "termsNotAccepted": "Debe aceptar os termos"
+
     }
+
 
 }
