@@ -1,6 +1,4 @@
 
-
-
 /* 
 
 CSS RULE = SELECTOR + DECLARATION BLOCK
@@ -10,6 +8,50 @@ DECLARATION BLOCK -> It is enclosed in { } and contains one or more declarations
 DECLARATION -> width: 24px; -> consists of a property (what you want to change) and a value (how you want it to look). Declarations are separated by semicolons ; -> In this case, 'width' is the property, and '24px' is the value.
 
 */
+
+
+/* 
+
+==================================================================
+🎨 APPLIES STYLES TO ALL ELEMENTS ON THE PAGE
+==================================================================
+
+    ----------------------------------------------------
+    🔧 RESET / GLOBAL BASIC STYLE CONFIGURATION
+    ---------------------------------------------------- 
+    This block ensures a consistent visual baseline 
+    by removing default margins and padding, 
+    normalizing the box model, and applying 
+    a global font.
+    ---------------------------------------------------- 
+
+* { ... }: 
+The * (asterisk) selector is a **universal selector** that selects all HTML elements in the document.  
+This means that the properties defined within the curly braces will apply to all elements on the page.
+
+💡 Tip:
+Place this block at the beginning of your stylesheet to ensure a clean and consistent baseline throughout the project.
+
+*/
+
+* {
+
+    margin: 0; /* This property sets the margin (outer space) of all elements to 0 pixels. This is useful for removing the default margins that some browsers apply to certain elements, ensuring that all elements start from a consistent position. 
+                - Elimina el margen exterior predeterminado que los navegadores aplican automáticamente a ciertos elementos (como <body>, <h1>, <ul>, etc.). */
+   
+    padding: 0;/* This property sets the padding (inner space) of all elements to 0 pixels. Like the margin, this helps remove any default padding, providing a clean start for the layout. 
+                - Elimina el relleno interior (espacio interno) que algunos elementos tienen por defecto (por ejemplo, las listas <ul>). */
+    
+    box-sizing: border-box; /*    This property changes how the width and height of elements are calculated. With border-box, the width and height include the content, padding, and border, making it easier to manage the sizes of elements, as it avoids the total size increasing when adding padding or borders. 
+                                - Cambia el modelo de caja para que el ancho y el alto totales incluyan el contenido, el padding y el borde.
+                                - Esto facilita el control del tamaño de los elementos y evita que se desborden al agregar bordes o relleno. */
+    
+    font-family: "Poppins", sans-serif; /* (It must be imported in this file: @import url("https://fonts.googleapis.com/css2?family=Poppins:wght........")), sans-serif;: This property sets the font for all elements to the "Poppins" font. 
+                                            If this font is not available, any available sans-serif font on the system will be used. This ensures a consistent text appearance across the page. 
+                                          - Establece la fuente base del sitio como “Poppins”. Si “Poppins” no está disponible, se usará cualquier fuente sans-serif del sistema. (Asegúrate de importar la fuente antes de este bloque mediante @import o un enlace <link> en el <head> de tu HTML.)*/
+
+}
+
 
 
 
@@ -33,22 +75,6 @@ DECLARATION -> width: 24px; -> consists of a property (what you want to change) 
     /* vertical-align: middle; Adjust vertical alignment */
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -164,24 +190,6 @@ color: #36409b;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 
 
 display: flex;-> This property turns the container into a flex container, allowing the use of the flexible box model. 
@@ -198,35 +206,6 @@ This is used to provide space between this input box and the next element on the
     align-items: center;     /* Vertically align in the center */
  /* margin-bottom: 15px;     /* Space between fields, if necessary */
 }
-
-
-
-
-
-
-
-
-
-/* 
-
-Applies styles to all elements on the page.
-
-* { ... }: The * selector is a universal selector that selects all elements on the page. 
-This means that the styles within the curly braces will apply to all HTML elements.
-
-font-family: "Poppins" (It must be imported in this file: @import url("https://fonts.googleapis.com/css2?family=Poppins:wght........")), sans-serif;: This property sets the font for all elements to the "Poppins" font. 
-If this font is not available, any available sans-serif font on the system will be used. This ensures a consistent text appearance across the page. */
-
-* {
-
-    margin: 0; /* This property sets the margin (outer space) of all elements to 0 pixels. This is useful for removing the default margins that some browsers apply to certain elements, ensuring that all elements start from a consistent position. */
-    padding: 0; /* This property sets the padding (inner space) of all elements to 0 pixels. Like the margin, this helps remove any default padding, providing a clean start for the layout. */
-    box-sizing: border-box; /* This property changes how the width and height of elements are calculated. With border-box, the width and height include the content, padding, and border, making it easier to manage the sizes of elements, as it avoids the total size increasing when adding padding or borders. */
-    font-family: "Poppins", sans-serif; /* (It must be imported in this file: @import url("https://fonts.googleapis.com/css2?family=Poppins:wght........")), sans-serif;: This property sets the font for all elements to the "Poppins" font. 
-    If this font is not available, any available sans-serif font on the system will be used. This ensures a consistent text appearance across the page. */
-
-}
-
 
 
 

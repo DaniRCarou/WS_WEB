@@ -1,5 +1,20 @@
 
 
+
+/* EXPLAINED IN THE login.css FILE */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+
+
 .icon-flag {
 
     width: 20px;  /* Adjust the width */
@@ -28,16 +43,6 @@
 
 }
 
-
-* {
-
-    margin: 0; /* This property sets the margin (outer space) of all elements to 0 pixels. This is useful for removing the default margins that some browsers apply to certain elements, ensuring that all elements start from a consistent position. */
-    padding: 0; /* This property sets the padding (inner space) of all elements to 0 pixels. Like the margin, this helps remove any default padding, providing a clean start for the layout. */
-    box-sizing: border-box; /* This property changes how the width and height of elements are calculated. With border-box, the width and height include the content, padding, and border, making it easier to manage the sizes of elements, as it avoids the total size increasing when adding padding or borders. */
-    font-family: "Poppins", sans-serif; /* (It must be imported in this file: @import url("https://fonts.googleapis.com/css2?family=Poppins:wght........")), sans-serif;: This property sets the font for all elements to the "Poppins" font. 
-    If this font is not available, any available sans-serif font on the system will be used. This ensures a consistent text appearance across the page. */
-
-}
 
 
 

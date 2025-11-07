@@ -28,7 +28,8 @@
         "email": "E-mail",
         "passwordConfirmation": "Passwort bestätigung",
         "next": "Weiter",
-        "terms": "Hiermit erkläre ich, dass die oben gemachten Angaben wahrheitsgemäß und korrekt sind"
+        "terms": "Hiermit erkläre ich, dass die oben gemachten Angaben wahrheitsgemäß und korrekt sind",
+        "backToLogin": "Zurück zum Login"
 
     },
 

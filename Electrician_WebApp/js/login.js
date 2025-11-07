@@ -104,10 +104,23 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
 
 
 
+                }else if (el.tagName.toLowerCase() === "label" && el.querySelector("input")) {
+
+                    const input = el.querySelector("input");
+
+                    // Eliminar solo los nodos de texto existentes (no el input)
+                    el.childNodes.forEach(node => {
+
+                    if (node.nodeType === Node.TEXT_NODE) node.remove();
+                    
+                });
+
+                // Añadir el nuevo texto después del input
+                el.appendChild(document.createTextNode(" " + data[section][value]));
+
                 }else {
-
-                el.textContent = data[section][value];
-
+                
+                    el.textContent = data[section][value];
                 }
 
 

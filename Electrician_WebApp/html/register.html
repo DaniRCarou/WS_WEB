@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel = "stylesheet" href="../css/register.css">
-        <title>Anmeldeformular</title>
+        <title>Login Form</title>
         
     </head>
 
@@ -103,7 +103,7 @@
 
 
 
-                <h1>Registrierung</h1>
+                <h1 data-section="wrapper" data-value="logInTitle">Sign Up</h1>
 
 
 
@@ -224,11 +224,25 @@
                 </div>
             
 
-               <label for="">
+                    <!--    
+                            
+                            id="check-point" en el <label> vs en el <input> 
 
-                    <input type="checkbox" id="check-point" class= "check-point" data-section="wrapper" data-value="terms"/>
+                                - Tu JS hace esto: var isChecked = document.querySelector('#check-point').checked;    
+                                - #check-point apunta al label, no al input.
+                                - Normalmente .checked se usa en inputs tipo checkbox/radio, no en labels.
 
-                        <span class="terms-text">I hereby declare that the information provided above is true and correct</span>
+                            En este caso funciona porque el checkbox está dentro del label y algunos navegadores pueden manejarlo “de forma tolerante”, pero no es estándar. 
+                            Algunos navegadores antiguos o herramientas de accesibilidad podrían fallar.
+
+                            <label id="check-point" class= "terms-text" data-section="wrapper" data-value="terms"> <input id="pass" type="checkbox"/> I hereby declare that the information provided above is true and correct</label>
+                    
+                        
+                    -->
+                    
+                <label class="terms-text">
+
+                    <input id="check-point" type="checkbox" data-section="wrapper" data-value="terms"/> I hereby declare that the information provided above is true and correct
 
                 </label>
 

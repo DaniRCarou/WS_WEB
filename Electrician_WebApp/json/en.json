@@ -28,7 +28,8 @@
         "email": "Email",
         "passwordConfirmation": "Password confirmation",
         "next": "Next",
-        "terms": "I hereby declare that the information provided above is true and correct"
+        "terms": "I hereby declare that the information provided above is true and correct",
+        "backToLogin": "Back to Login"
 
     },
 

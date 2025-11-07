@@ -28,7 +28,8 @@
         "email": "Email",
         "passwordConfirmation": "Pasahitzaren berrespena",
         "next": "Hurrengoa",
-        "terms": "Horrela adierazten dut goiko emandako datuak egiazkoak eta zuzenak direla"
+        "terms": "Horrela adierazten dut goiko emandako datuak egiazkoak eta zuzenak direla",
+        "backToLogin": "Saioa hasi itzuli"
 
     },
 

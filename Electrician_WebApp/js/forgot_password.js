@@ -1,5 +1,3 @@
-// 1. Declaraciones iniciales de variables globales:
-
 const langLinks = document.querySelectorAll("[data-language]"); // Método que selecciona todos los elementos del DOM que coincidan con un selector CSS. Devuelve una NodeList, que es como un array de elementos HTML (aunque no es un array real, se puede recorrer con forEach).
 const textsToChange = document.querySelectorAll("[data-section]"); // Escogimos data-section porque también contiene los data-value. Esto también podría valer, const textsToChange = document.querySelectorAll("[data-section]");
 const selectedLangContainer = document.querySelector(".selected-lang"); // como no tiene dataset, utilizamos la clase para localizarlo.
@@ -17,7 +15,7 @@ let currentLanguageData = {};  // Esta es la nueva variable global que guardará
 
 
 
-// 2. Carga del idioma por defecto con DOMContentLoaded y fetch del JSON correspondiente:
+
 
 // SI NO SE SELECCIONA NINGÚN IDIOMA AL HACER CLICK EN EL MENÚ DE IDIOMAS, LA VARIABLE currentLanguageData QUE SE ENCARGARÁ DE SABER QUÉ IDIOMA ESTÁ SELECCIONADO, NO CONTENDRÁ NADA, ESTARÁ VACÍA. 
 // ES POR ESTO QUE DEBEMOS INICIALIZARLA CON EL LENGUAJE ACTUAL
@@ -157,7 +155,6 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
                 }
 
 
-
             })
                 
 
@@ -219,82 +216,7 @@ langLinks.forEach((link) => { // Con esto se recorre la lista de enlaces una sol
 
         
 
-    })    
-
-
-
-
-// ------------------------------------------------------------------------------ BOTON SUBMIT -----------------------------------------------------------------------------------------------------
-
-    // CON ESTA VARIABLE ACCEDEMOS AL BOTÓN PARA ENVIAR EL FORMULARIO
-
-    var form = document.querySelector('#form');
-
-    // AQUÍ INDICAMOS LO QUE DEBE HACER EL BOTÓN SUBMIT
-
-    form.addEventListener('submit', function(){
-
-        console.log("submit capturado");
-
-       
-
-        // Recogemos la información que se introduce en el formulario y la guardamos en variables para poder utilizarla más adelante.
-
-        var personalNumber = parseInt(document.querySelector('#personal-number').value);
-        var name = document.querySelector('#name').value;
-        var surname = document.querySelector('#surname').value;
-        var email = document.querySelector('#e-mail').value;      
-        var password = document.querySelector('#password').value;
-        var passConfirm = document.querySelector('#password-confirmation').value;
-        var isChecked = document.querySelector('#check-point').checked;
-
-
-
-        if (!personalNumber || isNaN(personalNumber)) { // Si el apellido está vacío o solo contiene espacios en blanco, muestra una alerta y detiene la ejecución de la función.
-            alert(currentLanguageData.alerts.invalidPersonalNumber); // Muestra una alerta al usuario indicando que el apellido no es válido.
-            return false; // Detiene la ejecución de la función y evita que el formulario se envíe si el apellido no es válido.
-        }   
-
-        if(name.trim().length === 0){
-            alert(currentLanguageData.alerts.invalidName);
-            // document.querySelector("#error_message_name").innerHTML = "Please enter a valid name (only letters)."; (Ver en mis apuntes de js 37_task9_dom) Muestra el mensaje de error debajo del campo de nombre si el nombre no es válido. Se debe quitar el required de html.
-            return false; 
-        }
-
-        if(surname.trim().length === 0){ 
-            alert(currentLanguageData.alerts.invalidSurname);
-            return false; 
-        }           
-
-        if( email.trim().length === 0 || !email.includes('@') || !email.includes(".")) {
-            alert(currentLanguageData.alerts.invalidEmail);
-            return false;
-        }
-       
-        if ( !password || password.includes(' ') || !/[A-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*]/.test(password) || password.length < 8 ) {
-            alert(currentLanguageData.alerts.invalidPassword);
-            return false;
-        }       
-
-        if (passConfirm !== password) {
-            alert(currentLanguageData.alerts.passwordsDoNotMatch);
-            return false;
-        }
-
-        if (!isChecked) {
-            alert(currentLanguageData.alerts.termsNotAccepted);
-            return false;
-        }
-
-
-
-        
-
-    });
-
+    }) 
 
 
 })
-
-
-

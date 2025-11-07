@@ -28,7 +28,8 @@
         "email": "Email",
         "passwordConfirmation": "Confirmação da senha",
         "next": "Próxima",
-        "terms": "Declaro, por este meio, que as informações fornecidas acima são verdadeiras e corretas"
+        "terms": "Declaro, por este meio, que as informações fornecidas acima são verdadeiras e corretas",
+        "backToLogin": "Voltar a Início de sessão"
 
     },
 

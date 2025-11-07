@@ -28,7 +28,8 @@
         "email": "Email",
         "passwordConfirmation": "Confirmación de contraseña",
         "next": "Siguiente",
-        "terms": "Por la presente declaro que los datos proporcionados arriba son veraces y correctos"
+        "terms": "Por la presente declaro que los datos proporcionados arriba son veraces y correctos",
+        "backToLogin": "Regresar a Inicio de sesión"
 
     },
 

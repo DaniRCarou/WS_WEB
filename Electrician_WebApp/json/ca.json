@@ -28,7 +28,8 @@
         "email": "Email",
         "passwordConfirmation": "Confirmació de contrasenya",
         "next": "Següent",
-        "terms": "Mitjançant la present declaro que les dades proporcionades anteriorment són veritables i correctes."
+        "terms": "Mitjançant la present declaro que les dades proporcionades anteriorment són veritables i correctes.",
+        "backToLogin": "Torna a Inici de sessió"
 
     },
 
