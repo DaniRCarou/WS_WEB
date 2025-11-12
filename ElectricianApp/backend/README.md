@@ -9,8 +9,8 @@ Employee Information Management is an intranet application designed to efficient
 - **Programming Language:** Java  
 - **Spring Boot Packaging:** JAR (standalone executable with embedded server)  
 - **Group Name:** `es`  
-- **Artifact Name:** `Employee_information_management`  
-- **Package Name:** `es.Employee_information_management`  
+- **Artifact Name:** `employee_information_management`  
+- **Package Name:** `es.employee_information_management`  
 - **Description:** Intranet application for managing employee information and tracking working hours  
 
 ## Key Dependencies
