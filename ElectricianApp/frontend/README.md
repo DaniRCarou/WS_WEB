@@ -20,7 +20,7 @@ Developed using SQL through MySQL Workbench, ensuring data integrity and well-de
 
 **Tables:**
 
-- **DEPARTMENT:** Department_ID (PK), Department_Name, Manager  
+- **DEPARTMENT:** Department_ID (PK), Ddepartment_NAME, Manager_ID (FK → EMPLOYEE.EMPLOYEE_ID) 
 - **EMPLOYEE:** Employee_ID (PK), Department_ID (FK), First_Name, Last_Name, Email, Password  
 - **RECORD:** Record_ID (PK), Equipment_ID, Task_ID (FK), Employee_ID, Date, Total_Time  
 - **TASKS:** Task_ID (PK), Name  
@@ -28,10 +28,19 @@ Developed using SQL through MySQL Workbench, ensuring data integrity and well-de
 
 **Relationships:**
 
+**Relationships:**
+
 - DEPARTMENT - EMPLOYEE: 1:N  
+  Each department can have multiple employees; each employee belongs to a single department.
+
 - EMPLOYEE - RECORD: 1:N  
-- TASKS - RECORD: 1:N  
-- EQUIPMENT - RECORD: 1:N  
+  Each employee can have multiple task records; each record belongs to a single employee.
+
+- TASK - RECORD: 1:N  
+  Each task can appear in multiple records (for different employees or days); each record corresponds to a single task.
+
+- EQUIPMENT - RECORD: 1:N (optional)  
+  Each piece of equipment can appear in multiple records; each record may have an assigned equipment or none.
 
 ---
 
