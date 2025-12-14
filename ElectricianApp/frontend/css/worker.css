@@ -469,62 +469,155 @@ h1 {
 
 
 
-/* This is the checklist, to check if everything is ok before saving*/
+
+
+
+
+
+/* ---------------------------------------------------------------- Check List ------------------------------------------------------------------------- */
+
+
+
+/* This is the button, to check if everything is ok before saving*/
 
 .check-btn {   
     
     position: absolute;
-    bottom: 15px; 
+    bottom: 30px; 
     right: 50px;    
     font-size: 20px;
     font-weight: bold;
     display: flex;
     align-items: center;
     cursor: pointer;
+
 }
 
 
 
 
 .check-text {
+
     color: white;
     text-decoration: underline;
+
 }
 
 
-.check {
-    width: 40px; 
-    height: 40px; /* Mantiene la proporción */
+
+
+
+
+
+
+
+
+
+.check-wrapper {
+
+    display: none; /* sigue oculto al inicio */
+    flex-direction: column; /* apila verticalmente. Por defecto los elementos hijos se alinean en fila horizontal (row). */
+    gap: 15px; /* opcional: espacio entre h2, lista y botones */
+
+}
+
+
+
+
+
+
+
+
+
+.registro-list {
+
+    list-style-position: inside; /* Opcional: números dentro */
+    padding-left: 0;             /* Elimina padding por defecto */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;                   /* Espacio entre los <li> */
+
+}
+
+.registro-list li {
+
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* This is the button, to go back from the check list */
+
+.back-btn {   
+    
+    position: absolute;
+    bottom: 30px; 
+    left: 50px;    
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+
+
+
+.check-text {
+
+    color: white;
+    text-decoration: underline;
+
+}
+
+
+
+
+
+
+
+/* This is the button, to submit the data to the DB */
+
+.submit-btn {   
+    
+    position: absolute;
+    bottom: 30px; 
+    right: 50px;    
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+
+
+
+.check-text {
+
+    color: white;
+    text-decoration: underline;
     
 }
-
-
-.check_wrapper {  
-        
-    display: none;    
-    position: relative;
-    width: 80%;  
-    height: 74%; 
-    top: 10%;
-    left: 10%;
-    background: white;
-    color: black; /* Cambiado para que el texto sea visible sobre fondo blanco */
-    border-radius: 3px;
-    overflow-y: scroll;    
-    flex-direction: column; /* Alinea elementos en una columna */
-        
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 

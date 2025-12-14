@@ -214,10 +214,7 @@ cleanUpButton.addEventListener('click', () => {
 
 
 
-const check = document.querySelector('.check-btn');
-const tFormular = document.querySelector('#ftask');
-const mFormular = document.querySelector('#fmeeting');
-const cFormular = document.querySelector('#fcleanup');
+
 
 
 
@@ -228,6 +225,11 @@ const cFormular = document.querySelector('#fcleanup');
    
 
 
+const check = document.querySelector('.check-btn');
+const tFormular = document.querySelector('#ftask');
+const mFormular = document.querySelector('#fmeeting');
+const cFormular = document.querySelector('#fcleanup');
+
 
 // La razón por la cual closest() funciona en este caso, mientras que matches() no, se debe a cómo ambos métodos interactúan con el árbol de elementos y la propagación de eventos en el DOM.
 // !e.target.matches(selector): Este método se usa para verificar si el elemento específico sobre el cual ocurrió el evento (es decir, e.target) coincide directamente con el selector proporcionado. Si haces clic sobre el .fa, e.target.matches('.fa') devolverá true solo si el elemento sobre el cual se hizo clic tiene la clase .fa directamente. No afecta a los ancestros ni a los elementos contenedores. Es una coincidencia exacta del elemento donde ocurrió el clic.
@@ -237,27 +239,27 @@ document.addEventListener("click", (e) => {
 
 
 
-/* 
+    /* 
 
-    Cuando haces clic en cualquier parte del documento, el navegador dispara un evento click.
-    Dentro de ese evento, e.target es el elemento exacto donde hiciste clic.
+        Cuando haces clic en cualquier parte del documento, el navegador dispara un evento click.
+        Dentro de ese evento, e.target es el elemento exacto donde hiciste clic.
 
-    Ejemplo:
-    Si haces clic en un <span> dentro de un botón, e.target será el <span>, no el botón entero.
+        Ejemplo:
+        Si haces clic en un <span> dentro de un botón, e.target será el <span>, no el botón entero.
 
-*/
+    */
 
     const target = e.target; 
 
-/* Esto simplemente guarda e.target en una variable para que no tengas que escribir e.target una y otra vez, si no habría que escribir lo siguiente: 
+    /* Esto simplemente guarda e.target en una variable para que no tengas que escribir e.target una y otra vez, si no habría que escribir lo siguiente: 
 
-    if (!e.target.closest('.check_wrapper') && !e.target.closest('.check-btn')) {
+        if (!e.target.closest('.check_wrapper') && !e.target.closest('.check-btn')) {
 
-        checkWrapper.style.display = 'none';
+            checkWrapper.style.display = 'none';
 
-    }
+        }
 
-*/
+    */
     
 
 
@@ -306,54 +308,191 @@ document.addEventListener("click", (e) => {
 
 
 
+
+    
+
+
+
 });
 
 
 
 
+   
 
 
 
-/*
-
-
-    Esto es otra ejemplo, fíjate en .matches.
-
-
-    🔹 .matches(selector)
-
-    Comprueba si el elemento exacto sobre el que ocurrió el evento (e.target) coincide con el selector que le pasas.
-
-    No sube por los elementos padres.
-
-    ✅ Útil para verificar si el clic fue directamente sobre un botón o elemento específico.
-
-
-    🔹 .closest(selector)
-
-    Recorre hacia arriba en el DOM desde el e.target, buscando el primer ancestro (o él mismo) que coincida con el selector.
-
-    Si encuentra uno, lo devuelve. Si no, devuelve null.
-
-    ✅ Útil cuando el clic puede ocurrir dentro de un contenedor, y quieres saber si pertenece a una "zona" específica.
-
-
-    if (!e.target.matches(".check-btn") && !e.target.matches(".special_btn") && !e.target.matches(".cleanup_btn") && !e.target.matches(".teammeeting_btn") && !e.target.matches(".task_btn") && !e.target.matches(".check_wrapper") && !e.target.closest('#ftask') && !e.target.closest('#fmeeting') && !e.target.closest('#fcleanup') && !e.target.closest('.special_formular')) {
-
-        specialWrapper.style.display = 'none';
-        cleaninUpTime.style.display = 'none';
-        cleanUpAgreeButton.style.display = 'none';
-        fa.style.display = 'none';
-        hours.style.display = 'none';
-        hoursBtn.style.display = 'none';
-        meetingTime.style.display = 'none';
-        agreeButton.style.display = 'none';              
-
-    }
 
 
 
-*/
+
+// -------------------------- EN ESTE APARTADO SE GUARDARÁN LOS DATOS QUE SE VAN A ENVIAR PARA SER COMPROBADOS ANTES DE ENVIARLOS A LA BBDD ------------------
+
+
+
+
+// 1️⃣ Crear una estructura para guardar los datos
+
+    const entries = []; // aquí guardaremos todos los datos que el usuario introduce
+
+
+// 2️⃣ Capturar los datos cuando se pulsa "Confirmar" en cada formulario
+
+    document.querySelector('#ftask .confirm_btn').addEventListener('click', () => { // ('#ftask .confirm_btn') -> Opción más segura (recomendada). Evita conflictos si hay más botones iguales. Más mantenible en proyectos grandes
+
+        const faNumber = document.querySelector('#fa_number').value;
+        const start = document.querySelector('.montage_start_time').value;
+        const end = document.querySelector('.montage_end_time').value;
+        const date = document.querySelector('#date').value;
+
+        // Guardar en el array
+
+        entries.push({                          // push() es un método de los arrays. Se está añadiendo un objeto tipico de un array. En JSON -> {  "type": "Teamrunde",  "date": "2025-01-10"  }
+            type: "Montage und Verdrahtung",    
+            date: date,
+            start: start,
+            end: end,
+            faNumber: faNumber
+        });
+
+        alert("Montage-Eintrag gespeichert");
+    });
+
+
+
+
+
+    document.querySelector('#fmeeting .confirm_btn').addEventListener('click', () => {  // ('#fmeeting .confirm_btn') -> Opción más segura (recomendada). Evita conflictos si hay más botones iguales. Más mantenible en proyectos grandes.
+
+        const start = document.querySelector('#fmeeting .start_time').value;
+        const end = document.querySelector('#fmeeting .end_time').value;
+        const date = document.querySelector('#date').value;
+
+        // Guardar en el array
+
+        entries.push({                         // push() es un método de los arrays. Se está añadiendo un objeto tipico de un array. En JSON -> {  "type": "Teamrunde",  "date": "2025-01-10"  }
+            type: "Teamrunde",
+            date: date,
+            start: start,
+            end: end
+        });
+
+        alert("Teamrunde-Eintrag gespeichert");
+    });
+
+
+
+
+
+    document.querySelector('#fcleanup .confirm_btn').addEventListener('click', () => {   // ('#fcleanup .confirm_btn') -> Opción más segura (recomendada). Evita conflictos si hay más botones iguales. Más mantenible en proyectos grandes.
+
+        const start = document.querySelector('#fcleanup .start_time').value;
+        const end = document.querySelector('#fcleanup .end_time').value;
+        const date = document.querySelector('#date').value;
+
+        entries.push({                          // push() es un método de los arrays. Se está añadiendo un objeto tipico de un array. En JSON -> {  "type": "Teamrunde",  "date": "2025-01-10"  }
+            type: "Aufräumen",
+            date: date,
+            start: start,
+            end: end
+        });
+
+        alert("Reinigungs-Eintrag gespeichert");
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+// 3️⃣ Mostrar los registros en un wrapper de confirmación. 
+//  BOTÓN ÜBERPRÜFEN → OCULTAR TODO EL CONTENIDO DEL WRAPPER
+
+const wrapper = document.querySelector('.wrapper');
+const checkWrapper = document.querySelector('.check-wrapper');
+const backBtn = document.querySelector('.back-btn');
+const submitBtn = document.querySelector('.back-btn');
+
+check.addEventListener('click', (event) => {
+
+    event.stopPropagation(); // 🔥 IMPORTANTE: evita que tu document.addEventListener cierre cosas por error
+
+    wrapper.innerHTML = ""; // 🔥 Elimina todo el contenido del wrapper  
+
+    checkWrapper.style.display = 'flex'; // Muestra el check-wrapper
+
+    wrapper.appendChild(checkWrapper); // vuelve a añadir check-wrapper
+       
+ 
+
+
+    // Recorremos el array para poder mostrar su contenido
+
+
+    const ol = document.querySelector('.registro-list');    
+
+
+    entries.forEach(reg => {
+
+
+        const li = document.createElement('li'); // crea un LI nuevo
+
+        let texto = `Datum: ${reg.date}  --  ${reg.type}  --  von: ${reg.start}  bis: ${reg.end}`;
+
+        if (reg.type === "Montage und Verdrahtung") {
+
+            texto = `Datum: ${reg.date}  --  ${reg.type}  --  FA Nummer: ${reg.faNumber}  --  von: ${reg.start}  bis: ${reg.end}`;
+
+        }
+
+        li.textContent = texto; // pon el texto dentro del LI
+
+        ol.appendChild(li);     // Añade este LI a la lista. Toma el elemento li que creaste en memoria y lo coloca como último hijo del <ol>. Si tu <ol> estaba vacío, ahora el <li> será el primer y único hijo. Si ya tenía elementos, appendChild lo pondrá al final, después de los elementos existentes.
+                                // La posición, no es arbitraria, siempre se agrega al final de la lista.
+
+
+    });   
+
+
+
+
+
+    // Funcionalidad de volver atrás
+
+    backBtn.addEventListener('click', () => {
+
+        window.location.reload(); // Recarga la página con el formulario original
+
+    });
+
+    // Aquí podría añadir funcionalidad para enviar los datos a Java
+
+    submitBtn.addEventListener('click', () => {
+
+        console.log("Datos a enviar:", entries);
+
+        // Aquí iría fetch() o submit del form hacia Java
+
+         alert("Datos listos para enviar a la BBDD");
+
+    });
+
+});
+
+
+
+
 
 
 
