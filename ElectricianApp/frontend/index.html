@@ -1,0 +1,579 @@
+
+<!-- Este archivo contiene todas las secciones (login, register, worker…). No tiene lógica. Solo estructura HTML + data-* -->
+<!-- Esto es una SPA (Single Page Application) -->
+
+<!DOCTYPE html>
+
+<html lang="de">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link rel ="stylesheet" href="./css/style.css">
+
+        <title>Employee Portal</title>
+        
+    </head>
+
+
+    <body>
+
+
+
+
+        <!-- ------------------------------------------------------------ LANGUAGE MENU ------------------------------------------------------------------ -->
+        
+        <div class="lang-menu">
+
+            <div class="selected-lang"></div>           
+               
+            
+            <ul>
+                <li>           
+                                        
+                    <button type="button" data-section="languageMenu" data-value="english" data-language="en"><img src="assets/icons/uk.png" alt="english flag icon" class="icon-flag"/> English</button> 
+                                    
+                </li>
+                
+
+                <li>           
+                                        
+                    <button type="button" data-section="languageMenu" data-value="german" data-language="de"><img src="assets/icons/germany.png" alt="german flag icon" class="icon-flag"/> German</button>
+                                    
+                </li>
+
+
+                <li>
+                                       
+                    <button type="button" data-section="languageMenu" data-value="spanish" data-language="es"><img src="assets/icons/spain.png" alt="spanish flag icon" class="icon-flag"/> Spanish</button>
+
+                </li>
+
+
+                <li>
+
+                    <button type="button" data-section="languageMenu" data-value="portuguese" data-language="pt"><img src="assets/icons/portugal.png" alt="portuguese flag icon" class="icon-flag"/> Portuguese</button>
+
+                </li>                
+
+                
+                <li>
+
+                    <button type="button" data-section="languageMenu" data-value="galician" data-language="gl"><img src="assets/icons/galicia.png" alt="galician flag icon" class="icon-flag"/> Galician</button>
+
+                </li>
+
+
+                <li>
+                    
+                    <button type="button" data-section="languageMenu" data-value="catalan" data-language="ca"><img src="assets/icons/catalonia.png" alt="Catalonia flag icon" class="icon-flag"/> Catalan</button>
+
+                </li>
+
+
+                <li>
+
+                    <button type="button" data-section="languageMenu" data-value="basque" data-language="eus"><img src="assets/icons/basque_country.png" alt="Basque Country flag icon" class="icon-flag"/> Basque</button>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+
+        <!-- --------------------------------------------------------------- LOGIN VIEW -------------------------------------------------------------------- -->
+       
+        <section id="login-view" class="view login-view">
+
+            <!-- Contenedor del formulario -->
+            <div id="login-wrapper" class ="login-wrapper">                
+                    
+
+                <!-- Título del formulario -->
+                <h1 class="login-wrapper__title" data-section="login-wrapper" data-i18n="loginTitle" data-value="title">Login</h1>
+
+
+                <!-- Cuerpo del formulario -->
+                <form id="login-form" class="login-form" method="post" novalidate>
+                    
+                    <!-- Campo: Personal Number -->
+                    <div class="login-form__number">
+
+                        <label for="personal-number" class="visually-hidden">Personal Number</label>
+
+
+                        <input type="text" id="personal-number" class="personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber"/> 
+
+                            
+                        <span class="personal-number_icon" aria-hidden="true">
+
+                            <img src="./assets/icons/user_circle_fill_icon.png" alt="User icon" class="input-icon">
+
+                        </span>    
+
+                    </div>  
+
+                    
+                    <!-- Campo: Password -->       
+                    <div class ="login-form__password">
+
+                        <label for="password" class="visually-hidden">Password</label>
+
+
+                        <input id="password" class="password_input" type="password" title="Password" placeholder="Password" data-section="login-wrapper" data-value="password"/>    
+
+
+                        <span class="password_icon" aria-hidden="true">
+
+                            <img src="./assets/icons/closed_lock_icon.png" alt="Lock icon" class="input-icon"/>
+                        
+                        </span>
+                        
+
+                    </div>
+                    
+                    
+                    <!-- Campo: acciones / label + input → formularios -->
+                    <div class="login-form__actions">
+
+                        <label> <input id="pass" class="remember-checkbox" data-section="login-wrapper" data-value="rememberMe" type="checkbox"/> Remember me</label>
+
+
+                        <a href="#"  id="forgot-password-link" data-section="wrapper" data-value="forgotPassword">Forgot password</a>
+
+                    </div> 
+
+
+                    <!-- Boton submit -->
+                    <button type = "submit" class ="login-form__button" data-section="login-wrapper" data-value="logInButton">Login</button>
+
+
+                    <!-- Link: Registro -->
+                    <div class="login-form__register">
+
+                        <span data-section="login-wrapper" data-value="create_account">Do you have an account?</span>
+
+
+                        <a data-section="login-wrapper" data-value="signUp" href="register.html">Sign up</a>
+                            
+                    </div>
+
+                </form>
+
+            </div>   
+        
+        </section>
+
+               
+
+        
+        <!-- ----------------------------------------------------------- PASSWORD_RESET --------------------------------------------------------------- -->
+    
+        <section id="reset-view" class="view reset-view">
+
+            <!-- Contenedor del formulario -->
+            <div id="reset-wrapper" class ="reset-wrapper">
+
+                <!-- Título del formulario -->
+                <h1 class="reset-wrapper__title" data-section="reset-wrapper" data-i18n="resetTitle" data-value="title">Forgot Password</h1>
+
+              
+                <!-- Cuerpo del formulario -->
+                <form id="reset-form" class="reset-form" method="post" novalidate>                    
+
+                    <!-- Campo: E-mail -->
+                    <div class ="reset-form_email">
+
+                        <label for="email" class="visually-hidden">E-mail</label>
+
+
+                        <input id="email" class="email-input" name="email" type="email" placeholder="Enter Email" data-section="wrapper" data-value="email" autocomplete="email"/> 
+
+
+                        <span class="mail_icon" aria-hidden="true">
+
+                            <img src="../assets/icons/email.png" alt="E-Mailsymbol" class="email_input-icon"/>
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Boton submit -->
+                    <button type = "submit" class ="reset-form__button" data-section="reset-wrapper" data-value="resetButton">E-Mail senden</button>
+
+
+                    <!-- link de retroceso / <a> → navegación -->
+                    <div class="reset-form_back">
+
+                        <a href="#"  id="loginback-link" data-section="reset-wrapper" data-value="back-login">Back to Login</a>                     
+
+                    </div>
+                    
+                </form>
+
+            </div>                               
+          
+        </section>
+             
+        <!-- ----------------------------------------------------------- REGISTER --------------------------------------------------------------------- -->
+
+        <section id="register-view" class="view register-view">
+        
+            <div class="wrapper">
+
+                <form action="" method="POST" id="form" onsubmit="return false;"> 
+
+                    <h1 data-section="wrapper" data-value="logInTitle">Sign Up</h1>
+
+
+                    <div class="input-box-id">
+
+                        <div class="input-field">
+
+                            <input type="text" id="personal-number" class= "personal-number" placeholder="Personal number" data-section="wrapper" data-value="personalNumber">
+                            
+                            
+                            <img src="../assets/icons/id_card.png" alt="Idcardsymbol" class="input-icon"/>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <div class="input-field">
+
+                            <input type="text" id="name" class= "name" placeholder="name" data-section="wrapper" data-value="name">
+                            
+                            <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
+
+                        </div>
+                    
+
+                        <div class="input-field">
+
+                            <input type="text" id="surname" class= "surname" placeholder="surname" data-section="wrapper" data-value="surname">
+                            
+                            
+                            <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
+
+                        </div>
+
+                    </div>
+                    
+
+                    <div class="input-box">
+
+                        <div class="input-field">
+
+                            <input type="text" id="e-mail" class= "e-mail" placeholder="E-Mail" data-section="wrapper" data-value="email">
+                            
+                            
+                            <img src="../assets/icons/email.png" alt="E-Mailsymbol" class="input-icon"/>
+
+                        </div>
+                    
+                    
+                        <div class="input-box-number">  
+
+                            <div class="input-field-number">
+                                
+                                <input type="number" id="department" class= "department" value="1" min="1" max="4" step="1">  
+                                
+                                
+                                <label for="abteilung" data-section="wrapper" data-value="Department">Department</label>    
+                                
+                            </div>
+                            
+                            
+                            <img src="../assets/icons/department.png" alt="department symbol" class="input-icon"/>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <div class="input-field">
+
+                            <input type="password" id="password" class= "password" placeholder="Password" data-section="wrapper" data-value="password">
+                            
+                            
+                            <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+
+                        </div>
+                    
+
+                        <div class="input-field">
+
+                            <input type="password" id="password-confirmation" class= "password-confirmation" placeholder="Password confirmation" data-section="wrapper" data-value="passwordConfirmation">
+                            
+                            
+                            <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+
+                        </div>
+
+                    </div>     
+                        
+                        
+                    <label class="terms-text">
+
+                        <input id="check-point" type="checkbox" data-section="wrapper" data-value="terms"/> I hereby declare that the information provided above is true and correct
+
+                    </label>
+
+
+                    <button type="submit" id="registerBtn" class="btn" data-section="wrapper" data-value="next">Sign Up</button>  
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!---------------------------------------------------------- WORKER ----------------------------------------------------------------------------->
+
+        <section id="worker-view" class="view worker-view">
+
+            <div class = "wrapper">            
+
+                <form action = "Dateneingaben.jsp" method = "post">   
+
+                    <!-- Greeting -->
+
+                    <div class="greeting">
+
+                        <h1>Hallo, ........</h1>
+
+
+                        <div class = "duration">
+
+                            <label for="totaltime"><h2>GESAMTEZEIT: </h2></label>
+
+
+                            <input type="time" id="start" name="start" required class="totaltime"><br><br>
+                        
+                        </div>
+
+                    </div>         
+
+
+                    <!-- Where the date is selected -->
+
+                    <div class="prompt">
+
+                        <h2 >Ausgeführte Aufgaben:  </h2>  
+
+                        
+                        <div class = "date">
+
+                            <label for="date"><h2 type= "Date">Datum: </h2></label>
+
+
+                            <input type="date" id="date" name="date" required>
+
+                        </div>
+
+                    </div>   
+
+
+                    <!----------------------- Buttons ---------------------->
+
+                    <!-- 1. The first Button's functionality -->
+
+                    <div class="formular" id = "ftask">            
+                        
+                        <button type = "button" class = "task_btn">Montage und Verdrahtung</button>
+
+                        
+                        <div class = "fa">
+
+                            <label for="fa">FA Nummer: </label>
+
+
+                            <input type="number" id="fa_number" name="fa">
+        
+                        </div>                   
+                            
+
+                        <div class = "hours">
+
+                                <label for="start">Von: </label>
+
+
+                                <input type="time" id="start" name="start" required class="montage_start_time"><br><br>
+
+                                
+                                <label for="end">Bis: </label>
+
+
+                                <input type="time" id="end" name="end" required class="montage_end_time"><br><br>
+                    
+                        </div>
+
+
+
+                        <div class="hours_btn">
+
+                                <button type="button" class = "delete_btn">Löschen</button>
+
+
+                                <button type="button" class = "confirm_btn">Bestätigen</button>
+
+                        </div>                     
+                        
+                    </div>
+
+
+                    <!-- 2. The second Button's functionality -->
+                    
+                    <div class="formular" id="fmeeting">
+                                            
+                        <button type = "button" class = "teammeeting_btn">Teamrunde</button>                                
+
+
+                        <div class = "meeting_time">
+
+                            <label for="start">Von: </label>
+
+                            <input type="time" id="start" name="start" required class="start_time"><br><br>
+
+                        
+                            <label for="end">Bis: </label>
+
+
+                            <input type="time" id="end" name="end" required class="end_time"><br><br>
+            
+                        </div>
+
+
+                        <div class="agree_btn">
+
+                            <button type="button" class = "delete_btn">Löschen</button>
+
+
+                            <button type="button" class = "confirm_btn">Bestätigen</button>
+
+                        </div>                      
+
+                    </div>
+
+                    
+                    <!-- 3. The third Button's functionality -->
+
+                    <div class="formular" id="fcleanup">
+            
+                        <button type = "button" class = "cleanup_btn">Aufräumen</button>              
+                        
+
+                        <div class = "cleanup_time">
+
+                            <label for="start">Von: </label>
+
+                            <input type="time" id="start" name="start" required class="start_time"><br><br>
+
+                        
+                            <label for="end">Bis: </label>
+
+                            <input type="time" id="end" name="end" required class="end_time"><br><br>
+            
+                        </div>
+
+
+                        <div class="cleanup_agree_btn">
+
+                            <button type="button" class = "delete_btn">Löschen</button>
+
+
+                            <button type="button" class = "confirm_btn">Bestätigen</button>
+
+                        </div>   
+                    
+                    </div>              
+            
+            
+                    <div role="button" class="check-btn">
+                        
+                        <p class="check-text">ÜBERPRÜFEN</p>
+                        
+                    </div>
+
+                </form>
+
+
+                <!--------------------- 4. Este es el div que mostrará los datos para comprobarlos antes de enviarlos a la BBDD ------------------------>
+
+                <div class="check-wrapper">
+
+                    <!-- Titulo -->
+
+                    <h2>Überprüfung der Daten vor dem Senden</h2><br>
+
+                    
+                    <!-- JS llenará los <li> aquí -->
+
+                    <ol class="registro-list"></ol>
+
+
+                    <!-- Boton para regresar  -->
+
+                    <div role="button" class="back-btn">
+                        
+                        <p class="check-text">ZURÜCK</p>
+                        
+                    </div>
+
+                    <!-- Boton para enviar la info  -->
+
+                    <div role="button" class="submit-btn">
+                        
+                        <p class="check-text">SENDEN</p>
+                        
+                    </div>                 
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+        <!---------------------------------------------------------------- valid CSS icon ---------------------------------------------------------------->
+
+        <p class="validation-icon">
+
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+
+                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!" />
+                
+            </a>
+
+        </p>           
+        
+        
+        
+        
+        <script src="../js/main.js"></script> 
+
+
+        <script src="../js/auth.api.js"></script>
+
+
+        <script type="module" src="../js/login.js"></script>      
+    
+     
+        <script type="module" src="./js/utils/i18n.js"></script>  
+
+    </body>
+
+</html>

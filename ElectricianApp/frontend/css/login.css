@@ -205,6 +205,14 @@ This is used to provide space between this input box and the next element on the
     display: flex;            /* Use flexbox to align the elements */
     align-items: center;     /* Vertically align in the center */
  /* margin-bottom: 15px;     /* Space between fields, if necessary */
+    position: relative; /* This property establishes that the element has a relative position. This means it will position itself relative to its original position in the document flow. 
+    This property allows absolutely positioned CHILD ELEMENTS TO BE PLACED IN RELATION TO THIS ELEMENT. */
+    
+    width: 100%; /* This property sets the width of the .input-box elements to 100% of their parent container’s width. This means that the input-box will stretch to fill the entire width of the .wrapper element. */
+    height: 50px; /* This property sets the height of the .input-box elements to a fixed value of 50 pixels. This defines how tall each input box will be. */
+ /* background: salmon; This property sets the background color of the .input-box elements to a color known as salmon, which is a light reddish-pink hue. This helps distinguish the input boxes visually. */
+    margin: 30px 0; /* This property sets the margin for the top and bottom of the .input-box elements to 30 pixels, while the left and right margins are set to 0 pixels. This creates vertical spacing between the input boxes and other elements above and below them. */
+
 }
 
 
@@ -321,20 +329,6 @@ This means that any level 1 heading (h1) contained within an element that has th
 
 
 
-/*
-The rule .wrapper .input-box applies styles to an element with the class .input-box that is found within an element with the class .wrapper. */
-
-.wrapper .input-box {
-
-    position: relative; /* This property establishes that the element has a relative position. This means it will position itself relative to its original position in the document flow. 
-    This property allows absolutely positioned CHILD ELEMENTS TO BE PLACED IN RELATION TO THIS ELEMENT. */
-    
-    width: 100%; /* This property sets the width of the .input-box elements to 100% of their parent container’s width. This means that the input-box will stretch to fill the entire width of the .wrapper element. */
-    height: 50px; /* This property sets the height of the .input-box elements to a fixed value of 50 pixels. This defines how tall each input box will be. */
- /* background: salmon; This property sets the background color of the .input-box elements to a color known as salmon, which is a light reddish-pink hue. This helps distinguish the input boxes visually. */
-    margin: 30px 0; /* This property sets the margin for the top and bottom of the .input-box elements to 30 pixels, while the left and right margins are set to 0 pixels. This creates vertical spacing between the input boxes and other elements above and below them. */
-
-}
 
 
 
@@ -613,7 +607,7 @@ The rule .wrapper .btn applies styles to button elements (denoted by <button> or
 
 .btn:hover {
 
-    background-color: #e9fdc3;
+    background-color: #e3ffe3;
 
 }
 
@@ -648,9 +642,9 @@ margin: 20px 0 15px;: Adds vertical margins to the link, with 20 pixels at the t
 
 
 /* 
-The rule .register-link p a applies styles to anchor link elements (typically <a> tags) that are nested within a <p> tag inside a container with the class .register-link. */
+The rule .register-link applies styles to anchor link elements (typically <a> tags) that are nested within a <p> tag inside a container with the class .register-link. */
 
-.register-link p a {
+.register-link a {
 
     color: #fff; /* Sets the text color of the anchor link to white, ensuring it stands out against the background. */
     text-decoration: none; /* Removes the default underline from the link, giving it a cleaner appearance. */
@@ -669,7 +663,7 @@ The rule .register-link p a applies styles to anchor link elements (typically <a
 /* 
 The rule .register-link p a:hover applies styles to anchor link elements (typically <a> tags) nested within a <p> tag inside a container with the class .register-link when the mouse hovers over them. */
 
-.register-link p a:hover {
+.register-link a:hover {
     
      text-decoration: underline; /* Adds an underline to the anchor link when hovered over, indicating that it is interactive. */
 

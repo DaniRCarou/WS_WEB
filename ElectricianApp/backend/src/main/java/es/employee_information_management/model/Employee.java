@@ -1,5 +1,8 @@
 package es.employee_information_management.model;
 
+// UNA DE LAS CLASES QUE REPRESENTA LA BASE DE DATOS
+
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,9 +23,9 @@ public class Employee {
     @Column(name = "EMPLOYEE_ID") // El ID lo introduce el propio trabajador y no es autoincrementable. Si fuera autoincrementable, necesitarías: @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
 
-    @ManyToOne
-    @Column(name = "DEPARTMENT_ID", nullable = false) // Foreign key a Department (opcionalmente puedes usar @ManyToOne)
-    private Integer departmentId;
+    @ManyToOne // No se puede mezclar @ManyToOne con Integer. JPA trabaja con OBJETOS y RELACIONES ENTRE OBJETOS, no con IDs sueltos. Cuando usas JPA tú no dices: “este campo es una FK a tal tabla”, si no: “este objeto está relacionado con este otro objeto”. Le estás diciendo a JPA: Muchos Employee están asociados a UN Department
+    @JoinColumn(name = "DEPARTMENT_ID", nullable = false) // Aquí estamos diciendo a JPA este Employee está relacionado con un Department. JPA, SE ENCARGA DE LA FK, crea/usa la columna DEPARTMENT_ID y mantiene la relación objeto-relación.
+    private Department department; // el nombre del atributo departmentId no debería terminar en “Id” porque el tipo es Department, no Integer. En Java y JPA, el nombre del campo debe reflejar el objeto, no la FK directa. Llamarlo departmentId es confuso y puede inducir a errores.
 
     @Column(name = "FIRST_NAME", nullable = false, length = 25) // nullable = false → le dice a JPA que la columna no puede ser nula. Esto se corresponde con el NN (NOT NULL) de MySQL. No es obligatorio para que funcione, pero es buena práctica porque hace que JPA valide antes de guardar un objeto y evita errores en la base de datos.
     private String firstName;

@@ -1,5 +1,8 @@
 package es.employee_information_management.model;
 
+// UNA DE LAS CLASES QUE REPRESENTA LA BASE DE DATOS
+
+
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,0 +1,704 @@
+
+
+
+/* --------------------------------------------------------- GENERAL ----------------------------------------------------------------------------- */
+
+
+
+/* Ocultamos las vistas todas */
+.view {/* SELECTOR */
+
+    display: none;              /* Todas las vistas ocultas por defecto */ 
+    /* DECLARACION -> PROPIEDAD:VALOR */
+
+}
+
+
+
+/* Mostramos la vista que queramos */
+.view.view--active {
+
+    width: 100%;                /* Ocupa todo el ancho del body */
+    min-height: 100vh;          /* Al menos la altura del viewport */
+    margin: 0;                  /* Elimina márgenes por defecto */
+    padding: 0;                 /* Elimina padding por defecto si hubiera */
+    display: flex;              /* flex para centrar el contenido del section */
+    justify-content: center;    /* centra horizontalmente */
+    align-items: center;        /* centra verticalmente */
+    width: 100%;                /* ocupa todo el ancho */
+    min-height: 100vh;          /* al menos la altura del viewport */
+
+}
+
+
+
+/* Esto centra vertical y horizontalmente el login-wrapper */
+body {
+
+    display: flex;                                              /* Permite alinear fácilmente los elementos dentro del <body> tanto horizontal como verticalmente. */
+    justify-content: center;                                    /* Centra los elementos horizontalmente dentro del contenedor. */
+    align-items: center;                                        /* Centra los elementos verticalmente dentro del contenedor. */ 
+    min-height: 100vh;                                          /* vh significa “viewport height”, es decir, alto de la ventana. 100vh es 100% de la altura de la ventana del navegador. Esto asegura que el <body> ocupe toda la altura de la pantalla, incluso si el contenido es pequeño. */  
+    background: url('../assets/images/green.jpg');              /* Pone una imagen de fondo en el body. La ruta '../assets/images/green.jpg' es relativa al archivo CSS actual. */
+    background-size: cover;                                     /* Hace que la imagen de fondo cubra todo el contenedor, aunque eso signifique recortar partes de la imagen. Evita que queden espacios vacíos en el fondo. */ 
+    background-position: center;                                /* Centra la imagen de fondo dentro del contenedor. Si la imagen se recorta, la parte central siempre será visible. */ 
+    
+}
+
+
+
+/* Selector universal que aplica estilos a todos los elementos del HTML. */
+* {
+
+    margin: 0;                                                  /* Elimina todos los márgenes por defecto de los elementos HTML. Con esto, empiezas con un lienzo “limpio” y control total sobre el espaciado. */
+    padding: 0;                                                 /* Hace lo mismo que margin: 0, pero con el relleno interno de los elementos. */
+    box-sizing: border-box;                                     /* Controla cómo se calculan ancho y alto de los elementos. Con border-box, el ancho incluye padding y borde, lo que hace que sea mucho más fácil dimensionar cajas y centrar elementos. */ 
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+
+/* Oculta la etiqueta label para que no sea accesible a todo el mundo. Estará para personas que tienen una discapacidad */
+.visually-hidden{
+
+    position: absolute;     /* position: relative; -> Con respecto a su posición original. Cuando un elemento tiene position: relative, se queda en el flujo normal del documento, es decir, ocupa su espacio como siempre. Si le aplicas top, left, right o bottom, se mueve respecto a su posición original, no respecto a otro contenedor. Otros elementos no se ven afectados, el espacio que ocupaba el elemento sigue ahí.
+                               position: absolute; -> Con respecto al contenedor. Un elemento con position: absolute sale del flujo normal del documento.E sto significa que ya no ocupa espacio en la página, otros elementos se comportan como si no existiera. Su posición se calcula respecto al contenedor más cercano que tenga position: relative, absolute o fixed, no respecto al contenedor global si hay uno más cercano con position definido. Si no hay contenedor con position definido, se posiciona respecto al <html> o <body> (el documento completo). */    
+    width: 1px;             
+    height: 1px;            
+    padding: 0;             
+    margin: -1px;                
+    overflow: hidden;       /* Oculta el contenido que está fuera del área de 1px x 1px. El texto queda fuera de la vista, pero los lectores de pantalla lo detectan. display: none; -> Esto remueve completamente el elemento del flujo del DOM. Ni se ve, ni ocupa espacio, ni es leído por lectores de pantalla. Para ocultar visualmente pero mantener accesible → usa absolute + overflow: hidden + clip. Para ocultar completamente (visual y accesible) → usa display: none. */
+    clip: rect(0,0,0,0);    /* (top, right, bottom, left) clip es una propiedad antigua de CSS que se usaba para recortar (ocultar) una parte de un elemento. Solo funciona si el elemento tiene position absolute o fixed. La sintaxis rect(top, right, bottom, left) define un rectángulo de visibilidad: todo lo que queda fuera de ese rectángulo se oculta. */
+    white-space: nowrap;    /* Evita que el texto se divida en varias líneas. Garantiza que el contenido siga ocupando solo el mínimo posible y no empuje la página. */ 
+    border: 0;              /* Elimina bordes que podrían hacer que el elemento sea visible. Aunque normalmente un label no tiene borde, esto es una precaución para evitar cualquier detalle visual. */
+
+}
+
+
+
+/* --------------------------------------------------------- ICONS ----------------------------------------------------------------------------- */
+
+
+
+/* Modificar los iconos de las banderas */
+.icon-flag {
+
+    width: 20px;                      /* Establece un ancho fijo de 20px para el icono. Así todos los iconos con esta clase tendrán el mismo tamaño horizontal. */
+    height: 14px;                     /* Establece una altura fija de 14px para el icono. Mantiene la proporción y consistencia con otros iconos de banderas. */
+    vertical-align: middle;           /* Alinea verticalmente el icono en relación con el texto o elementos en línea cercanos, evitando que quede descentrado respecto a la línea base del texto. */
+
+}
+
+
+
+/* Modificar los iconos de los inputs */
+.input-icon {
+
+    width: 24px;  
+    height: 24px; 
+    filter: brightness(0) invert(1);    /* El valor va de: 1 → brillo normal, 0 → completamente negro. brightness(0) convierte el elemento en negro puro, sin importar su color original. | 1 significa 100% de inversión. */
+
+}
+
+
+
+/* Modifica el tamaño del icono del email */
+.email_input-icon {
+
+    width: 32px;  
+    height: 32px; 
+    filter: brightness(0) invert(1);    /* El valor va de: 1 → brillo normal, 0 → completamente negro. brightness(0) convierte el elemento en negro puro, sin importar su color original. | 1 significa 100% de inversión. */
+
+}
+
+
+
+/* --------------------------------------------------------- LANGUAGE MENU ----------------------------------------------------------------------------- */
+
+
+
+/* Contenedor principal del idioma seleccionado */
+.selected-lang {
+
+    border-radius: 8px;    
+    background: transparent; 
+    border: 2px solid rgba(232, 232, 236, 0.795);     /* 2px → grosor del borde. solid → estilo sólido (sin rayas ni puntos). rgba(232, 232, 236, 0.795) → color del borde. rgb(232,232,236) → color gris muy claro. 0.795 → transparencia (~80%) */
+    text-align: center;                                 /* Centra el texto horizontalmente dentro del elemento. Útil si hay un nombre de idioma o palabra dentro del botón, por ejemplo. */
+   
+}
+
+
+
+/* Formación interna del botón del idioma seleccionado */
+.selected-lang button {
+
+    display: flex;              /* para alinear la imagen y el texto */
+    align-items: center;        /* centrado vertical */
+    justify-content: center;    /* opcional, centra horizontal */
+    gap: 6px;                   /* espacio entre imagen y texto */
+    padding: 5px 10px;          /* espacio interno */
+
+    width: 100%;                /* ocupa todo el ancho del contenedor */
+    background: transparent;    /* sin fondo, deja ver el del contenedor */
+    border: none;               /* sin borde, ya lo tiene el contenedor */
+    color: #fff;              /* texto blanco */
+    font: inherit;              /* hereda la fuente del contenedor */
+    cursor: pointer;            /* cursor de mano al pasar */
+    text-align: center;         /* opcional, centra el texto */
+    
+}
+
+
+/* Posición y forma del menú de idiomas */
+.lang-menu {
+    
+    color: #fff;
+    position: absolute;             /* Se coloca respecto al contenedor o al body */
+    top: 80px;   
+    right: 15%;     
+    font-size: 20px;
+    width: 170px;   
+
+}
+
+
+
+/* Mostrar menú de idiomas al pasar el ratón por encima */
+.lang-menu:hover ul {
+
+    display: block;               /* indica cómo se muestra un elemento. El elemento se muestra como un bloque, ocupando toda la línea disponible y siendo visible. none → el elemento no se muestra en absoluto (ni ocupa espacio). block → el elemento se muestra como un bloque, ocupando toda la línea disponible y siendo visible.*/        
+        
+}
+
+
+/* Disposición del menú de idiomas*/
+.lang-menu ul { 
+
+    border-radius: 8px;    
+    background:transparent;    
+    border: 2px solid rgba(232, 232, 236, 0.795);
+    font-family: "Poppins", sans-serif; 
+    display: none;    
+    margin-top: 5px;
+
+}
+
+
+
+/* Esta es una característica de la lista, indicando que no se muestre como tal sin orden y sin puntos o números */
+.lang-menu ul li {
+    
+    list-style: none;           /* Esto indica que no se muestre ningún estilo de la lista. Es decir, sin puntos o números al principio de cada línea, por ejemplo */
+           
+}
+
+
+
+/* Botones dentro del dropdown del menú de idiomas */
+.lang-menu ul li button {
+
+    display: flex;              /* para que la imagen y el texto estén uno al lado del otro dentro del botón */
+    align-items: center;        /* centra verticalmente la bandera y el texto */
+    gap: 6px;                   /* espacio entre la imagen y el texto */
+    padding: 5px 10px;          /* espacio interno dentro del botón */
+    
+    width: 100%;                /* hace que el botón ocupe todo el ancho del <li> padre, así toda la línea es clicable */
+    background: transparent;    /* quita el fondo predeterminado del botón */
+    border: none;               /* quita el borde del botón */
+    color: #fff;              /* texto en blanco para que se vea sobre fondo oscuro */
+    font: inherit;              /* hereda la misma fuente que el contenedor padre */
+    cursor: pointer;            /* muestra el cursor de mano al pasar, indicando que es clicable */
+    text-align: left;           /* alinea el texto a la izquierda dentro del botón */
+    line-height: normal;        /* evita que el botón sea más alto de lo esperado por el navegador */
+    
+}
+
+
+
+/* Esto sirve para cambiar el comportamiento del botón al pasar el ratón por encima */
+.lang-menu ul li button:hover {
+
+background-color: #f2f2f2;
+color: #36409b;
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------- LOGIN SECTION ----------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------- LOGIN WRAPPER ----------------------------------------------------------------------------- */
+
+
+
+/* Esto afecta al contenedor principal */
+.login-wrapper {
+
+    width: 100%; 
+    max-width: 420px; 
+    background:transparent; 
+    border: 2px solid rgba(244, 244, 253, 0.295); 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 0 10px rgba(0,0,0,.2); 
+    color:white; 
+    border-radius: 10px;  
+    padding: 30px 40px; 
+    margin: 0 10px; 
+
+}
+
+
+
+/* Esto afecta al primer h1 que contiene el contenedor principal */
+.login-wrapper h1 {
+
+    font-size: 36px; 
+    text-align: center; 
+
+}
+
+
+
+/* 1. NUMERO PERSONAL INPUT */
+
+/* Esto afecta al contenedor del primer input para el número personal */
+.login-form__number {
+
+    display: flex;              /* Los elementos internos (label, input, span) se colocan uno debajo del otro. Porque <div> usa display: block por defecto. Convierte el <div> en un contenedor flex. Sus hijos directos se colocan en fila horizontal. El eje principal pasa a ser horizontal (de izquierda a derecha) */        
+    align-items: center;        /* Todos los hijos se centran verticalmente */       
+    position: relative; 
+    width: 100%; 
+    height: 50px; 
+    margin: 30px 0;    
+
+}
+
+
+
+
+/* Esto afecta al primer input: número personal */
+.personal-number_input {
+     
+    width: 100%; 
+    height: 100%; 
+    background: transparent; 
+    outline: none; 
+    border: 2px solid rgba(244, 244, 253, 0.363); 
+    border-radius: 40px; 
+    font-size: 16px; 
+    color: #fff; 
+    padding: 20px 45px 20px 20px;
+
+}
+
+
+
+/* Esto afecta al contenedor span de la imagen del primer input para el número personal */
+.personal-number_icon {
+
+    position:absolute; 
+    right: 20px; 
+    font-size: 20px;  
+    display: flex;    
+
+}
+
+
+
+/* Se modifica el color del placeholder del input de la entrada del número personal */
+.personal-number_input::placeholder {
+
+    color: rgb(255, 255, 255); 
+    opacity: 1;
+    
+}
+
+
+
+/* 2. PASSWORD INPUT */
+
+/* Esto afecta al contenedor del segundo input para el password */
+.login-wrapper .login-form__password {
+
+    display: flex;
+    align-items: center;
+    position: relative; 
+    width: 100%; 
+    height: 50px; 
+    margin: 30px 0; 
+
+}
+
+
+
+/* Esto afecta al segundo input: password */
+.password_input{
+
+    width: 100%; 
+    height: 100%; 
+    background: transparent; 
+    outline: none;                                      /* Es una línea que rodea a un elemento, normalmente cuando está enfocado (focus). Un input cuando haces clic dentro de él → normalmente aparece un borde azul o punteado. Si quiero poner algún color cuando se clica en el input, tiene el focus, input:focus { outline: 2px solid red; } */
+    border: 2px solid rgba(244, 244, 253, 0.363); 
+    border-radius: 40px; 
+    font-size: 16px; 
+    color: #fff; 
+    padding: 20px 45px 20px 20px;
+
+}
+
+
+
+/* Esto afecta al contenedor span de la imagen del segundo input para el password */
+.password_icon {
+    
+    position:absolute; 
+    right: 20px; 
+    font-size: 20px;  
+    display: flex; 
+
+}
+
+
+
+/* Se modifica el color del placeholder del input de la entrada del número personal */
+.password_input::placeholder {
+
+    color: rgb(255, 255, 255); 
+    opacity: 1;
+    
+}
+
+
+
+/* 3. ENLACE PASSWORD FORGOTTEN */
+
+/* Aquí se trata con el enlace cuando se olvida el password */
+.login-form__actions {
+
+    display: flex; 
+    justify-content: space-between;         /* Es una propiedad de Flexbox (display: flex). Controla cómo se distribuyen los elementos hijos horizontalmente dentro de un contenedor flex. Solo funciona cuando el contenedor tiene display: flex o inline-flex. */
+                                            /* Coloca los elementos en línea horizontal. El primer elemento queda pegado al inicio (izquierda) y el último elemento queda pegado al final (derecha). Los elementos intermedios reciben espacio igual entre ellos. */
+    font-size: 14.5px;
+    margin: -15px 0 15px; 
+
+}
+
+
+
+/* Aquí se trata la posición y el color de las primeras palabras del checkbox para recordar el password */
+.login-form__actions label input {
+
+    accent-color: #fff;
+    margin-right: 3px;
+
+}
+
+
+
+/* Aquí se trata la posición y el color de las letras del enlace para recordar el password */
+.login-form__actions a {
+
+    color: #fff; 
+    text-decoration: none;          /* Es una propiedad CSS que controla decoraciones del texto, como subrayado (underline), línea sobre el texto (overline), línea a través del texto (line-through) y estilo de enlace predeterminado. En este caso esconde cualquier decoración que tenga el enlace. En este caso se ve el subrayado al pasar el ratón por encima de dicha fuente, en la siguiente regla css se ve. */
+    font-weight: 600;               /* Grosor de la fuente del texto */
+
+}
+
+
+
+/* Aquí se trata la posición y el color de las letras del enlace para recordar el password al pasar el ratón por encima*/
+.login-form__actions a:hover {
+   
+   text-decoration: underline; 
+
+}
+
+
+
+/* 4. BOTÓN LOGIN */
+
+/* Arreglos del botón de login */
+.login-form__button {
+
+    width: 100%; 
+    height: 45px; 
+    background: #fff; 
+    border: none; 
+    outline: none; 
+    border-radius: 40px; 
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;                            /* Cambia el tipo de cursor al pasar por encima del botón, en este caso una mano señalando con el dedo índice (señalador) */
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    
+}
+
+
+
+/* Arreglo del botón de login */
+.login-form__button:hover {
+
+    background-color: #58878d;
+    color: #ffffff;
+
+}
+
+
+
+/* 5. ENLACE HACIA EL REGISTRO */
+
+/* Tamaño y alineamientos para el enlace del registro */
+.login-form__register {
+
+    font-size: 14.5px; 
+    text-align: center;
+    margin: 20px 0 15px; 
+
+}
+
+
+
+/* Tamaño y alineamiento para el enlace del registro */
+.login-form__register a {
+
+    color: #fff; 
+    text-decoration: none;
+    font-weight: 600;
+
+}
+
+
+
+/* Tamaño y alineamiento para el enlace del registro */
+.login-form__register a:hover {
+    
+    text-decoration: underline;
+
+}
+ 
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------- PASSWORD RESET SECTION ----------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------- PASSWORD RESET WRAPPER ----------------------------------------------------------------------------- */
+
+
+/* Esto afecta al contenedor principal */
+.reset-wrapper {
+
+    width: 455px; 
+    background:transparent; 
+    border: 2px solid rgba(244, 244, 253, 0.295); 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color:white;
+    border-radius: 10px;
+    padding: 20px 40px;
+    margin: 0 10px;
+
+}
+
+
+
+
+.reset-wrapper__title {
+    
+    font-size: 36px; 
+    text-align: center; 
+    
+}
+
+
+
+
+.reset-form_email {
+    
+    display: flex;           
+    align-items: center;  
+    position: relative; 
+    width: 100%; 
+    height: 50px; 
+    margin: 30px 0;      
+ 
+}
+
+
+
+
+.email-input {
+
+    width: 100%; 
+    height: 100%; 
+    background: transparent; 
+    outline: none; 
+    border: 2px solid rgba(244, 244, 253, 0.363); /* This property adds a border to the input field that is 2 pixels wide, solid, and has a color defined by the RGBA value. The color is white with 20% opacity (0.2), which gives a subtle and elegant border effect. */ 
+    border-radius: 40px; 
+    font-size: 16px; 
+    color: #fff; 
+    padding: 20px 45px 20px 20px; 
+
+}
+
+
+
+/* Se modifica el color del placeholder del input de la entrada del número personal */
+.email-input::placeholder {
+
+    color: rgb(255, 255, 255); 
+    opacity: 1;
+    
+}
+
+
+
+/* Esto afecta al contenedor span de la imagen del segundo input para el password */
+.mail_icon {
+    
+    position:absolute; 
+    right: 20px; 
+    font-size: 20px;  
+    display: flex; 
+
+}
+
+
+
+
+.reset-form__button {
+
+    width: 100%; 
+    height: 45px; 
+    background: #fff; 
+    border: none; 
+    outline: none; 
+    border-radius: 40px; 
+    box-shadow: 0 0 10px rgba(0,0,0,.1); 
+    cursor: pointer; 
+    font-size: 16px; 
+    color: #333; 
+    font-weight: 600; 
+    
+}
+
+
+
+
+.reset-form_back {
+
+    font-size: 14.5px; 
+    text-align: center; 
+    margin: 30px 0 20px;
+
+}
+
+
+
+
+.reset-form_back a {
+
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: 600;
+
+}
+
+
+
+
+.reset-form_back a:hover {
+    
+    text-decoration: underline; 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------- COSAS A MEJORAR -------------------------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 992px) {         /* @media es una regla de CSS llamada media query. Permite aplicar estilos solo en ciertas condiciones, normalmente según el tamaño de la pantalla, orientación, resolución, etc. Es la base del diseño responsivo. 
+                                                              (max-width: 992px) -> Significa “aplicar los estilos solo si el ancho de la pantalla es como máximo 768 píxeles”.*/
+
+    .input-box .input-field{
+    
+        width:80%; 
+        margin: 10px 0;  /* margen vertical */
+
+    }
+    
+    
+}
+
+
+
+
+.validation-icon {  
+    
+    position: absolute;
+    bottom: 20px;
+    left: 20px;  
+    width: 88px;
+    height: 31px;
+
+}
+
+
+

@@ -79,7 +79,7 @@
 
                 <!--  🇩🇪 German -->
 
-                <a href="#" data-section="languageMenu" data-value="english" data-language="en"><img src="../assets/icons/uk.png" alt="english flag icon" class="icon-flag"/> English</a> 
+                <a href="#" data-section="languageMenu" data-value="english" data-language="en"><img src="assets/icons/uk.png" alt="english flag icon" class="icon-flag"/> English</a> 
 
             </div>
 
@@ -184,13 +184,12 @@
             method="post": This attribute indicates the HTTP method that will be used to send the form data. post is one of the most common methods, sending data in a hidden manner within the request body, making it more secure for sensitive data compared to the get method, which sends data in the URL.
 
             Este elemento <form> define un formulario HTML que permite a los usuarios enviar datos.
-
-            action="AnfrageBearbeiten.jsp": Este atributo especifica la URL (en este caso, un archivo JSP) a la que se enviarán los datos del formulario cuando el usuario lo envíe. Cuando el formulario se envía, los datos se enviarán a AnfrageBearbeiten.jsp para ser procesados.
+            
             method="post": Este atributo indica el método HTTP que se utilizará para enviar los datos del formulario. post es uno de los métodos más comunes, que envía los datos de manera oculta en el cuerpo de la solicitud, lo que es más seguro para datos sensibles en comparación con el método get, que envía los datos en la URL.
             
             -->
 
-            <form action = "Anmelden.jsp" method = "post">
+            <form id="login-form" method = "post">
 
 
 
@@ -208,7 +207,7 @@
 
                 <div class = "input-box">
 
-                    <input id="nombre" type="text" title="Personalnummer" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" required/> 
+                    <input id="number" type="text" title="Personalnummer" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" required/> 
 
                     <img src="../assets/icons/user_circle_fill_icon.png" alt="User icon" class="icon-small"/> <!-- This is an image tag in HTML, used to display images on a webpage. 
                                                                                                                    The src attribute specifies the source (location) of the image. 
@@ -259,12 +258,13 @@
 
                 <!-- This tag contains another tag to do an two tags which create an Text input field to introduce the password and an lock image -->
 
-                <div class = "register-link">
+                <div class="register-link">
 
-                    <p data-section="wrapper" data-value="haveAccount">Do you have an account?<a href = "register.html" title="Register page" data-section="wrapper" data-value="signUp"> Sign up</a></p>
+                    <span data-section="wrapper" data-value="haveAccount">Do you have an account?</span>
 
-                </div>                
-
+                    <a data-section="wrapper" data-value="signUp" href="register.html">Sign up</a>
+                    
+                </div>
 
 
 
@@ -272,6 +272,8 @@
             </form>
 
         </div>
+
+
 
         <!-- valid CSS icon -->
 
@@ -285,8 +287,20 @@
 
         </p>
 
+        <!-- 
+        Primero cargamos i18n.js -> Importante porque contiene la lógica de idiomas, variables y funciones que otros scripts podrían necesitar. 
+        Al usar <script type="module">, sus export y import estarán disponibles para otros módulos si los llamas desde login.js. le estás diciendo al navegador que ese archivo es un módulo de JavaScript, no un script normal. 
+        - Ámbito de variables del script tipo modulo: Local al módulo: nada se filtra automáticamente al global, excepto si lo exportas.
+        - En el script tipo modulo import / export: Se puede importar/exportar funciones, variables y clases entre archivos.
+        - En el script tipo modulo el modo estricto: Siempre está en strict mode automáticamente. Activa reglas más estrictas” para tu código. JavaScript automáticamente activa strict mode para todo el módulo, aunque no pongas "use strict";
+          Esto significa: No puedes usar variables sin declarar (x = 10; → error). No puedes eliminar variables declaradas con var (delete x; → error). No puedes usar nombres reservados para variables (let package = 5; → error). this en el nivel superior del archivo es undefined (en scripts normales es window).
+        - En el script tipo modulo la carga asíncrona: Se ejecuta de forma diferida por defecto (como si tuviera defer).
+        - En el script tipo modulo Puedes hacer import { loadLanguage } from './i18n.js' directamente.
+        -->
+        
 
-        <script src="../js/login.js"></script>
+        <!-- Después login.js, aunque ahora podemos comentar el bloque de submit -->
+        <script src="../js/pages/login.js"></script>
 
 
     </body>
