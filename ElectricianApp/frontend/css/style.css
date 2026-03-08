@@ -1,7 +1,4 @@
-
-
-
-/* --------------------------------------------------------- GENERAL ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------- GENERAL --------------------------------------------------------------------------------------- */
 
 
 
@@ -232,7 +229,6 @@ color: #36409b;
 
 
 
-
 /* ---------------------------------------------------------------------- LOGIN SECTION ----------------------------------------------------------------------------- */
 
 
@@ -240,11 +236,6 @@ color: #36409b;
 
 
 
-
-
-
-
-/* ---------------------------------------------------------------------- LOGIN WRAPPER ----------------------------------------------------------------------------- */
 
 
 
@@ -292,7 +283,6 @@ color: #36409b;
 
 
 
-
 /* Esto afecta al primer input: número personal */
 .personal-number_input {
      
@@ -310,13 +300,16 @@ color: #36409b;
 
 
 
-/* Esto afecta al contenedor span de la imagen del primer input para el número personal */
+/* 
+Esto afecta al contenedor span de la imagen del primer input para el número personal. A diferencia del selector que trata la posición de las imágenes en el registro, aquí actuamos directamente sobre cada etiqueta span que contiene cada icono. 
+    Pros: Control total sobre cada icono, fácil de ajustar individualmente.
+    Contras: Tienes que escribir reglas separadas para cada input (password, number, etc.). Si agregas más inputs, debes crear más clases y CSS.
+*/
 .personal-number_icon {
 
     position:absolute; 
-    right: 20px; 
-    font-size: 20px;  
-    display: flex;    
+    right: 20px;  
+    display: flex;          /* Flexbox coloca los hijos en fila horizontal. */  
 
 }
 
@@ -364,14 +357,16 @@ color: #36409b;
 }
 
 
-
-/* Esto afecta al contenedor span de la imagen del segundo input para el password */
+/* 
+Esto afecta al contenedor span de la imagen del primer input para el número personal. A diferencia del selector que trata la posición de las imágenes en el registro, aquí actuamos directamente sobre cada etiqueta span que contiene cada icono. 
+    Pros: Control total sobre cada icono, fácil de ajustar individualmente.
+    Contras: Tienes que escribir reglas separadas para cada input (password, number, etc.). Si agregas más inputs, debes crear más clases y CSS.
+*/    
 .password_icon {
-    
-    position:absolute; 
-    right: 20px; 
-    font-size: 20px;  
-    display: flex; 
+
+    position: absolute;
+    right: 20px;    
+    display: flex;
 
 }
 
@@ -416,8 +411,8 @@ color: #36409b;
 .login-form__actions a {
 
     color: #fff; 
-    text-decoration: none;          /* Es una propiedad CSS que controla decoraciones del texto, como subrayado (underline), línea sobre el texto (overline), línea a través del texto (line-through) y estilo de enlace predeterminado. En este caso esconde cualquier decoración que tenga el enlace. En este caso se ve el subrayado al pasar el ratón por encima de dicha fuente, en la siguiente regla css se ve. */
-    font-weight: 600;               /* Grosor de la fuente del texto */
+    text-decoration: none;                  /* Es una propiedad CSS que controla decoraciones del texto, como subrayado (underline), línea sobre el texto (overline), línea a través del texto (line-through) y estilo de enlace predeterminado. En este caso esconde cualquier decoración que tenga el enlace. En este caso se ve el subrayado al pasar el ratón por encima de dicha fuente, en la siguiente regla css se ve. */
+    font-weight: 600;                       /* Grosor de la fuente del texto */
 
 }
 
@@ -492,8 +487,7 @@ color: #36409b;
     
     text-decoration: underline;
 
-}
- 
+} 
 
 
 
@@ -513,10 +507,6 @@ color: #36409b;
 
 
 
-
-/* ---------------------------------------------------------------------- PASSWORD RESET WRAPPER ----------------------------------------------------------------------------- */
-
-
 /* Esto afecta al contenedor principal */
 .reset-wrapper {
 
@@ -534,7 +524,7 @@ color: #36409b;
 
 
 
-
+/* Esto afecta al primer h1 que contiene el contenedor principal */
 .reset-wrapper__title {
     
     font-size: 36px; 
@@ -544,7 +534,9 @@ color: #36409b;
 
 
 
+/* 1. EMAIL INPUT */
 
+/* Esto afecta al contenedor del primer input para el email */
 .reset-form_email {
     
     display: flex;           
@@ -558,7 +550,7 @@ color: #36409b;
 
 
 
-
+/* Esto afecta al primer input: email */
 .email-input {
 
     width: 100%; 
@@ -585,7 +577,7 @@ color: #36409b;
 
 
 
-/* Esto afecta al contenedor span de la imagen del segundo input para el password */
+/* Esto afecta al contenedor span de la imagen del input para el email */
 .mail_icon {
     
     position:absolute; 
@@ -597,7 +589,7 @@ color: #36409b;
 
 
 
-
+/* Esto afecta al botón que envía la información para establecer un nuevo password */
 .reset-form__button {
 
     width: 100%; 
@@ -616,7 +608,7 @@ color: #36409b;
 
 
 
-
+/* Esto afecta al contenedor del enlace de navegación (porque cambia la vista dentro de la aplicación) */
 .reset-form_back {
 
     font-size: 14.5px; 
@@ -627,7 +619,7 @@ color: #36409b;
 
 
 
-
+/* Esto afecta a la etiqueta que contiene el texto del enlace de navegación */
 .reset-form_back a {
 
     color: #fff; 
@@ -638,7 +630,7 @@ color: #36409b;
 
 
 
-
+/* Esto afecta a la etiqueta que contiene el texto del enlace de navegación */
 .reset-form_back a:hover {
     
     text-decoration: underline; 
@@ -653,6 +645,270 @@ color: #36409b;
 
 
 
+/* ---------------------------------------------------------------------- REGISTER SECTION ----------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+/* Esto afecta al contenedor principal */
+.register-wrapper {
+
+   width: 750px;
+    background:transparent;
+    border: 2px solid rgba(244, 244, 253, 0.295);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    color: #fff;
+    padding: 40px 35px 55px;
+    margin: 0 10px;
+
+}
+
+
+
+/* Esto afecta al primer h1 que contiene el contenedor principal */
+.register__title {
+    
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+    
+}
+
+
+
+/* Esto afecta a los contenedores horizontales de entradas de datos */
+.form-row-group {
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+
+
+/* Esto actúa sobre los inputs contenidos en cada row group */
+.input-field {
+
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;
+
+}
+
+
+/* Esto actúa sobre los placeholder de los inputs contenidos en cada row group */
+.input-field input::placeholder {
+
+color:  #fff;
+opacity: 1;
+
+}
+
+
+
+/* 
+Este selector actúa sobre las imágenes de input de cada row group. A diferencia del selector que actúa sobre cada etiqueta span en el login, aquí actuamos directamente sobre todas las imágenes que están dentro del div 'form-row-group'. 
+    Pros: Una regla general que sirve para todos los iconos dentro de .form-row-group, sin crear clases nuevas para cada icono.
+    Contras: Menos control individual si necesitas estilos distintos para un icono concreto.
+Además, cada input-field tiene position: relative;, lo que hace que cualquier icono absoluto dentro de él se posicione respecto al contenedor correcto. 
+*/
+.form-row-group img{
+
+    position:absolute;
+    right: 20px; 
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+
+
+/* Esto crea la forma de todos los inputs del registro, excepto el número personal y el departamento*/
+.input-field input {
+
+    
+    width:100%;
+    height:100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline:none;                                   /* Elimina el contorno (borde de enfoque) que el navegador muestra cuando un elemento recibe foco. */
+    font-size: 16px;
+    color: #fff;
+    border-radius: 6px;
+    padding:15px 15px 15px 40px;
+
+}
+
+
+
+/* 1. PERSONAL NUMBER INPUT */
+
+/* Esto afecta al contenedor del primer input para el número personal */
+.register-form_number {
+
+    position: relative;     /* El div (register-form_number) mismo sigue en el flujo normal de la página. Es decir, ocupa su lugar como si no tuviera relative. Pero ahora se convierte en el “referente” para cualquier hijo con position: absolute. → Es decir, los hijos absolutos se posicionan respecto a este div, no respecto a todo el <body>. position: relative no mueve el padre ni cambia su tamaño por sí solo. Lo que hace es crear un sistema de referencia para sus hijos absolutos. Los hijos con position: absolute ahora se posicionan respecto al borde del padre relativo, no del body. */
+    display: flex;
+    align-items: center;
+    width: 48%;             /* width: 48% le da un ancho menor que el padre. */
+    height: 50px;
+    margin: 13px auto;      /* margin-left: auto y margin-right: auto (incluidos en auto) reparten el espacio sobrante a ambos lados. */
+    
+}
+
+
+
+/* Esto afecta al primer input: personal number */
+.register-personal-number_input {
+
+    width:100%;
+    height:100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline:none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 10px;
+    padding:15px 15px 15px 40px;
+
+}
+
+
+
+/* Se modifica el color del placeholder del input de la entrada del número personal */
+.register-personal-number_input::placeholder {
+
+    color: rgb(255, 255, 255); 
+    opacity: 1;
+    
+}
+
+
+
+
+/* 3. DEPARTAMENTO INPUT */
+
+/* Esto maneja el div de la entrada del departamento */
+.input-department-number {
+
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;   
+    
+}
+
+
+
+/* Esto indica la posición y el tamaño de las letras dentro de la etiqueta label */
+.input-department-number .input-field-number label{    
+        
+    position:absolute;              /* Esto hace que el label se coloque manualmente dentro del contenedor. */    
+    font-size: 16px;   
+    padding:15px 0px 0px 5px;      
+    
+}
+
+
+
+/* Esto actúa sobre el input que te deja elegir el número del departamento mediante flechas */
+.input-field-number {
+
+    width:100%;
+    height:100%; 
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 6px;
+    color: #fff;    
+    
+}
+
+
+
+/* Esto estiliza el input del departamento que tiene las flechas para seleccionar el número y la etiqueta que contiene la palabra Departamento*/
+.department-input {
+
+    width:30%;                      /* Controlan el tamaño general del input, flechas y número */
+    height:100%;                    /* Controlan el tamaño general del input, flechas y número */
+    background: transparent;
+    border: transparent;
+    outline:none;
+    font-size: 16px;                /* Controla el tamaño del número que ves. */
+    color: #fff;    
+    padding:15px 15px 15px 40px;    /* Controla el espacio alrededor del número dentro del input. */
+    
+}
+
+
+
+/* Esto afecta sobre la etiqueta label que contiene la palabra Departamento */
+.input-field-number label{    
+        
+    position:absolute;    
+    font-size: 16px;   
+    padding:5px 0px 0px 5px;        
+    
+}
+
+
+
+/* 5. TEXTO DE TÉRMINOS */
+
+/* Este selector modifica el tamaño de las letras de los términos */
+.terms-text {
+
+    font-size: 15px;
+    display: inline-block;
+    margin: 10px 0 23px;
+
+}
+
+
+
+/* Con este selector aclaro cómo debe ser el texto */
+.terms-text input {
+
+    accent-color: #fff;
+    margin-right: 5px;
+
+}
+
+
+
+/* Aquí defino las características del botón */
+.btn {
+
+    width:100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+
+}
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------- REGISTER SECTION ----------------------------------------------------------------------------- */
 
 
 
@@ -671,13 +927,12 @@ color: #36409b;
 
 
 
-
-/* ----------------------------------------------------------------- COSAS A MEJORAR -------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------- COSAS A MEJORAR (DE MOMENTO NO TOCAR, SE REVISARÁ AL FINAL) -------------------------------------------------------------------------------- */
 
 @media (min-width: 768px) and (max-width: 992px) {         /* @media es una regla de CSS llamada media query. Permite aplicar estilos solo en ciertas condiciones, normalmente según el tamaño de la pantalla, orientación, resolución, etc. Es la base del diseño responsivo. 
                                                               (max-width: 992px) -> Significa “aplicar los estilos solo si el ancho de la pantalla es como máximo 768 píxeles”.*/
 
-    .input-box .input-field{
+    .form-row-group .input-field{
     
         width:80%; 
         margin: 10px 0;  /* margen vertical */
@@ -686,7 +941,6 @@ color: #36409b;
     
     
 }
-
 
 
 
@@ -699,6 +953,7 @@ color: #36409b;
     height: 31px;
 
 }
+
 
 
 

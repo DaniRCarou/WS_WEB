@@ -94,9 +94,8 @@
         <section id="login-view" class="view login-view">
 
             <!-- Contenedor del formulario -->
-            <div id="login-wrapper" class ="login-wrapper">                
+            <div id="login-wrapper" class ="login-wrapper">              
                     
-
                 <!-- Título del formulario -->
                 <h1 class="login-wrapper__title" data-section="login-wrapper" data-i18n="loginTitle" data-value="title">Login</h1>
 
@@ -110,7 +109,7 @@
                         <label for="personal-number" class="visually-hidden">Personal Number</label>
 
 
-                        <input type="text" id="personal-number" class="personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber"/> 
+                        <input type="text" id="login-personal-number" class="personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber"/> 
 
                             
                         <span class="personal-number_icon" aria-hidden="true">
@@ -175,7 +174,7 @@
                
 
         
-        <!-- ----------------------------------------------------------- PASSWORD_RESET --------------------------------------------------------------- -->
+        <!-- ----------------------------------------------------------- PASSWORD_RESET VIEW --------------------------------------------------------------- -->
     
         <section id="reset-view" class="view reset-view">
 
@@ -200,7 +199,7 @@
 
                         <span class="mail_icon" aria-hidden="true">
 
-                            <img src="../assets/icons/email.png" alt="E-Mailsymbol" class="email_input-icon"/>
+                            <img src="../assets/icons/email.png" alt="email icon" class="email_input-icon"/>
 
                         </span>
 
@@ -224,103 +223,163 @@
           
         </section>
              
-        <!-- ----------------------------------------------------------- REGISTER --------------------------------------------------------------------- -->
+
+
+
+        <!-- ----------------------------------------------------------- REGISTER VIEW --------------------------------------------------------------------- -->
 
         <section id="register-view" class="view register-view">
         
-            <div class="wrapper">
-
-                <form action="" method="POST" id="form" onsubmit="return false;"> 
-
-                    <h1 data-section="wrapper" data-value="logInTitle">Sign Up</h1>
+            <!-- Contenedor del formulario -->
+            <div id="register-wrapper" class ="register-wrapper">
 
 
-                    <div class="input-box-id">
+                <!-- Título del formulario -->
+                <h1 class="register__title" data-section="register-wrapper" data-i18n="registerTitle" data-value="title">Sign Up</h1>
 
+
+                <!-- Cuerpo del formulario -->
+                <form id="register-form" class="register-form" method="post" novalidate> 
+
+                    <!-- Campo: Personal Number -->
+                    <div class="register-form_number">
+
+                        <label for="register-personal-number" class="visually-hidden">Personal Number</label>
+
+
+                        <input type="text" id="register-personal-number" class="register-personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber"/> 
+
+                            
+                        <span class="personal-number_icon" aria-hidden="true">
+
+                            <img src="../assets/icons/id_card.png" alt="user icon" class="input-icon"/>
+
+                        </span>  
+                        
+                    </div>
+
+
+                    <!-- Fila 2. Campos: Nombre - Apellidos -->
+                    <div class="form-row-group">
+
+                        <!-- Campo: Name -->
                         <div class="input-field">
 
-                            <input type="text" id="personal-number" class= "personal-number" placeholder="Personal number" data-section="wrapper" data-value="personalNumber">
+                            <label for="name" class="visually-hidden">Name</label>
+
+
+                            <input type="text" id="name" class= "name" placeholder="Name" data-section="wrapper" data-value="name">
+
+                            
+                            <span class="name_icon" aria-hidden="true">
+
+                                <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
+
+                            </span>
+
+                        </div>
+                    
+
+                        <!-- Campo: Surname -->
+                        <div class="input-field">
+
+                            <label for="surname" class="visually-hidden">Surname</label>
+
+
+                            <input type="text" id="surname" class= "surname" placeholder="Surname" data-section="wrapper" data-value="surname">
                             
                             
-                            <img src="../assets/icons/id_card.png" alt="Idcardsymbol" class="input-icon"/>
+                            <span class="surname_icon" aria-hidden="true">
+                            
+                                <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
+
+                            </span>
 
                         </div>
 
                     </div>
+                    
 
+                    <!-- Fila 3. Campos: Email - Departamento -->
+                    <div class="form-row-group">
 
-                    <div class="input-box">
-
+                        <!-- Campo: Email -->
                         <div class="input-field">
 
-                            <input type="text" id="name" class= "name" placeholder="name" data-section="wrapper" data-value="name">
+                            <label for="email" class="visually-hidden">Email</label>
+
+
+                            <input type="email" id="email" class= "email" placeholder="EMail" data-section="wrapper" data-value="email">
                             
-                            <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
+                            
+                            <span class="email_icon" aria-hidden="true">
+
+                                <img src="../assets/icons/email.png" alt="E-Mailsymbol" class="input-icon"/>
+
+                            </span>
 
                         </div>
                     
+                        
+                        <!-- Campo: Department -->
+                        <div class="input-department-number">  
 
-                        <div class="input-field">
-
-                            <input type="text" id="surname" class= "surname" placeholder="surname" data-section="wrapper" data-value="surname">
-                            
-                            
-                            <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
-
-                        </div>
-
-                    </div>
-                    
-
-                    <div class="input-box">
-
-                        <div class="input-field">
-
-                            <input type="text" id="e-mail" class= "e-mail" placeholder="E-Mail" data-section="wrapper" data-value="email">
-                            
-                            
-                            <img src="../assets/icons/email.png" alt="E-Mailsymbol" class="input-icon"/>
-
-                        </div>
-                    
-                    
-                        <div class="input-box-number">  
-
-                            <div class="input-field-number">
-                                
-                                <input type="number" id="department" class= "department" value="1" min="1" max="4" step="1">  
+                            <div class="input-field-number">                              
+                                                                
+                                <input type="number" id="department" class= "department-input" value="1" min="1" max="4" step="1">  
                                 
                                 
-                                <label for="abteilung" data-section="wrapper" data-value="Department">Department</label>    
+                                <label for="department" data-section="wrapper" data-value="Department">Department</label>    
                                 
                             </div>
+
                             
-                            
-                            <img src="../assets/icons/department.png" alt="department symbol" class="input-icon"/>
+                            <span class="department_icon" aria-hidden="true">
+
+                                <img src="../assets/icons/department.png" alt="department symbol" class="input-icon"/>
+
+                            </span>
 
                         </div>
 
                     </div>
 
 
-                    <div class="input-box">
+                    <!-- Fila 4. Campos: Password - Confirmación de password -->
+                    <div class="form-row-group">
 
+                        <!-- Campo: password -->
                         <div class="input-field">
 
-                            <input type="password" id="password" class= "password" placeholder="Password" data-section="wrapper" data-value="password">
+                            <label for="register-password" class="visually-hidden">Password</label>
+
+
+                            <input type="password" id="register-password" placeholder="Password" data-section="wrapper" data-value="password">
                             
                             
-                            <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+                            <span class="register_password_icon" aria-hidden="true">
+                            
+                                <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
 
-                        </div>
-                    
+                            </span>
 
+                        </div>          
+
+
+                        <!-- Campo: confirmación del password -->
                         <div class="input-field">
 
-                            <input type="password" id="password-confirmation" class= "password-confirmation" placeholder="Password confirmation" data-section="wrapper" data-value="passwordConfirmation">
+                            <label for="password-confirmation" class="visually-hidden">Password confirmation</label>
+
+
+                            <input type="password" id="password-confirmation" placeholder="Password confirmation" data-section="wrapper" data-value="passwordConfirmation">
                             
+
+                            <span class="register_password_icon" aria-hidden="true">
                             
-                            <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+                                <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+
+                            </span>
 
                         </div>
 
@@ -334,13 +393,25 @@
                     </label>
 
 
+                    <!-- Botón para ewnviar los datos -->
                     <button type="submit" id="registerBtn" class="btn" data-section="wrapper" data-value="next">Sign Up</button>  
+
+
+                    <!-- link de retroceso / <a> → navegación -->
+                    <div class="reset-form_back">
+
+                        <a href="#"  id="loginback-link" data-section="reset-wrapper" data-value="back-login">Back to Login</a>                     
+
+                    </div>
 
                 </form>
 
             </div>
 
         </section>
+
+
+
 
         <!---------------------------------------------------------- WORKER ----------------------------------------------------------------------------->
 
