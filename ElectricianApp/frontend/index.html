@@ -369,6 +369,7 @@
                         <!-- Campo: confirmación del password -->
                         <div class="input-field">
 
+                            
                             <label for="password-confirmation" class="visually-hidden">Password confirmation</label>
 
 
@@ -385,7 +386,7 @@
 
                     </div>     
                         
-                        
+                    <!-- Términos para aceptar con el checkbox -->   
                     <label class="terms-text">
 
                         <input id="check-point" type="checkbox" data-section="wrapper" data-value="terms"/> I hereby declare that the information provided above is true and correct
@@ -400,7 +401,7 @@
                     <!-- link de retroceso / <a> → navegación -->
                     <div class="reset-form_back">
 
-                        <a href="#"  id="loginback-link" data-section="reset-wrapper" data-value="back-login">Back to Login</a>                     
+                        <a href="#"  id="register-loginback-link" data-section="reset-wrapper" data-value="back-login">Back to Login</a>                     
 
                     </div>
 
@@ -413,27 +414,33 @@
 
 
 
-        <!---------------------------------------------------------- WORKER ----------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------- WORKER VIEW ----------------------------------------------------------------------------->
 
         <section id="worker-view" class="view worker-view">
 
-            <div class = "wrapper">            
 
-                <form action = "Dateneingaben.jsp" method = "post">   
+            <!-- Contenedor del formulario -->
+            <div id="worker-wrapper" class="worker-wrapper">       
+                
+                
+                <!-- Cuerpo del formulario -->
+                <form id="worker-form" class="worker-form" method="post">   
+
+
 
                     <!-- Greeting -->
+                    <div class="worker-form-greeting">
 
-                    <div class="greeting">
-
-                        <h1>Hallo, ........</h1>
-
-
-                        <div class = "duration">
-
-                            <label for="totaltime"><h2>GESAMTEZEIT: </h2></label>
+                        <h1 id="greeting">Hello, <span id="user-name"></span>!</h1>
 
 
-                            <input type="time" id="start" name="start" required class="totaltime"><br><br>
+                        <!-- Total time -->
+                        <div class="totaltime-panel">
+
+                            <label for="totaltime">TOTAL TIME:</label>               
+                            
+                            
+                            <output id="total-time" class="totaltime">00:00</output>
                         
                         </div>
 
@@ -441,15 +448,14 @@
 
 
                     <!-- Where the date is selected -->
+                    <div class="task-header">
 
-                    <div class="prompt">
-
-                        <h2 >Ausgeführte Aufgaben:  </h2>  
+                        <h2 >Tasks performed:  </h2>  
 
                         
-                        <div class = "date">
+                        <div class="calendar">
 
-                            <label for="date"><h2 type= "Date">Datum: </h2></label>
+                            <label for="date"><h2 type= "Date">Date: </h2></label>
 
 
                             <input type="date" id="date" name="date" required>
@@ -459,126 +465,136 @@
                     </div>   
 
 
-                    <!----------------------- Buttons ---------------------->
 
-                    <!-- 1. The first Button's functionality -->
 
-                    <div class="formular" id = "ftask">            
+                <!------------------------------------------------------------------------- Buttons ------------------------------------------------------------------>
+
+
+
+                    
+                    <!-- 1. The first Button's functionality -->                     
+                    <div class="task-panel" id="task-panel">            
                         
-                        <button type = "button" class = "task_btn">Montage und Verdrahtung</button>
+                        <button type ="button" class ="task-btn" id="task-btn">Assembly and Wiring</button>
 
                         
-                        <div class = "fa">
+                        <div class ="prod" id="product">
 
-                            <label for="fa">FA Nummer: </label>
+                            <label for="prod-number">Prod. number: </label>
 
 
-                            <input type="number" id="fa_number" name="fa">
+                            <input type="number" id="prod-number" name="prod">
         
                         </div>                   
                             
 
-                        <div class = "hours">
+                        <div class="task-time" id="task-time">
 
-                                <label for="start">Von: </label>
+                            <label for="task-start">From: </label>
 
 
-                                <input type="time" id="start" name="start" required class="montage_start_time"><br><br>
+                            <input type="time" id="task-start" name="start" class="task-start" required><br><br>
 
                                 
-                                <label for="end">Bis: </label>
+                            <label for="task-end">To: </label>
 
 
-                                <input type="time" id="end" name="end" required class="montage_end_time"><br><br>
+                            <input type="time" id="task-end" name="end" class="task-end" required><br><br>
                     
                         </div>
 
 
 
-                        <div class="hours_btn">
+                        <div class="validation" id="task-validation">
 
-                                <button type="button" class = "delete_btn">Löschen</button>
+                            <button type="button" class="delete-btn" id="task-delete-btn">Delete</button>
 
 
-                                <button type="button" class = "confirm_btn">Bestätigen</button>
+                            <button type="button" class="confirm-btn" id="task-confirm-btn">Confirm</button>
 
                         </div>                     
                         
                     </div>
 
 
-                    <!-- 2. The second Button's functionality -->
-                    
-                    <div class="formular" id="fmeeting">
+
+
+
+                    <!-- 2. The second Button's functionality -->                    
+                    <div class="meeting-panel" id="meeting-panel">
                                             
-                        <button type = "button" class = "teammeeting_btn">Teamrunde</button>                                
+                        <button type="button" class="meeting-btn" id="meeting-btn">Team Meeting</button>                                
 
 
-                        <div class = "meeting_time">
+                        <div class="meeting-time" id="meeting-time">
 
-                            <label for="start">Von: </label>
+                            <label for="meeting-start">From: </label>
 
-                            <input type="time" id="start" name="start" required class="start_time"><br><br>
+
+                            <input type="time" id="meeting-start" name="start" required class="meeting-start"><br><br>
 
                         
-                            <label for="end">Bis: </label>
+                            <label for="meeting-end">To: </label>
 
 
-                            <input type="time" id="end" name="end" required class="end_time"><br><br>
+                            <input type="time" id="meeting-end" name="end" required class="meeting-end"><br><br>
             
                         </div>
 
 
-                        <div class="agree_btn">
+                        <div class="validation" id="meeting-validation">
 
-                            <button type="button" class = "delete_btn">Löschen</button>
+                            <button type="button" class="delete-btn" id="meeting-delete-btn">Delete</button>
 
 
-                            <button type="button" class = "confirm_btn">Bestätigen</button>
+                            <button type="button" class="confirm-btn"  id="meeting-confirm-btn">Confirm</button>
 
                         </div>                      
 
                     </div>
 
-                    
+
+
+                                        
                     <!-- 3. The third Button's functionality -->
-
-                    <div class="formular" id="fcleanup">
+                    <div class="task-panel" id="cleanup-panel">
             
-                        <button type = "button" class = "cleanup_btn">Aufräumen</button>              
+                        <button type = "button" class = "cleanup-btn">Cleanup</button>              
                         
 
-                        <div class = "cleanup_time">
+                        <div class = "cleanup-time">
 
-                            <label for="start">Von: </label>
+                            <label for="cleanup-start">From: </label>
 
-                            <input type="time" id="start" name="start" required class="start_time"><br><br>
+
+                            <input type="time" id="cleanup-start" name="start" class="cleanup-start" required><br><br>
 
                         
-                            <label for="end">Bis: </label>
+                            <label for="cleanup-end">To: </label>
 
-                            <input type="time" id="end" name="end" required class="end_time"><br><br>
+
+                            <input type="time" id="cleanup-end" name="end" required class="cleanup-end"><br><br>
             
                         </div>
 
 
-                        <div class="cleanup_agree_btn">
+                        <div class="validation" id="cleanup-validation">
 
-                            <button type="button" class = "delete_btn">Löschen</button>
+                            <button type="button" class="delete-btn" id="cleanup-delete-boton">Delete</button>
 
 
-                            <button type="button" class = "confirm_btn">Bestätigen</button>
+                            <button type="button" class="confirm-btn" id="cleanup-confirm-boton">Confirm</button>
 
                         </div>   
                     
                     </div>              
             
             
-                    <div role="button" class="check-btn">
+                    <button class="text-btn" id="check-btn">CHECK</button>
                         
-                        <p class="check-text">ÜBERPRÜFEN</p>
-                        
-                    </div>
+                    
+
+                    
 
                 </form>
 
@@ -588,34 +604,26 @@
                 <div class="check-wrapper">
 
                     <!-- Titulo -->
-
                     <h2>Überprüfung der Daten vor dem Senden</h2><br>
 
                     
                     <!-- JS llenará los <li> aquí -->
-
-                    <ol class="registro-list"></ol>
+                    <ol class="register-list"></ol>
 
 
                     <!-- Boton para regresar  -->
-
-                    <div role="button" class="back-btn">
-                        
-                        <p class="check-text">ZURÜCK</p>
-                        
-                    </div>
+                    <button class="back-btn">BACK</button>
 
                     <!-- Boton para enviar la info  -->
-
-                    <div role="button" class="submit-btn">
-                        
-                        <p class="check-text">SENDEN</p>
-                        
-                    </div>                 
+                    <button class="submit-btn">SUBMIT</button>              
                     
                 </div>
 
+
+
             </div>
+
+
 
         </section>
 
@@ -640,7 +648,10 @@
         <script src="../js/auth.api.js"></script>
 
 
-        <script type="module" src="../js/login.js"></script>      
+        <script type="module" src="../js/login.js"></script>    
+        
+        
+        <script src="../js/pages/worker.js"></script>
     
      
         <script type="module" src="./js/utils/i18n.js"></script>  

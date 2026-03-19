@@ -152,8 +152,8 @@ body {
     
     color: #fff;
     position: absolute;             /* Se coloca respecto al contenedor o al body */
-    top: 80px;   
-    right: 15%;     
+    top: 73px;   
+    right: 6%;     
     font-size: 20px;
     width: 170px;   
 
@@ -908,7 +908,541 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 
-/* ---------------------------------------------------------------------- REGISTER SECTION ----------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- WORKER SECTION ----------------------------------------------------------------------------- */
+
+
+/* Este es el wrapper principal */ 
+.worker-wrapper {
+
+    width: 1300px; 
+    min-height: 700px; 
+    background:transparent;
+    border: 2px solid rgba(244, 244, 253, 0.295);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color:white;
+    border-radius: 10px;
+    padding: 40px 40px;    
+}
+
+
+
+/* 1. INTRODUCCIÓN */
+
+/* Este es el contenedor de la primera parte con saludo y tiempo total */
+.worker-form-greeting{
+    
+    margin: 10px 35px 30px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+
+
+/* Tamaño del título */
+.worker-form-greeting h1 {
+
+    font-size: 36px;      
+
+}
+
+
+/* Este es el contenedor del tiempo total y de su muestra */
+.totaltime-panel{
+
+    display: flex;
+    align-items: center;   
+    
+}
+
+
+
+/* Aquí tratamos el título del tiempo total */
+.totaltime-panel label {
+    
+    margin-right: 10px;
+    font-size: 25px;        /* mismo tamaño que tu <h2> */
+    font-weight: bold;      /* opcional */
+    white-space: nowrap;    /* evita que se divida en varias líneas */
+
+}
+
+
+
+/* Este selector conforma el contenedor del tiempo total */
+.totaltime {
+
+    width: 120px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    line-height: normal;                        /* dejar que la línea base coincida con el h2 */
+    padding: 0;
+    border-radius: 5px;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: #fff;
+
+}
+
+
+
+/* 2. ENCABEZADO */
+
+/* Este selector conforma el contenedor del cabecero de la vista del trabajador */
+.task-header {    
+       
+    margin: 50px 40px 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    
+}
+
+
+/* Este selector conforma el posicionamiento del calendario para la selección de la fecha */
+.calendar {
+
+    display: flex;
+    align-items: center;    
+
+}
+
+
+
+/* Este selector conforma la posición de la etiqueta del calendario */
+.calendar label {
+
+    margin-right: 10px; 
+    
+}
+
+
+/* Este selector conforma la forma del calendario */
+.calendar input{
+
+    width: 135px;
+    height: 35px; 
+    font-size: 18px;     
+    border-radius: 5px;
+
+}
+
+
+
+/* 1. TAREA */
+
+/* Primer panel para introducir los datos de la tarea realizada */
+.task-panel{
+
+    margin: 0px 40px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+   
+}
+
+
+/* botón de la tarea realizada */
+.task-btn {
+
+    width: 300px; 
+    height: 65px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;   
+    margin: 40px; 
+
+}
+
+
+
+/* Escondemos por defecto la entrada del número de producto */
+.prod {
+    
+    font-size: 20px;
+    display: none;
+
+}
+ 
+
+/* Tratamos la etiqueta de la entrada del número del producto */
+.prod label{
+
+    margin-right: 10px;  
+
+}
+
+
+/* Conformamos la entrada del número de producto */
+.prod input {
+
+    margin-right:20px; 
+    width: 90px; 
+    appearance: textfield;
+    border-radius: 5px;
+    height: 25px; 
+    font-size: 15px;  
+    
+}
+
+
+
+/* Este selector esconde el display del tiempo de la tarea realizada */
+.task-time{
+
+    display: none;   
+    
+   
+}
+
+
+
+/* Tamaño de la etiqueta del tiempo de tarea */
+.task-time label{
+
+    margin-right: 10px;  
+    font-size: 20px;   
+
+}
+
+
+
+/* Selector del tiempo de comienzo de la tarea */
+.task-start{
+
+    margin-right:30px;  
+    width: 50px;
+    height: 25px; 
+    font-size: 15px;     
+    border-radius: 5px;
+    appearance: textfield;
+   
+}
+
+
+
+/* Selector del tiempo de finalización de la tarea */
+.task-end{
+
+    width: 50px;
+    height: 25px; 
+    font-size: 15px;     
+    border-radius: 5px;
+    margin-right:20px;  
+    appearance: textfield;    
+
+}
+
+
+
+/* 2. MEETING */
+
+/* Segundo panel para introducir los datos del meeting realizado */
+.meeting-panel{
+
+    margin: 0px 40px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+   
+}
+
+
+
+/* Botón del meeting realizado */
+.meeting-btn {
+
+    width: 300px; 
+    height: 65px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;   
+    margin: 40px; 
+
+}
+
+
+
+/* Este selector esconde el display del tiempo del meeting realizado */
+.meeting-time{
+
+    display: none;   
+    margin-right: 50px;
+   
+}
+
+
+
+/* Este selector trata la etiqueta del tiempo del meeting */
+.meeting-time label{
+
+    margin-right: 10px;  
+    font-size: 20px;   
+
+}
+
+
+/* Selector de comienzo de meeting */
+.meeting-start{
+
+    margin-right:60px;  
+    width: 50px;
+    height: 25px; 
+    font-size: 15px;     
+    border-radius: 5px;
+
+    appearance: textfield;
+   
+}
+
+
+
+/* Selector de finalización del meeting */
+.meeting-end{
+
+    width: 50px;
+    height: 25px; 
+    font-size: 15px;     
+    border-radius: 5px;
+
+    appearance: textfield;    
+
+}
+
+
+
+/* 3. ORDENAR */
+
+/* Botón del orden realizado */
+.cleanup-btn {
+
+    width: 300px; 
+    height: 65px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;   
+    margin: 40px; 
+
+}
+
+
+
+/* Este selector trata la etiqueta del tiempo de ordenar */
+.cleanup-time label{
+
+    margin-right: 10px;  
+    font-size: 20px;   
+
+}
+
+
+
+/* Este selector esconde el display del tiempo de ordenar realizado */
+.cleanup-time{
+
+    display: none;   
+    margin-right: 50px;
+   
+}
+
+
+
+/* This is the button, to check if everything is ok before saving*/
+.text-btn{   
+    
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    background: none;     /* sin fondo */
+    border: none;         /* sin borde */
+    padding: 0;           /* sin padding extra */
+    color: white;         /* color del texto */
+    text-decoration: underline; /* subrayado */
+    cursor: pointer;      /* puntero de clic */
+    font-family: inherit; /* hereda la fuente del contenedor */
+
+}
+
+
+
+/* 4. VALIDACIONES GENERAL */
+
+/* Selector del contenedor de la validación de la información por y para cada tarea */
+.validation{
+
+    display: none;
+
+}
+
+
+
+/* Borrado de datos de cada tarea */
+.delete-btn{
+
+    width: 120px; 
+    height: 35px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;  
+    margin: 0 30px;  
+
+}
+
+
+
+/* Confirmación de datos de cada tarea */
+.confirm-btn{
+
+    width: 120px; 
+    height: 35px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;    
+
+}
+
+
+
+
+
+
+
+
+button {
+
+    display: flex;             /* flex para centrar */
+    align-items: center;       /* centrado vertical */
+    justify-content: center;   /* centrado horizontal */
+    
+}
+
+
+
+
+/* ---------------------------------------------------------------- Check List ------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+/* Este selector modifica el wrapper de comprobación */
+.check-wrapper {
+
+    display: none; /* sigue oculto al inicio */
+    flex-direction: column; /* apila verticalmente. Por defecto los elementos hijos se alinean en fila horizontal (row). */
+    gap: 15px; /* opcional: espacio entre h2, lista y botones */
+
+}
+
+
+
+/* Lista que se mostrará con los datos que se enviarán para su comprobación */
+.register-list {
+
+    list-style-position: inside; /* Opcional: números dentro */
+    padding-left: 0;             /* Elimina padding por defecto */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;                   /* Espacio entre los <li> */
+
+}
+
+
+
+/* Este selector modifica la lista para su muestra */
+.register-list li {
+
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+
+}
+
+
+
+/* Botón para regresar */
+.back-btn {   
+    position: absolute;
+    bottom: 30px; 
+    left: 50px;    
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centra el texto */
+    cursor: pointer;
+
+    background: none;  /* elimina fondo por defecto */
+    border: none;      /* elimina borde por defecto */
+    padding: 0;        /* sin padding extra */
+    color: white;      /* mismo color que antes */
+    font-family: inherit; /* hereda fuente del contenedor */
+}
+
+/* Botón para enviar info */
+.submit-btn {   
+    position: absolute;
+    bottom: 30px; 
+    right: 50px;    
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centra el texto */
+    cursor: pointer;
+
+    background: none; 
+    border: none;     
+    padding: 0;       
+    color: white;     
+    font-family: inherit;
+}
 
 
 
@@ -920,9 +1454,40 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 
+/* This is the button, to go back from the check list *
+
+.back-btn {   
+    
+    position: absolute;
+    bottom: 30px; 
+    left: 50px;    
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
 
 
 
+/* This is the button, to submit the data to the DB 
+
+.submit-btn {   
+    
+    position: absolute;
+    bottom: 30px; 
+    right: 50px;    
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+
+*/
 
 
 

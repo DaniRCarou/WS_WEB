@@ -1,7 +1,17 @@
 /* 
- Todo lo relacionado con los idioma. carga JSON de idiomas y actualiza los textos. Se llama i18n por convención internacional en desarrollo de software.
+ Todo lo relacionado con los idioma. Carga JSON de idiomas y actualiza los textos. Se llama i18n por convención internacional en desarrollo de software.
  i18n significa “internationalization”. La letra i es la primera de internationalization, la n es la última, y el 18 representa las 18 letras que hay entre la i y la n.
  Es una abreviatura estándar usada en todo el software para referirse a todo lo relacionado con traducciones, idiomas y adaptación de la aplicación a distintos países/regiones.
+
+ Este archivo se guarda dentro de la carpeta utils porque utils viene de “utilities”, que en español sería “utilidades”. Es una carpeta donde pones funciones o módulos que son genéricos y reutilizables en varias partes del proyecto, pero que no pertenecen a una vista específica ni a una API concreta.
+ Por ejemplo:
+
+  - Funciones para formatear fechas (formatDate)
+  - Validaciones genéricas (isEmpty, isEmail)
+  - Funciones para traducciones (i18n.js)
+  - Helpers para manipular arrays o objetos
+
+  Idea: cualquier función “de uso general” que puedas usar en muchas partes de tu frontend.
 */
 
 
