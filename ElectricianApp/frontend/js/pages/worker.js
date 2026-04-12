@@ -1,20 +1,34 @@
 
 
-// ------------------------ 3. SELECCIÓN DE FECHA ------------------------
+// ------------------------ 1. SELECCIÓN DE FECHA ------------------------
 
 
-// Get the input for the date field
+
+// 1. Selecciona el input de fecha del HTML por su id="date" y lo guarda en una constante
 const dateInput = document.getElementById('date');
 
-// Get today's date in YYYY-MM-DD format
+// 2. Crea un objeto Date con la fecha y hora actual del sistema del ordenador
 const today = new Date();
+
+// 3. Extrae el año de la fecha actual. Ejemplo: 2026
 const yyyy = today.getFullYear();
-const mm = String(today.getMonth() + 1).padStart(2, '0'); // Meses: 0-11, se ajusta a 1-12
+
+// 4. Extrae el mes de la fecha actual.
+//    getMonth() devuelve valores del 0 al 11 (enero=0, diciembre=11), por eso se suma +1
+//    String() convierte el número a texto para poder usar padStart()
+//    padStart(2, '0') añade un cero delante si el mes tiene un solo dígito. Ejemplo: 4 → '04'
+const mm = String(today.getMonth() + 1).padStart(2, '0');
+
+// 5. Extrae el día de la fecha actual.
+//    padStart(2, '0') añade un cero delante si el día tiene un solo dígito. Ejemplo: 7 → '07'
 const dd = String(today.getDate()).padStart(2, '0');
 
+// 6. Une las tres partes en el formato que necesita el input type="date": YYYY-MM-DD
+//    Los backticks `` y ${} permiten insertar variables dentro de un texto. Ejemplo: '2026-04-12'
 const formattedDate = `${yyyy}-${mm}-${dd}`;
 
-// Set today's date as the initial value
+// 7. Asigna la fecha formateada al input de fecha del HTML
+//    Así el input muestra hoy como valor inicial cuando el trabajador abre la página
 dateInput.value = formattedDate;
 
 
@@ -25,40 +39,81 @@ dateInput.value = formattedDate;
 
 
 
-// 4. Get the elements inside the .worker-form container
+// ------------------------ 2. BOTÓN ASSEMBLY AND WIRING ------------------------
 
-const taskButton = document.querySelector('.task-btn');
-const prod = document.querySelector('.prod');
-const taskTime = document.querySelector('.task-time'); 
-const taskValidation = document.querySelector('#task-validation');
 
-// 2. Add a click event to the button
 
+// 1. Selecciona los tres botones principales del HTML y los guarda en constantes
+//    Se declaran aquí arriba porque los tres eventos los necesitan — si los declaramos dentro
+//    de cada evento, los otros eventos no podrían verlos
+const taskButton = document.querySelector('.task-btn');           /* botón Assembly and Wiring */
+
+const teamMeetingButton = document.querySelector('.meeting-btn'); /* botón Team Meeting */
+
+const cleanUpButton = document.querySelector('.cleanup-btn');     /* botón Cleanup */
+
+
+// 2. Selecciona los elementos que se muestran y ocultan al pulsar el botón Assembly and Wiring
+const prod = document.querySelector('.prod');                     /* div que contiene el input de Prod. number */
+
+const taskTime = document.querySelector('.task-time');            /* div que contiene los inputs From y To */
+
+const taskValidation = document.querySelector('#task-validation'); /* div que contiene los botones Delete y Confirm */
+
+
+// 3. Escucha el evento click en el botón Assembly and Wiring
+//    Cada vez que el trabajador pulse el botón, se ejecuta el código dentro de () => { }
 taskButton.addEventListener('click', () => {
 
-    // 3. To checik if the elements are visible
-
+    // 4. Comprueba si los tres elementos ya están visibles en pantalla
+    //    === 'flex' → comprueba si el display actual del elemento es flex (visible)
+    //    && → significa "y además", es decir, los tres deben ser flex a la vez
     if (prod.style.display === 'flex' && taskTime.style.display === 'flex' && taskValidation.style.display === 'flex') {
 
-    // 4. If they are visible, hide them
+        // 5. Si los tres están visibles → los oculta (el trabajador ha vuelto a pulsar el botón)
+        prod.style.display = 'none';            /* oculta el input de Prod. number */
 
-        prod.style.display = 'none';
-        taskTime.style.display = 'none';
-        taskValidation.style.display = 'none';
+        taskTime.style.display = 'none';        /* oculta los inputs From y To */
 
-       
+        taskValidation.style.display = 'none';  /* oculta los botones Delete y Confirm */
+
+
+        // 6. Vuelve a mostrar los botones de Meeting y Cleanup por si estaban ocultos en móvil
+        teamMeetingButton.style.display = 'flex'; /* muestra el botón Team Meeting */
+
+        cleanUpButton.style.display = 'flex';     /* muestra el botón Cleanup */
+
     } else {
 
-    // 5. If they are not visible, show them
+        // 7. Si no están visibles → los muestra (el trabajador ha pulsado el botón por primera vez)
+        prod.style.display = 'flex';            /* muestra el input de Prod. number */
 
-        prod.style.display = 'flex';
-        taskTime.style.display = 'flex';
-        taskValidation.style.display = 'flex';
+        taskTime.style.display = 'flex';        /* muestra los inputs From y To */
 
-        meetingTime.style.display = 'none';
-        meetingValidation.style.display = 'none';
-        cleaninUpTime.style.display = 'none';
-        cleanUpValidation.style.display = 'none';       
+        taskValidation.style.display = 'flex';  /* muestra los botones Delete y Confirm */
+
+
+        // 8. Oculta los tiempos y validaciones de los otros paneles
+        //    para que no aparezcan dos paneles abiertos a la vez
+        meetingTime.style.display = 'none';       /* oculta los inputs From y To del Meeting */
+
+        meetingValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Meeting */
+
+        cleaninUpTime.style.display = 'none';     /* oculta los inputs From y To del Cleanup */
+
+        cleanUpValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Cleanup */
+
+
+        // 9. Solo en móvil oculta los botones de Meeting y Cleanup
+        //    window.innerWidth → ancho actual de la pantalla en píxeles
+        //    <= 480 → si el ancho es menor o igual a 480px estamos en móvil
+        if (window.innerWidth <= 480) {
+
+            teamMeetingButton.style.display = 'none'; /* oculta el botón Team Meeting en móvil */
+
+            cleanUpButton.style.display = 'none';     /* oculta el botón Cleanup en móvil */
+
+        }
 
     }
 
@@ -72,40 +127,67 @@ taskButton.addEventListener('click', () => {
 
 
 
-// 1. Get the "teammeeting_btn" button and the elements inside the .formular container
-
-const teamMeetingButton = document.querySelector('.meeting-btn');
-const meetingTime = document.querySelector('.meeting-time');
-const meetingValidation = document.querySelector('#meeting-validation');
+// ------------------------ 3. BOTÓN TEAM MEETING ------------------------
 
 
-// 2. Add a click event to the button
 
+// 1. Selecciona los elementos que se muestran y ocultan al pulsar el botón Team Meeting
+//    Nota: teamMeetingButton ya fue declarado arriba, no se declara de nuevo aquí
+const meetingTime = document.querySelector('.meeting-time');             /* div que contiene los inputs From y To del Meeting */
+
+const meetingValidation = document.querySelector('#meeting-validation'); /* div que contiene los botones Delete y Confirm del Meeting */
+
+// 2. Escucha el evento click en el botón Team Meeting
+//    Cada vez que el trabajador pulse el botón, se ejecuta el código dentro de () => { }
 teamMeetingButton.addEventListener('click', () => {
 
-    // 3. To checik if the elements are visible
+    // 3. Comprueba si los dos elementos del Meeting ya están visibles en pantalla
+    //    === 'flex' → comprueba si el display actual del elemento es flex (visible)
+    //    && → significa "y además", es decir, los dos deben ser flex a la vez
+    if (meetingTime.style.display === 'flex' && meetingValidation.style.display === 'flex') {
 
-    if (meetingTime.style.display === 'flex' && meetingValidation.style.display  === 'flex') {
+        // 4. Si los dos están visibles → los oculta (el trabajador ha vuelto a pulsar el botón)
+        meetingTime.style.display = 'none';       /* oculta los inputs From y To del Meeting */
 
-    // 4. If they are visible, hide them
+        meetingValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Meeting */
 
-        
-        meetingTime.style.display = 'none';
-        meetingValidation.style.display = 'none';      
-       
+
+        // 5. Vuelve a mostrar los botones de Assembly y Cleanup por si estaban ocultos en móvil
+        taskButton.style.display = 'flex';    /* muestra el botón Assembly and Wiring */
+
+        cleanUpButton.style.display = 'flex'; /* muestra el botón Cleanup */
 
     } else {
 
-    // 5. If they are not visible, show them
+        // 6. Si no están visibles → los muestra (el trabajador ha pulsado el botón por primera vez)
+        meetingTime.style.display = 'flex';       /* muestra los inputs From y To del Meeting */
 
-        meetingTime.style.display = 'flex';
-        meetingValidation.style.display = 'flex';
-        
-        prod.style.display = 'none';
-        taskTime.style.display = 'none';
-        taskValidation.style.display = 'none';
-        cleaninUpTime.style.display = 'none';
-        cleanUpValidation.style.display = 'none';        
+        meetingValidation.style.display = 'flex'; /* muestra los botones Delete y Confirm del Meeting */
+
+
+        // 7. Oculta los tiempos y validaciones de los otros paneles
+        //    para que no aparezcan dos paneles abiertos a la vez
+        prod.style.display = 'none';              /* oculta el input de Prod. number */
+
+        taskTime.style.display = 'none';          /* oculta los inputs From y To de la tarea */
+
+        taskValidation.style.display = 'none';    /* oculta los botones Delete y Confirm de la tarea */
+
+        cleaninUpTime.style.display = 'none';     /* oculta los inputs From y To del Cleanup */
+
+        cleanUpValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Cleanup */
+
+
+        // 8. Solo en móvil oculta los botones de Assembly y Cleanup
+        //    window.innerWidth → ancho actual de la pantalla en píxeles
+        //    <= 480 → si el ancho es menor o igual a 480px estamos en móvil
+        if (window.innerWidth <= 480) {
+
+            taskButton.style.display = 'none';    /* oculta el botón Assembly and Wiring en móvil */
+
+            cleanUpButton.style.display = 'none'; /* oculta el botón Cleanup en móvil */
+
+        }
 
     }
 
@@ -119,38 +201,67 @@ teamMeetingButton.addEventListener('click', () => {
 
 
 
-// 1. Get the "cleanup_btn" button and the elements inside the .formular container
+// ------------------------ 4. BOTÓN CLEANUP ------------------------
 
-const cleanUpButton = document.querySelector('.cleanup-btn');
-const cleaninUpTime = document.querySelector('.cleanup-time');
-const cleanUpValidation = document.querySelector('#cleanup-validation');
 
-// 2. Add a click event to the button
 
+// 1. Selecciona los elementos que se muestran y ocultan al pulsar el botón Cleanup
+//    Nota: cleanUpButton ya fue declarado arriba, no se declara de nuevo aquí
+const cleaninUpTime = document.querySelector('.cleanup-time');           /* div que contiene los inputs From y To del Cleanup */
+
+const cleanUpValidation = document.querySelector('#cleanup-validation'); /* div que contiene los botones Delete y Confirm del Cleanup */
+
+// 2. Escucha el evento click en el botón Cleanup
+//    Cada vez que el trabajador pulse el botón, se ejecuta el código dentro de () => { }
 cleanUpButton.addEventListener('click', () => {
 
-    // 3. To checik if the elements are visible
+    // 3. Comprueba si los dos elementos del Cleanup ya están visibles en pantalla
+    //    === 'flex' → comprueba si el display actual del elemento es flex (visible)
+    //    && → significa "y además", es decir, los dos deben ser flex a la vez
+    if (cleaninUpTime.style.display === 'flex' && cleanUpValidation.style.display === 'flex') {
 
-    if (cleaninUpTime.style.display === 'flex' && cleanUpValidation.style.display  === 'flex') {
+        // 4. Si los dos están visibles → los oculta (el trabajador ha vuelto a pulsar el botón)
+        cleaninUpTime.style.display = 'none';     /* oculta los inputs From y To del Cleanup */
 
-    // 4. If they are visible, hide them
+        cleanUpValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Cleanup */
 
-        cleaninUpTime.style.display = 'none';
-        cleanUpValidation.style.display = 'none';
-                
+
+        // 5. Vuelve a mostrar los botones de Assembly y Meeting por si estaban ocultos en móvil
+        taskButton.style.display = 'flex';        /* muestra el botón Assembly and Wiring */
+
+        teamMeetingButton.style.display = 'flex'; /* muestra el botón Team Meeting */
 
     } else {
 
-    // 5. If they are not visible, show them
+        // 6. Si no están visibles → los muestra (el trabajador ha pulsado el botón por primera vez)
+        cleaninUpTime.style.display = 'flex';     /* muestra los inputs From y To del Cleanup */
 
-        cleaninUpTime.style.display = 'flex';
-        cleanUpValidation.style.display = 'flex';
-        
-        meetingTime.style.display = 'none';
-        meetingValidation.style.display = 'none';
-        prod.style.display = 'none';
-        taskTime.style.display = 'none';
-        taskValidation.style.display = 'none';        
+        cleanUpValidation.style.display = 'flex'; /* muestra los botones Delete y Confirm del Cleanup */
+
+
+        // 7. Oculta los tiempos y validaciones de los otros paneles
+        //    para que no aparezcan dos paneles abiertos a la vez
+        meetingTime.style.display = 'none';       /* oculta los inputs From y To del Meeting */
+
+        meetingValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Meeting */
+
+        prod.style.display = 'none';              /* oculta el input de Prod. number */
+
+        taskTime.style.display = 'none';          /* oculta los inputs From y To de la tarea */
+
+        taskValidation.style.display = 'none';    /* oculta los botones Delete y Confirm de la tarea */
+
+
+        // 8. Solo en móvil oculta los botones de Assembly y Meeting
+        //    window.innerWidth → ancho actual de la pantalla en píxeles
+        //    <= 480 → si el ancho es menor o igual a 480px estamos en móvil
+        if (window.innerWidth <= 480) {
+
+            taskButton.style.display = 'none';        /* oculta el botón Assembly and Wiring en móvil */
+
+            teamMeetingButton.style.display = 'none'; /* oculta el botón Team Meeting en móvil */
+
+        }
 
     }
 
@@ -164,119 +275,159 @@ cleanUpButton.addEventListener('click', () => {
 
 
 
+// ------------------------ 5. SELECCIÓN DE ELEMENTOS PARA EL CLIC FUERA ------------------------
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --------------------------------------------------------------------------- When clicking anywhere outside on the screen, the elements are hidden ----------------------------------------------------------------------------------------------------------- */ 
-   
-
-
+// 1. Selecciona el botón CHECK del HTML por su id="check-btn"
+//    Se usa más adelante para saber si el trabajador ha pulsado el botón CHECK
 const check = document.querySelector('#check-btn');
-const tFormular = document.querySelector('#task-panel');    
+
+// 2. Selecciona el contenedor de la pantalla de revisión por su clase ".check-wrapper"
+//    Se declara aquí porque se necesita en dos sitios distintos:
+//    - En el clic fuera → para ocultarlo si el trabajador hace clic fuera de él
+//    - En el botón CHECK → para mostrarlo cuando el trabajador pulse CHECK
+const checkWrapper = document.querySelector('.check-wrapper');
+
+// 3. Selecciona el panel completo de Assembly and Wiring por su id="task-panel"
+//    Se usa para detectar si el trabajador ha hecho clic dentro o fuera de este panel
+const tFormular = document.querySelector('#task-panel');
+
+// 4. Selecciona el panel completo de Team Meeting por su id="meeting-panel"
+//    Se usa para detectar si el trabajador ha hecho clic dentro o fuera de este panel
 const mFormular = document.querySelector('#meeting-panel');
+
+// 5. Selecciona el panel completo de Cleanup por su id="cleanup-panel"
+//    Se usa para detectar si el trabajador ha hecho clic dentro o fuera de este panel
 const cFormular = document.querySelector('#cleanup-panel');
 
 
-// La razón por la cual closest() funciona en este caso, mientras que matches() no, se debe a cómo ambos métodos interactúan con el árbol de elementos y la propagación de eventos en el DOM.
-// !e.target.matches(selector): Este método se usa para verificar si el elemento específico sobre el cual ocurrió el evento (es decir, e.target) coincide directamente con el selector proporcionado. Si haces clic sobre el .prod, e.target.matches('.prod') devolverá true solo si el elemento sobre el cual se hizo clic tiene la clase .prod directamente. No afecta a los ancestros ni a los elementos contenedores. Es una coincidencia exacta del elemento donde ocurrió el clic.
-// !e.target.closest(selector): Este método, en cambio, busca recursivamente hacia arriba desde el elemento donde ocurrió el clic (e.target), y devuelve el primer ancestro que coincida con el selector. Si el clic fue sobre un elemento que está dentro de un contenedor con la clase .prod, closest('.prod') devolverá ese contenedor. Si el clic fue sobre .prod directamente, closest('.prod') también devolverá el mismo .prod. Si no encuentra ningún ancestro que coincida, devuelve null.
+// ------------------------ OCULTAR ELEMENTOS AL HACER CLIC FUERA ------------------------
 
+/*
+    DIFERENCIA ENTRE matches() y closest() — por qué usamos closest():
+
+    matches(selector) → comprueba SOLO el elemento exacto donde hiciste clic.
+    Ejemplo: si haces clic en un <input> dentro de .prod, matches('.prod') devuelve false
+    porque el clic fue en el <input>, no en el div .prod directamente.
+
+    closest(selector) → busca hacia arriba desde el elemento donde hiciste clic,
+    subiendo por todos sus contenedores padre hasta encontrar uno que coincida.
+    Ejemplo: si haces clic en un <input> dentro de .prod, closest('.prod') devuelve
+    el div .prod porque está por encima del <input> en el árbol HTML.
+
+    Por eso usamos closest() — porque el trabajador puede hacer clic en cualquier
+    elemento dentro de un panel, no solo en el panel directamente.
+*/
+
+// 1. Escucha todos los clics que ocurran en cualquier parte del documento
+//    (e) → es el objeto del evento, contiene información sobre el clic
 document.addEventListener("click", (e) => {
 
+    // 2. Guarda el elemento exacto donde el trabajador ha hecho clic
+    //    e.target → es siempre el elemento más pequeño donde ocurrió el clic
+    //    Ejemplo: si hay un <span> dentro de un <button> y haces clic en el texto,
+    //    e.target será el <span>, no el <button>
+    //    Se guarda en una variable para no repetir e.target en cada línea
+    const target = e.target;
 
 
-    /* 
-
-        Cuando haces clic en cualquier parte del documento, el navegador dispara un evento click.
-        Dentro de ese evento, e.target es el elemento exacto donde hiciste clic.
-
-        Ejemplo:
-        Si haces clic en un <span> dentro de un botón, e.target será el <span>, no el botón entero.
-
-    */
-
-    const target = e.target; 
-
-    /* Esto simplemente guarda e.target en una variable para que no tengas que escribir e.target una y otra vez, si no habría que escribir lo siguiente: 
-
-        if (!e.target.closest('.check-wrapper') && !e.target.closest('#check-btn')) {
-
-            checkWrapper.style.display = 'none';
-
-        }
-
-    */
-    
-
-
-
-
-
-    // Si haces clic FUERA de #task-panel
-
+    // 3. Si el trabajador hace clic FUERA del panel de Assembly and Wiring → oculta sus elementos
     if (!target.closest('#task-panel')) {
 
-        prod.style.display = 'none';
-        taskTime.style.display = 'none';
-        taskValidation.style.display = 'none';
+        prod.style.display = 'none';           /* oculta el input de Prod. number */
+
+        taskTime.style.display = 'none';       /* oculta los inputs From y To */
+
+        taskValidation.style.display = 'none'; /* oculta los botones Delete y Confirm */
+
+        // Borra los valores de los inputs al ocultarlos
+        document.querySelector('#prod-number').value = '';   /* Borra el número de producto */
+
+        document.querySelector('.task-start').value = '';    /* Borra la hora de inicio */
+
+        document.querySelector('.task-end').value = '';      /* Borra la hora de fin */
 
     }
 
-    // Si haces clic FUERA de #meeting-panel
-
+    // 4. Si el trabajador hace clic FUERA del panel de Team Meeting → oculta sus elementos
     if (!target.closest('#meeting-panel')) {
 
         meetingTime.style.display = 'none';
+
         meetingValidation.style.display = 'none';
+
+        // Borra los valores de los inputs al ocultarlos
+        document.querySelector('.meeting-start').value = ''; /* Borra la hora de inicio */
+
+        document.querySelector('.meeting-end').value = '';   /* Borra la hora de fin */
 
     }
 
-    // Si haces clic FUERA de #cleanup-panel
-
+    // 5. Si el trabajador hace clic FUERA del panel de Cleanup → oculta sus elementos
     if (!target.closest('#cleanup-panel')) {
 
         cleaninUpTime.style.display = 'none';
+        
         cleanUpValidation.style.display = 'none';
 
-    }
-
-    
-
-    // Si haces clic FUERA de .check-wrapper
-    // Este caso es diferente a los anteriores. 
-    // Porque, cuando haces clic en el botón #check-btn para mostrar .check-wrapper, ese mismo clic también activa el document.addEventListener('click'), y como .check-wrapper aún no está visible en ese momento, se oculta inmediatamente. ¡Se abre y se cierra al instante!
-
-    if (!target.closest('.check-wrapper') && !target.closest("#check-btn") ) {     
-
-        checkWrapper.style.display = 'none';
+        // Borra los valores de los inputs al ocultarlos
+        document.querySelector('.cleanup-start').value = ''; /* Borra la hora de inicio */
+        document.querySelector('.cleanup-end').value = '';   /* Borra la hora de fin */
 
     }
 
 
+    // 6. Si el trabajador hace clic FUERA del check-wrapper → lo oculta
+    //    Este caso necesita una condición doble porque hay un problema especial:
+    //    Cuando el trabajador pulsa el botón CHECK para abrir el check-wrapper,
+    //    ese mismo clic también activa este document.addEventListener.
+    //    Como el check-wrapper aún no está visible en ese momento, se ocultaría
+    //    inmediatamente después de abrirse. ¡Se abriría y cerraría al instante!
+    //    La solución es excluir también el botón CHECK de la condición:
+    //    → si el clic fue en el check-wrapper O en el botón CHECK, no lo ocultes
+    if (!target.closest('.check-wrapper') && !target.closest('#check-btn')) {
 
+        checkWrapper.style.display = 'none'; /* oculta el check-wrapper */
 
-    
-
-
+    }
 
 });
 
 
 
+
+
+
+
+
+
+// ------------------------ 6. BOTÓN DELETE ------------------------
+
+
+
+// 1. Selecciona los tres botones Delete de cada panel
+const taskDeleteBtn = document.querySelector('#task-delete-btn');       /* Botón Delete del panel Assembly */
+const meetingDeleteBtn = document.querySelector('#meeting-delete-btn'); /* Botón Delete del panel Meeting */
+
+// 2. Escucha el clic en el botón Delete del panel Assembly and Wiring
+taskDeleteBtn.addEventListener('click', () => {
+
+    // 3. Borra los valores de los inputs del panel Assembly
+    document.querySelector('#prod-number').value = '';   /* Borra el número de producto */
+    document.querySelector('.task-start').value = '';    /* Borra la hora de inicio */
+    document.querySelector('.task-end').value = '';      /* Borra la hora de fin */
+
+});
+
+// 4. Escucha el clic en el botón Delete del panel Team Meeting
+meetingDeleteBtn.addEventListener('click', () => {
+
+    // 5. Borra los valores de los inputs del panel Meeting
+    document.querySelector('.meeting-start').value = ''; /* Borra la hora de inicio */
+    document.querySelector('.meeting-end').value = '';   /* Borra la hora de fin */
+
+});
 
    
 
@@ -286,169 +437,330 @@ document.addEventListener("click", (e) => {
 
 
 
-// -------------------------- EN ESTE APARTADO SE GUARDARÁN LOS DATOS QUE SE VAN A ENVIAR PARA SER COMPROBADOS ANTES DE ENVIARLOS A LA BBDD ------------------
+// ------------------------ 7. GUARDAR DATOS AL PULSAR CONFIRM ------------------------
+
+// 1. Crea un array vacío donde se guardarán todos los registros que el trabajador confirme
+//    Un array es una lista ordenada de elementos. Cada elemento será un objeto con los datos de una tarea
+const entries = [];
+
+// 2. Escucha el clic en el botón Confirm del panel Assembly and Wiring
+//    '#task-panel .confirm-btn' → selector que apunta al botón Confirm dentro del panel de Assembly
+//    Usar el panel como prefijo evita conflictos con los otros botones Confirm que también existen
+document.querySelector('#task-panel .confirm-btn').addEventListener('click', () => {
+
+    // 3. Lee los valores que el trabajador ha introducido en los inputs del panel Assembly
+    //    .value → obtiene el texto o número que hay escrito dentro del input en ese momento
+    const faNumber = document.querySelector('#prod-number').value;  /* Número de producto introducido */
+
+    const start = document.querySelector('.task-start').value;      /* Hora de inicio introducida */
+
+    const end = document.querySelector('.task-end').value;          /* Hora de fin introducida */
+
+    const date = document.querySelector('#date').value;             /* Fecha seleccionada */
 
 
+    // Validación: comprueba que la hora de fin es mayor que la hora de inicio
+    // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
+    // return → detiene la ejecución y no guarda nada si las horas son incorrectas
+    if (start >= end) {
+
+        alert("Error: The end time must be later than the start time");
+
+        return;
+
+    }
 
 
-// 1️⃣ Crear una estructura para guardar los datos
+    // 4. Añade un nuevo objeto al array entries con los datos leídos
+    //    push() → método que añade un elemento al final del array
+    //    {} → un objeto en JS, similar a una fila de una tabla con sus columnas y valores
+    entries.push({
 
-    const entries = []; // aquí guardaremos todos los datos que el usuario introduce
+        type: "Assembly and Wiring",  /* Tipo de tarea → siempre será este valor para este botón */
 
+        date: date,                   /* Fecha seleccionada por el trabajador */
 
-// 2️⃣ Capturar los datos cuando se pulsa "Confirmar" en cada formulario
+        start: start,                 /* Hora de inicio introducida */
 
-    document.querySelector('#task-panel .confirm-btn').addEventListener('click', () => { // ('#task-panel .confirm-btn') -> Opción más segura (recomendada). Evita conflictos si hay más botones iguales. Más mantenible en proyectos grandes
+        end: end,                     /* Hora de fin introducida */
 
-        const faNumber = document.querySelector('#prod-number').value;           
-        const start = document.querySelector('.task-start').value;
-        const end = document.querySelector('.task-end').value;
-        const date = document.querySelector('#date').value;
+        faNumber: faNumber            /* Número de producto introducido */
 
-        // Guardar en el array
-
-        entries.push({                          // push() es un método de los arrays. Se está añadiendo un objeto tipico de un array. En JSON -> {  "type": "Teamrunde",  "date": "2025-01-10"  }
-            type: "Assembly and Wiring",    
-            date: date,
-            start: start,
-            end: end,
-            faNumber: faNumber
-        });
-
-        alert("Assembly entry saved");
     });
 
 
+    // 5. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
+    alert("Assembly entry saved");
+
+});
 
 
+// 6. Escucha el clic en el botón Confirm del panel Team Meeting
+//    '#meeting-panel .confirm-btn' → selector que apunta al botón Confirm dentro del panel Meeting
+document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', () => {
 
-    document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', () => {  // ('#meeting-panel .confirm-btn') -> Opción más segura (recomendada). Evita conflictos si hay más botones iguales. Más mantenible en proyectos grandes.
+    // 7. Lee los valores que el trabajador ha introducido en los inputs del panel Meeting
+    const start = document.querySelector('#meeting-panel .meeting-start').value;  /* Hora de inicio */
 
-        const start = document.querySelector('#meeting-panel .meeting-start').value;  
-        const end = document.querySelector('#meeting-panel .meeting-end').value;
-        const date = document.querySelector('#date').value;
+    const end = document.querySelector('#meeting-panel .meeting-end').value;      /* Hora de fin */
 
-        // Guardar en el array
-
-        entries.push({                         // push() es un método de los arrays. Se está añadiendo un objeto tipico de un array. En JSON -> {  "type": "Teamrunde",  "date": "2025-01-10"  }
-            type: "Team Meeting",
-            date: date,
-            start: start,
-            end: end
-        });
-
-        alert("Team Meeting Entry saved");
-    });
-
-
-
-
-
-    document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', () => {   // ('#fclcleanup-paneleanup .confirm-btn') -> Opción más segura (recomendada). Evita conflictos si hay más botones iguales. Más mantenible en proyectos grandes.
-
-        const start = document.querySelector('#cleanup-panel .cleanup-start').value;
-        const end = document.querySelector('#cleanup-panel .cleanup-end').value;
-        const date = document.querySelector('#date').value;
-
-        entries.push({                          // push() es un método de los arrays. Se está añadiendo un objeto tipico de un array. En JSON -> {  "type": "Teamrunde",  "date": "2025-01-10"  }
-            type: "Cleanup",
-            date: date,
-            start: start,
-            end: end
-        });
-
-        alert("Cleanup Entry saved");
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    const date = document.querySelector('#date').value;                           /* Fecha seleccionada */
 
     
+    // Validación: comprueba que la hora de fin es mayor que la hora de inicio
+    // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
+    // return → detiene la ejecución y no guarda nada si las horas son incorrectas
+    if (start >= end) {
 
-// 3️⃣ Mostrar los registros en un worker-wrapper de confirmación. 
-//  BOTÓN ÜBERPRÜFEN → OCULTAR TODO EL CONTENIDO DEL WRAPPER
+    alert("Error: The end time must be later than the start time");
 
-const workerWrapper = document.querySelector('.worker-wrapper');
-const checkWrapper = document.querySelector('.check-wrapper');//---------------------                   -------------------
-const backBtn = document.querySelector('.back-btn');
-const submitBtn = document.querySelector('.submit-btn');
+    return;
 
+    }
+
+
+    // 8. Añade un nuevo objeto al array entries con los datos del Meeting
+    //    Este objeto no tiene faNumber porque el Meeting no necesita número de producto
+    entries.push({
+
+        type: "Team Meeting",  /* Tipo de tarea → siempre será este valor para este botón */
+
+        date: date,            /* Fecha seleccionada por el trabajador */
+
+        start: start,          /* Hora de inicio introducida */
+
+        end: end               /* Hora de fin introducida */
+
+    });
+
+
+    // 9. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
+    alert("Team Meeting Entry saved");
+
+});
+
+
+// 10. Escucha el clic en el botón Confirm del panel Cleanup
+//     '#cleanup-panel .confirm-btn' → selector que apunta al botón Confirm dentro del panel Cleanup
+document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', () => {
+
+    // 11. Lee los valores que el trabajador ha introducido en los inputs del panel Cleanup
+    const start = document.querySelector('#cleanup-panel .cleanup-start').value;  /* Hora de inicio */
+
+    const end = document.querySelector('#cleanup-panel .cleanup-end').value;      /* Hora de fin */
+
+    const date = document.querySelector('#date').value;                           /* Fecha seleccionada */
+
+
+    // Validación: comprueba que la hora de fin es mayor que la hora de inicio
+    // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
+    // return → detiene la ejecución y no guarda nada si las horas son incorrectas
+    if (start >= end) {
+
+        alert("Error: The end time must be later than the start time");
+
+        return;
+
+    }
+
+
+    // 12. Añade un nuevo objeto al array entries con los datos del Cleanup
+    //     Este objeto tampoco tiene faNumber porque el Cleanup no necesita número de producto
+    entries.push({
+
+        type: "Cleanup",  /* Tipo de tarea → siempre será este valor para este botón */
+
+        date: date,       /* Fecha seleccionada por el trabajador */
+
+        start: start,     /* Hora de inicio introducida */
+
+        end: end          /* Hora de fin introducida */
+
+    });
+
+    // 13. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
+    alert("Cleanup Entry saved");
+
+});
+
+
+
+
+
+
+
+
+
+// ------------------------ 8. BOTÓN CHECK ------------------------
+
+
+
+// 1. Selecciona los elementos principales que se necesitan para mostrar la pantalla de revisión
+const workerWrapper = document.querySelector('.worker-wrapper');   /* Contenedor principal del worker */
+
+const workerForm = document.getElementById('worker-form');         /* Referencia al formulario ANTES de que se borre */
+
+const backBtn = document.querySelector('.check-back_btn');         /* Botón para volver atrás */
+
+const submitBtn = document.querySelector('.check-submit_btn');     /* Botón para enviar los datos a la BBDD */
+
+// 2. Escucha el clic en el botón CHECK
+//    Cada vez que el trabajador pulse CHECK, se ejecuta el código dentro de () => { }
 check.addEventListener('click', (event) => {
 
-    event.stopPropagation(); // 🔥 IMPORTANTE: evita que tu document.addEventListener cierre cosas por error
-
-    workerWrapper.innerHTML = ""; // 🔥 Elimina todo el contenido del worker-wrapper  
-
-    checkWrapper.style.display = 'flex'; // Muestra el check-wrapper
-
-    workerWrapper.appendChild(checkWrapper); // vuelve a añadir check-wrapper
-       
- 
+    // 3. Detiene la propagación del evento click
+    //    Sin esto, el document.addEventListener('click') que tenemos más arriba también
+    //    se activaría con este mismo clic, y ocultaría el checkWrapper inmediatamente
+    //    después de abrirlo — se abriría y cerraría al instante
+    event.stopPropagation();
 
 
-    // Recorremos el array para poder mostrar su contenido
+    // 4. Elimina todo el contenido del worker-wrapper
+    //    innerHTML = "" → borra todos los elementos HTML que hay dentro del worker-wrapper
+    //    Esto es necesario para que solo se vea la pantalla de revisión, sin los botones ni el formulario
+    workerWrapper.innerHTML = "";
 
 
-    const ol = document.querySelector('.registro-list');    
+    // 5. Hace visible el check-wrapper
+    //    display = 'flex' → muestra el contenedor de la pantalla de revisión
+    checkWrapper.style.display = 'flex';
 
 
-    entries.forEach(reg => {
+    // 6. Vuelve a añadir el check-wrapper dentro del worker-wrapper
+    //    Cuando se hizo innerHTML = "" en el paso 4, el check-wrapper también desapareció del DOM
+    //    appendChild() → lo vuelve a colocar como último hijo del worker-wrapper
+    workerWrapper.appendChild(checkWrapper);
 
 
-        const li = document.createElement('li'); // crea un LI nuevo
-
-        let texto = `Datum: ${reg.date}  --  ${reg.type}  --  von: ${reg.start}  bis: ${reg.end}`;
-
-        if (reg.type === "Montage und Verdrahtung") {
-
-            texto = `Datum: ${reg.date}  --  ${reg.type}  --  FA Nummer: ${reg.faNumber}  --  von: ${reg.start}  bis: ${reg.end}`;
-
-        }
-
-        li.textContent = texto; // pon el texto dentro del LI
-
-        ol.appendChild(li);     // Añade este LI a la lista. Toma el elemento li que creaste en memoria y lo coloca como último hijo del <ol>. Si tu <ol> estaba vacío, ahora el <li> será el primer y único hijo. Si ya tenía elementos, appendChild lo pondrá al final, después de los elementos existentes.
-                                // La posición, no es arbitraria, siempre se agrega al final de la lista.
+    // 7. Selecciona el cuerpo de la tabla donde se insertarán las filas con los registros
+    const tbody = document.querySelector('.check-table__body');   /* Cuerpo de la tabla de revisión */
 
 
-    });   
+    // 8. Recorre el array entries y crea una fila en la tabla por cada registro guardado
+    //    forEach() → ejecuta el código dentro de () => { } una vez por cada elemento del array
+    //    reg → representa cada registro guardado, con sus propiedades: type, date, start, end, faNumber
+    entries.forEach((reg, index) => {
+
+        // 9. Calcula la duración de cada registro en horas y minutos
+        //    split(':') → divide la hora en dos partes: horas y minutos. Ejemplo: '08:30' → ['08', '30']
+        //    Number() → convierte el texto a número para poder hacer operaciones matemáticas
+        const [startHours, startMinutes] = reg.start.split(':').map(Number);  /* Horas y minutos de inicio */
+
+        const [endHours, endMinutes] = reg.end.split(':').map(Number);        /* Horas y minutos de fin */
+
+        
+        // 10. Convierte las horas y minutos a minutos totales para poder restarlos fácilmente
+        const startTotal = startHours * 60 + startMinutes;  /* Minutos totales desde medianoche al inicio */
+        const endTotal = endHours * 60 + endMinutes;        /* Minutos totales desde medianoche al fin */
 
 
+        // 11. Calcula la diferencia en minutos entre el inicio y el fin
+        const durationMinutes = endTotal - startTotal;  /* Duración total en minutos */
 
 
+        // 12. Convierte la duración de minutos a horas y minutos para mostrarlo de forma legible
+        //    Math.floor() → redondea hacia abajo. Ejemplo: 7.5 → 7
+        //    % → operador módulo, devuelve el resto de la división. Ejemplo: 90 % 60 → 30
+        const durationHours = Math.floor(durationMinutes / 60);   /* Horas completas de duración */
+        const durationMins = durationMinutes % 60;                /* Minutos restantes de duración */
 
-    // Funcionalidad de volver atrás
 
-    backBtn.addEventListener('click', () => {
+        // 13. Crea una nueva fila <tr> para este registro
+        //    createElement('tr') → crea un elemento HTML <tr> en memoria, aún no está en la página
+        const tr = document.createElement('tr');  /* Nueva fila de la tabla */
 
-        window.location.reload(); // Recarga la página con el formulario original
+
+        // 14. Rellena la fila con las 7 celdas correspondientes a cada columna de la tabla
+        //    innerHTML → escribe el HTML interno del elemento
+        //    index + 1 → el número de fila empieza en 1, no en 0
+        //    reg.faNumber || '—' → si faNumber existe lo muestra, si no muestra un guión
+        tr.innerHTML = `
+
+            <td>${index + 1}</td>
+
+            <td>${reg.type}</td>
+
+            <td>${reg.date}</td>
+
+            <td>${reg.start}</td>
+
+            <td>${reg.end}</td>
+
+            <td>${durationHours}h ${durationMins}min</td>
+
+            <td>${reg.faNumber || '—'}</td>
+
+        `;
+
+
+        // 15. Añade la fila al cuerpo de la tabla
+        //     appendChild() → coloca el <tr> como último hijo del <tbody>
+        //     Si el tbody estaba vacío, será la primera fila. Si ya tenía filas, se añade al final
+        tbody.appendChild(tr);
 
     });
 
-    // Aquí podría añadir funcionalidad para enviar los datos a Java
 
+    // 16. Calcula el tiempo total sumando la duración de todos los registros
+    //    reduce() → recorre el array y acumula un valor. Empieza en 0 y va sumando los minutos de cada registro
+    const totalMinutes = entries.reduce((total, reg) => {
+
+        const [startHours, startMinutes] = reg.start.split(':').map(Number);  /* Horas y minutos de inicio */
+
+        const [endHours, endMinutes] = reg.end.split(':').map(Number);        /* Horas y minutos de fin */
+
+        const duration = (endHours * 60 + endMinutes) - (startHours * 60 + startMinutes); /* Duración en minutos */
+
+        return total + duration;  /* Acumula la duración al total */
+
+    }, 0);
+
+
+    // 17. Convierte el total de minutos a horas y minutos para mostrarlo de forma legible
+    const totalHours = Math.floor(totalMinutes / 60);  /* Horas completas del total */
+    
+    const totalMins = totalMinutes % 60;               /* Minutos restantes del total */
+
+
+    // 18. Muestra el tiempo total formateado en los dos formatos en la pantalla de revisión
+    document.getElementById('total-time-formatted').textContent = `${totalHours}h ${totalMins}min`; /* Formato legible */
+
+    document.getElementById('total-time-minutes').textContent = `${totalMinutes} min`;              /* Total en minutos */
+
+
+    // 19. Escucha el clic en el botón BACK
+    //     reset() → limpia todos los inputs del formulario y vuelve a mostrar el worker-wrapper original
+    backBtn.addEventListener('click', () => {        
+
+        // Limpia todos los inputs del formulario de una sola vez
+        workerForm.reset();                         /* reset() → borra todos los valores de los inputs del formulario */
+
+        // Oculta el check-wrapper
+        checkWrapper.style.display = 'none';        /* Oculta la pantalla de revisión */
+
+        // Vuelve a añadir el formulario dentro del worker-wrapper
+        workerWrapper.appendChild(workerForm);      /* Devuelve el formulario al worker-wrapper */
+
+        // Restaura la fecha de hoy en el input de fecha
+        dateInput.value = formattedDate;            /* Vuelve a poner la fecha de hoy */
+
+
+    });
+
+
+    // 20. Escucha el clic en el botón SUBMIT
+    //     console.log() → muestra los datos en la consola del navegador para comprobarlos
+    //     Aquí iría en el futuro el fetch() para enviar los datos al servidor Java
     submitBtn.addEventListener('click', () => {
 
-        console.log("Datos a enviar:", entries);
+        console.log("Datos a enviar:", entries);  /* Muestra los datos en la consola */
 
-        // Aquí iría fetch() o submit del form hacia Java
-
-         alert("Datos listos para enviar a la BBDD");
+        alert("Datos listos para enviar a la BBDD");  /* Mensaje temporal de confirmación */
 
     });
 
 });
+    
 
 
 
@@ -457,5 +769,4 @@ check.addEventListener('click', (event) => {
 
 
 
-/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */ 
-   
+/* ---------------------------------------------------------------------------------------- THE END -------------------------------------------------------------------------------------------- */

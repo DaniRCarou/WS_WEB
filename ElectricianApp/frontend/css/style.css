@@ -2,18 +2,18 @@
 
 
 
-/* Ocultamos las vistas todas */
+/* Este selector es utilizado por la función auxiliar para que muestre y oculte las secciones seleccionadas y no seleccionadas. En este caso, ocultamos las vistas todas */
 .view {/* SELECTOR */
 
     display: none;              /* Todas las vistas ocultas por defecto */ 
-    /* DECLARACION -> PROPIEDAD:VALOR */
+    /* DECLARACION -> PROPIEDAD:VALOR -> propiedad: display y valor: none*/
 
 }
 
 
 
 /* Mostramos la vista que queramos */
-.view.view--active {
+.view--active {
 
     width: 100%;                /* Ocupa todo el ancho del body */
     min-height: 100vh;          /* Al menos la altura del viewport */
@@ -22,9 +22,7 @@
     display: flex;              /* flex para centrar el contenido del section */
     justify-content: center;    /* centra horizontalmente */
     align-items: center;        /* centra verticalmente */
-    width: 100%;                /* ocupa todo el ancho */
-    min-height: 100vh;          /* al menos la altura del viewport */
-
+    
 }
 
 
@@ -32,6 +30,7 @@
 /* Esto centra vertical y horizontalmente el login-wrapper */
 body {
 
+    position: relative;
     display: flex;                                              /* Permite alinear fácilmente los elementos dentro del <body> tanto horizontal como verticalmente. */
     justify-content: center;                                    /* Centra los elementos horizontalmente dentro del contenedor. */
     align-items: center;                                        /* Centra los elementos verticalmente dentro del contenedor. */ 
@@ -74,7 +73,44 @@ body {
 
 
 
-/* --------------------------------------------------------- ICONS ----------------------------------------------------------------------------- */
+/* Se modifica el color de cada input con placeholder */
+input::placeholder {
+
+    color: #fff; 
+    opacity: 1;
+    
+}
+
+
+
+/* Este selector modifica todos los inputs con el siguiente nombre */
+.input-base {
+
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(244, 244, 253, 0.363);
+    font-size: 16px;
+    color: #fff;
+
+}
+
+
+/* Este selector modifica todos los botones con el siguiente nombre */
+.button-base {
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+
+/* --------------------------------------------------------- ICONS and IMAGES ----------------------------------------------------------------------------- */
 
 
 
@@ -106,6 +142,18 @@ body {
     width: 32px;  
     height: 32px; 
     filter: brightness(0) invert(1);    /* El valor va de: 1 → brillo normal, 0 → completamente negro. brightness(0) convierte el elemento en negro puro, sin importar su color original. | 1 significa 100% de inversión. */
+
+}
+
+
+
+/* este es el logo hecho por mí */
+.indca {
+
+    width: 200px;      /* ajusta al tamaño deseado */
+    height: auto;     /* mantiene proporción */
+    float: right;     /* la coloca a la derecha */
+    margin: 10px;     /* separa del borde */
 
 }
 
@@ -147,15 +195,16 @@ body {
 }
 
 
-/* Posición y forma del menú de idiomas */
+/* Posición y forma del menú de idiomas. z-index evita que el menú quede detrás del wrapper */
 .lang-menu {
     
-    color: #fff;
-    position: absolute;             /* Se coloca respecto al contenedor o al body */
-    top: 73px;   
-    right: 6%;     
-    font-size: 20px;
-    width: 170px;   
+    color: #fff;              /* color del texto en blanco */
+    position: absolute;         /* se posiciona respecto al body, sale del flujo normal */
+    top: 73px;                  /* separación desde arriba del body */
+    right: 6%;                  /* separación desde la derecha, relativo al ancho de pantalla */
+    font-size: 20px;            /* tamaño del texto del menú */
+    width: 170px;               /* ancho fijo del menú desplegable */
+    z-index: 100;               /* 100 → queda por encima de otros elementos, mayor número = más arriba */
 
 }
 
@@ -285,15 +334,8 @@ color: #36409b;
 
 /* Esto afecta al primer input: número personal */
 .personal-number_input {
-     
-    width: 100%; 
-    height: 100%; 
-    background: transparent; 
-    outline: none; 
-    border: 2px solid rgba(244, 244, 253, 0.363); 
-    border-radius: 40px; 
-    font-size: 16px; 
-    color: #fff; 
+          
+    border-radius: 40px;     
     padding: 20px 45px 20px 20px;
 
 }
@@ -311,16 +353,6 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
     right: 20px;  
     display: flex;          /* Flexbox coloca los hijos en fila horizontal. */  
 
-}
-
-
-
-/* Se modifica el color del placeholder del input de la entrada del número personal */
-.personal-number_input::placeholder {
-
-    color: rgb(255, 255, 255); 
-    opacity: 1;
-    
 }
 
 
@@ -344,14 +376,8 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
 /* Esto afecta al segundo input: password */
 .password_input{
 
-    width: 100%; 
-    height: 100%; 
-    background: transparent; 
-    outline: none;                                      /* Es una línea que rodea a un elemento, normalmente cuando está enfocado (focus). Un input cuando haces clic dentro de él → normalmente aparece un borde azul o punteado. Si quiero poner algún color cuando se clica en el input, tiene el focus, input:focus { outline: 2px solid red; } */
-    border: 2px solid rgba(244, 244, 253, 0.363); 
-    border-radius: 40px; 
-    font-size: 16px; 
-    color: #fff; 
+     
+    border-radius: 40px;
     padding: 20px 45px 20px 20px;
 
 }
@@ -368,16 +394,6 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
     right: 20px;    
     display: flex;
 
-}
-
-
-
-/* Se modifica el color del placeholder del input de la entrada del número personal */
-.password_input::placeholder {
-
-    color: rgb(255, 255, 255); 
-    opacity: 1;
-    
 }
 
 
@@ -448,7 +464,7 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
 
 
 
-/* Arreglo del botón de login */
+/* Este selector hace que cambie el color de las letras y el fondo del botón de login */
 .login-form__button:hover {
 
     background-color: #58878d;
@@ -550,30 +566,14 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
 
 
 
-/* Esto afecta al primer input: email */
+/* Esto afecta al input: email */
 .email-input {
-
-    width: 100%; 
-    height: 100%; 
-    background: transparent; 
-    outline: none; 
-    border: 2px solid rgba(244, 244, 253, 0.363); /* This property adds a border to the input field that is 2 pixels wide, solid, and has a color defined by the RGBA value. The color is white with 20% opacity (0.2), which gives a subtle and elegant border effect. */ 
-    border-radius: 40px; 
-    font-size: 16px; 
-    color: #fff; 
-    padding: 20px 45px 20px 20px; 
+          
+    border-radius: 40px;     
+    padding: 20px 45px 20px 20px;
 
 }
 
-
-
-/* Se modifica el color del placeholder del input de la entrada del número personal */
-.email-input::placeholder {
-
-    color: rgb(255, 255, 255); 
-    opacity: 1;
-    
-}
 
 
 
@@ -604,6 +604,16 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
     color: #333; 
     font-weight: 600; 
     
+}
+
+
+
+/* Este selector hace que cambie el color de las letras y el fondo del botón de resetear */
+.reset-form__button:hover {
+
+    background-color: #58878d;
+    color: #ffffff;
+
 }
 
 
@@ -658,7 +668,7 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
 /* Esto afecta al contenedor principal */
 .register-wrapper {
 
-   width: 750px;
+    width: 750px;
     background:transparent;
     border: 2px solid rgba(244, 244, 253, 0.295);
     box-shadow: 0 0 10px rgba(0,0,0,.2);
@@ -683,38 +693,6 @@ Esto afecta al contenedor span de la imagen del primer input para el número per
 
 
 
-/* Esto afecta a los contenedores horizontales de entradas de datos */
-.form-row-group {
-
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-}
-
-
-
-/* Esto actúa sobre los inputs contenidos en cada row group */
-.input-field {
-
-    position: relative;
-    width: 48%;
-    height: 50px;
-    margin: 13px 0;
-
-}
-
-
-/* Esto actúa sobre los placeholder de los inputs contenidos en cada row group */
-.input-field input::placeholder {
-
-color:  #fff;
-opacity: 1;
-
-}
-
-
-
 /* 
 Este selector actúa sobre las imágenes de input de cada row group. A diferencia del selector que actúa sobre cada etiqueta span en el login, aquí actuamos directamente sobre todas las imágenes que están dentro del div 'form-row-group'. 
     Pros: Una regla general que sirve para todos los iconos dentro de .form-row-group, sin crear clases nuevas para cada icono.
@@ -728,24 +706,6 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     font-size: 20px;
     top: 50%;
     transform: translateY(-50%);
-
-}
-
-
-
-/* Esto crea la forma de todos los inputs del registro, excepto el número personal y el departamento*/
-.input-field input {
-
-    
-    width:100%;
-    height:100%;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    outline:none;                                   /* Elimina el contorno (borde de enfoque) que el navegador muestra cuando un elemento recibe foco. */
-    font-size: 16px;
-    color: #fff;
-    border-radius: 6px;
-    padding:15px 15px 15px 40px;
 
 }
 
@@ -770,28 +730,33 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 /* Esto afecta al primer input: personal number */
 .register-personal-number_input {
 
-    width:100%;
-    height:100%;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    outline:none;
-    font-size: 16px;
-    color: #fff;
-    border-radius: 10px;
-    padding:15px 15px 15px 40px;
+    border-radius: 10px;  
+    padding: 15px 15px 15px 40px;  
 
 }
 
 
 
-/* Se modifica el color del placeholder del input de la entrada del número personal */
-.register-personal-number_input::placeholder {
+/* Esto afecta a los contenedores horizontales de entradas de datos */
+.form-row-group {
 
-    color: rgb(255, 255, 255); 
-    opacity: 1;
-    
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
 }
 
+
+
+/* Esto actúa sobre los inputs contenidos en cada row group */
+.input-field {
+
+    position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;
+
+}
 
 
 
@@ -825,8 +790,8 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
     width:100%;
     height:100%; 
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 6px;
+    border: 2px solid rgba(244, 244, 253, 0.363);
+    border-radius: 10px;
     color: #fff;    
     
 }
@@ -834,7 +799,7 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 /* Esto estiliza el input del departamento que tiene las flechas para seleccionar el número y la etiqueta que contiene la palabra Departamento*/
-.department-input {
+.register-department_input {
 
     width:30%;                      /* Controlan el tamaño general del input, flechas y número */
     height:100%;                    /* Controlan el tamaño general del input, flechas y número */
@@ -858,6 +823,18 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     
 }
 
+
+
+.register-name_input,
+.register-surname_input,
+.register-email_input,
+.register-password_input,
+.register-password-confirm_input {
+
+    border-radius: 10px;
+    padding: 15px 15px 15px 20px;
+
+}
 
 
 /* 5. TEXTO DE TÉRMINOS */
@@ -884,7 +861,7 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 /* Aquí defino las características del botón */
-.btn {
+.register-btn {
 
     width:100%;
     height: 45px;
@@ -911,6 +888,13 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 /* ---------------------------------------------------------------------- WORKER SECTION ----------------------------------------------------------------------------- */
 
 
+
+
+
+
+
+
+
 /* Este es el wrapper principal */ 
 .worker-wrapper {
 
@@ -924,6 +908,70 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     border-radius: 10px;
     padding: 40px 40px;    
 }
+
+
+
+/* 0. GENERAL */
+
+/* Selector del contenedor de la validación de la información por y para cada tarea */
+.validation{
+
+    display: none;           /* fila horizontal */
+    gap: 20px;               /* espacio entre botones */
+    justify-content: flex-start; /* o center, según necesites */
+    align-items: center;     /* centrado vertical */
+
+}
+
+
+
+/* Borrado de datos de cada tarea */
+.delete-btn{
+
+    width: 120px; 
+    height: 35px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;  
+
+}
+
+
+
+/* Confirmación de datos de cada tarea */
+.confirm-btn{
+
+    width: 120px; 
+    height: 35px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;    
+
+}
+
+
+
+/* Este selector gestiona el contenido y posicionamiento de todos los botones */
+button {
+
+    display: flex;             /* flex para centrar */
+    align-items: center;       /* centrado vertical */
+    justify-content: center;   /* centrado horizontal */
+    
+}
+
 
 
 
@@ -1008,7 +1056,8 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 .calendar {
 
     display: flex;
-    align-items: center;    
+    align-items: center; 
+    gap: 10px; /* espacio entre el h2 visual y el input */   
 
 }
 
@@ -1044,6 +1093,7 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    position: relative;
    
 }
 
@@ -1157,6 +1207,7 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    position: relative;
    
 }
 
@@ -1201,6 +1252,7 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 }
 
 
+
 /* Selector de comienzo de meeting */
 .meeting-start{
 
@@ -1231,6 +1283,20 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 /* 3. ORDENAR */
+
+/* Segundo panel para introducir los datos de ordenar */
+.cleanup-panel{
+
+    margin: 0px 40px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+   
+}
+
+
 
 /* Botón del orden realizado */
 .cleanup-btn {
@@ -1272,7 +1338,38 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 
-/* This is the button, to check if everything is ok before saving*/
+/* Selector de comienzo de recoger */
+.cleanup-start{
+
+    margin-right:60px;  
+    width: 50px;
+    height: 25px; 
+    font-size: 15px;     
+    border-radius: 5px;
+
+    appearance: textfield;
+   
+}
+
+
+
+/* Selector de finalización del recoger */
+.cleanup-end{
+
+    width: 50px;
+    height: 25px; 
+    font-size: 15px;     
+    border-radius: 5px;
+
+    appearance: textfield;    
+
+}
+
+
+
+/* 4. ORDENAR */
+
+/* Este es el boton, para comprobar que los datos están correctamente antes de enviarlos. This is the button, to check if everything is ok before saving*/
 .text-btn{   
     
     position: absolute;
@@ -1294,222 +1391,242 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 
-/* 4. VALIDACIONES GENERAL */
-
-/* Selector del contenedor de la validación de la información por y para cada tarea */
-.validation{
-
-    display: none;
-
-}
-
-
-
-/* Borrado de datos de cada tarea */
-.delete-btn{
-
-    width: 120px; 
-    height: 35px;
-    background: #fff;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    cursor: pointer;
-    font-size: 20px;
-    color: #333;
-    font-weight: 600;  
-    margin: 0 30px;  
-
-}
-
-
-
-/* Confirmación de datos de cada tarea */
-.confirm-btn{
-
-    width: 120px; 
-    height: 35px;
-    background: #fff;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    cursor: pointer;
-    font-size: 20px;
-    color: #333;
-    font-weight: 600;    
-
-}
 
 
 
 
 
 
-
-
-button {
-
-    display: flex;             /* flex para centrar */
-    align-items: center;       /* centrado vertical */
-    justify-content: center;   /* centrado horizontal */
-    
-}
-
-
-
-
-/* ---------------------------------------------------------------- Check List ------------------------------------------------------------------------- */
-
-
-
-
-
-
-
+/* ---------------------------------------------------------------- CHECK WRAPPER ------------------------------------------------------------------------- */
 
 
 
 /* Este selector modifica el wrapper de comprobación */
 .check-wrapper {
 
-    display: none; /* sigue oculto al inicio */
-    flex-direction: column; /* apila verticalmente. Por defecto los elementos hijos se alinean en fila horizontal (row). */
-    gap: 15px; /* opcional: espacio entre h2, lista y botones */
+    display: none;              /* Oculto por defecto, el JS lo muestra al pulsar CHECK */
+    flex-direction: column;     /* Apila verticalmente el título, la tabla, los totales y los botones */
+    gap: 15px;                  /* Espacio entre cada sección del wrapper */
+    position: relative;         /* Necesario para posicionar los botones BACK y SUBMIT */
+    width: 100%;                /* Ocupa todo el ancho del worker-wrapper */
+    min-height: 700px;          /* Altura mínima para que los botones BACK y SUBMIT queden abajo */
+    padding: 40px;              /* Espacio interior alrededor del contenido */
 
 }
 
 
 
-/* Lista que se mostrará con los datos que se enviarán para su comprobación */
-.register-list {
+/* Este selector añade espacio debajo del título de la pantalla de revisión */
+.check-wrapper__title {
 
-    list-style-position: inside; /* Opcional: números dentro */
-    padding-left: 0;             /* Elimina padding por defecto */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;                   /* Espacio entre los <li> */
+    margin-bottom: 20px;    /* 20px → espacio entre el título y la tabla */
 
 }
 
 
 
-/* Este selector modifica la lista para su muestra */
-.register-list li {
+/* Este selector modifica el contenedor de la tabla */
+.check-table-container {
 
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-
-}
-
-
-
-/* Botón para regresar */
-.back-btn {   
-    position: absolute;
-    bottom: 30px; 
-    left: 50px;    
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* centra el texto */
-    cursor: pointer;
-
-    background: none;  /* elimina fondo por defecto */
-    border: none;      /* elimina borde por defecto */
-    padding: 0;        /* sin padding extra */
-    color: white;      /* mismo color que antes */
-    font-family: inherit; /* hereda fuente del contenedor */
-}
-
-/* Botón para enviar info */
-.submit-btn {   
-    position: absolute;
-    bottom: 30px; 
-    right: 50px;    
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* centra el texto */
-    cursor: pointer;
-
-    background: none; 
-    border: none;     
-    padding: 0;       
-    color: white;     
-    font-family: inherit;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* This is the button, to go back from the check list *
-
-.back-btn {   
-    
-    position: absolute;
-    bottom: 30px; 
-    left: 50px;    
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    width: 100%;            /* Ocupa todo el ancho disponible */
+    overflow-x: auto;       /* Si la tabla es más ancha que el contenedor, aparece scroll horizontal */
 
 }
 
 
 
-/* This is the button, to submit the data to the DB 
+/* Este selector modifica la tabla */
+.check-table {
 
-.submit-btn {   
-    
-    position: absolute;
-    bottom: 30px; 
-    right: 50px;    
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    width: 100%;                /* Ocupa todo el ancho del contenedor */
+    border-collapse: collapse;  /* Elimina el espacio doble entre bordes de celdas */
+    font-size: 16px;            /* Tamaño del texto de la tabla */
 
 }
 
 
-*/
+
+/* Este selector modifica las celdas de cabecera y de datos */
+.check-table th,
+.check-table td {
+
+    padding: 12px 15px;         /* Espacio interior de cada celda */
+    text-align: left;           /* Alinea el texto a la izquierda */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);  /* Línea separadora entre filas */
+
+}
+
+
+
+/* Este selector modifica la cabecera de la tabla */
+.check-table thead th {
+
+    font-size: 18px;                                        /* Tamaño del texto de la cabecera */
+    font-weight: bold;                                      /* Texto en negrita */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);     /* Línea más gruesa debajo de la cabecera */
+
+}
+
+
+
+/* Este selector cambia el color de fondo de las filas al pasar el ratón por encima */
+.check-table tbody tr:hover {
+
+    background: rgba(255, 255, 255, 0.1);   /* Fondo semitransparente al pasar el ratón */
+
+}
+
+
+
+/* Este selector modifica el contenedor de los totales */
+.check-totals {
+
+    display: flex;          /* Coloca los dos totales en fila horizontal */
+    gap: 30px;              /* Espacio entre el total en horas y el total en minutos */
+    font-size: 18px;        /* Tamaño del texto de los totales */
+    font-weight: bold;      /* Texto en negrita */
+    margin-top: 10px;       /* Espacio encima del contenedor de totales */
+
+}
+
+
+
+/* Este selector estiliza el separador entre los dos totales */
+.check-totals__separator {
+
+    font-size: 18px;        /* Mismo tamaño que los totales */
+    font-weight: bold;      /* Texto en negrita */
+    opacity: 0.5;           /* 0.5 → semitransparente para que no destaque demasiado */
+
+}
+
+
+
+/* Este selector modifica el contenedor de los botones BACK y SUBMIT */
+.check-actions {
+
+    position: absolute;     /* Se posiciona respecto al check-wrapper */
+    bottom: 30px;           /* Pegado al borde inferior del check-wrapper */
+    left: 0;                /* Empieza desde el borde izquierdo */
+    width: 100%;            /* Ocupa todo el ancho para poder separar los botones */
+    display: flex;          /* Coloca los botones en fila horizontal */
+    justify-content: space-between;  /* BACK a la izquierda y SUBMIT a la derecha */
+    padding: 0 50px;        /* Espacio interior para que no toquen los bordes */
+
+}
+
+
+
+/* Este selector modifica el botón BACK */
+.check-back_btn {
+
+    font-size: 20px;            /* Mismo tamaño que el botón CHECK */
+    font-weight: bold;          /* Texto en negrita */
+    background: none;           /* Sin fondo */
+    border: none;               /* Sin borde */
+    padding: 0;                 /* Sin padding extra */
+    color: white;               /* Texto en blanco */
+    font-family: inherit;       /* Hereda la fuente del contenedor */
+    text-decoration: underline; /* Subrayado como el botón CHECK */
+    cursor: pointer;            /* Cursor de mano al pasar */
+
+}
+
+
+
+/* Este selector modifica el botón SUBMIT */
+.check-submit_btn {
+
+    font-size: 20px;            /* Mismo tamaño que el botón CHECK */
+    font-weight: bold;          /* Texto en negrita */
+    background: none;           /* Sin fondo */
+    border: none;               /* Sin borde */
+    padding: 0;                 /* Sin padding extra */
+    color: white;               /* Texto en blanco */
+    font-family: inherit;       /* Hereda la fuente del contenedor */
+    text-decoration: underline; /* Subrayado como el botón CHECK */
+    cursor: pointer;            /* Cursor de mano al pasar */
+
+}
+
+
+
+/* Este selector posiciona el botón CHECK en la esquina inferior derecha del worker-wrapper */
+.check-btn {
+
+    position: absolute;         /* Absolute → se posiciona respecto al worker-wrapper que tiene position: relative */
+    bottom: 30px;               /* 30px → separación desde el borde inferior del worker-wrapper */
+    right: 50px;                /* 50px → separación desde el borde derecho del worker-wrapper */
+    font-size: 20px;            /* Mismo tamaño que los botones BACK y SUBMIT */
+    font-weight: bold;          /* Texto en negrita */
+    display: flex;              /* Flex para centrar el texto dentro del botón */
+    align-items: center;        /* Centra verticalmente el texto */
+    cursor: pointer;            /* Cursor de mano al pasar */
+
+}
+
+
+
+/* Este selector da color blanco y subrayado al texto CHECK dentro del botón */
+.check-text {
+
+    color: white;               /* Texto en blanco para que se vea sobre el fondo oscuro */
+    text-decoration: underline; /* Subrayado igual que los botones BACK y SUBMIT */
+
+}
 
 
 
 
-/* ----------------------------------------------------------------- COSAS A MEJORAR (DE MOMENTO NO TOCAR, SE REVISARÁ AL FINAL) -------------------------------------------------------------------------------- */
 
-@media (min-width: 768px) and (max-width: 992px) {         /* @media es una regla de CSS llamada media query. Permite aplicar estilos solo en ciertas condiciones, normalmente según el tamaño de la pantalla, orientación, resolución, etc. Es la base del diseño responsivo. 
-                                                              (max-width: 992px) -> Significa “aplicar los estilos solo si el ancho de la pantalla es como máximo 768 píxeles”.*/
 
-    .form-row-group .input-field{
-    
-        width:80%; 
-        margin: 10px 0;  /* margen vertical */
 
+
+
+/* ----------------------------------------------------------------- CAMBIO A PANTALLA DE MOVIL -------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+/* @media es una regla de CSS llamada media query. Permite aplicar estilos solo en ciertas condiciones, normalmente según el tamaño de la pantalla, orientación, resolución, etc. Es la base del diseño responsivo. 
+(max-width: 992px) -> Significa “aplicar los estilos solo si el ancho de la pantalla es como máximo 768 píxeles”. */
+
+/* Tablet y pantallas medianas */
+@media (min-width: 768px) and (max-width: 992px) {
+    .form-row-group .input-field {
+        width: 80%;
+        margin: 10px 0;
     }
-    
-    
+
+    .worker-wrapper {
+        width: 90%;   /* Ajuste para tablets */
+        padding: 30px;
+    }
 }
 
 
 
-.validation-icon {  
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+    .worker-wrapper {
+        max-width: 1400px;  /* Limitar que no se estire demasiado */
+        padding: 50px 60px;
+    }
+
+    .register-wrapper {
+        max-width: 1000px;
+        padding: 50px 60px;
+    }
+}
+
+
+
+.validation-badge {  
     
     position: absolute;
     bottom: 20px;
@@ -1518,6 +1635,248 @@ button {
     height: 31px;
 
 }
+
+
+
+.indca {  
+    
+    position: absolute;
+    bottom: -40px; /* No se por qué al ponerlo a cero  no baja más */
+    right: 0px;
+    width: 215px;
+    height: auto;
+
+}
+
+
+
+/* Solo se aplica cuando la pantalla es menor de 480px (móvil en vertical) */
+@media (max-width: 480px) {
+
+    /* Oculta la imagen del logo indca en móvil porque tapa el contenido del wrapper */
+    .indca {
+
+        display: none;  /* el elemento desaparece completamente y no ocupa espacio */
+
+    }
+
+    /* Los tres wrappers pasan de ancho fijo a ocupar toda la pantalla disponible en móvil */
+    .login-wrapper,
+    .reset-wrapper,
+    .register-wrapper {
+
+        width: 100%;        /* ocupa todo el ancho disponible en móvil */
+        padding: 20px;      /* reduce el padding interior para ganar espacio */
+        margin: 10px;       /* pequeño margen para que no toque los bordes */
+
+    }
+
+    /* El registro empieza desde arriba en móvil para dejar espacio al menú de idiomas */
+    .register-view.view--active {
+
+        align-items: flex-start;    /* flex-start → el wrapper se coloca arriba en vez de centrado */
+        padding-top: 50px;          /* 50px → espacio entre el borde de la pantalla y el wrapper, donde quedará el menú */
+
+    }
+
+    /* Los inputs que van en pareja pasan a ocupar toda la fila en móvil, uno debajo del otro */
+    .input-field,
+    .register-form_number,
+    .input-department-number {
+
+        width: 100%;        /* cada input ocupa toda la fila en vez del 48% anterior */
+        margin: 8px 0;      /* reduce el margen vertical entre inputs para ganar espacio */
+        
+    }
+
+    /* Recoloca y reduce el menú de idiomas en móvil para que no tape el contenido */
+    .lang-menu {
+
+        top: 10px;          /* lo sube hasta arriba del todo */
+        right: 10px;        /* lo pega a la derecha con poco margen */
+        font-size: 14px;    /* reduce el tamaño del texto */
+        width: 120px;       /* reduce el ancho del menú desplegable */
+
+    }
+
+    /* El wrapper del worker pasa de 1300px fijo a ocupar toda la pantalla en móvil */
+    .worker-wrapper {
+
+        width: 100%;            /* 100% → ocupa todo el ancho disponible en móvil */
+        padding: 15px;          /* 15px → reduce el padding interior para ganar espacio */
+        min-height: 350px;      /* 100vh → el wrapper ocupa al menos toda la altura de la pantalla, evitando que se encoja */
+
+    }
+
+    /* Reduce el tamaño del saludo y total time en móvil */
+    .worker-form-greeting h1 {
+
+        font-size: 22px;    /* 22px → reduce el tamaño del título de saludo, que en escritorio era 36px, demasiado grande para móvil */
+
+    }
+
+    /* Reduce el tamaño de la etiqueta TOTAL TIME en móvil */
+    .totaltime-panel label {
+
+        font-size: 18px;    /* 16px → reduce el tamaño de la etiqueta "TOTAL TIME:", que en escritorio era 25px */
+        font-weight: bold;      /* bold → mismo grosor de letra que el h2 de Tasks performed */
+        white-space: nowrap; /* nowrap → evita que el texto "TOTAL TIME:" se divida en dos líneas en pantalla pequeña */
+
+    }
+
+    /* Reduce el tamaño del contenedor del tiempo total en móvil */
+    .totaltime {
+
+        font-size: 18px;    /* 16px → reduce el tamaño del número de tiempo mostrado, que en escritorio era 25px */
+        font-weight: bold;      /* bold → mismo grosor de letra que el h2 de Tasks performed */
+        width: 80px;        /* 80px → reduce el ancho del contenedor del tiempo, que en escritorio era 120px */
+
+    }
+
+    /* Mantiene Tasks performed y Date en la misma línea en móvil */
+    .task-header {
+
+        margin: 20px 10px;      /* reduce los márgenes exteriores para ganar espacio en pantalla pequeña */
+        flex-wrap: nowrap;      /* nowrap → impide que los elementos salten a la siguiente línea, manteniéndolos en fila */
+        gap: 10px;              /* 10px → espacio entre el texto "Tasks performed" y el selector de fecha */
+
+    }
+
+    /* Reduce el tamaño de los h2 del worker en móvil para que quepan en una línea */
+    .task-header h2,
+    .calendar h2 {
+
+        font-size: 18px;    /* 14px → reduce el tamaño del texto para que quepa en la misma línea que el date */
+        white-space: nowrap; /* nowrap → evita que el texto se divida en varias líneas */
+
+    }
+
+    /* Reduce el tamaño de los botones de tarea en móvil */
+    .task-btn,
+    .meeting-btn,
+    .cleanup-btn {
+
+        width: 60%;        /* 100% → ocupa todo el ancho disponible en vez de los 300px fijos */
+        height: 45px;       /* 45px → reduce la altura del botón, que en escritorio era 65px */
+        font-size: 15px;    /* 15px → reduce el tamaño del texto del botón */
+        margin: 5px 0;      /* 5px → reduce el margen alrededor del botón, que en escritorio era 40px */
+
+    }
+
+    /* Reduce el tamaño del botón CHECK en móvil */
+    .text-btn {
+
+        font-size: 16px;    /* 16px → reduce el tamaño del texto CHECK, que en escritorio era 20px */
+        right: 10px;        /* 10px → lo acerca más al borde derecho de la pantalla */
+        bottom: 10px;       /* 10px → lo baja hacia el borde inferior del wrapper */
+
+    }
+
+    /* En móvil los paneles de tarea, meeting y cleanup se organizan en columna centrada */
+    .task-panel,
+    .meeting-panel,
+    .cleanup-panel {
+
+        flex-direction: column;     /* column → apila los elementos verticalmente en vez de en fila horizontal */
+        align-items: center;        /* center → centra horizontalmente todos los elementos del panel */
+        margin: 0;                  /* 0 → elimina el margen derecho de 40px que tenían en escritorio */
+
+    }
+
+    /* Los inputs de tiempo From y To se mantienen en la misma línea en móvil */
+    .task-time,
+    .meeting-time,
+    .cleanup-time {
+
+        width: 60%;                         /* 60% → mismo ancho que el botón para que coincidan los bordes */
+        display: flex;                      /* flex → necesario para que justify-content funcione */
+        align-items: center;                /* center → centra verticalmente los inputs */
+        justify-content: space-between;     /* space-between → From pegado a la izquierda, To pegado a la derecha */
+        margin: 8px 0 0 0;                  /* 8px arriba → espacio encima, sin márgenes laterales */
+
+
+    }
+
+    /* Los botones de validación delete y confirm se colocan en fila centrada en móvil */
+    .validation {
+
+        justify-content: center;    /* center → centra horizontalmente los botones delete y confirm */
+        margin-bottom: 10px;        /* 10px → espacio entre los botones y el CHECK */
+
+    }
+
+    /* Reduce el tamaño de las etiquetas de prod. number, from y to en móvil */
+    .prod label,
+    .task-time label,
+    .meeting-time label,
+    .cleanup-time label {
+
+        font-size: 15px;    /* 15px → mismo tamaño aproximado que el botón Assembly and Wiring en móvil */
+        width: 45px;        /* 45px → ancho fijo igual para todos los labels, alineando los inputs */
+        text-align: right;  /* right → el texto se alinea a la derecha dentro del label */
+
+    }
+
+    /* Reduce el tamaño del texto de los botones delete y confirm en móvil */
+    .delete-btn,
+    .confirm-btn {
+
+        font-size: 15px;    /* 15px → mismo tamaño que el botón Assembly and Wiring en móvil */
+
+    }
+
+    /* Añade espacio vertical entre las etiquetas de prod. number, from, to y los botones delete y confirm en móvil */
+    .prod,
+    .task-time,
+    .meeting-time,
+    .cleanup-time,
+    .validation {
+
+        margin-top: 8px;    /* 8px → añade un pequeño espacio encima de cada elemento para separarlo del anterior */
+
+    }
+
+    /* Reduce el espacio entre los inputs From y To en móvil */
+    .task-start,
+    .meeting-start,
+    .cleanup-start {
+
+        margin-right: 10px;     /* 10px → reduce el espacio entre From y To, que en escritorio era 30px o 60px */
+
+    }
+
+    /* Elimina el margen derecho de meeting-time y cleanup-time en móvil para que queden igual que task-time */
+    .meeting-time,
+    .cleanup-time {
+
+        margin-right: 0;    /* 0 → elimina el margen derecho de 50px que tenían en escritorio, igualándolos con task-time */
+
+    }
+
+    /* Reduce el espacio entre los inputs From y To en móvil */
+    .task-start,
+    .meeting-start,
+    .cleanup-start {
+
+        margin-right: 10px;     /* 10px → iguala el espacio entre From y To en los tres paneles */
+
+    }
+
+    /* Elimina el margen derecho del input To en móvil */
+    .task-end,
+    .meeting-end,
+    .cleanup-end {
+
+        margin-right: 0;    /* 0 → elimina cualquier margen derecho que pueda desplazar el conjunto */
+
+    }
+    
+}
+
+
+
+
+
 
 
 

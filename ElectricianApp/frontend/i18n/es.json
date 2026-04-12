@@ -13,9 +13,10 @@
     },
 
 
-    "wrapper": {
 
-        "logInTitle": "Inicio de sesión",
+    "login": {
+
+        "title": "Inicio de sesión",
         "personalNumber": "Número personal",
         "password": "Contraseña",        
         "rememberMe": "Recuérdame",
@@ -23,6 +24,20 @@
         "logInButton": "Iniciar sesión",
         "haveAccount": "¿Tiene una cuenta?",
         "singUp": "Registrar",
+        "name": "Nombre",
+        "surname": "Apellidos",
+        "email": "Email",
+        "passwordConfirmation": "Confirmación de contraseña",
+        "next": "Siguiente",
+        "terms": "Por la presente declaro que los datos proporcionados arriba son veraces y correctos",
+        "backToLogin": "Regresar a Inicio de sesión"
+
+    },
+
+
+
+    "register": {
+
         "name": "Nombre",
         "surname": "Apellidos",
         "email": "Email",

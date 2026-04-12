@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="en">
 
     <head>
 
@@ -14,7 +14,7 @@
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <link rel ="stylesheet" href="./css/style.css">
+        <link rel ="stylesheet" href="css/style.css">
 
         <title>Employee Portal</title>
         
@@ -36,49 +36,49 @@
             <ul>
                 <li>           
                                         
-                    <button type="button" data-section="languageMenu" data-value="english" data-language="en"><img src="assets/icons/uk.png" alt="english flag icon" class="icon-flag"/> English</button> 
+                    <button type="button" data-i18n="languageMenu.english" data-language="en"><img src="assets/icons/uk.png" alt="english flag icon" class="icon-flag"/> English</button> 
                                     
                 </li>
                 
 
                 <li>           
                                         
-                    <button type="button" data-section="languageMenu" data-value="german" data-language="de"><img src="assets/icons/germany.png" alt="german flag icon" class="icon-flag"/> German</button>
+                    <button type="button" data-i18n="languageMenu.german" data-language="de"><img src="assets/icons/germany.png" alt="german flag icon" class="icon-flag"/> German</button>
                                     
                 </li>
 
 
                 <li>
                                        
-                    <button type="button" data-section="languageMenu" data-value="spanish" data-language="es"><img src="assets/icons/spain.png" alt="spanish flag icon" class="icon-flag"/> Spanish</button>
+                    <button type="button" data-i18n="languageMenu.spanish" data-language="es"><img src="assets/icons/spain.png" alt="spanish flag icon" class="icon-flag"/> Spanish</button>
 
                 </li>
 
 
                 <li>
 
-                    <button type="button" data-section="languageMenu" data-value="portuguese" data-language="pt"><img src="assets/icons/portugal.png" alt="portuguese flag icon" class="icon-flag"/> Portuguese</button>
+                    <button type="button" data-i18n="languageMenu.portuguese" data-language="pt"><img src="assets/icons/portugal.png" alt="portuguese flag icon" class="icon-flag"/> Portuguese</button>
 
                 </li>                
 
                 
                 <li>
 
-                    <button type="button" data-section="languageMenu" data-value="galician" data-language="gl"><img src="assets/icons/galicia.png" alt="galician flag icon" class="icon-flag"/> Galician</button>
+                    <button type="button" data-i18n="languageMenu.galician" data-language="gl"><img src="assets/icons/galicia.png" alt="galician flag icon" class="icon-flag"/> Galician</button>
 
                 </li>
 
 
                 <li>
                     
-                    <button type="button" data-section="languageMenu" data-value="catalan" data-language="ca"><img src="assets/icons/catalonia.png" alt="Catalonia flag icon" class="icon-flag"/> Catalan</button>
+                    <button type="button" data-i18n="languageMenu.catalan" data-language="ca"><img src="assets/icons/catalonia.png" alt="Catalonia flag icon" class="icon-flag"/> Catalan</button>
 
                 </li>
 
 
                 <li>
 
-                    <button type="button" data-section="languageMenu" data-value="basque" data-language="eus"><img src="assets/icons/basque_country.png" alt="Basque Country flag icon" class="icon-flag"/> Basque</button>
+                    <button type="button" data-i18n="languageMenu.basque" data-language="eus"><img src="assets/icons/basque_country.png" alt="Basque Country flag icon" class="icon-flag"/> Basque</button>
 
                 </li>
 
@@ -97,7 +97,7 @@
             <div id="login-wrapper" class ="login-wrapper">              
                     
                 <!-- Título del formulario -->
-                <h1 class="login-wrapper__title" data-section="login-wrapper" data-i18n="loginTitle" data-value="title">Login</h1>
+                <h1 class="login-wrapper__title" data-i18n="login.title" >Login</h1>
 
 
                 <!-- Cuerpo del formulario -->
@@ -106,15 +106,15 @@
                     <!-- Campo: Personal Number -->
                     <div class="login-form__number">
 
-                        <label for="personal-number" class="visually-hidden">Personal Number</label>
+                        <label for="login-personal-number" class="visually-hidden" data-i18n="login.personalNumber">Personal Number</label>
 
 
-                        <input type="text" id="login-personal-number" class="personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber"/> 
+                        <input type="text" id="login-personal-number" class="input-base personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" name="personalNumber"/> 
 
                             
                         <span class="personal-number_icon" aria-hidden="true">
 
-                            <img src="./assets/icons/user_circle_fill_icon.png" alt="User icon" class="input-icon">
+                            <img src="assets/icons/user_circle_fill_icon.png" alt="User icon" class="input-icon">
 
                         </span>    
 
@@ -124,15 +124,15 @@
                     <!-- Campo: Password -->       
                     <div class ="login-form__password">
 
-                        <label for="password" class="visually-hidden">Password</label>
+                        <label for="password" class="visually-hidden" data-i18n="login.password">Password</label>
 
 
-                        <input id="password" class="password_input" type="password" title="Password" placeholder="Password" data-section="login-wrapper" data-value="password"/>    
+                        <input id="password" class="input-base password_input" type="password" title="Password" placeholder="Password" data-section="login-wrapper" data-value="password" autocomplete="current-password" name="password"/>    
 
 
                         <span class="password_icon" aria-hidden="true">
 
-                            <img src="./assets/icons/closed_lock_icon.png" alt="Lock icon" class="input-icon"/>
+                            <img src="assets/icons/closed_lock_icon.png" alt="Lock icon" class="input-icon"/>
                         
                         </span>
                         
@@ -143,25 +143,25 @@
                     <!-- Campo: acciones / label + input → formularios -->
                     <div class="login-form__actions">
 
-                        <label> <input id="pass" class="remember-checkbox" data-section="login-wrapper" data-value="rememberMe" type="checkbox"/> Remember me</label>
+                        <label> <input id="pass" class="remember-checkbox" data-i18n="login.rememberMe" type="checkbox" name="remember"/> Remember me</label>
 
 
-                        <a href="#"  id="forgot-password-link" data-section="wrapper" data-value="forgotPassword">Forgot password</a>
+                        <a href="#"  id="forgot-password-link" data-i18n="login.forgotPassword">Forgot password</a>
 
                     </div> 
 
 
                     <!-- Boton submit -->
-                    <button type = "submit" class ="login-form__button" data-section="login-wrapper" data-value="logInButton">Login</button>
+                    <button type = "submit" class ="button-base login-form__button" data-i18n="login.logInButton">Login</button>
 
 
                     <!-- Link: Registro -->
                     <div class="login-form__register">
 
-                        <span data-section="login-wrapper" data-value="create_account">Do you have an account?</span>
+                        <span data-i18n="login.haveAccount">Do you have an account?</span>
 
 
-                        <a data-section="login-wrapper" data-value="signUp" href="register.html">Sign up</a>
+                        <a href="#" id="go-to-register" data-i18n="login.signUp">Sign up</a>
                             
                     </div>
 
@@ -182,7 +182,7 @@
             <div id="reset-wrapper" class ="reset-wrapper">
 
                 <!-- Título del formulario -->
-                <h1 class="reset-wrapper__title" data-section="reset-wrapper" data-i18n="resetTitle" data-value="title">Forgot Password</h1>
+                <h1 class="reset-wrapper__title" data-section="reset-wrapper" data-i18n="resetTitle" data-value="title">Forgot Password?</h1>
 
               
                 <!-- Cuerpo del formulario -->
@@ -191,15 +191,15 @@
                     <!-- Campo: E-mail -->
                     <div class ="reset-form_email">
 
-                        <label for="email" class="visually-hidden">E-mail</label>
+                        <label for="reset-email" class="visually-hidden">E-mail</label>
 
 
-                        <input id="email" class="email-input" name="email" type="email" placeholder="Enter Email" data-section="wrapper" data-value="email" autocomplete="email"/> 
+                        <input id="reset-email" class="input-base email-input" name="email" type="email" placeholder="Enter Email" data-section="wrapper" data-value="email" autocomplete="email" name="email"/> 
 
 
                         <span class="mail_icon" aria-hidden="true">
 
-                            <img src="../assets/icons/email.png" alt="email icon" class="email_input-icon"/>
+                            <img src="assets/icons/email.png" alt="email icon" class="email_input-icon"/>
 
                         </span>
 
@@ -247,12 +247,12 @@
                         <label for="register-personal-number" class="visually-hidden">Personal Number</label>
 
 
-                        <input type="text" id="register-personal-number" class="register-personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber"/> 
+                        <input type="text" id="register-personal-number" class="input-base register-personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" name="personalNumber"/> 
 
                             
                         <span class="personal-number_icon" aria-hidden="true">
 
-                            <img src="../assets/icons/id_card.png" alt="user icon" class="input-icon"/>
+                            <img src="assets/icons/id_card.png" alt="user icon" class="input-icon"/>
 
                         </span>  
                         
@@ -268,12 +268,12 @@
                             <label for="name" class="visually-hidden">Name</label>
 
 
-                            <input type="text" id="name" class= "name" placeholder="Name" data-section="wrapper" data-value="name">
+                            <input type="text" id="name" class="input-base register-name_input" placeholder="Name" data-section="wrapper" data-value="name" name="name">
 
                             
                             <span class="name_icon" aria-hidden="true">
 
-                                <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
+                                <img src="assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
 
                             </span>
 
@@ -286,12 +286,12 @@
                             <label for="surname" class="visually-hidden">Surname</label>
 
 
-                            <input type="text" id="surname" class= "surname" placeholder="Surname" data-section="wrapper" data-value="surname">
+                            <input type="text" id="surname" class="input-base register-surname_input" placeholder="Surname" data-section="wrapper" data-value="surname" name="surname">
                             
                             
                             <span class="surname_icon" aria-hidden="true">
                             
-                                <img src="../assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
+                                <img src="assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
 
                             </span>
 
@@ -306,15 +306,15 @@
                         <!-- Campo: Email -->
                         <div class="input-field">
 
-                            <label for="email" class="visually-hidden">Email</label>
+                            <label for="register-email" class="visually-hidden">Email</label>
 
 
-                            <input type="email" id="email" class= "email" placeholder="EMail" data-section="wrapper" data-value="email">
+                            <input type="email" id="register-email" class="input-base register-email_input" placeholder="EMail" data-section="wrapper" data-value="email" name="email">
                             
                             
                             <span class="email_icon" aria-hidden="true">
 
-                                <img src="../assets/icons/email.png" alt="E-Mailsymbol" class="input-icon"/>
+                                <img src="assets/icons/email.png" alt="E-Mailsymbol" class="input-icon"/>
 
                             </span>
 
@@ -326,7 +326,7 @@
 
                             <div class="input-field-number">                              
                                                                 
-                                <input type="number" id="department" class= "department-input" value="1" min="1" max="4" step="1">  
+                                <input type="number" id="department" class="input-base register-department_input" name="department" value="1" min="1" max="4" step="1">  
                                 
                                 
                                 <label for="department" data-section="wrapper" data-value="Department">Department</label>    
@@ -336,7 +336,7 @@
                             
                             <span class="department_icon" aria-hidden="true">
 
-                                <img src="../assets/icons/department.png" alt="department symbol" class="input-icon"/>
+                                <img src="assets/icons/department.png" alt="department symbol" class="input-icon"/>
 
                             </span>
 
@@ -354,12 +354,12 @@
                             <label for="register-password" class="visually-hidden">Password</label>
 
 
-                            <input type="password" id="register-password" placeholder="Password" data-section="wrapper" data-value="password">
+                            <input type="password" id="register-password" class="input-base register-password_input" placeholder="Password" data-section="wrapper" data-value="password" autocomplete="new-password" name="password">
                             
                             
                             <span class="register_password_icon" aria-hidden="true">
                             
-                                <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+                                <img src="assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
 
                             </span>
 
@@ -373,12 +373,12 @@
                             <label for="password-confirmation" class="visually-hidden">Password confirmation</label>
 
 
-                            <input type="password" id="password-confirmation" placeholder="Password confirmation" data-section="wrapper" data-value="passwordConfirmation">
+                            <input type="password" id="password-confirmation" placeholder="Password confirmation" class="input-base register-password-confirm_input" data-section="wrapper" data-value="passwordConfirmation" autocomplete="new-password" name="password">
                             
 
                             <span class="register_password_icon" aria-hidden="true">
                             
-                                <img src="../assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+                                <img src="assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
 
                             </span>
 
@@ -389,13 +389,13 @@
                     <!-- Términos para aceptar con el checkbox -->   
                     <label class="terms-text">
 
-                        <input id="check-point" type="checkbox" data-section="wrapper" data-value="terms"/> I hereby declare that the information provided above is true and correct
+                        <input id="check-point" type="checkbox" data-section="wrapper" data-value="terms" name="terms"/> I hereby declare that the information provided above is true and correct
 
                     </label>
 
 
                     <!-- Botón para ewnviar los datos -->
-                    <button type="submit" id="registerBtn" class="btn" data-section="wrapper" data-value="next">Sign Up</button>  
+                    <button type="submit" id="registerBtn" class="button-base register-btn" data-section="wrapper" data-value="next">Sign Up</button>  
 
 
                     <!-- link de retroceso / <a> → navegación -->
@@ -437,7 +437,7 @@
                         <!-- Total time -->
                         <div class="totaltime-panel">
 
-                            <label for="totaltime">TOTAL TIME:</label>               
+                            <label for="total-time">TOTAL TIME:</label>               
                             
                             
                             <output id="total-time" class="totaltime">00:00</output>
@@ -450,12 +450,15 @@
                     <!-- Where the date is selected -->
                     <div class="task-header">
 
-                        <h2 >Tasks performed:  </h2>  
+                        <h2>Tasks performed:  </h2>  
 
                         
                         <div class="calendar">
 
-                            <label for="date"><h2 type= "Date">Date: </h2></label>
+                            <h2 class="calendar-title">Date:  </h2> <!-- solo visual -->
+
+
+                            <label for="date" class="visually-hidden">Select Date</label>
 
 
                             <input type="date" id="date" name="date" required>
@@ -475,7 +478,7 @@
                     <!-- 1. The first Button's functionality -->                     
                     <div class="task-panel" id="task-panel">            
                         
-                        <button type ="button" class ="task-btn" id="task-btn">Assembly and Wiring</button>
+                        <button type ="button" class ="button-base task-btn" id="task-btn">Assembly and Wiring</button>
 
                         
                         <div class ="prod" id="product">
@@ -493,13 +496,13 @@
                             <label for="task-start">From: </label>
 
 
-                            <input type="time" id="task-start" name="start" class="task-start" required><br><br>
+                            <input type="time" id="task-start" name="startTime" class="task-start" required><br><br>
 
                                 
                             <label for="task-end">To: </label>
 
 
-                            <input type="time" id="task-end" name="end" class="task-end" required><br><br>
+                            <input type="time" id="task-end" name="endTime" class="task-end" required><br><br>
                     
                         </div>
 
@@ -523,7 +526,7 @@
                     <!-- 2. The second Button's functionality -->                    
                     <div class="meeting-panel" id="meeting-panel">
                                             
-                        <button type="button" class="meeting-btn" id="meeting-btn">Team Meeting</button>                                
+                        <button type="button" class="button-base meeting-btn" id="meeting-btn">Team Meeting</button>                                
 
 
                         <div class="meeting-time" id="meeting-time">
@@ -531,13 +534,13 @@
                             <label for="meeting-start">From: </label>
 
 
-                            <input type="time" id="meeting-start" name="start" required class="meeting-start"><br><br>
+                            <input type="time" id="meeting-start" name="startTime" required class="meeting-start"><br><br>
 
                         
                             <label for="meeting-end">To: </label>
 
 
-                            <input type="time" id="meeting-end" name="end" required class="meeting-end"><br><br>
+                            <input type="time" id="meeting-end" name="endTime" required class="meeting-end"><br><br>
             
                         </div>
 
@@ -557,9 +560,9 @@
 
                                         
                     <!-- 3. The third Button's functionality -->
-                    <div class="task-panel" id="cleanup-panel">
+                    <div class="cleanup-panel" id="cleanup-panel">
             
-                        <button type = "button" class = "cleanup-btn">Cleanup</button>              
+                        <button type = "button" class = "button-base cleanup-btn">Cleanup</button>              
                         
 
                         <div class = "cleanup-time">
@@ -567,23 +570,23 @@
                             <label for="cleanup-start">From: </label>
 
 
-                            <input type="time" id="cleanup-start" name="start" class="cleanup-start" required><br><br>
+                            <input type="time" id="cleanup-start" name="startTime" class="cleanup-start" required><br><br>
 
                         
                             <label for="cleanup-end">To: </label>
 
 
-                            <input type="time" id="cleanup-end" name="end" required class="cleanup-end"><br><br>
+                            <input type="time" id="cleanup-end" name="endTime" required class="cleanup-end"><br><br>
             
                         </div>
 
 
                         <div class="validation" id="cleanup-validation">
 
-                            <button type="button" class="delete-btn" id="cleanup-delete-boton">Delete</button>
+                            <button type="button" class="button-base delete-btn" id="cleanup-delete-boton">Delete</button>
 
 
-                            <button type="button" class="confirm-btn" id="cleanup-confirm-boton">Confirm</button>
+                            <button type="button" class="button-base confirm-btn" id="cleanup-confirm-boton">Confirm</button>
 
                         </div>   
                     
@@ -603,19 +606,79 @@
 
                 <div class="check-wrapper">
 
-                    <!-- Titulo -->
-                    <h2>Überprüfung der Daten vor dem Senden</h2><br>
+                    <!-- Título -->
+                    <h2 class="check-wrapper__title">Review your data before sending</h2>
 
                     
-                    <!-- JS llenará los <li> aquí -->
-                    <ol class="register-list"></ol>
+                    <!-- Tabla de registros → JS llenará los <tr> dentro del <tbody> -->
+                    <div class="check-table-container">
+
+                        <table class="check-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>#</th>
 
 
-                    <!-- Boton para regresar  -->
-                    <button class="back-btn">BACK</button>
+                                    <th>Task</th>
 
-                    <!-- Boton para enviar la info  -->
-                    <button class="submit-btn">SUBMIT</button>              
+
+                                    <th>Date</th>
+
+
+                                    <th>From</th>
+
+
+                                    <th>To</th>
+
+
+                                    <th>Duration</th>
+
+
+                                    <th>FA Number</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody class="check-table__body">       
+
+                                <!-- Se insertarán las filas aquí -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- Totales -->
+                    <div class="check-totals">
+
+                        <p class="check-totals__time">Total time: <span id="total-time-formatted">0h 00min</span></p>
+
+
+                        <span class="check-totals__separator">|</span>
+
+
+                        <p class="check-totals__minutes">Total time in min: <span id="total-time-minutes">0 min</span></p>
+
+                    </div>  
+
+
+                    <!-- Botones -->
+                    <div class="check-actions">
+
+                        <!-- Boton para regresar  -->
+                        <button class="check-back_btn">BACK</button>
+                        
+
+                        <!-- Boton para enviar la info  -->
+                        <button class="check-submit_btn">SUBMIT</button>    
+                    
+                    </div>
                     
                 </div>
 
@@ -627,34 +690,50 @@
 
         </section>
 
+
+
+
+
+
+
         <!---------------------------------------------------------------- valid CSS icon ---------------------------------------------------------------->
 
-        <p class="validation-icon">
+       
+        
+
+        <div class="validation-badge">  <!-- target="_blank" Hace que el enlace se abra en una nueva pestaña. rel="noopener" Evita un problema de seguridad llamado: tabnabbing. Evitando que se conecte a otra página maliciosa. -->
 
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
 
-                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!" />
-                
+                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!"/>
+
             </a>
-
-        </p>           
-        
-        
-        
-        
-        <script src="../js/main.js"></script> 
+            
+        </div>
 
 
-        <script src="../js/auth.api.js"></script>
+        
+        <img src="assets/images/indca_apps3.png" alt="indca image" class="indca"/>
+
+            
+
+        
+
+              
+                
+        <script src="js/auth.api.js"></script>
 
 
-        <script type="module" src="../js/login.js"></script>    
+        <script type="module" src="js/login.js"></script>    
         
         
-        <script src="../js/pages/worker.js"></script>
+        <script src="js/pages/worker.js"></script>
     
      
-        <script type="module" src="./js/utils/i18n.js"></script>  
+        <script type="module" src="js/utils/i18n.js"></script>  
+        
+
+        <script type="module" src="js/main.js"></script> 
 
     </body>
 
