@@ -413,31 +413,66 @@ const meetingDeleteBtn = document.querySelector('#meeting-delete-btn'); /* Botó
 // 2. Escucha el clic en el botón Delete del panel Assembly and Wiring
 taskDeleteBtn.addEventListener('click', () => {
 
+
     // 3. Borra los valores de los inputs del panel Assembly
     document.querySelector('#prod-number').value = '';   /* Borra el número de producto */
+
     document.querySelector('.task-start').value = '';    /* Borra la hora de inicio */
+
     document.querySelector('.task-end').value = '';      /* Borra la hora de fin */
 
 });
+
 
 // 4. Escucha el clic en el botón Delete del panel Team Meeting
 meetingDeleteBtn.addEventListener('click', () => {
 
     // 5. Borra los valores de los inputs del panel Meeting
     document.querySelector('.meeting-start').value = ''; /* Borra la hora de inicio */
+
     document.querySelector('.meeting-end').value = '';   /* Borra la hora de fin */
 
 });
 
-   
+
+// 5. Selecciona el botón Delete del panel Cleanup
+const cleanupDeleteBtn = document.querySelector('#cleanup-delete-btn');  /* Botón Delete del panel Cleanup */
+
+// 6. Escucha el clic en el botón Delete del panel Cleanup
+cleanupDeleteBtn.addEventListener('click', () => {
+
+    // 7. Borra los valores de los inputs del panel Cleanup
+    document.querySelector('.cleanup-start').value = ''; /* Borra la hora de inicio */
+    document.querySelector('.cleanup-end').value = '';   /* Borra la hora de fin */
+
+});
 
 
 
 
 
 
+// ------------------------ 7 GUARDAR DATOS AL PULSAR CONFIRM ------------------------
 
-// ------------------------ 7. GUARDAR DATOS AL PULSAR CONFIRM ------------------------
+
+
+// ------------------------ FUNCIÓN AUXILIAR: COMPROBAR SOLAPAMIENTO ------------------------
+
+// Comprueba si un nuevo registro se solapa con alguno de los ya guardados en entries
+// newStart y newEnd → horas de inicio y fin del nuevo registro en formato HH:MM
+// Devuelve true si hay solapamiento, false si no lo hay
+function hasSolapamiento(newStart, newEnd) {
+
+    return entries.some(reg => {    /* some() → recorre el array y devuelve true si algún elemento cumple la condición */
+
+        // Dos registros se solapan si el nuevo empieza antes de que termine el existente
+        // Y el nuevo termina después de que empiece el existente
+        return newStart < reg.end && newEnd > reg.start;    /* < y > → compara strings HH:MM directamente */
+
+    });
+
+}
+
 
 // 1. Crea un array vacío donde se guardarán todos los registros que el trabajador confirme
 //    Un array es una lista ordenada de elementos. Cada elemento será un objeto con los datos de una tarea
@@ -459,13 +494,23 @@ document.querySelector('#task-panel .confirm-btn').addEventListener('click', () 
     const date = document.querySelector('#date').value;             /* Fecha seleccionada */
 
 
-    // Validación: comprueba que la hora de fin es mayor que la hora de inicio
+    // Validación 1: comprueba que la hora de fin es mayor que la hora de inicio
     // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
     // return → detiene la ejecución y no guarda nada si las horas son incorrectas
     if (start >= end) {
 
         alert("Error: The end time must be later than the start time");
+        return;
 
+    }
+
+    // Validación 2: comprueba que el nuevo registro no se solapa con ninguno ya guardado
+    // hasSolapamiento(start, end) → llama a la función auxiliar que compara el nuevo registro con todos los existentes
+    // Si devuelve true significa que hay solapamiento y no se puede guardar
+    // return → detiene la ejecución y no guarda nada si hay solapamiento
+    if (hasSolapamiento(start, end)) {
+
+        alert("Error: This time slot overlaps with an existing entry");
         return;
 
     }
@@ -488,6 +533,14 @@ document.querySelector('#task-panel .confirm-btn').addEventListener('click', () 
 
     });
 
+    // Borra los inputs y oculta el panel para poder añadir una nueva entrada
+    document.querySelector('#prod-number').value = '';   /* Borra el número de producto */
+    document.querySelector('.task-start').value = '';    /* Borra la hora de inicio */
+    document.querySelector('.task-end').value = '';      /* Borra la hora de fin */
+    prod.style.display = 'none';                         /* Oculta el input de Prod. number */
+    taskTime.style.display = 'none';                     /* Oculta los inputs From y To */
+    taskValidation.style.display = 'none';               /* Oculta los botones Delete y Confirm */
+
 
     // 5. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
     alert("Assembly entry saved");
@@ -507,14 +560,24 @@ document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', 
     const date = document.querySelector('#date').value;                           /* Fecha seleccionada */
 
     
-    // Validación: comprueba que la hora de fin es mayor que la hora de inicio
+    // Validación 1: comprueba que la hora de fin es mayor que la hora de inicio
     // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
     // return → detiene la ejecución y no guarda nada si las horas son incorrectas
     if (start >= end) {
 
-    alert("Error: The end time must be later than the start time");
+        alert("Error: The end time must be later than the start time");
+        return;
 
-    return;
+    }
+
+    // Validación 2: comprueba que el nuevo registro no se solapa con ninguno ya guardado
+    // hasSolapamiento(start, end) → llama a la función auxiliar que compara el nuevo registro con todos los existentes
+    // Si devuelve true significa que hay solapamiento y no se puede guardar
+    // return → detiene la ejecución y no guarda nada si hay solapamiento
+    if (hasSolapamiento(start, end)) {
+
+        alert("Error: This time slot overlaps with an existing entry");
+        return;
 
     }
 
@@ -532,6 +595,12 @@ document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', 
         end: end               /* Hora de fin introducida */
 
     });
+
+    // Borra los inputs y oculta el panel para poder añadir una nueva entrada
+    document.querySelector('.meeting-start').value = ''; /* Borra la hora de inicio */
+    document.querySelector('.meeting-end').value = '';   /* Borra la hora de fin */
+    meetingTime.style.display = 'none';                  /* Oculta los inputs From y To */
+    meetingValidation.style.display = 'none';            /* Oculta los botones Delete y Confirm */
 
 
     // 9. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
@@ -552,13 +621,23 @@ document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', 
     const date = document.querySelector('#date').value;                           /* Fecha seleccionada */
 
 
-    // Validación: comprueba que la hora de fin es mayor que la hora de inicio
+    // Validación 1: comprueba que la hora de fin es mayor que la hora de inicio
     // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
     // return → detiene la ejecución y no guarda nada si las horas son incorrectas
     if (start >= end) {
 
         alert("Error: The end time must be later than the start time");
+        return;
 
+    }
+
+    // Validación 2: comprueba que el nuevo registro no se solapa con ninguno ya guardado
+    // hasSolapamiento(start, end) → llama a la función auxiliar que compara el nuevo registro con todos los existentes
+    // Si devuelve true significa que hay solapamiento y no se puede guardar
+    // return → detiene la ejecución y no guarda nada si hay solapamiento
+    if (hasSolapamiento(start, end)) {
+
+        alert("Error: This time slot overlaps with an existing entry");
         return;
 
     }
@@ -577,6 +656,16 @@ document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', 
         end: end          /* Hora de fin introducida */
 
     });
+
+    
+
+    // Borra los inputs y oculta el panel para poder añadir una nueva entrada
+    document.querySelector('.cleanup-start').value = ''; /* Borra la hora de inicio */
+    document.querySelector('.cleanup-end').value = '';   /* Borra la hora de fin */
+    cleaninUpTime.style.display = 'none';                /* Oculta los inputs From y To */
+    cleanUpValidation.style.display = 'none';            /* Oculta los botones Delete y Confirm */
+
+
 
     // 13. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
     alert("Cleanup Entry saved");
@@ -635,6 +724,10 @@ check.addEventListener('click', (event) => {
     // 7. Selecciona el cuerpo de la tabla donde se insertarán las filas con los registros
     const tbody = document.querySelector('.check-table__body');   /* Cuerpo de la tabla de revisión */
 
+    // Limpia la tabla antes de añadir las filas para evitar duplicados
+    tbody.innerHTML = "";   /* innerHTML = "" → borra todas las filas anteriores de la tabla */
+
+
 
     // 8. Recorre el array entries y crea una fila en la tabla por cada registro guardado
     //    forEach() → ejecuta el código dentro de () => { } una vez por cada elemento del array
@@ -670,35 +763,87 @@ check.addEventListener('click', (event) => {
         const tr = document.createElement('tr');  /* Nueva fila de la tabla */
 
 
-        // 14. Rellena la fila con las 7 celdas correspondientes a cada columna de la tabla
-        //    innerHTML → escribe el HTML interno del elemento
-        //    index + 1 → el número de fila empieza en 1, no en 0
-        //    reg.faNumber || '—' → si faNumber existe lo muestra, si no muestra un guión
+        
+
+    // 14. Rellena la fila con las 8 celdas correspondientes a cada columna de la tabla
+
+    //    tr.innerHTML → tr es la fila <tr> que creamos en el paso 13. innerHTML es una propiedad
+    //    que permite escribir HTML dentro de un elemento. Todo lo que escribamos entre los
+    //    backticks `` se convertirá en el contenido HTML de la fila.
+
+    //    ` ` → los backticks permiten escribir texto en varias líneas y meter variables dentro
+    //    usando la sintaxis ${}. Sin backticks tendríamos que concatenar con + lo cual es más
+    //    difícil de leer.
+
+    //    ${} → es la forma de insertar una variable dentro de un texto con backticks.
+    //    El navegador sustituye ${variable} por el valor real de esa variable.
+    //    Ejemplo: si index = 0, entonces ${index + 1} se convierte en 1.
+
+    //    index + 1 → index es la posición del registro en el array, empezando en 0.
+    //    Como no queremos mostrar 0, 1, 2... sino 1, 2, 3... sumamos 1.
+
+    //    reg.type → reg es el registro actual del forEach. .type es una de sus propiedades.
+    //    Ejemplo: reg.type podría ser "Assembly and Wiring", "Team Meeting" o "Cleanup".
+
+    //    reg.faNumber || '—' → || significa "o". Si reg.faNumber existe y tiene valor,
+    //    lo muestra. Si no existe o está vacío, muestra un guión —.
+    //    Ejemplo: Assembly tiene faNumber, pero Meeting y Cleanup no, así que muestran —.
+
+    //    data-label → es un atributo personalizado de HTML que guarda texto extra en el elemento.
+    //    En móvil, el CSS lo usa para mostrar la etiqueta delante del valor de cada celda.
+    //    Ejemplo: data-label="Task" hace que en móvil aparezca "Task:" antes del tipo de tarea.
+
         tr.innerHTML = `
 
-            <td>${index + 1}</td>
+            <td data-label="#">${index + 1}</td>
 
-            <td>${reg.type}</td>
+            <td data-label="Task">${reg.type}</td>
 
-            <td>${reg.date}</td>
+            <td data-label="Date">${reg.date}</td>
 
-            <td>${reg.start}</td>
+            <td data-label="From">${reg.start}</td>
 
-            <td>${reg.end}</td>
+            <td data-label="To">${reg.end}</td>
 
-            <td>${durationHours}h ${durationMins}min</td>
+            <td data-label="Duration">${durationHours}h ${durationMins}min</td>
 
-            <td>${reg.faNumber || '—'}</td>
+            <td data-label="FA Number">${reg.faNumber || '—'}</td>
+
+            <td data-label=""><button class="delete-row-btn">✕</button></td>
 
         `;
 
 
-        // 15. Añade la fila al cuerpo de la tabla
-        //     appendChild() → coloca el <tr> como último hijo del <tbody>
-        //     Si el tbody estaba vacío, será la primera fila. Si ya tenía filas, se añade al final
+        // 15. Escucha el clic en el botón X de esta fila
+        tr.querySelector('.delete-row-btn').addEventListener('click', () => {
+
+            // Busca la posición actual del registro en el array en el momento del clic
+            const currentIndex = entries.indexOf(reg);  /* indexOf() → devuelve la posición actual del registro */
+
+            // Elimina el registro del array en la posición actual
+            entries.splice(currentIndex, 1);            /* splice(currentIndex, 1) → elimina 1 elemento en esa posición */
+
+            // Elimina la fila de la tabla visualmente
+            tr.remove();                                /* remove() → elimina el <tr> del DOM */
+
+            // Renumera todas las filas que quedan en la tabla
+            // querySelectorAll() → selecciona todos los elementos que coincidan con el selector
+            // forEach() → recorre cada fila y actualiza su número
+            const filas = tbody.querySelectorAll('tr');             /* Selecciona todas las filas que quedan en la tabla */
+
+            filas.forEach((fila, i) => {
+
+                fila.cells[0].textContent = i + 1;  /* cells[0] → primera celda de la fila, i + 1 → nuevo número */
+
+            });
+
+
+        });
+
+
         tbody.appendChild(tr);
 
-    });
+    });    
 
 
     // 16. Calcula el tiempo total sumando la duración de todos los registros
@@ -730,22 +875,20 @@ check.addEventListener('click', (event) => {
 
     // 19. Escucha el clic en el botón BACK
     //     reset() → limpia todos los inputs del formulario y vuelve a mostrar el worker-wrapper original
-    backBtn.addEventListener('click', () => {        
+    backBtn.addEventListener('click', () => {                   
 
-        // Limpia todos los inputs del formulario de una sola vez
+        // No vaciamos entries aquí — los registros confirmados deben mantenerse
+        // para que la validación de solapamiento siga funcionando
+
         workerForm.reset();                         /* reset() → borra todos los valores de los inputs del formulario */
 
-        // Oculta el check-wrapper
         checkWrapper.style.display = 'none';        /* Oculta la pantalla de revisión */
 
-        // Vuelve a añadir el formulario dentro del worker-wrapper
         workerWrapper.appendChild(workerForm);      /* Devuelve el formulario al worker-wrapper */
 
-        // Restaura la fecha de hoy en el input de fecha
         dateInput.value = formattedDate;            /* Vuelve a poner la fecha de hoy */
 
-
-    });
+    });   
 
 
     // 20. Escucha el clic en el botón SUBMIT
@@ -753,9 +896,11 @@ check.addEventListener('click', (event) => {
     //     Aquí iría en el futuro el fetch() para enviar los datos al servidor Java
     submitBtn.addEventListener('click', () => {
 
-        console.log("Datos a enviar:", entries);  /* Muestra los datos en la consola */
+        console.log("Datos a enviar:", entries);    /* Muestra los datos en la consola */
 
-        alert("Datos listos para enviar a la BBDD");  /* Mensaje temporal de confirmación */
+        entries.length = 0;                         /* Vacía el array después de enviar los datos */
+
+        alert("Datos listos para enviar a la BBDD");
 
     });
 

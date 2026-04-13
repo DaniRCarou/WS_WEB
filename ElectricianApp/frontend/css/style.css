@@ -1505,13 +1505,27 @@ button {
 /* Este selector modifica el contenedor de los botones BACK y SUBMIT */
 .check-actions {
 
-    position: absolute;     /* Se posiciona respecto al check-wrapper */
-    bottom: 30px;           /* Pegado al borde inferior del check-wrapper */
-    left: 0;                /* Empieza desde el borde izquierdo */
-    width: 100%;            /* Ocupa todo el ancho para poder separar los botones */
-    display: flex;          /* Coloca los botones en fila horizontal */
-    justify-content: space-between;  /* BACK a la izquierda y SUBMIT a la derecha */
-    padding: 0 50px;        /* Espacio interior para que no toquen los bordes */
+    position: absolute;                 /* Se posiciona respecto al check-wrapper */
+    bottom: 30px;                       /* Pegado al borde inferior del check-wrapper */
+    left: 0;                            /* Empieza desde el borde izquierdo */
+    width: 100%;                        /* Ocupa todo el ancho para poder separar los botones */
+    display: flex;                      /* Coloca los botones en fila horizontal */
+    justify-content: space-between;     /* BACK a la izquierda y SUBMIT a la derecha */
+    padding: 0 50px;                    /* Espacio interior para que no toquen los bordes */
+
+}
+
+
+
+/* Este selector estiliza el botón de eliminar fila de la tabla */
+.delete-row-btn {
+
+    background: none;           /* Sin fondo */
+    border: none;               /* Sin borde */
+    color: white;               /* X en blanco */
+    font-size: 20px;            /* Tamaño grande para que sea fácil de pulsar */
+    cursor: pointer;            /* Cursor de mano al pasar */
+    font-weight: bold;          /* Texto en negrita */
 
 }
 
@@ -1660,6 +1674,8 @@ button {
 
     }
 
+
+
     /* Los tres wrappers pasan de ancho fijo a ocupar toda la pantalla disponible en móvil */
     .login-wrapper,
     .reset-wrapper,
@@ -1671,6 +1687,8 @@ button {
 
     }
 
+
+
     /* El registro empieza desde arriba en móvil para dejar espacio al menú de idiomas */
     .register-view.view--active {
 
@@ -1678,6 +1696,8 @@ button {
         padding-top: 50px;          /* 50px → espacio entre el borde de la pantalla y el wrapper, donde quedará el menú */
 
     }
+
+
 
     /* Los inputs que van en pareja pasan a ocupar toda la fila en móvil, uno debajo del otro */
     .input-field,
@@ -1689,6 +1709,8 @@ button {
         
     }
 
+
+
     /* Recoloca y reduce el menú de idiomas en móvil para que no tape el contenido */
     .lang-menu {
 
@@ -1699,6 +1721,8 @@ button {
 
     }
 
+
+
     /* El wrapper del worker pasa de 1300px fijo a ocupar toda la pantalla en móvil */
     .worker-wrapper {
 
@@ -1708,12 +1732,16 @@ button {
 
     }
 
+
+
     /* Reduce el tamaño del saludo y total time en móvil */
     .worker-form-greeting h1 {
 
         font-size: 22px;    /* 22px → reduce el tamaño del título de saludo, que en escritorio era 36px, demasiado grande para móvil */
 
     }
+
+
 
     /* Reduce el tamaño de la etiqueta TOTAL TIME en móvil */
     .totaltime-panel label {
@@ -1724,6 +1752,8 @@ button {
 
     }
 
+
+
     /* Reduce el tamaño del contenedor del tiempo total en móvil */
     .totaltime {
 
@@ -1732,6 +1762,8 @@ button {
         width: 80px;        /* 80px → reduce el ancho del contenedor del tiempo, que en escritorio era 120px */
 
     }
+
+
 
     /* Mantiene Tasks performed y Date en la misma línea en móvil */
     .task-header {
@@ -1751,6 +1783,8 @@ button {
 
     }
 
+
+
     /* Reduce el tamaño de los botones de tarea en móvil */
     .task-btn,
     .meeting-btn,
@@ -1763,6 +1797,8 @@ button {
 
     }
 
+
+
     /* Reduce el tamaño del botón CHECK en móvil */
     .text-btn {
 
@@ -1771,6 +1807,8 @@ button {
         bottom: 10px;       /* 10px → lo baja hacia el borde inferior del wrapper */
 
     }
+
+
 
     /* En móvil los paneles de tarea, meeting y cleanup se organizan en columna centrada */
     .task-panel,
@@ -1782,6 +1820,8 @@ button {
         margin: 0;                  /* 0 → elimina el margen derecho de 40px que tenían en escritorio */
 
     }
+
+
 
     /* Los inputs de tiempo From y To se mantienen en la misma línea en móvil */
     .task-time,
@@ -1797,6 +1837,8 @@ button {
 
     }
 
+
+
     /* Los botones de validación delete y confirm se colocan en fila centrada en móvil */
     .validation {
 
@@ -1804,6 +1846,8 @@ button {
         margin-bottom: 10px;        /* 10px → espacio entre los botones y el CHECK */
 
     }
+
+
 
     /* Reduce el tamaño de las etiquetas de prod. number, from y to en móvil */
     .prod label,
@@ -1817,6 +1861,8 @@ button {
 
     }
 
+
+
     /* Reduce el tamaño del texto de los botones delete y confirm en móvil */
     .delete-btn,
     .confirm-btn {
@@ -1824,6 +1870,8 @@ button {
         font-size: 15px;    /* 15px → mismo tamaño que el botón Assembly and Wiring en móvil */
 
     }
+
+
 
     /* Añade espacio vertical entre las etiquetas de prod. number, from, to y los botones delete y confirm en móvil */
     .prod,
@@ -1836,6 +1884,8 @@ button {
 
     }
 
+
+
     /* Reduce el espacio entre los inputs From y To en móvil */
     .task-start,
     .meeting-start,
@@ -1845,6 +1895,8 @@ button {
 
     }
 
+
+
     /* Elimina el margen derecho de meeting-time y cleanup-time en móvil para que queden igual que task-time */
     .meeting-time,
     .cleanup-time {
@@ -1852,6 +1904,8 @@ button {
         margin-right: 0;    /* 0 → elimina el margen derecho de 50px que tenían en escritorio, igualándolos con task-time */
 
     }
+
+
 
     /* Reduce el espacio entre los inputs From y To en móvil */
     .task-start,
@@ -1862,12 +1916,77 @@ button {
 
     }
 
+
+
     /* Elimina el margen derecho del input To en móvil */
     .task-end,
     .meeting-end,
     .cleanup-end {
 
         margin-right: 0;    /* 0 → elimina cualquier margen derecho que pueda desplazar el conjunto */
+
+    }
+
+
+
+    /* En móvil la tabla se convierte en tarjetas apiladas */
+    .check-table thead {
+
+        display: none;          /* Oculta la cabecera de la tabla — las etiquetas las pone el CSS con data-label */
+
+    }
+
+
+
+    /* Cada fila se convierte en una tarjeta separada */
+    .check-table tbody tr {
+
+        display: block;                                         /* Convierte la fila en bloque en vez de fila horizontal */
+        margin-bottom: 15px;                                    /* 15px → espacio entre cada tarjeta */
+        border: 1px solid rgba(255, 255, 255, 0.2);             /* Borde semitransparente alrededor de la tarjeta */
+        border-radius: 8px;                                     /* Bordes redondeados de la tarjeta */
+        padding: 10px;                                          /* Espacio interior de la tarjeta */
+
+    }
+
+
+
+    /* Cada celda ocupa toda la fila y muestra su etiqueta a la izquierda */
+    .check-table tbody td {
+
+        display: flex;                                              /* Flex para colocar etiqueta y valor en la misma línea */
+        justify-content: space-between;                             /* Etiqueta a la izquierda, valor a la derecha */
+        padding: 5px 0;                                             /* Espacio vertical entre cada dato */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);          /* Línea separadora entre datos */
+        font-size: 14px;                                            /* Reduce el tamaño del texto en móvil */
+
+    }
+
+
+
+    /* La última celda no tiene línea separadora */
+    .check-table tbody td:last-child {
+
+        border-bottom: none;    /* Elimina la línea del último elemento de la tarjeta */
+
+    }
+
+
+
+    /* Muestra la etiqueta antes del valor usando el atributo data-label */
+    .check-table tbody td::before {
+
+        content: attr(data-label);  /* attr(data-label) → toma el valor del atributo data-label del HTML */
+        font-weight: bold;          /* Etiqueta en negrita */
+        margin-right: 10px;         /* Espacio entre etiqueta y valor */
+
+    }
+
+
+    /* Oculta el símbolo de validación CSS en móvil para que no interfiera con los botones */
+    .validation-badge {
+
+        display: none;  /* el elemento desaparece completamente y no ocupa espacio */
 
     }
     
