@@ -1,7 +1,5 @@
 {
-
     "languageMenu": {
-
         "german": "Alemaniera",
         "english": "Ingelesa",
         "spanish": "Gaztelania",
@@ -9,43 +7,77 @@
         "galician": "Galiziera",
         "catalan": "Katalana",
         "basque": "Euskara"
-
     },
-
-
-    "wrapper": {
-
-        "logInTitle": "Saioa hasteko",
+    "login": {
+        "title": "Saioa hasteko",
         "personalNumber": "Zenbaki pertsonala",
         "password": "Pasahitza",
         "rememberMe": "Gogoratu nitaz",
         "forgotPassword": "Pasahitza ahaztuta",
         "logInButton": "Saioa hasi",
-        "haveAccount": "Konturik baduzu?",        
-        "signUp": "Abestu",
+        "haveAccount": "Konturik baduzu?",
+        "signUp": "Abestu"
+    },
+    "reset": {
+        "title": "Pasahitza ahaztu duzu?",
+        "email": "Emaila sartu",
+        "resetButton": "Emaila bidali",
+        "backToLogin": "Saioa hasi itzuli"
+    },
+    "register": {
+        "title": "Erregistratu",
+        "personalNumber": "Zenbaki pertsonala",
         "name": "Izena",
         "surname": "Abizena",
         "email": "Email",
+        "password": "Pasahitza",
         "passwordConfirmation": "Pasahitzaren berrespena",
-        "next": "Hurrengoa",
+        "department": "Saila",
         "terms": "Horrela adierazten dut goiko emandako datuak egiazkoak eta zuzenak direla",
+        "signUp": "Erregistratu",
         "backToLogin": "Saioa hasi itzuli"
-
     },
-
-
+    "worker": {
+        "greeting": "Kaixo",
+        "totalTime": "DENBORA OSOA:",
+        "tasksPerformed": "Egindako zereginak:",
+        "date": "Data:",
+        "assemblyBtn": "Muntaia eta Kableatzea",
+        "prodNumber": "Prod. zenbakia:",
+        "from": "Hasi:",
+        "to": "Amaitu:",
+        "deleteBtn": "Ezabatu",
+        "confirmBtn": "Berretsi",
+        "meetingBtn": "Talde bilera",
+        "cleanupBtn": "Garbiketa",
+        "checkBtn": "EGIAZTATU",
+        "backBtn": "ATZERA",
+        "submitBtn": "BIDALI",
+        "checkTitle": "Egiaztatu zure datuak bidali aurretik",
+        "totalTimeFormatted": "Denbora osoa:",
+        "totalTimeMinutes": "Denbora osoa min-etan:",
+        "taskHeader": "Zeregina",
+        "dateHeader": "Data",
+        "fromHeader": "Hasi",
+        "toHeader": "Amaitu",
+        "durationHeader": "Iraupena",
+        "faNumberHeader": "FA Zenbakia"
+    },
     "alerts": {
-
         "invalidPersonalNumber": "Zenbaki pertsonala ez da baliozkoa",
         "invalidName": "Izena ez da baliozkoa",
         "invalidSurname": "Abizena ez da baliozkoa",
         "invalidEmail": "Posta elektronikoa ez da baliozkoa",
         "invalidPassword": "Pasahitza ez da baliozkoa. Gutxienez 8 karaktere izan behar ditu, hutsunerik gabe, maiuskula bat, zenbaki bat eta karaktere berezi bat barne.",
         "passwordsDoNotMatch": "Pasahitzak ez datoz bat",
-        "termsNotAccepted": "Baldintzak onartu behar dituzu"
-
+        "termsNotAccepted": "Baldintzak onartu behar dituzu",
+        "endTimeError": "Amaiera ordua hasiera orduaren ondoren egon behar da",
+        "emptyTimeError": "Mesedez sartu ordu baliozkoa HH:MM formatuan",
+        "overlapError": "Ordu tarte hau lehendik dagoen sarrera batekin gainjarrita dago",
+        "assemblySaved": "Muntaketa sarrera gordeta",
+        "meetingSaved": "Bilera sarrera gordeta",
+        "cleanupSaved": "Garbiketa sarrera gordeta",
+        "submitReady": "Datuak datu basera bidaltzeko prest",
+        "registerSuccess": "Erregistroa ongi egin da"
     }
-
-
-
 }

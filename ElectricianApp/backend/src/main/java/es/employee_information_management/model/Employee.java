@@ -8,7 +8,7 @@ import lombok.*;
 
 // -------- Anotaciones de JPA --------
 @Entity // Marca la clase como una entidad JPA, que representa una tabla de la base de datos.
-@Table(name = "employees") // Nombre exacto de la tabla en la base de datos.
+@Table(name = "employee") // Nombre exacto de la tabla en la base de datos.
 
 // -------- Anotaciones de Lombok --------
 @Data // Genera automáticamente getters, setters, toString(), equals() y hashCode().

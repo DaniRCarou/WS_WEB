@@ -28,16 +28,21 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+
+		<!-- 	project.build.sourceEncoding — le dice a Maven "cuando leas mis archivos fuente y de recursos (como application.properties), interprétalos como UTF-8". 
+			 	Sin esto, Maven usa la codificación del sistema operativo, que en Windows suele ser Windows-1252, y si tu archivo tiene caracteres especiales guardados en UTF-8 (o viceversa), explota con el MalformedInputException que ves.
+				project.reporting.outputEncoding — lo mismo pero para cuando Maven genera reportes (tests, Javadoc, etc.). No afecta tu error actual, pero se añade siempre por convención para evitar problemas similares más adelante. -->
+		<!-- Indica a Maven qué codificación usar al leer/escribir archivos del proyecto -->
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<!-- Indica a Maven qué codificación usar al generar reportes -->
+    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -50,10 +55,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -71,16 +73,8 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+
+
 	</dependencies>
 
 	<build>

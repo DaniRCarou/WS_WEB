@@ -1,7 +1,5 @@
 {
-
     "languageMenu": {
-
         "german": "Alemán",
         "english": "Inglés",
         "spanish": "Español",
@@ -9,42 +7,77 @@
         "galician": "Galego",
         "catalan": "Catalán",
         "basque": "Éuscaro"
-
     },
-
-
-    "wrapper": {
-
-        "logInTitle": "Inicio de sesión",
+    "login": {
+        "title": "Inicio de sesión",
         "personalNumber": "Número persoal",
         "password": "Contrasinal",
         "rememberMe": "Recórdame",
         "forgotPassword": "Contrasinal olvidada",
         "logInButton": "Iniciar sesión",
-        "haveAccount": "Tes unha conta?",        
-        "signUp": "Rexistrar",
+        "haveAccount": "Tes unha conta?",
+        "signUp": "Rexistrar"
+    },
+    "reset": {
+        "title": "Esqueciches o contrasinal?",
+        "email": "Introducir email",
+        "resetButton": "Enviar email",
+        "backToLogin": "Volver a Inicio de sesión"
+    },
+    "register": {
+        "title": "Rexistrarse",
+        "personalNumber": "Número persoal",
         "name": "Nome",
         "surname": "Apelidos",
         "email": "Email",
+        "password": "Contrasinal",
         "passwordConfirmation": "Confirmación de contrasinal",
-        "next": "Seguinte",
+        "department": "Departamento",
         "terms": "Por medio da presente declaro que os datos proporcionados anteriormente son verdadeiros e correctos",
-        "backToLogin": "Volver a Inicio de sesión"
-
+        "signUp": "Rexistrarse",
+        "backToLogin": "Volver ó Inicio de sesión"
     },
-
-
+    "worker": {
+        "greeting": "Ola",
+        "totalTime": "TEMPO TOTAL:",
+        "tasksPerformed": "Tarefas realizadas:",
+        "date": "Data:",
+        "assemblyBtn": "Montaxe e Cableado",
+        "prodNumber": "Núm. produto:",
+        "from": "De:",
+        "to": "Até:",
+        "deleteBtn": "Borrar",
+        "confirmBtn": "Confirmar",
+        "meetingBtn": "Reunión de equipo",
+        "cleanupBtn": "Limpeza",
+        "checkBtn": "REVISAR",
+        "backBtn": "ATRÁS",
+        "submitBtn": "ENVIAR",
+        "checkTitle": "Revisa os teus datos antes de envialos",
+        "totalTimeFormatted": "Tempo total:",
+        "totalTimeMinutes": "Tempo total en min:",
+        "taskHeader": "Tarefa",
+        "dateHeader": "Data",
+        "fromHeader": "De",
+        "toHeader": "Até",
+        "durationHeader": "Duración",
+        "faNumberHeader": "Núm. FA"
+    },
     "alerts": {
-
         "invalidPersonalNumber": "Número persoal non válido",
         "invalidName": "O nome non é válido",
         "invalidSurname": "O apelido non é válido",
         "invalidEmail": "O correo electrónico non é válido",
         "invalidPassword": "O contrasinal non é válido. Debe ter polo menos 8 caracteres, sen espazos, incluír unha maiúscula, un número e un carácter especial.",
         "passwordsDoNotMatch": "Os contrasinais non coinciden",
-        "termsNotAccepted": "Debe aceptar os termos"
-
+        "termsNotAccepted": "Debe aceptar os termos",
+        "endTimeError": "A hora de fin debe ser posterior á hora de inicio",
+        "emptyTimeError": "Por favor introduce unha hora válida en formato HH:MM",
+        "overlapError": "Este horario solápase cunha entrada existente",
+        "assemblySaved": "Entrada de montaxe gardada",
+        "meetingSaved": "Entrada de reunión gardada",
+        "cleanupSaved": "Entrada de limpeza gardada",
+        "submitReady": "Datos listos para enviar á base de datos",
+        "registerSuccess": "Rexistro exitoso"
     }
-
-
 }

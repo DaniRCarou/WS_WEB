@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {                           
     try { initPasswordReset(); } catch (e) { console.error('initPasswordReset falló', e); } */
 
     // 👉 Mostrar login después de inicializar los módulos
-    showView('worker-view');                                                                     // Esta es la llamada a la función showView que he tenido que declarar con anterioridad -> antes -> showView('worker-view');
+    showView('login-view');                                                                     // Esta es la llamada a la función showView que he tenido que declarar con anterioridad -> antes -> showView('worker-view');
 
     // Configurar navegación
     setupNavigation();                                                                          // Llama a la función que vincula los enlaces de navegación (Sign up, Forgot password, etc.) con showView. Gracias a esto, cuando el usuario hace clic en un enlace, la sección correspondiente se muestra sin recargar la página.

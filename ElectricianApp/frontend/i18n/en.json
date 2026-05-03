@@ -1,7 +1,5 @@
 {
-
     "languageMenu": {
-
         "german": "German",
         "english": "English",
         "spanish": "Spanish",
@@ -9,43 +7,77 @@
         "galician": "Galician",
         "catalan": "Catalan",
         "basque": "Basque"
-
     },
-
-
-    "wrapper": {
-
-        "logInTitle": "Log in",
+    "login": {
+        "title": "Login",
         "personalNumber": "Personal number",
         "password": "Password",
         "rememberMe": "Remember me",
         "forgotPassword": "Forgot password",
         "logInButton": "Log in",
         "haveAccount": "Do you have an account?",
-        "signUp": "Sign up",
+        "signUp": "Sign up"
+    },
+    "reset": {
+        "title": "Forgot Password?",
+        "email": "Enter Email",
+        "resetButton": "Send Email",
+        "backToLogin": "Back to Login"
+    },
+    "register": {
+        "title": "Sign Up",
+        "personalNumber": "Personal number",
         "name": "Name",
         "surname": "Surname",
         "email": "Email",
+        "password": "Password",
         "passwordConfirmation": "Password confirmation",
-        "next": "Next",
+        "department": "Department",
         "terms": "I hereby declare that the information provided above is true and correct",
+        "signUp": "Sign up",
         "backToLogin": "Back to Login"
-
     },
-
-
+    "worker": {
+        "greeting": "Hello",
+        "totalTime": "TOTAL TIME:",
+        "tasksPerformed": "Tasks performed:",
+        "date": "Date:",
+        "assemblyBtn": "Assembly and Wiring",
+        "prodNumber": "Prod. number:",
+        "from": "From:",
+        "to": "To:",
+        "deleteBtn": "Delete",
+        "confirmBtn": "Confirm",
+        "meetingBtn": "Team Meeting",
+        "cleanupBtn": "Cleanup",
+        "checkBtn": "CHECK",
+        "backBtn": "BACK",
+        "submitBtn": "SUBMIT",
+        "checkTitle": "Review your data before sending",
+        "totalTimeFormatted": "Total time:",
+        "totalTimeMinutes": "Total time in min:",
+        "taskHeader": "Task",
+        "dateHeader": "Date",
+        "fromHeader": "From",
+        "toHeader": "To",
+        "durationHeader": "Duration",
+        "faNumberHeader": "FA Number"
+    },
     "alerts": {
-
         "invalidPersonalNumber": "Invalid personal number",
         "invalidName": "The name is not valid",
         "invalidSurname": "The surname is not valid",
         "invalidEmail": "The email address is not valid",
         "invalidPassword": "The password is not valid. It must be at least 8 characters long, contain no spaces, and include an uppercase letter, a number, and a special character.",
         "passwordsDoNotMatch": "Passwords do not match",
-        "termsNotAccepted": "You must accept the terms"
-
+        "termsNotAccepted": "You must accept the terms",
+        "endTimeError": "The end time must be later than the start time",
+        "emptyTimeError": "Please enter a valid time in HH:MM format",
+        "overlapError": "This time slot overlaps with an existing entry",
+        "assemblySaved": "Assembly entry saved",
+        "meetingSaved": "Team Meeting entry saved",
+        "cleanupSaved": "Cleanup entry saved",
+        "submitReady": "Data ready to be sent to the database",
+        "registerSuccess": "Registration successful"
     }
-
-
-
 }

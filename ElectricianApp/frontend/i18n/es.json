@@ -1,7 +1,5 @@
 {
-
     "languageMenu": {
-
         "german": "Alemán",
         "english": "Inglés",
         "spanish": "Español",
@@ -9,57 +7,78 @@
         "galician": "Gallego",
         "catalan": "Catalán",
         "basque": "Euskera"
-
     },
-
-
-
     "login": {
-
         "title": "Inicio de sesión",
         "personalNumber": "Número personal",
-        "password": "Contraseña",        
+        "password": "Contraseña",
         "rememberMe": "Recuérdame",
-        "forgotPassword": "Contraseña olvidada",        
+        "forgotPassword": "Contraseña olvidada",
         "logInButton": "Iniciar sesión",
         "haveAccount": "¿Tiene una cuenta?",
-        "singUp": "Registrar",
-        "name": "Nombre",
-        "surname": "Apellidos",
-        "email": "Email",
-        "passwordConfirmation": "Confirmación de contraseña",
-        "next": "Siguiente",
-        "terms": "Por la presente declaro que los datos proporcionados arriba son veraces y correctos",
-        "backToLogin": "Regresar a Inicio de sesión"
-
+        "signUp": "Registrar"
     },
-
-
-
+    "reset": {
+        "title": "¿Olvidaste tu contraseña?",
+        "email": "Introducir email",
+        "resetButton": "Enviar email",
+        "backToLogin": "Regresar a Inicio de sesión"
+    },
     "register": {
-
+        "title": "Registrarse",
+        "personalNumber": "Número personal",
         "name": "Nombre",
         "surname": "Apellidos",
         "email": "Email",
+        "password": "Contraseña",
         "passwordConfirmation": "Confirmación de contraseña",
-        "next": "Siguiente",
+        "department": "Departamento",
         "terms": "Por la presente declaro que los datos proporcionados arriba son veraces y correctos",
+        "signUp": "Registrarse",
         "backToLogin": "Regresar a Inicio de sesión"
-
     },
-
-
+    "worker": {
+        "greeting": "Hola",
+        "totalTime": "TIEMPO TOTAL:",
+        "tasksPerformed": "Tareas realizadas:",
+        "date": "Fecha:",
+        "selectDate": "Seleccionar fecha",
+        "assemblyBtn": "Montaje y Cableado",
+        "prodNumber": "Núm. producto:",
+        "from": "Desde:",
+        "to": "Hasta:",
+        "deleteBtn": "Borrar",
+        "confirmBtn": "Confirmar",
+        "meetingBtn": "Reunión de equipo",
+        "cleanupBtn": "Limpieza",
+        "checkBtn": "REVISAR",
+        "backBtn": "ATRÁS",
+        "submitBtn": "ENVIAR",
+        "checkTitle": "Revisa tus datos antes de enviarlos",
+        "totalTimeFormatted": "Tiempo total:",
+        "totalTimeMinutes": "Tiempo total en min:",
+        "taskHeader": "Tarea",
+        "dateHeader": "Fecha",
+        "fromHeader": "Desde",
+        "toHeader": "Hasta",
+        "durationHeader": "Duración",
+        "faNumberHeader": "Núm. FA"
+    },
     "alerts": {
-
         "invalidPersonalNumber": "Número personal no válido",
         "invalidName": "El nombre no es válido",
         "invalidSurname": "El apellido no es válido",
         "invalidEmail": "El correo electrónico no es válido",
         "invalidPassword": "La contraseña no es válida. Debe tener al menos 8 caracteres, sin espacios, incluir una mayúscula, un número y un carácter especial.",
         "passwordsDoNotMatch": "Las contraseñas no coinciden",
-        "termsNotAccepted": "Debe aceptar los términos"
-
+        "termsNotAccepted": "Debe aceptar los términos",
+        "endTimeError": "La hora de fin debe ser posterior a la hora de inicio",
+        "emptyTimeError": "Por favor introduce una hora válida en formato HH:MM",
+        "overlapError": "Este horario se solapa con una entrada existente",
+        "assemblySaved": "Entrada de montaje guardada",
+        "meetingSaved": "Entrada de reunión guardada",
+        "cleanupSaved": "Entrada de limpieza guardada",
+        "submitReady": "Datos listos para enviar a la base de datos",
+        "registerSuccess": "Registro exitoso"
     }
-
-
 }

@@ -147,18 +147,6 @@ input::placeholder {
 
 
 
-/* este es el logo hecho por mí */
-.indca {
-
-    width: 200px;      /* ajusta al tamaño deseado */
-    height: auto;     /* mantiene proporción */
-    float: right;     /* la coloca a la derecha */
-    margin: 10px;     /* separa del borde */
-
-}
-
-
-
 /* --------------------------------------------------------- LANGUAGE MENU ----------------------------------------------------------------------------- */
 
 
@@ -1652,13 +1640,14 @@ button {
 
 
 
-.indca {  
+.indca {      
     
-    position: absolute;
-    bottom: -40px; /* No se por qué al ponerlo a cero  no baja más */
-    right: 0px;
-    width: 215px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 110px;
     height: auto;
+    display: block;  /* elimina el espacio extra debajo de la imagen */
 
 }
 

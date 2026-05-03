@@ -49,8 +49,19 @@ const langLinks = document.querySelectorAll("[data-language]");         // Colec
                                                                         // langLinks → nombre de la variable, aquí será una lista de todos los enlaces de idiomas.
                                                                         // document.querySelectorAll("[data-language]") → busca en el DOM todos los elementos que tengan el atributo data-language y devuelve una NodeList (parecida a un array).
 
-const textsToChange = document.querySelectorAll("[data-section]");
+const textsToChange = document.querySelectorAll("[data-i18n]");
 const selectedLangContainer = document.querySelector(".selected-lang");
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -67,7 +78,7 @@ export async function loadLanguage(lang) {                          // Recibe un
 
   try {                                                             // Sirve para manejar errores sin que la aplicación se rompa. Si algo falla dentro del try, el error se captura en el catch.
 
-    const res = await fetch(`../json/${lang}.json`);                // res → será un objeto Response. Es una ruta dinámica porque la ruta depende de una variable (lang).
+    const res = await fetch(`i18n/${lang}.json`);                   // res → será un objeto Response. Es una ruta dinámica porque la ruta depende de una variable (lang).
                                                                     // await → Espera a que la petición termine antes de continuar. Pausa la ejecución hasta que la petición termine.
                                                                     // fetch hace una petición HTTP. En este caso, está cargando un archivo local JSON
                                                                     // `../json/${lang}.json` → Ruta dinámica. Si lang = "es" → carga: ../json/es.json
@@ -78,6 +89,8 @@ export async function loadLanguage(lang) {                          // Recibe un
 
     currentLanguageData = data;                                     // Guarda los textos del idioma en una variable global o de módulo. Esto permite que otras funciones accedan a las traducciones
 
+    window.currentLanguageData = data;                              // Hace accesible currentLanguageData desde worker.js 
+
     updateTexts();                                                  // Llama a una función que: Recorre el DOM y cambia los textos visibles según currentLanguageData
 
   } catch (err) {
@@ -87,6 +100,10 @@ export async function loadLanguage(lang) {                          // Recibe un
   }
 
 }
+
+
+
+
 
 
 
@@ -115,6 +132,10 @@ function updateTextNode(el, text) {                                           //
 
 
 
+
+
+
+
 // =====================================================================
 // Función para actualizar los textos en el DOM
 // =====================================================================
@@ -123,31 +144,79 @@ function updateTexts() {
 
   textsToChange.forEach(el => {
 
-    if (el.closest("[data-no-i18n]")) return;
+    // Obtiene el valor del atributo data-i18n del elemento
+    // Ejemplo: data-i18n="login.title" → key = "login.title"
+    const key = el.dataset.i18n;
 
-    const section = el.dataset.section;
+    // Divide el valor en dos partes separadas por el punto
+    // Ejemplo: "login.title" → section = "login", value = "title"
+    // split('.') → divide el string por el punto y devuelve un array
+    const [section, value] = key.split('.');
 
-    const value = el.dataset.value;
+    // Comprueba que la sección y la clave existen en el JSON
+    // Si la sección NO existe O la clave NO existe → muestra aviso y continúa
+    if (!currentLanguageData[section] || !currentLanguageData[section][value]) {
 
+      console.warn(`i18n: clave no encontrada → ${key}`);   // El ${} es la sintaxis de los template literals — la forma de insertar una variable dentro de un texto usando backticks `.
+
+      return;
+
+    }
+
+    // Obtiene el texto traducido del JSON
+    const text = currentLanguageData[section][value];
+
+
+
+
+    // ESTE IF Comprueba dos condiciones a la vez:
+
+    // Primera parte → (el.tagName.toLowerCase() === "a" || el.tagName.toLowerCase() === "button")
+    // el.tagName → devuelve el tipo de etiqueta del elemento en mayúsculas. Ejemplo: "A", "BUTTON", "H1"
+    // .toLowerCase() → lo convierte a minúsculas para comparar sin importar mayúsculas
+    // === "a" → comprueba si es un enlace <a>
+    // === "button" → comprueba si es un botón <button>
+    // || → OR — si es <a> O si es <button>
+
+    // Segunda parte → el.querySelector("img")
+    // Busca si hay una imagen <img> dentro del elemento
+    // Si existe devuelve el elemento <img> → que es true
+    // Si no existe devuelve null → que es false
+
+    // && → une las dos partes. Las dos deben ser verdaderas.
+
+    // En resumen: "Si el elemento es un <a> o un <button> Y además contiene una imagen dentro"
+    // Se usa para los botones del menú de idiomas que tienen una bandera dentro:
+    // <button data-i18n="languageMenu.english"><img src="uk.png"/> English</button>
+    // En este caso no podemos usar el.textContent = text porque borraría también la imagen
+    // Por eso usamos updateTextNode() que actualiza solo el texto sin tocar la imagen
     if ((el.tagName.toLowerCase() === "a" || el.tagName.toLowerCase() === "button") && el.querySelector("img")) {
 
-      updateTextNode(el, " " + currentLanguageData[section][value]);
+        // Si es un enlace o botón con imagen → actualiza solo el texto, no la imagen
+        updateTextNode(el, " " + text);
 
     } else if (el.tagName.toLowerCase() === "label" && el.querySelector("input")) {
 
-      updateTextNode(el, " " + currentLanguageData[section][value]);
+        // Si es un label con input dentro → actualiza solo el texto, no el input
+        updateTextNode(el, " " + text);
 
-    } else if (el.tagName.toLowerCase() === "input" && el.placeholder !== undefined) {
+    } else if (el.tagName.toLowerCase() === "input") {
 
-      el.placeholder = currentLanguageData[section][value];
+        // Si es un input → actualiza el placeholder
+        el.placeholder = text;
 
     } else {
 
-      el.textContent = currentLanguageData[section][value];
+        // Para el resto de elementos → actualiza el texto directamente
+        el.textContent = text;
 
     }
 
   });
+
+
+
+
 
 
 
@@ -157,22 +226,54 @@ function updateTexts() {
   // Actualiza el contenedor del idioma seleccionado
   // ======================================================
   const selectedButton = selectedLangContainer.querySelector("button");
+ 
 
+  // Comprueba que el botón existe antes de intentar modificarlo
+  // Si no existe, no hace nada y evita errores
   if (selectedButton) {
+    
+    const langCode = selectedButton.dataset.language;
+    // selectedButton.dataset.language → lee el atributo data-language del botón
+    // Ejemplo: data-language="en" → langCode = "en"
+    // Se usa para mantener el idioma correcto en el botón después de actualizarlo
 
-    const langCode = selectedButton.dataset.language;   // ej: "en", "de"
+    const i18nKey = selectedButton.dataset.i18n;
+    // selectedButton.dataset.i18n → lee el atributo data-i18n del botón
+    // Ejemplo: data-i18n="languageMenu.english" → i18nKey = "languageMenu.english"
+    // Se guarda para poder dividirlo en sección y clave
 
-    const value = selectedButton.dataset.value;         // ej: "english", "german"
+    const [section, value] = i18nKey.split('.');
+    // split('.') → divide el string por el punto y devuelve un array
+    // Ejemplo: "languageMenu.english" → ["languageMenu", "english"]
+    // section = "languageMenu", value = "english"
+    // Así podemos acceder al JSON con currentLanguageData[section][value]
 
-    const translatedText = currentLanguageData.languageMenu?.[value] || selectedButton.textContent;
+    const translatedText = currentLanguageData[section]?.[value] || selectedButton.textContent;
+    // currentLanguageData[section]?.[value] → busca el texto traducido en el JSON
+    // Ejemplo: currentLanguageData["languageMenu"]["english"] → "English", "Inglés", "Englisch"...
+    // ?. → operador opcional, evita error si section no existe en el JSON
+    // || selectedButton.textContent → si no encuentra el texto traducido, usa el texto actual del botón
 
     const imgHTML = selectedButton.querySelector("img")?.outerHTML || "";
+    // selectedButton.querySelector("img") → busca la imagen de la bandera dentro del botón
+    // ?.outerHTML → obtiene el HTML completo de la imagen. Ejemplo: <img src="uk.png" class="icon-flag"/>
+    // || "" → si no hay imagen, usa un string vacío para no romper el template literal
 
-    selectedLangContainer.innerHTML = `<button type="button" disabled data-language="${langCode}" data-value="${value}">${imgHTML} ${translatedText}</button>`;
-
-  }
+    selectedLangContainer.innerHTML = `<button type="button" disabled data-language="${langCode}" data-i18n="${i18nKey}">${imgHTML} ${translatedText}</button>`;
+    // Reconstruye el botón del idioma seleccionado con los datos actualizados
+    // disabled → el botón no es clicable porque ya es el idioma seleccionado
+    // data-language="${langCode}" → mantiene el código del idioma. Ejemplo: data-language="en"
+    // data-i18n="${i18nKey}" → mantiene la clave de traducción. Ejemplo: data-i18n="languageMenu.english"
+    // ${imgHTML} → inserta la bandera
+    // ${translatedText} → inserta el texto traducido
 
 }
+
+}
+
+
+
+
 
 
 
@@ -185,25 +286,69 @@ function updateTexts() {
 function renderSelectedLanguage(button) {
 
   const langCode = button.dataset.language;      // ej: "en", "de", "es"
+  // button.dataset.language → lee el atributo data-language del botón pulsado
+  // Ejemplo: data-language="en" → langCode = "en"
+  // Se usa para identificar qué idioma está seleccionado
 
-  const value = button.dataset.value;            // ej: "english", "german", "spanish"
+  const i18nKey = button.dataset.i18n;
+  // button.dataset.i18n → lee el atributo data-i18n del botón pulsado
+  // Ejemplo: data-i18n="languageMenu.english" → i18nKey = "languageMenu.english"
+
+  const [section, value] = i18nKey.split('.');
+  // split('.') → divide el string por el punto y devuelve un array
+  // Ejemplo: "languageMenu.english" → section = "languageMenu", value = "english"
 
   // Obtén el texto traducido desde el JSON
-  const translatedText = currentLanguageData.languageMenu?.[value] || button.textContent;
+  const translatedText = currentLanguageData[section]?.[value] || button.textContent;
+  // currentLanguageData[section]?.[value] → busca el texto traducido en el JSON
+  // Ejemplo: currentLanguageData["languageMenu"]["english"] → "English", "Inglés"...
+  // || button.textContent → si no encuentra el texto traducido, usa el texto actual del botón
 
   // Renderiza el botón en el contenedor con la bandera y el texto traducido
   const imgHTML = button.querySelector("img")?.outerHTML || "";
 
-  selectedLangContainer.innerHTML = `<button type="button" disabled>${imgHTML} ${translatedText}</button>`;
+  selectedLangContainer.innerHTML = `<button type="button" disabled data-language="${langCode}" data-i18n="${i18nKey}">${imgHTML} ${translatedText}</button>`;
+  // disabled → el botón no es clicable porque ya es el idioma seleccionado
+  // data-language="${langCode}" → mantiene el código del idioma. Ejemplo: data-language="en"
+  // data-i18n="${i18nKey}" → mantiene la clave de traducción. Ejemplo: data-i18n="languageMenu.english"
+  // ${imgHTML} → inserta la bandera
+  // ${translatedText} → inserta el texto traducido
 
   // Oculta el botón correspondiente en la lista
   langLinks.forEach(btn => {
 
+    // btn.style.display = btn.dataset.language === langCode ? "none" : "inline-block";
+
+    // Es un operador ternario — forma corta de escribir un if/else en una sola línea
+    // Estructura: condición ? "valor si es verdadero" : "valor si es falso"
+
+    // btn.dataset.language → el idioma del botón. Ejemplo: "en", "de", "es"
+    // === langCode → compara si ese idioma es el seleccionado actualmente
+    // ? → "entonces"
+    // "none" → si coincide → oculta el botón (ya está seleccionado, no tiene sentido mostrarlo)
+    // : → "si no"
+    // "inline-block" → si no coincide → muestra el botón
+
+    // Es exactamente lo mismo que escribir esto con if/else:
+    // if (btn.dataset.language === langCode) {
+    //     btn.style.display = "none";
+    // } else {
+    //     btn.style.display = "inline-block";
+    // }
+
+    // Ejemplo: si el idioma seleccionado es español (langCode = "es"):
+    // El botón de español → display: none → oculto
+    // El botón de inglés → display: inline-block → visible
+    // El botón de alemán → display: inline-block → visible
     btn.style.display = btn.dataset.language === langCode ? "none" : "inline-block";
 
   });
 
 }
+
+
+
+
 
 
 

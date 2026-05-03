@@ -8,7 +8,7 @@ import lombok.*;
 
 // -------- Estas anotaciones son de JPA (Java Persistence API) y se usan para indicar que una clase Java representa una entidad que se puede guardar en una base de datos. --------
 @Entity // Marca la clase como una entidad JPA, es decir, que representa una tabla de la base de datos. JPA (Java Persistence API) usa esta anotación para saber que la clase debe ser gestionada por Hibernate / Spring Data JPA. Obligatoria si quieres que tu clase se pueda guardar, actualizar o eliminar en la base de datos.
-@Table(name = "departments") // Indica el nombre exacto de la tabla en la base de datos. Útil cuando: El nombre de la clase y de la tabla no coinciden. La tabla está en mayúsculas, plural o con guiones bajos, como departments.
+@Table(name = "department") // Indica el nombre exacto de la tabla en la base de datos. Útil cuando: El nombre de la clase y de la tabla no coinciden. La tabla está en mayúsculas, plural o con guiones bajos, como departments.
 
 // -------- Estas anotaciones son parte de Lombok, una librería muy usada en proyectos Java para reducir código repetitivo. --------
 // Lombok es la única dependencia que requiere configuración adicional en el IDE.

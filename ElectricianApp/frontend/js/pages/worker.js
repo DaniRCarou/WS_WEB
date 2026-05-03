@@ -475,12 +475,20 @@ function hasSolapamiento(newStart, newEnd) {
 
 
 // 1. Crea un array vacío donde se guardarán todos los registros que el trabajador confirme
-//    Un array es una lista ordenada de elementos. Cada elemento será un objeto con los datos de una tarea
+//    Cada elemento será un objeto con los datos de una tarea
 const entries = [];
 
 // 2. Escucha el clic en el botón Confirm del panel Assembly and Wiring
 //    '#task-panel .confirm-btn' → selector que apunta al botón Confirm dentro del panel de Assembly
 //    Usar el panel como prefijo evita conflictos con los otros botones Confirm que también existen
+// document.querySelector('#task-panel .confirm-btn') → busca el botón Confirm dentro del panel de Assembly
+// '#task-panel .confirm-btn' → es el selector CSS:
+//  # → busca por id
+//  #task-panel → busca el elemento con id="task-panel"
+//  (espacio) → significa "dentro de"
+//  . → busca por clase
+//  .confirm-btn → busca el elemento con class="confirm-btn" dentro del task-panel
+// .addEventListener('click', () => { }) → escucha el evento click en ese botón y ejecuta el código dentro de las llaves
 document.querySelector('#task-panel .confirm-btn').addEventListener('click', () => {
 
     // 3. Lee los valores que el trabajador ha introducido en los inputs del panel Assembly
@@ -494,12 +502,23 @@ document.querySelector('#task-panel .confirm-btn').addEventListener('click', () 
     const date = document.querySelector('#date').value;             /* Fecha seleccionada */
 
 
+    // Validación 0: comprueba que los inputs de hora no están vacíos
+    // !start || !end → si start o end están vacíos devuelve true
+    // return → detiene la ejecución si alguno está vacío
+    if (!start || !end) {
+
+        alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format");
+        return;
+
+    }
+
+
     // Validación 1: comprueba que la hora de fin es mayor que la hora de inicio
     // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
     // return → detiene la ejecución y no guarda nada si las horas son incorrectas
     if (start >= end) {
 
-        alert("Error: The end time must be later than the start time");
+        alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time");
         return;
 
     }
@@ -510,7 +529,7 @@ document.querySelector('#task-panel .confirm-btn').addEventListener('click', () 
     // return → detiene la ejecución y no guarda nada si hay solapamiento
     if (hasSolapamiento(start, end)) {
 
-        alert("Error: This time slot overlaps with an existing entry");
+        alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry");
         return;
 
     }
@@ -543,7 +562,7 @@ document.querySelector('#task-panel .confirm-btn').addEventListener('click', () 
 
 
     // 5. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
-    alert("Assembly entry saved");
+    alert(window.currentLanguageData?.alerts?.assemblySaved || "Assembly entry saved");
 
 });
 
@@ -559,13 +578,24 @@ document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', 
 
     const date = document.querySelector('#date').value;                           /* Fecha seleccionada */
 
+
+    // Validación 0: comprueba que los inputs de hora no están vacíos
+    // !start || !end → si start o end están vacíos devuelve true
+    // return → detiene la ejecución si alguno está vacío
+    if (!start || !end) {
+
+        alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format");
+        return;
+
+    }
+
     
     // Validación 1: comprueba que la hora de fin es mayor que la hora de inicio
     // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
     // return → detiene la ejecución y no guarda nada si las horas son incorrectas
     if (start >= end) {
 
-        alert("Error: The end time must be later than the start time");
+        alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time");
         return;
 
     }
@@ -576,7 +606,7 @@ document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', 
     // return → detiene la ejecución y no guarda nada si hay solapamiento
     if (hasSolapamiento(start, end)) {
 
-        alert("Error: This time slot overlaps with an existing entry");
+        alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry");
         return;
 
     }
@@ -604,7 +634,7 @@ document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', 
 
 
     // 9. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
-    alert("Team Meeting Entry saved");
+    alert(window.currentLanguageData?.alerts?.meetingSaved || "Team Meeting entry saved");
 
 });
 
@@ -621,12 +651,23 @@ document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', 
     const date = document.querySelector('#date').value;                           /* Fecha seleccionada */
 
 
+    // Validación 0: comprueba que los inputs de hora no están vacíos
+    // !start || !end → si start o end están vacíos devuelve true
+    // return → detiene la ejecución si alguno está vacío
+    if (!start || !end) {
+
+        alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format");
+        return;
+
+    }
+
+
     // Validación 1: comprueba que la hora de fin es mayor que la hora de inicio
     // start >= end → si la hora de inicio es mayor o igual a la de fin, las horas están al revés
     // return → detiene la ejecución y no guarda nada si las horas son incorrectas
     if (start >= end) {
 
-        alert("Error: The end time must be later than the start time");
+        alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time");
         return;
 
     }
@@ -637,7 +678,7 @@ document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', 
     // return → detiene la ejecución y no guarda nada si hay solapamiento
     if (hasSolapamiento(start, end)) {
 
-        alert("Error: This time slot overlaps with an existing entry");
+        alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry");
         return;
 
     }
@@ -668,7 +709,7 @@ document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', 
 
 
     // 13. Muestra un mensaje temporal al trabajador confirmando que el registro se ha guardado
-    alert("Cleanup Entry saved");
+    alert(window.currentLanguageData?.alerts?.cleanupSaved || "Cleanup entry saved");
 
 });
 
@@ -900,7 +941,7 @@ check.addEventListener('click', (event) => {
 
         entries.length = 0;                         /* Vacía el array después de enviar los datos */
 
-        alert("Datos listos para enviar a la BBDD");
+        alert(window.currentLanguageData?.alerts?.submitReady || "Data ready to be sent to the database");
 
     });
 

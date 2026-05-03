@@ -1,7 +1,5 @@
 {
-
     "languageMenu": {
-
         "german": "Deutsch",
         "english": "Englisch",
         "spanish": "Spanisch",
@@ -9,43 +7,77 @@
         "galician": "Galicisch",
         "catalan": "Katalanisch",
         "basque": "Baskisch"
-
     },
-
-
-    "wrapper": {
-
-        "logInTitle": "Anmeldung",
+    "login": {
+        "title": "Anmeldung",
         "personalNumber": "Personalnummer",
         "password": "Passwort",
         "rememberMe": "Erinnere dich an mich",
-        "forgotPassword": "Passwort vergessen",        
+        "forgotPassword": "Passwort vergessen",
         "logInButton": "Anmelden",
-        "haveAccount": "Haben Sie keine Konto?",
-        "signUp": "Registrieren",
+        "haveAccount": "Haben Sie kein Konto?",
+        "signUp": "Registrieren"
+    },
+    "reset": {
+        "title": "Passwort vergessen?",
+        "email": "E-Mail eingeben",
+        "resetButton": "E-Mail senden",
+        "backToLogin": "Zurück zum Login"
+    },
+    "register": {
+        "title": "Registrieren",
+        "personalNumber": "Personalnummer",
         "name": "Vorname",
         "surname": "Nachname",
-        "email": "E-mail",
+        "email": "E-Mail",
+        "password": "Passwort",
         "passwordConfirmation": "Passwort bestätigung",
-        "next": "Weiter",
+        "department": "Abteilung",
         "terms": "Hiermit erkläre ich, dass die oben gemachten Angaben wahrheitsgemäß und korrekt sind",
+        "signUp": "Registrieren",
         "backToLogin": "Zurück zum Login"
-
     },
-
-
+    "worker": {
+        "greeting": "Hallo",
+        "totalTime": "GESAMTZEIT:",
+        "tasksPerformed": "Durchgeführte Aufgaben:",
+        "date": "Datum:",
+        "assemblyBtn": "Montage und Verkabelung",
+        "prodNumber": "Prod. Nummer:",
+        "from": "Von:",
+        "to": "Bis:",
+        "deleteBtn": "Löschen",
+        "confirmBtn": "Bestätigen",
+        "meetingBtn": "Teambesprechung",
+        "cleanupBtn": "Aufräumen",
+        "checkBtn": "PRÜFEN",
+        "backBtn": "ZURÜCK",
+        "submitBtn": "SENDEN",
+        "checkTitle": "Überprüfe deine Daten vor dem Senden",
+        "totalTimeFormatted": "Gesamtzeit:",
+        "totalTimeMinutes": "Gesamtzeit in Min:",
+        "taskHeader": "Aufgabe",
+        "dateHeader": "Datum",
+        "fromHeader": "Von",
+        "toHeader": "Bis",
+        "durationHeader": "Dauer",
+        "faNumberHeader": "FA Nummer"
+    },
     "alerts": {
-
         "invalidPersonalNumber": "Ungültige Personalnummer",
         "invalidName": "Der Name ist ungültig",
         "invalidSurname": "Der Nachname ist ungültig",
         "invalidEmail": "Die E-Mail-Adresse ist ungültig",
         "invalidPassword": "Das Passwort ist ungültig. Es muss mindestens 8 Zeichen lang sein, darf keine Leerzeichen enthalten und muss einen Großbuchstaben, eine Zahl und ein Sonderzeichen enthalten.",
         "passwordsDoNotMatch": "Die Passwörter stimmen nicht überein",
-        "termsNotAccepted": "Sie müssen die Bedingungen akzeptieren"
-
+        "termsNotAccepted": "Sie müssen die Bedingungen akzeptieren",
+        "endTimeError": "Die Endzeit muss nach der Startzeit liegen",
+        "emptyTimeError": "Bitte geben Sie eine gültige Uhrzeit im Format HH:MM ein",
+        "overlapError": "Dieser Zeitraum überschneidet sich mit einem bestehenden Eintrag",
+        "assemblySaved": "Montageeintrag gespeichert",
+        "meetingSaved": "Teambesprechungseintrag gespeichert",
+        "cleanupSaved": "Aufräumeintrag gespeichert",
+        "submitReady": "Daten bereit zum Senden an die Datenbank",
+        "registerSuccess": "Registrierung erfolgreich"
     }
-
-
-
 }

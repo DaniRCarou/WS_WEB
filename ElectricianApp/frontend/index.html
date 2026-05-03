@@ -109,8 +109,7 @@
                         <label for="login-personal-number" class="visually-hidden" data-i18n="login.personalNumber">Personal Number</label>
 
 
-                        <input type="text" id="login-personal-number" class="input-base personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" name="personalNumber"/> 
-
+                        <input type="text" id="login-personal-number" class="input-base personal-number_input" placeholder="Personal number" data-i18n="login.personalNumber" name="personalNumber"/>
                             
                         <span class="personal-number_icon" aria-hidden="true">
 
@@ -127,7 +126,7 @@
                         <label for="password" class="visually-hidden" data-i18n="login.password">Password</label>
 
 
-                        <input id="password" class="input-base password_input" type="password" title="Password" placeholder="Password" data-section="login-wrapper" data-value="password" autocomplete="current-password" name="password"/>    
+                        <input id="password" class="input-base password_input" type="password" title="Password" placeholder="Password" data-i18n="login.password" autocomplete="current-password" name="password"/>
 
 
                         <span class="password_icon" aria-hidden="true">
@@ -143,7 +142,7 @@
                     <!-- Campo: acciones / label + input → formularios -->
                     <div class="login-form__actions">
 
-                        <label> <input id="pass" class="remember-checkbox" data-i18n="login.rememberMe" type="checkbox" name="remember"/> Remember me</label>
+                        <label> <input id="pass" class="remember-checkbox" type="checkbox" name="remember"/> <span data-i18n="login.rememberMe">Remember me</span></label>
 
 
                         <a href="#"  id="forgot-password-link" data-i18n="login.forgotPassword">Forgot password</a>
@@ -182,7 +181,7 @@
             <div id="reset-wrapper" class ="reset-wrapper">
 
                 <!-- Título del formulario -->
-                <h1 class="reset-wrapper__title" data-section="reset-wrapper" data-i18n="resetTitle" data-value="title">Forgot Password?</h1>
+                <h1 class="reset-wrapper__title" data-i18n="reset.title">Forgot Password?</h1>
 
               
                 <!-- Cuerpo del formulario -->
@@ -191,10 +190,10 @@
                     <!-- Campo: E-mail -->
                     <div class ="reset-form_email">
 
-                        <label for="reset-email" class="visually-hidden">E-mail</label>
+                        <label for="reset-email" class="visually-hidden" data-i18n="reset.email">E-mail</label>
 
 
-                        <input id="reset-email" class="input-base email-input" name="email" type="email" placeholder="Enter Email" data-section="wrapper" data-value="email" autocomplete="email"/> 
+                        <input id="reset-email" class="input-base email-input" name="email" type="email" placeholder="Enter Email" data-i18n="reset.email" autocomplete="email"/> 
 
 
                         <span class="mail_icon" aria-hidden="true">
@@ -207,13 +206,13 @@
 
 
                     <!-- Boton submit -->
-                    <button type = "submit" class ="reset-form__button" data-section="reset-wrapper" data-value="resetButton">E-Mail senden</button>
+                    <button type="submit" class="reset-form__button" data-i18n="reset.resetButton">E-Mail senden</button>
 
 
                     <!-- link de retroceso / <a> → navegación -->
                     <div class="reset-form_back">
 
-                        <a href="#"  id="loginback-link" data-section="reset-wrapper" data-value="back-login">Back to Login</a>                     
+                        <a href="#" id="loginback-link" data-i18n="reset.backToLogin">Back to Login</a>                     
 
                     </div>
                     
@@ -235,19 +234,19 @@
 
 
                 <!-- Título del formulario -->
-                <h1 class="register__title" data-section="register-wrapper" data-i18n="registerTitle" data-value="title">Sign Up</h1>
+                <h1 class="register__title" data-i18n="register.title">Sign Up</h1>
 
 
                 <!-- Cuerpo del formulario -->
-                <form id="register-form" class="register-form" method="post" novalidate> 
+                <form id="register-form" class="register-form" method="post" novalidate autocomplete="off"> 
 
                     <!-- Campo: Personal Number -->
                     <div class="register-form_number">
 
-                        <label for="register-personal-number" class="visually-hidden">Personal Number</label>
+                        <label for="register-personal-number" class="visually-hidden" data-i18n="register.personalNumber">Personal Number</label>
 
 
-                        <input type="text" id="register-personal-number" class="input-base register-personal-number_input" placeholder="Personal number" data-section="wrapper" data-value="personalNumber" name="personalNumber"/> 
+                        <input type="text" id="register-personal-number" class="input-base register-personal-number_input" placeholder="Personal number" data-i18n="register.personalNumber" name="personalNumber"/> 
 
                             
                         <span class="personal-number_icon" aria-hidden="true">
@@ -265,10 +264,10 @@
                         <!-- Campo: Name -->
                         <div class="input-field">
 
-                            <label for="name" class="visually-hidden">Name</label>
+                            <label for="name" class="visually-hidden" data-i18n="register.name">Name</label>
 
 
-                            <input type="text" id="name" class="input-base register-name_input" placeholder="Name" data-section="wrapper" data-value="name" name="name">
+                            <input type="text" id="name" class="input-base register-name_input" placeholder="Name" data-i18n="register.name" name="name">
 
                             
                             <span class="name_icon" aria-hidden="true">
@@ -283,10 +282,10 @@
                         <!-- Campo: Surname -->
                         <div class="input-field">
 
-                            <label for="surname" class="visually-hidden">Surname</label>
+                            <label for="surname" class="visually-hidden" data-i18n="register.surname">Surname</label>
 
 
-                            <input type="text" id="surname" class="input-base register-surname_input" placeholder="Surname" data-section="wrapper" data-value="surname" name="surname">
+                            <input type="text" id="surname" class="input-base register-surname_input" placeholder="Surname" data-i18n="register.surname" name="surname">
                             
                             
                             <span class="surname_icon" aria-hidden="true">
@@ -306,10 +305,10 @@
                         <!-- Campo: Email -->
                         <div class="input-field">
 
-                            <label for="register-email" class="visually-hidden">Email</label>
+                            <label for="register-email" class="visually-hidden" data-i18n="register.email">Email</label>
 
 
-                            <input type="email" id="register-email" class="input-base register-email_input" placeholder="EMail" data-section="wrapper" data-value="email" name="email">
+                            <input type="email" id="register-email" class="input-base register-email_input" placeholder="Email" data-i18n="register.email" name="email">
                             
                             
                             <span class="email_icon" aria-hidden="true">
@@ -329,7 +328,7 @@
                                 <input type="number" id="department" class="input-base register-department_input" name="department" value="1" min="1" max="4" step="1">  
                                 
                                 
-                                <label for="department" data-section="wrapper" data-value="Department">Department</label>    
+                                <label for="department" data-i18n="register.department">Department</label>    
                                 
                             </div>
 
@@ -351,11 +350,11 @@
                         <!-- Campo: password -->
                         <div class="input-field">
 
-                            <label for="register-password" class="visually-hidden">Password</label>
+                            <label for="register-password" class="visually-hidden" data-i18n="register.password">Password</label>
 
 
-                            <input type="password" id="register-password" class="input-base register-password_input" placeholder="Password" data-section="wrapper" data-value="password" autocomplete="new-password" name="password">
-                            
+                            <input type="password" id="register-password" class="input-base register-password_input" placeholder="Password" data-i18n="register.password" autocomplete="new-password" name="password">
+
                             
                             <span class="register_password_icon" aria-hidden="true">
                             
@@ -370,10 +369,10 @@
                         <div class="input-field">
 
                             
-                            <label for="password-confirmation" class="visually-hidden">Password confirmation</label>
+                            <label for="password-confirmation" class="visually-hidden" data-i18n="register.passwordConfirmation">Password confirmation</label>
 
 
-                            <input type="password" id="password-confirmation" placeholder="Password confirmation" class="input-base register-password-confirm_input" data-section="wrapper" data-value="passwordConfirmation" autocomplete="new-password" name="password">
+                            <input type="password" id="password-confirmation" placeholder="Password confirmation" class="input-base register-password-confirm_input" data-i18n="register.passwordConfirmation" autocomplete="new-password" name="password">
                             
 
                             <span class="register_password_icon" aria-hidden="true">
@@ -389,19 +388,19 @@
                     <!-- Términos para aceptar con el checkbox -->   
                     <label class="terms-text">
 
-                        <input id="check-point" type="checkbox" data-section="wrapper" data-value="terms" name="terms"/> I hereby declare that the information provided above is true and correct
+                        <input id="check-point" type="checkbox" name="terms"/> <span data-i18n="register.terms">I hereby declare that the information provided above is true and correct</span>
 
                     </label>
 
 
                     <!-- Botón para ewnviar los datos -->
-                    <button type="submit" id="registerBtn" class="button-base register-btn" data-section="wrapper" data-value="next">Sign Up</button>  
+                    <button type="submit" id="registerBtn" class="button-base register-btn" data-i18n="register.signUp">Sign Up</button>  
 
 
                     <!-- link de retroceso / <a> → navegación -->
                     <div class="reset-form_back">
 
-                        <a href="#"  id="register-loginback-link" data-section="reset-wrapper" data-value="back-login">Back to Login</a>                     
+                        <a href="#" id="register-loginback-link" data-i18n="register.backToLogin">Back to Login</a>                     
 
                     </div>
 
@@ -431,13 +430,13 @@
                     <!-- Greeting -->
                     <div class="worker-form-greeting">
 
-                        <h1 id="greeting">Hello, <span id="user-name"></span>!</h1>
+                        <h1 id="greeting"><span data-i18n="worker.greeting">Hello</span>, <span id="user-name"></span>!</h1>
 
 
                         <!-- Total time -->
                         <div class="totaltime-panel">
 
-                            <label for="total-time">TOTAL TIME:</label>               
+                            <label for="total-time" data-i18n="worker.totalTime">TOTAL TIME:</label>               
                             
                             
                             <output id="total-time" class="totaltime">00:00</output>
@@ -450,15 +449,15 @@
                     <!-- Where the date is selected -->
                     <div class="task-header">
 
-                        <h2>Tasks performed:  </h2>  
+                        <h2 data-i18n="worker.tasksPerformed">Tasks performed:</h2> 
 
                         
                         <div class="calendar">
 
-                            <h2 class="calendar-title">Date:  </h2> <!-- solo visual -->
+                            <h2 class="calendar-title" data-i18n="worker.date">Date:</h2> <!-- solo visual -->
 
 
-                            <label for="date" class="visually-hidden">Select Date</label>
+                            <label for="date" class="visually-hidden" data-i18n="worker.selectDate">Select Date</label>
 
 
                             <input type="date" id="date" name="date" required>
@@ -478,12 +477,11 @@
                     <!-- 1. The first Button's functionality -->                     
                     <div class="task-panel" id="task-panel">            
                         
-                        <button type ="button" class ="button-base task-btn" id="task-btn">Assembly and Wiring</button>
-
+                        <button type="button" class="button-base task-btn" id="task-btn" data-i18n="worker.assemblyBtn">Assembly and Wiring</button>
                         
                         <div class ="prod" id="product">
 
-                            <label for="prod-number">Prod. number: </label>
+                            <label for="prod-number" data-i18n="worker.prodNumber">Prod. number:</label>
 
 
                             <input type="number" id="prod-number" name="prod">
@@ -493,13 +491,13 @@
 
                         <div class="task-time" id="task-time">
 
-                            <label for="task-start">From: </label>
+                            <label for="task-start" data-i18n="worker.from">From:</label>
 
 
                             <input type="time" id="task-start" name="startTime" class="task-start" required><br><br>
 
                                 
-                            <label for="task-end">To: </label>
+                            <label for="task-end" data-i18n="worker.to">To:</label>
 
 
                             <input type="time" id="task-end" name="endTime" class="task-end" required><br><br>
@@ -510,10 +508,10 @@
 
                         <div class="validation" id="task-validation">
 
-                            <button type="button" class="delete-btn" id="task-delete-btn">Delete</button>
+                            <button type="button" class="delete-btn" id="task-delete-btn" data-i18n="worker.deleteBtn">Delete</button>
 
 
-                            <button type="button" class="confirm-btn" id="task-confirm-btn">Confirm</button>
+                            <button type="button" class="confirm-btn" id="task-confirm-btn" data-i18n="worker.confirmBtn">Confirm</button>
 
                         </div>                     
                         
@@ -526,18 +524,17 @@
                     <!-- 2. The second Button's functionality -->                    
                     <div class="meeting-panel" id="meeting-panel">
                                             
-                        <button type="button" class="button-base meeting-btn" id="meeting-btn">Team Meeting</button>                                
-
+                        <button type="button" class="button-base meeting-btn" id="meeting-btn" data-i18n="worker.meetingBtn">Team Meeting</button>
 
                         <div class="meeting-time" id="meeting-time">
 
-                            <label for="meeting-start">From: </label>
+                            <label for="meeting-start" data-i18n="worker.from">From:</label>
 
 
                             <input type="time" id="meeting-start" name="startTime" required class="meeting-start"><br><br>
 
                         
-                            <label for="meeting-end">To: </label>
+                            <label for="meeting-end" data-i18n="worker.to">To:</label>
 
 
                             <input type="time" id="meeting-end" name="endTime" required class="meeting-end"><br><br>
@@ -547,10 +544,10 @@
 
                         <div class="validation" id="meeting-validation">
 
-                            <button type="button" class="delete-btn" id="meeting-delete-btn">Delete</button>
-
-
-                            <button type="button" class="confirm-btn"  id="meeting-confirm-btn">Confirm</button>
+                            <button type="button" class="delete-btn" id="meeting-delete-btn" data-i18n="worker.deleteBtn">Delete</button>
+                            
+                            
+                            <button type="button" class="confirm-btn" id="meeting-confirm-btn" data-i18n="worker.confirmBtn">Confirm</button>
 
                         </div>                      
 
@@ -562,18 +559,18 @@
                     <!-- 3. The third Button's functionality -->
                     <div class="cleanup-panel" id="cleanup-panel">
             
-                        <button type = "button" class = "button-base cleanup-btn" id="cleanup-btn">Cleanup</button>              
+                        <button type="button" class="button-base cleanup-btn" id="cleanup-btn" data-i18n="worker.cleanupBtn">Cleanup</button>             
                         
 
                         <div class = "cleanup-time">
 
-                            <label for="cleanup-start">From: </label>
+                            <label for="cleanup-start" data-i18n="worker.from">From:</label>
 
 
                             <input type="time" id="cleanup-start" name="startTime" class="cleanup-start" required><br><br>
 
                         
-                            <label for="cleanup-end">To: </label>
+                            <label for="cleanup-end" data-i18n="worker.to">To:</label>
 
 
                             <input type="time" id="cleanup-end" name="endTime" required class="cleanup-end"><br><br>
@@ -583,17 +580,17 @@
 
                         <div class="validation" id="cleanup-validation">
 
-                            <button type="button" class="button-base delete-btn" id="cleanup-delete-btn">Delete</button>
+                            <button type="button" class="button-base delete-btn" id="cleanup-delete-btn" data-i18n="worker.deleteBtn">Delete</button>
 
-
-                            <button type="button" class="button-base confirm-btn" id="cleanup-confirm-btn">Confirm</button>
+                            
+                            <button type="button" class="button-base confirm-btn" id="cleanup-confirm-btn" data-i18n="worker.confirmBtn">Confirm</button>
 
                         </div>   
                     
                     </div>              
             
             
-                    <button class="text-btn" id="check-btn">CHECK</button>
+                    <button class="text-btn" id="check-btn" data-i18n="worker.checkBtn">CHECK</button>
                         
                     
 
@@ -607,7 +604,7 @@
                 <div class="check-wrapper">
 
                     <!-- Título -->
-                    <h2 class="check-wrapper__title">Review your data before sending</h2>
+                    <h2 class="check-wrapper__title" data-i18n="worker.checkTitle">Review your data before sending</h2>
 
                     
                     <!-- Tabla de registros → JS llenará los <tr> dentro del <tbody> -->
@@ -622,22 +619,22 @@
                                     <th>#</th>
 
 
-                                    <th>Task</th>
+                                    <th data-i18n="worker.taskHeader">Task</th>
+                                    
+
+                                    <th data-i18n="worker.dateHeader">Date</th>
 
 
-                                    <th>Date</th>
+                                    <th data-i18n="worker.fromHeader">From</th>
 
 
-                                    <th>From</th>
+                                    <th data-i18n="worker.toHeader">To</th>
 
 
-                                    <th>To</th>
+                                    <th data-i18n="worker.durationHeader">Duration</th>
 
-
-                                    <th>Duration</th>
-
-
-                                    <th>FA Number</th>
+                                        
+                                    <th data-i18n="worker.faNumberHeader">FA Number</th>
 
                                     <th></th>
 
@@ -659,13 +656,13 @@
                     <!-- Totales -->
                     <div class="check-totals">
 
-                        <p class="check-totals__time">Total time: <span id="total-time-formatted">0h 00min</span></p>
+                        <p class="check-totals__time"><span data-i18n="worker.totalTimeFormatted">Total time:</span> <span id="total-time-formatted">0h 00min</span></p>
 
 
                         <span class="check-totals__separator">|</span>
 
 
-                        <p class="check-totals__minutes">Total time in min: <span id="total-time-minutes">0 min</span></p>
+                        <p class="check-totals__minutes"><span data-i18n="worker.totalTimeMinutes">Total time in min:</span> <span id="total-time-minutes">0 min</span></p>
 
                     </div>  
 
@@ -674,11 +671,11 @@
                     <div class="check-actions">
 
                         <!-- Boton para regresar  -->
-                        <button class="check-back_btn">BACK</button>
+                        <button class="check-back_btn" data-i18n="worker.backBtn">BACK</button>
                         
 
                         <!-- Boton para enviar la info  -->
-                        <button class="check-submit_btn">SUBMIT</button>    
+                        <button class="check-submit_btn" data-i18n="worker.submitBtn">SUBMIT</button>    
                     
                     </div>
                     
@@ -715,7 +712,7 @@
 
 
         
-        <img src="assets/images/indca_apps3.png" alt="indca image" class="indca"/>
+        <img src="assets/images/indca_app.png" alt="indca image" class="indca"/>
 
             
 
@@ -723,18 +720,22 @@
 
               
                 
-        <script src="js/auth.api.js"></script>
+        <!-- Cada línea le dice al navegador que cargue un archivo JavaScript. El orden importa — el navegador carga los scripts en el orden en que aparecen. worker.js y register.js se cargan antes que los módulos. -->
 
-
-        <script type="module" src="js/login.js"></script>    
-        
-        
+        <!-- Carga worker.js — no es módulo porque usa window para compartir datos -->
         <script src="js/pages/worker.js"></script>
-    
-     
-        <script type="module" src="js/utils/i18n.js"></script>  
-        
 
+        <!-- Carga register.js — no es módulo porque solo escucha el submit -->
+
+        <script src="js/pages/register.js"></script>
+
+        <!-- Carga login.js — es módulo porque usa import/export -->
+        <script type="module" src="js/pages/login.js"></script>
+
+        <!-- Carga i18n.js — es módulo porque usa import/export -->
+        <script type="module" src="js/utils/i18n.js"></script>
+
+        <!-- Carga main.js — es módulo porque usa import/export -->
         <script type="module" src="js/main.js"></script> 
 
     </body>
