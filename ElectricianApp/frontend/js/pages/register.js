@@ -19,6 +19,47 @@ const registerForm = document.querySelector('#register-form');  // Formulario de
 
 
 // =====================================================================
+// OJO PARA VER/OCULTAR CONTRASEÑA
+// querySelectorAll → selecciona todos los botones con la clase toggle-password
+// forEach → recorre cada botón y le añade un evento click
+// =====================================================================
+document.querySelectorAll('.toggle-password').forEach(button => {
+
+    button.addEventListener('click', () => {
+
+        // input anterior al botón → el campo de contraseña
+        const input = button.previousElementSibling;
+
+        // Si el tipo es password → lo cambia a text (muestra la contraseña)
+        // Si el tipo es text → lo cambia a password (la oculta)
+        if (input.type === 'password') {
+
+            input.type = 'text';
+
+            const img = button.querySelector('img');
+
+            if (img) img.src = 'assets/icons/eye-off.svg';
+
+            else button.textContent = '👁️‍🗨️';
+
+        } else {
+
+            input.type = 'password';
+    
+            const img = button.querySelector('img');
+
+            if (img) img.src = 'assets/icons/eye.svg';
+
+            else button.textContent = '👁';
+
+        }
+
+    });
+
+});
+
+
+// =====================================================================
 // ESCUCHA DEL EVENTO SUBMIT
 // Se ejecuta cuando el usuario pulsa el botón "Sign Up"
 // =====================================================================
@@ -161,21 +202,21 @@ registerForm.addEventListener('submit', async function(e) {     // async → per
                 // El navegador busca esa clave en el idioma actual y devuelve su valor
                 // Ejemplo: en inglés devuelve "Registration successful", en español devuelve "Registro exitoso"
 
-            registerForm.reset();                                                   // Mensaje de éxito — lo traduciremos más adelante
+            registerForm.reset();                                                       // Mensaje de éxito — lo traduciremos más adelante
         
         } else {
 
-            const error = await response.text();                                     // response.text() → lee el mensaje de error del backend
+            const error = await response.text();                                        // response.text() → lee el mensaje de error del backend
            
-            alert('Error: ' + error);                                                // Muestra el error al usuario
+            alert(window.currentLanguageData?.alerts?.registerError + ': ' + error);    // Muestra el error al usuario
        
         }
 
     } catch (err) {
 
-        console.error('Error connecting to server:', err);                           // Muestra el error en la consola
+        console.error('Error connecting to server:', err);                              // Muestra el error en la consola
         
-        alert('Server connection error');                                            // Muestra el error al usuario
+        alert(window.currentLanguageData?.alerts?.serverConnectionError);               // Muestra el error al usuario
 
     }
 

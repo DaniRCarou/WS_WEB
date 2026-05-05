@@ -78,6 +78,8 @@
         "meetingSaved": "Teambesprechungseintrag gespeichert",
         "cleanupSaved": "Aufräumeintrag gespeichert",
         "submitReady": "Daten bereit zum Senden an die Datenbank",
-        "registerSuccess": "Registrierung erfolgreich"
+        "registerSuccess": "Registrierung erfolgreich",
+        "registerError": "Registrierungsfehler",
+        "serverConnectionError": "Serververbindungsfehler"
     }
 }

@@ -78,6 +78,8 @@
         "meetingSaved": "Bilera sarrera gordeta",
         "cleanupSaved": "Garbiketa sarrera gordeta",
         "submitReady": "Datuak datu basera bidaltzeko prest",
-        "registerSuccess": "Erregistroa ongi egin da"
+        "registerSuccess": "Erregistroa ongi egin da",
+        "registerError": "Erregistro errorea",
+        "serverConnectionError": "Zerbitzarirarekin konexio errorea"
     }
 }

@@ -78,6 +78,8 @@
         "meetingSaved": "Team Meeting entry saved",
         "cleanupSaved": "Cleanup entry saved",
         "submitReady": "Data ready to be sent to the database",
-        "registerSuccess": "Registration successful"
+        "registerSuccess": "Registration successful",
+        "registerError": "Registration error",
+        "serverConnectionError": "Server connection error"
     }
 }

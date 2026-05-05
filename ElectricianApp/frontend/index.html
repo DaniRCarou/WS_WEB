@@ -101,7 +101,7 @@
 
 
                 <!-- Cuerpo del formulario -->
-                <form id="login-form" class="login-form" method="post" novalidate>
+                <form id="login-form" class="login-form" method="post" novalidate autocomplete="off">
                     
                     <!-- Campo: Personal Number -->
                     <div class="login-form__number">
@@ -129,11 +129,11 @@
                         <input id="password" class="input-base password_input" type="password" title="Password" placeholder="Password" data-i18n="login.password" autocomplete="current-password" name="password"/>
 
 
-                        <span class="password_icon" aria-hidden="true">
+                        <button type="button" class="toggle-password" aria-label="Show password">
 
-                            <img src="assets/icons/closed_lock_icon.png" alt="Lock icon" class="input-icon"/>
-                        
-                        </span>
+                            <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
+
+                        </button>
                         
 
                     </div>
@@ -356,11 +356,11 @@
                             <input type="password" id="register-password" class="input-base register-password_input" placeholder="Password" data-i18n="register.password" autocomplete="new-password" name="password">
 
                             
-                            <span class="register_password_icon" aria-hidden="true">
-                            
-                                <img src="assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+                            <button type="button" class="toggle-password" aria-label="Show password">
 
-                            </span>
+                                <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
+
+                            </button>
 
                         </div>          
 
@@ -375,11 +375,11 @@
                             <input type="password" id="password-confirmation" placeholder="Password confirmation" class="input-base register-password-confirm_input" data-i18n="register.passwordConfirmation" autocomplete="new-password" name="password">
                             
 
-                            <span class="register_password_icon" aria-hidden="true">
-                            
-                                <img src="assets/icons/closed_lock_icon.png" alt="Schlosssymbol" class="input-icon"/>
+                            <button type="button" class="toggle-password" aria-label="Show password">
 
-                            </span>
+                                <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
+
+                            </button>
 
                         </div>
 

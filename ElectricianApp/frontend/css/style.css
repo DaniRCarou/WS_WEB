@@ -699,6 +699,20 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 
+/* Excluye la imagen SVG del ojo dentro del botón toggle-password de los estilos
+   globales de .form-row-group img, que la posicionarían de forma incorrecta
+   con position: absolute y top: 50%, desplazándola fuera del botón */
+.form-row-group .toggle-password img {
+
+    position: static;   /* anula el position: absolute heredado de .form-row-group img */
+    top: auto;          /* anula el top: 50% heredado */
+    transform: none;    /* anula el translateY(-50%) heredado */
+    right: auto;        /* anula el right: 20px heredado */
+
+}
+
+
+
 /* 1. PERSONAL NUMBER INPUT */
 
 /* Esto afecta al contenedor del primer input para el número personal */
@@ -862,6 +876,35 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     font-size: 16px;
     color: #333;
     font-weight: 600;
+
+}
+
+
+
+/* Botón para mostrar/ocultar contraseña */
+.toggle-password {
+
+    position: absolute;
+    right: 20px;    /* ← cambia 10px por 20px */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0;
+    color: #fff;
+    box-shadow: none;
+   
+}
+
+
+
+/* Reduce el tamaño del icono del ojo */
+.toggle-password .input-icon {
+
+    width: 20px;
+    height: 20px;
 
 }
 

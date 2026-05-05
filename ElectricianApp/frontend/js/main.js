@@ -118,7 +118,7 @@ const NAV_LINKS = {
 // 1. FUNCIÓN AUXILIAR 'showView' (mejor opción)
 
 // Esta función llamada showView, muestra solo la vista que quiero mostrar de inicio y oculta las demás. Recibe un parámetro viewId, que es el id de la vista que quieres mostrar.
-function showView(viewId) {
+export function showView(viewId) {
 
     const views = document.querySelectorAll('.view');                   // Esto selecciona todos los elementos HTML del DOM (Document Object Model (Modelo de Objetos del Documento)) con la clase '.view'. El resultado es una lista (NodeList).
 

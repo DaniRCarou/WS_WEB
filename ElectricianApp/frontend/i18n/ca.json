@@ -78,6 +78,8 @@
         "meetingSaved": "Entrada de reunió desada",
         "cleanupSaved": "Entrada de neteja desada",
         "submitReady": "Dades llestes per enviar a la base de dades",
-        "registerSuccess": "Registre correcte"
+        "registerSuccess": "Registre correcte",
+        "registerError": "Error en el registre",
+        "serverConnectionError": "Error de connexió amb el servidor"
     }
 }

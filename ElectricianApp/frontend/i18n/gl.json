@@ -78,6 +78,8 @@
         "meetingSaved": "Entrada de reunión gardada",
         "cleanupSaved": "Entrada de limpeza gardada",
         "submitReady": "Datos listos para enviar á base de datos",
-        "registerSuccess": "Rexistro exitoso"
+        "registerSuccess": "Rexistro exitoso",
+        "registerError": "Erro no rexistro",
+        "serverConnectionError": "Erro de conexión co servidor"
     }
 }
