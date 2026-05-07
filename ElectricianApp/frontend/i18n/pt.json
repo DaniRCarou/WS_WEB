@@ -38,9 +38,11 @@
         "backToLogin": "Voltar a Início de sessão"
     },
     "worker": {
+        "greeting": "Olá",
         "totalTime": "TEMPO TOTAL:",
         "tasksPerformed": "Tarefas realizadas:",
         "date": "Data:",
+        "selectDate": "Selecionar data",
         "assemblyBtn": "Montagem e Cablagem",
         "prodNumber": "Núm. produto:",
         "from": "De:",
@@ -60,7 +62,7 @@
         "fromHeader": "De",
         "toHeader": "Até",
         "durationHeader": "Duração",
-        "faNumberHeader": "Núm. FA"
+        "faNumberHeader": "Núm. FA"        
     },
     "alerts": {
         "invalidPersonalNumber": "Número pessoal inválido",

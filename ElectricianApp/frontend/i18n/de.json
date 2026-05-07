@@ -42,6 +42,7 @@
         "totalTime": "GESAMTZEIT:",
         "tasksPerformed": "Durchgeführte Aufgaben:",
         "date": "Datum:",
+        "selectDate": "Datum auswählen",
         "assemblyBtn": "Montage und Verkabelung",
         "prodNumber": "Prod. Nummer:",
         "from": "Von:",
@@ -62,6 +63,7 @@
         "toHeader": "Bis",
         "durationHeader": "Dauer",
         "faNumberHeader": "FA Nummer"
+        
     },
     "alerts": {
         "invalidPersonalNumber": "Ungültige Personalnummer",

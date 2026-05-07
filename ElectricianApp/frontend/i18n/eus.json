@@ -42,6 +42,7 @@
         "totalTime": "DENBORA OSOA:",
         "tasksPerformed": "Egindako zereginak:",
         "date": "Data:",
+        "selectDate": "Data hautatu",
         "assemblyBtn": "Muntaia eta Kableatzea",
         "prodNumber": "Prod. zenbakia:",
         "from": "Hasi:",
@@ -61,7 +62,7 @@
         "fromHeader": "Hasi",
         "toHeader": "Amaitu",
         "durationHeader": "Iraupena",
-        "faNumberHeader": "FA Zenbakia"
+        "faNumberHeader": "FA Zenbakia"        
     },
     "alerts": {
         "invalidPersonalNumber": "Zenbaki pertsonala ez da baliozkoa",

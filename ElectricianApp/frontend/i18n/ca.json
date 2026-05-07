@@ -42,6 +42,7 @@
         "totalTime": "TEMPS TOTAL:",
         "tasksPerformed": "Tasques realitzades:",
         "date": "Data:",
+        "selectDate": "Seleccionar data",
         "assemblyBtn": "Muntatge i Cablejat",
         "prodNumber": "Núm. producte:",
         "from": "Des de:",
@@ -61,7 +62,7 @@
         "fromHeader": "Des de",
         "toHeader": "Fins a",
         "durationHeader": "Durada",
-        "faNumberHeader": "Núm. FA" 
+        "faNumberHeader": "Núm. FA"        
     },
     "alerts": {
         "invalidPersonalNumber": "Número personal no vàlid",

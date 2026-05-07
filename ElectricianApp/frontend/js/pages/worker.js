@@ -31,7 +31,10 @@ const formattedDate = `${yyyy}-${mm}-${dd}`;
 //    Así el input muestra hoy como valor inicial cuando el trabajador abre la página
 dateInput.value = formattedDate;
 
-
+// 8. sessionStorage.getItem('employeeId') → lee el valor guardado con la clave 'employeeId'
+// del sessionStorage. Devuelve el número personal del empleado que se guardó al hacer login.
+// Si el usuario no ha hecho login o cerró la pestaña, devuelve null.
+const employeeId = sessionStorage.getItem('employeeId');
 
 
 

@@ -50,6 +50,14 @@ loginForm.addEventListener('submit', async function(e) {                // Agreg
 
     if (result.success) {                                               // result es la respuesta procesada del backend, normalmente algo como esto: { "success": true, "message": "Login OK" }. Definido en loginApi.js
 
+        // sessionStorage → memoria temporal del navegador. Funciona como una caja donde puedes
+        // guardar datos mientras el usuario tiene la pestaña abierta. Cuando cierra la pestaña,
+        // se borra todo automáticamente.
+        // setItem('employeeId', personalNumber) → guarda el número personal del empleado
+        // con la clave 'employeeId' para que worker.js pueda leerlo después con:
+        // sessionStorage.getItem('employeeId')
+        sessionStorage.setItem('employeeId', personalNumber);
+
         alert('Successful login');
 
         showView('worker-view');                                        // navegación SPA correcta
