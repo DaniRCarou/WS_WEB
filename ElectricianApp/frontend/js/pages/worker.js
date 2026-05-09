@@ -1,4 +1,6 @@
-
+// Importa la función saveRecords de work.api.js
+// saveRecords → envía todos los registros del trabajador al backend
+import { saveRecords } from '../api/work.api.js';
 
 // ------------------------ 1. SELECCIÓN DE FECHA ------------------------
 
@@ -933,27 +935,34 @@ check.addEventListener('click', (event) => {
         dateInput.value = formattedDate;            /* Vuelve a poner la fecha de hoy */
 
     });   
-
-
-    // 20. Escucha el clic en el botón SUBMIT
-    //     console.log() → muestra los datos en la consola del navegador para comprobarlos
-    //     Aquí iría en el futuro el fetch() para enviar los datos al servidor Java
-    submitBtn.addEventListener('click', () => {
-
-        console.log("Datos a enviar:", entries);    /* Muestra los datos en la consola */
-
-        entries.length = 0;                         /* Vacía el array después de enviar los datos */
-
-        alert(window.currentLanguageData?.alerts?.submitReady || "Data ready to be sent to the database");
-
-    });
+    
 
 });
     
 
 
 
+// 20. Escucha el clic en el botón SUBMIT
+    submitBtn.addEventListener('click', async () => {
 
+        // Llama a saveRecords pasándole el array entries y el employeeId del sessionStorage
+        const result = await saveRecords(entries, employeeId);
+
+        if (result.success) {
+
+            // Si todo fue bien → muestra mensaje de éxito y vacía el array
+            entries.length = 0;
+
+            alert(window.currentLanguageData?.alerts?.submitReady || "Data ready to be sent to the database");
+
+        } else {
+
+            // Si hubo error → muestra el mensaje de error
+            alert('Error: ' + result.message);
+            
+        }
+
+    });
 
 
 

@@ -1,6 +1,11 @@
 package es.employee_information_management.service;
+
+import es.employee_information_management.model.Employee;
 import es.employee_information_management.model.Record;
+import es.employee_information_management.model.Task;
+import es.employee_information_management.repository.EmployeeRepository;
 import es.employee_information_management.repository.RecordRepository;
+import es.employee_information_management.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +17,14 @@ public class RecordServiceImpl implements IRecordService{
     @Autowired
     // es una anotación de Spring Framework que se utiliza para inyectar automáticamente dependencias dentro de una clase.
     private RecordRepository recordRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;  // para buscar el empleado en la base de datos
+
+    @Autowired
+    private TaskRepository taskRepository;          // para buscar la tarea en la base de datos
+
+
 
     @Override
     public List<Record> listRecords() {
@@ -39,8 +52,16 @@ public class RecordServiceImpl implements IRecordService{
     @Override
     public void saveRecord(Record record) {
 
-        recordRepository.save(record);
+        // Busca el Employee en la base de datos por su ID
+        // Así JPA lo reconoce y no lanza TransientPropertyValueException
+        Employee employee = employeeRepository.findById(record.getEmployee().getEmployeeId()).orElseThrow();
+        record.setEmployee(employee);
 
+        // Busca la Task en la base de datos por su ID
+        Task task = taskRepository.findById(record.getTask().getTaskId()).orElseThrow();
+        record.setTask(task);
+
+        recordRepository.save(record);
     }
 
     @Override

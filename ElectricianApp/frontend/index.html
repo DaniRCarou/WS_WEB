@@ -723,7 +723,7 @@
         <!-- Cada línea le dice al navegador que cargue un archivo JavaScript. El orden importa — el navegador carga los scripts en el orden en que aparecen. worker.js y register.js se cargan antes que los módulos. -->
 
         <!-- Carga worker.js — no es módulo porque usa window para compartir datos -->
-        <script src="js/pages/worker.js"></script>
+        <script type="module" src="js/pages/worker.js"></script>
 
         <!-- Carga register.js — no es módulo porque solo escucha el submit -->
 

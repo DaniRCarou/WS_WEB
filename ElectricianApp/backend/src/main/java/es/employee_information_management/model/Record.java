@@ -29,7 +29,7 @@ public class Record {
     @JoinColumn(name = "Task_ID", nullable = false)
     private Task task;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Employee_ID", nullable = false)
     private Employee employee;
 
