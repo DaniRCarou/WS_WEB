@@ -33,20 +33,23 @@ import { loginEmployee } from '../api/auth.api.js';                     // Impor
                                                                         // loginEmployee: Función que reside en auth.api.js, encargada de enviar los datos al backend y devolver la respuesta.
                                                                         // login.js no sabe cómo se hace la autenticación; solo llama a esta función y maneja el resultado para la UI.
 
-import { showView } from '../main.js';                                  // importamos showView
+import { showView } from '../main.js';                                              // importamos showView
 
-const loginForm = document.querySelector('#login-form');                // Selecciona el elemento del DOM con id="login-form" y lo guarda en la variable
+const loginForm = document.querySelector('#login-form');                            // Selecciona el elemento del DOM con id="login-form" y lo guarda en la variable
 
-loginForm.addEventListener('submit', async function(e) {                // Agrega un listener que escucha eventos del formulario. 'submit' → Escucha el evento de enviar el formulario. async function(e) → Función asíncrona que se ejecuta al enviar el formulario. e → Objeto del evento, contiene información sobre el submit.
+loginForm.addEventListener('submit', async function(e) {                            // Agrega un listener que escucha eventos del formulario. 'submit' → Escucha el evento de enviar el formulario. async function(e) → Función asíncrona que se ejecuta al enviar el formulario. e → Objeto del evento, contiene información sobre el submit.
 
-    e.preventDefault();                                                 // Evita que el navegador recargue la página al hacer submit. Esto es fundamental en apps SPA modernas.
+    e.preventDefault();                                                             // Evita que el navegador recargue la página al hacer submit. Esto es fundamental en apps SPA modernas.
 
-    const personalNumber = document.querySelector('#login-personal-number').value;     // Selecciona el input donde el usuario escribe el número personal y lo guarda en la variable. .value → Obtiene el valor escrito por el usuario.
+    const personalNumber = document.querySelector('#login-personal-number').value;  // Selecciona el input donde el usuario escribe el número personal y lo guarda en la variable. .value → Obtiene el valor escrito por el usuario.
 
     const password = document.querySelector('#password').value;
    
-    const result = await loginEmployee(personalNumber, password);       // Llamamos a la función de la API. Llama a la función loginEmployee que definimos en auth.api.js. await → Espera la respuesta de la API antes de continuar. result → Guarda el objeto devuelto por la función { success: true/false, message: ... }.
-                                                                        // Aquí login.js solo procesa la respuesta y decide qué mostrar al usuario
+    const result = await loginEmployee(personalNumber, password);                   // Llamamos a la función de la API. Llama a la función loginEmployee que definimos en auth.api.js. await → Espera la respuesta de la API antes de continuar. result → Guarda el objeto devuelto por la función { success: true/false, message: ... }.
+                                                                                    // Aquí login.js solo procesa la respuesta y decide qué mostrar al usuario
+
+    const isChecked = document.querySelector('#remember-checkbox').checked;         // Checkbox de términos → true o false
+
 
     if (result.success) {                                               // result es la respuesta procesada del backend, normalmente algo como esto: { "success": true, "message": "Login OK" }. Definido en loginApi.js
 

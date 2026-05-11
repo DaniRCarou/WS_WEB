@@ -1,10 +1,16 @@
 // Importa la función saveRecords de work.api.js
 // saveRecords → envía todos los registros del trabajador al backend
 import { saveRecords } from '../api/work.api.js';
+import { showView } from '../main.js'; // importa showView para navegar a worker-view tras el SUBMIT
 
 // ------------------------ 1. SELECCIÓN DE FECHA ------------------------
 
 
+
+// Cuando la página carga, el navegador ejecuta worker.js inmediatamente. En ese momento intenta seleccionar #prod-number — pero ese elemento no existe todavía porque la vista del worker está oculta.
+// DOMContentLoaded es un evento que dice: "espera a que todo el HTML esté cargado antes de ejecutar el código".
+
+document.addEventListener('DOMContentLoaded', () => {
 
 // 1. Selecciona el input de fecha del HTML por su id="date" y lo guarda en una constante
 const dateInput = document.getElementById('date');
@@ -346,12 +352,18 @@ document.addEventListener("click", (e) => {
 
         taskValidation.style.display = 'none'; /* oculta los botones Delete y Confirm */
 
-        // Borra los valores de los inputs al ocultarlos
-        document.querySelector('#prod-number').value = '';   /* Borra el número de producto */
+        // Busca cada input en el DOM y lo guarda en una variable
+        // querySelector puede devolver null si el formulario fue borrado con innerHTML=""
+        // Por eso comprobamos si existe antes de intentar borrar su valor
+        const prodNumber = document.querySelector('#prod-number');
+        if (prodNumber) prodNumber.value = '';  /* Borra el número de producto solo si existe */
 
-        document.querySelector('.task-start').value = '';    /* Borra la hora de inicio */
+        const taskStart = document.querySelector('.task-start');
+        if (taskStart) taskStart.value = '';   /* Borra la hora de inicio solo si existe */
 
-        document.querySelector('.task-end').value = '';      /* Borra la hora de fin */
+        const taskEnd = document.querySelector('.task-end');
+        if (taskEnd) taskEnd.value = '';       /* Borra la hora de fin solo si existe */
+
 
     }
 
@@ -362,10 +374,20 @@ document.addEventListener("click", (e) => {
 
         meetingValidation.style.display = 'none';
 
-        // Borra los valores de los inputs al ocultarlos
-        document.querySelector('.meeting-start').value = ''; /* Borra la hora de inicio */
+        // Busca el input de hora de inicio del Meeting en el DOM. Busca el elemento y guárdalo
+        // querySelector puede devolver null si el elemento no existe (por ejemplo si el formulario fue borrado)
+        // Por eso lo guardamos primero en una variable antes de intentar acceder a su valor
+        const meetingStart = document.querySelector('.meeting-start');
 
-        document.querySelector('.meeting-end').value = '';   /* Borra la hora de fin */
+        // Solo si existe, borra su valor
+        // if (meetingStart) → comprueba si el elemento existe antes de intentar borrar su valor
+        // Si meetingStart es null y hacemos .value = '' directamente → el programa se rompe
+        // Es como comprobar si existe una puerta antes de intentar abrirla
+        if (meetingStart) meetingStart.value = '';
+
+        // Lo mismo para el input de hora de fin del Meeting
+        const meetingEnd = document.querySelector('.meeting-end');
+        if (meetingEnd) meetingEnd.value = '';
 
     }
 
@@ -376,9 +398,19 @@ document.addEventListener("click", (e) => {
         
         cleanUpValidation.style.display = 'none';
 
-        // Borra los valores de los inputs al ocultarlos
-        document.querySelector('.cleanup-start').value = ''; /* Borra la hora de inicio */
-        document.querySelector('.cleanup-end').value = '';   /* Borra la hora de fin */
+
+        // Busca el input de hora de inicio del Cleanup en el DOM. Busca el elemento y guárdalo
+        // querySelector puede devolver null si el elemento no existe (por ejemplo si el formulario fue borrado)
+        // Por eso lo guardamos primero en una variable antes de intentar acceder a su valor
+        const cleanupStart = document.querySelector('.cleanup-start');
+        // Solo si existe, borra su valor
+        // if (cleanupStart) → comprueba si el elemento existe antes de intentar borrar su valor
+        // Si cleanupStart es null y hacemos .value = '' directamente → el programa se rompe
+        // Es como comprobar si existe una puerta antes de intentar abrirla
+        if (cleanupStart) cleanupStart.value = '';
+
+        const cleanupEnd = document.querySelector('.cleanup-end');
+        if (cleanupEnd) cleanupEnd.value = '';
 
     }
 
@@ -780,191 +812,211 @@ check.addEventListener('click', (event) => {
     //    reg → representa cada registro guardado, con sus propiedades: type, date, start, end, faNumber
     entries.forEach((reg, index) => {
 
-        // 9. Calcula la duración de cada registro en horas y minutos
-        //    split(':') → divide la hora en dos partes: horas y minutos. Ejemplo: '08:30' → ['08', '30']
-        //    Number() → convierte el texto a número para poder hacer operaciones matemáticas
-        const [startHours, startMinutes] = reg.start.split(':').map(Number);  /* Horas y minutos de inicio */
+            // 9. Calcula la duración de cada registro en horas y minutos
+            //    split(':') → divide la hora en dos partes: horas y minutos. Ejemplo: '08:30' → ['08', '30']
+            //    Number() → convierte el texto a número para poder hacer operaciones matemáticas
+            const [startHours, startMinutes] = reg.start.split(':').map(Number);  /* Horas y minutos de inicio */
 
-        const [endHours, endMinutes] = reg.end.split(':').map(Number);        /* Horas y minutos de fin */
-
-        
-        // 10. Convierte las horas y minutos a minutos totales para poder restarlos fácilmente
-        const startTotal = startHours * 60 + startMinutes;  /* Minutos totales desde medianoche al inicio */
-        const endTotal = endHours * 60 + endMinutes;        /* Minutos totales desde medianoche al fin */
-
-
-        // 11. Calcula la diferencia en minutos entre el inicio y el fin
-        const durationMinutes = endTotal - startTotal;  /* Duración total en minutos */
-
-
-        // 12. Convierte la duración de minutos a horas y minutos para mostrarlo de forma legible
-        //    Math.floor() → redondea hacia abajo. Ejemplo: 7.5 → 7
-        //    % → operador módulo, devuelve el resto de la división. Ejemplo: 90 % 60 → 30
-        const durationHours = Math.floor(durationMinutes / 60);   /* Horas completas de duración */
-        const durationMins = durationMinutes % 60;                /* Minutos restantes de duración */
-
-
-        // 13. Crea una nueva fila <tr> para este registro
-        //    createElement('tr') → crea un elemento HTML <tr> en memoria, aún no está en la página
-        const tr = document.createElement('tr');  /* Nueva fila de la tabla */
-
+            const [endHours, endMinutes] = reg.end.split(':').map(Number);        /* Horas y minutos de fin */
 
         
-
-    // 14. Rellena la fila con las 8 celdas correspondientes a cada columna de la tabla
-
-    //    tr.innerHTML → tr es la fila <tr> que creamos en el paso 13. innerHTML es una propiedad
-    //    que permite escribir HTML dentro de un elemento. Todo lo que escribamos entre los
-    //    backticks `` se convertirá en el contenido HTML de la fila.
-
-    //    ` ` → los backticks permiten escribir texto en varias líneas y meter variables dentro
-    //    usando la sintaxis ${}. Sin backticks tendríamos que concatenar con + lo cual es más
-    //    difícil de leer.
-
-    //    ${} → es la forma de insertar una variable dentro de un texto con backticks.
-    //    El navegador sustituye ${variable} por el valor real de esa variable.
-    //    Ejemplo: si index = 0, entonces ${index + 1} se convierte en 1.
-
-    //    index + 1 → index es la posición del registro en el array, empezando en 0.
-    //    Como no queremos mostrar 0, 1, 2... sino 1, 2, 3... sumamos 1.
-
-    //    reg.type → reg es el registro actual del forEach. .type es una de sus propiedades.
-    //    Ejemplo: reg.type podría ser "Assembly and Wiring", "Team Meeting" o "Cleanup".
-
-    //    reg.faNumber || '—' → || significa "o". Si reg.faNumber existe y tiene valor,
-    //    lo muestra. Si no existe o está vacío, muestra un guión —.
-    //    Ejemplo: Assembly tiene faNumber, pero Meeting y Cleanup no, así que muestran —.
-
-    //    data-label → es un atributo personalizado de HTML que guarda texto extra en el elemento.
-    //    En móvil, el CSS lo usa para mostrar la etiqueta delante del valor de cada celda.
-    //    Ejemplo: data-label="Task" hace que en móvil aparezca "Task:" antes del tipo de tarea.
-
-        tr.innerHTML = `
-
-            <td data-label="#">${index + 1}</td>
-
-            <td data-label="Task">${reg.type}</td>
-
-            <td data-label="Date">${reg.date}</td>
-
-            <td data-label="From">${reg.start}</td>
-
-            <td data-label="To">${reg.end}</td>
-
-            <td data-label="Duration">${durationHours}h ${durationMins}min</td>
-
-            <td data-label="FA Number">${reg.faNumber || '—'}</td>
-
-            <td data-label=""><button class="delete-row-btn">✕</button></td>
-
-        `;
+            // 10. Convierte las horas y minutos a minutos totales para poder restarlos fácilmente
+            const startTotal = startHours * 60 + startMinutes;  /* Minutos totales desde medianoche al inicio */
+            const endTotal = endHours * 60 + endMinutes;        /* Minutos totales desde medianoche al fin */
 
 
-        // 15. Escucha el clic en el botón X de esta fila
-        tr.querySelector('.delete-row-btn').addEventListener('click', () => {
+            // 11. Calcula la diferencia en minutos entre el inicio y el fin
+            const durationMinutes = endTotal - startTotal;  /* Duración total en minutos */
 
-            // Busca la posición actual del registro en el array en el momento del clic
-            const currentIndex = entries.indexOf(reg);  /* indexOf() → devuelve la posición actual del registro */
 
-            // Elimina el registro del array en la posición actual
-            entries.splice(currentIndex, 1);            /* splice(currentIndex, 1) → elimina 1 elemento en esa posición */
+            // 12. Convierte la duración de minutos a horas y minutos para mostrarlo de forma legible
+            //    Math.floor() → redondea hacia abajo. Ejemplo: 7.5 → 7
+            //    % → operador módulo, devuelve el resto de la división. Ejemplo: 90 % 60 → 30
+            const durationHours = Math.floor(durationMinutes / 60);   /* Horas completas de duración */
+            const durationMins = durationMinutes % 60;                /* Minutos restantes de duración */
 
-            // Elimina la fila de la tabla visualmente
-            tr.remove();                                /* remove() → elimina el <tr> del DOM */
 
-            // Renumera todas las filas que quedan en la tabla
-            // querySelectorAll() → selecciona todos los elementos que coincidan con el selector
-            // forEach() → recorre cada fila y actualiza su número
-            const filas = tbody.querySelectorAll('tr');             /* Selecciona todas las filas que quedan en la tabla */
+            // 13. Crea una nueva fila <tr> para este registro
+            //    createElement('tr') → crea un elemento HTML <tr> en memoria, aún no está en la página
+            const tr = document.createElement('tr');  /* Nueva fila de la tabla */
 
-            filas.forEach((fila, i) => {
 
-                fila.cells[0].textContent = i + 1;  /* cells[0] → primera celda de la fila, i + 1 → nuevo número */
+        
+
+            // 14. Rellena la fila con las 8 celdas correspondientes a cada columna de la tabla
+
+            //    tr.innerHTML → tr es la fila <tr> que creamos en el paso 13. innerHTML es una propiedad
+            //    que permite escribir HTML dentro de un elemento. Todo lo que escribamos entre los
+            //    backticks `` se convertirá en el contenido HTML de la fila.
+
+            //    ` ` → los backticks permiten escribir texto en varias líneas y meter variables dentro
+            //    usando la sintaxis ${}. Sin backticks tendríamos que concatenar con + lo cual es más
+            //    difícil de leer.
+
+            //    ${} → es la forma de insertar una variable dentro de un texto con backticks.
+            //    El navegador sustituye ${variable} por el valor real de esa variable.
+            //    Ejemplo: si index = 0, entonces ${index + 1} se convierte en 1.
+
+            //    index + 1 → index es la posición del registro en el array, empezando en 0.
+            //    Como no queremos mostrar 0, 1, 2... sino 1, 2, 3... sumamos 1.
+
+            //    reg.type → reg es el registro actual del forEach. .type es una de sus propiedades.
+            //    Ejemplo: reg.type podría ser "Assembly and Wiring", "Team Meeting" o "Cleanup".
+
+            //    reg.faNumber || '—' → || significa "o". Si reg.faNumber existe y tiene valor,
+            //    lo muestra. Si no existe o está vacío, muestra un guión —.
+            //    Ejemplo: Assembly tiene faNumber, pero Meeting y Cleanup no, así que muestran —.
+
+            //    data-label → es un atributo personalizado de HTML que guarda texto extra en el elemento.
+            //    En móvil, el CSS lo usa para mostrar la etiqueta delante del valor de cada celda.
+            //    Ejemplo: data-label="Task" hace que en móvil aparezca "Task:" antes del tipo de tarea.
+
+            tr.innerHTML = `
+
+                <td data-label="#">${index + 1}</td>
+
+                <td data-label="Task">${reg.type}</td>
+
+                <td data-label="Date">${reg.date}</td>
+
+                <td data-label="From">${reg.start}</td>
+
+                <td data-label="To">${reg.end}</td>
+
+                <td data-label="Duration">${durationHours}h ${durationMins}min</td>
+
+                <td data-label="FA Number">${reg.faNumber || '—'}</td>
+
+                <td data-label=""><button class="delete-row-btn">✕</button></td>
+
+            `;
+
+
+            // 15. Escucha el clic en el botón X de esta fila
+            tr.querySelector('.delete-row-btn').addEventListener('click', () => {
+
+                // Busca la posición actual del registro en el array en el momento del clic
+                const currentIndex = entries.indexOf(reg);  /* indexOf() → devuelve la posición actual del registro */
+
+                // Elimina el registro del array en la posición actual
+                entries.splice(currentIndex, 1);            /* splice(currentIndex, 1) → elimina 1 elemento en esa posición */
+
+                // Elimina la fila de la tabla visualmente
+                tr.remove();                                /* remove() → elimina el <tr> del DOM */
+
+                // Renumera todas las filas que quedan en la tabla
+                // querySelectorAll() → selecciona todos los elementos que coincidan con el selector
+                // forEach() → recorre cada fila y actualiza su número
+                const filas = tbody.querySelectorAll('tr');             /* Selecciona todas las filas que quedan en la tabla */
+
+                filas.forEach((fila, i) => {
+
+                    fila.cells[0].textContent = i + 1;  /* cells[0] → primera celda de la fila, i + 1 → nuevo número */
+
+                });
+
 
             });
 
 
+            tbody.appendChild(tr);
+
+        });    
+
+
+        // 16. Calcula el tiempo total sumando la duración de todos los registros
+        //    reduce() → recorre el array y acumula un valor. Empieza en 0 y va sumando los minutos de cada registro
+        const totalMinutes = entries.reduce((total, reg) => {
+
+            const [startHours, startMinutes] = reg.start.split(':').map(Number);  /* Horas y minutos de inicio */
+
+            const [endHours, endMinutes] = reg.end.split(':').map(Number);        /* Horas y minutos de fin */
+
+            const duration = (endHours * 60 + endMinutes) - (startHours * 60 + startMinutes); /* Duración en minutos */
+
+            return total + duration;  /* Acumula la duración al total */
+
+        }, 0);
+
+
+        // 17. Convierte el total de minutos a horas y minutos para mostrarlo de forma legible
+        const totalHours = Math.floor(totalMinutes / 60);  /* Horas completas del total */
+        
+        const totalMins = totalMinutes % 60;               /* Minutos restantes del total */
+
+
+        // 18. Muestra el tiempo total formateado en los dos formatos en la pantalla de revisión
+        document.getElementById('total-time-formatted').textContent = `${totalHours}h ${totalMins}min`; /* Formato legible */
+
+        document.getElementById('total-time-minutes').textContent = `${totalMinutes} min`;              /* Total en minutos */
+
+
+        // 19. Escucha el clic en el botón BACK
+        //     reset() → limpia todos los inputs del formulario y vuelve a mostrar el worker-wrapper original
+        backBtn.addEventListener('click', () => {                   
+
+            // No vaciamos entries aquí — los registros confirmados deben mantenerse
+            // para que la validación de solapamiento siga funcionando
+
+            workerForm.reset();                         /* reset() → borra todos los valores de los inputs del formulario */
+
+            checkWrapper.style.display = 'none';        /* Oculta la pantalla de revisión */
+
+            workerWrapper.appendChild(workerForm);      /* Devuelve el formulario al worker-wrapper */
+
+            dateInput.value = formattedDate;            /* Vuelve a poner la fecha de hoy */
+
+        });   
+    
+
+    });
+    
+
+
+
+    // 20. Escucha el clic en el botón SUBMIT
+        submitBtn.addEventListener('click', async () => {
+
+            // Llama a saveRecords pasándole el array entries y el employeeId del sessionStorage
+            const result = await saveRecords(entries, employeeId);
+
+            if (result.success) {
+
+                // Si todo fue bien → muestra mensaje de éxito y vacía el array
+                entries.length = 0;
+
+                alert(window.currentLanguageData?.alerts?.submitReady || "Data ready to be sent to the database");
+
+                console.log('navegando a worker-view');
+
+                showView('worker-view'); // vuelve a la vista del trabajador tras el SUBMIT
+              
+
+                // Oculta la pantalla de revisión (check-wrapper)
+                // display = 'none' → el elemento desaparece visualmente y no ocupa espacio
+                checkWrapper.style.display = 'none';
+
+                // Devuelve el formulario al worker-wrapper
+                // appendChild() → añade workerForm como hijo del workerWrapper
+                // workerWrapper es el contenedor principal del worker
+                // workerForm es el formulario que fue borrado cuando se pulsó CHECK
+                workerWrapper.appendChild(workerForm);
+
+                // Vuelve a poner la fecha de hoy en el input de fecha
+                // dateInput → el input type="date" del formulario
+                // formattedDate → la fecha de hoy en formato YYYY-MM-DD, calculada al principio del archivo
+                dateInput.value = formattedDate;
+
+            } else {
+
+                // Si hubo error → muestra el mensaje de error
+                alert('Error: ' + result.message);
+                
+            }
+
         });
 
 
-        tbody.appendChild(tr);
-
-    });    
-
-
-    // 16. Calcula el tiempo total sumando la duración de todos los registros
-    //    reduce() → recorre el array y acumula un valor. Empieza en 0 y va sumando los minutos de cada registro
-    const totalMinutes = entries.reduce((total, reg) => {
-
-        const [startHours, startMinutes] = reg.start.split(':').map(Number);  /* Horas y minutos de inicio */
-
-        const [endHours, endMinutes] = reg.end.split(':').map(Number);        /* Horas y minutos de fin */
-
-        const duration = (endHours * 60 + endMinutes) - (startHours * 60 + startMinutes); /* Duración en minutos */
-
-        return total + duration;  /* Acumula la duración al total */
-
-    }, 0);
-
-
-    // 17. Convierte el total de minutos a horas y minutos para mostrarlo de forma legible
-    const totalHours = Math.floor(totalMinutes / 60);  /* Horas completas del total */
-    
-    const totalMins = totalMinutes % 60;               /* Minutos restantes del total */
-
-
-    // 18. Muestra el tiempo total formateado en los dos formatos en la pantalla de revisión
-    document.getElementById('total-time-formatted').textContent = `${totalHours}h ${totalMins}min`; /* Formato legible */
-
-    document.getElementById('total-time-minutes').textContent = `${totalMinutes} min`;              /* Total en minutos */
-
-
-    // 19. Escucha el clic en el botón BACK
-    //     reset() → limpia todos los inputs del formulario y vuelve a mostrar el worker-wrapper original
-    backBtn.addEventListener('click', () => {                   
-
-        // No vaciamos entries aquí — los registros confirmados deben mantenerse
-        // para que la validación de solapamiento siga funcionando
-
-        workerForm.reset();                         /* reset() → borra todos los valores de los inputs del formulario */
-
-        checkWrapper.style.display = 'none';        /* Oculta la pantalla de revisión */
-
-        workerWrapper.appendChild(workerForm);      /* Devuelve el formulario al worker-wrapper */
-
-        dateInput.value = formattedDate;            /* Vuelve a poner la fecha de hoy */
-
-    });   
-    
-
 });
-    
-
-
-
-// 20. Escucha el clic en el botón SUBMIT
-    submitBtn.addEventListener('click', async () => {
-
-        // Llama a saveRecords pasándole el array entries y el employeeId del sessionStorage
-        const result = await saveRecords(entries, employeeId);
-
-        if (result.success) {
-
-            // Si todo fue bien → muestra mensaje de éxito y vacía el array
-            entries.length = 0;
-
-            alert(window.currentLanguageData?.alerts?.submitReady || "Data ready to be sent to the database");
-
-        } else {
-
-            // Si hubo error → muestra el mensaje de error
-            alert('Error: ' + result.message);
-            
-        }
-
-    });
-
-
-
 
 /* ---------------------------------------------------------------------------------------- THE END -------------------------------------------------------------------------------------------- */

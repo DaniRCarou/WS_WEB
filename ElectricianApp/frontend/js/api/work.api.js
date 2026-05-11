@@ -96,6 +96,8 @@ export async function saveRecords(entries, employeeId) {
         // err → es el error que ocurrió, lo mostramos en la consola para depuración
         try {
 
+            console.log('record a enviar:', JSON.stringify(record));
+
             // fetch → envía el objeto record al backend como una carta
             // await → espera la respuesta del backend antes de continuar
             // 'http://localhost:8080/records/save' → la dirección del endpoint en RecordController.java
