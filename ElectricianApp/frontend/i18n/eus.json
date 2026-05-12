@@ -62,7 +62,8 @@
         "fromHeader": "Hasi",
         "toHeader": "Amaitu",
         "durationHeader": "Iraupena",
-        "faNumberHeader": "FA Zenbakia"        
+        "faNumberHeader": "FA Zenbakia",
+        "logoutBtn": "SAIOA ITXI"        
     },
     "alerts": {
         "invalidPersonalNumber": "Zenbaki pertsonala ez da baliozkoa",

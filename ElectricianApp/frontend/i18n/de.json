@@ -62,8 +62,8 @@
         "fromHeader": "Von",
         "toHeader": "Bis",
         "durationHeader": "Dauer",
-        "faNumberHeader": "FA Nummer"
-        
+        "faNumberHeader": "FA Nummer",
+        "logoutBtn": "ABMELDEN"        
     },
     "alerts": {
         "invalidPersonalNumber": "Ungültige Personalnummer",

@@ -1019,4 +1019,29 @@ check.addEventListener('click', (event) => {
 
 });
 
+
+
+
+
+
+
+
+
+// ------------------------ 9. BOTÓN LOGOUT ------------------------
+
+
+
+const logoutBtn = document.querySelector('#logout-btn');
+
+logoutBtn.addEventListener('click', () => {
+
+// Borra todo el sessionStorage — elimina el employeeId guardado al hacer login
+// clear() → vacía completamente la caja temporal del navegador
+// Sin esto el trabajador seguiría "conectado" aunque navegue a login-view
+sessionStorage.clear();
+
+showView('login-view');
+
+});
+
 /* ---------------------------------------------------------------------------------------- THE END -------------------------------------------------------------------------------------------- */

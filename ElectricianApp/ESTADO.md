@@ -53,6 +53,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - Login corregido — isChecked movido dentro del submit
 - Checkbox remember-checkbox con id correcto en HTML
 - worker.js completo con botones Assembly, Team Meeting, Cleanup
+- Los tres tipos de tarea (Assembly, Meeting, Cleanup) se guardan correctamente en MySQL
 - Botón SUBMIT conectado al backend — guarda registros en MySQL
 - Tras SUBMIT → vuelve a worker-view con formulario limpio
 - sessionStorage guarda employeeId tras el login
@@ -60,10 +61,12 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - CORS configurado para 127.0.0.1:5500
 - Tabla task con 3 tareas insertadas en MySQL
 - RecordController y RecordServiceImpl funcionando
+- Error de elementos DOM null al hacer clic fuera corregido con comprobación if (element)
+- Branch de Git reparado — archivo .git/refs/heads/main estaba vacío por interferencia de OneDrive
 
 ## Pendiente ❌
-- Remember me — implementar funcionalidad real con localStorage
 - Logout — botón de cerrar sesión
+- Remember me — implementar funcionalidad real con localStorage
 - Validación Confirm con Enter — evitar que Enter guarde sin rellenar campos
 - Auto-salto entre inputs de tiempo
 - Validación solapamiento contra MySQL
@@ -81,13 +84,21 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - Los nombres de las tareas en la tabla de revisión aparecen en inglés (pendiente traducir)
 - showView está exportada en main.js — se importa en login.js y worker.js
 - isChecked debe leerse DENTRO del evento submit, no fuera
+- OneDrive puede corromper archivos internos de Git — considerar mover el proyecto fuera de OneDrive
+
+## Git — estructura interna
+- .git/HEAD → apunta al branch actual: "ref: refs/heads/main"
+- .git/refs/heads/main → guarda el ID del último commit del branch main
+- .git/logs/HEAD → historial completo de todos los commits
+- Si .git/refs/heads/main está vacío → Git no puede hacer commits → reparar con: echo [ID_ULTIMO_COMMIT] > .git/refs/heads/main
 
 ## Manera de programar aprendida
 Programación orientada a eventos:
 1. Seleccionar el elemento del HTML con querySelector
-2. Leer su valor con .value, .checked, etc.
+2. Leer su valor con .value, .checked, etc. (SIEMPRE dentro del evento, no fuera)
 3. Actuar según ese valor — mostrar alert, navegar, enviar datos...
 
 ## Último paso completado
-- Login corregido y funcionando
-- isChecked movido dentro del evento submit
+- Corregido error de elementos DOM null al borrar valores de inputs cuando el formulario no existe
+- Los tres tipos de tarea funcionan correctamente y se guardan en MySQL
+- Branch de Git reparado

@@ -62,7 +62,8 @@
         "fromHeader": "From",
         "toHeader": "To",
         "durationHeader": "Duration",
-        "faNumberHeader": "FA Number"        
+        "faNumberHeader": "FA Number",
+        "logoutBtn": "LOGOUT"        
     },
     "alerts": {
         "invalidPersonalNumber": "Invalid personal number",

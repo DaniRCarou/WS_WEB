@@ -62,7 +62,8 @@
         "fromHeader": "De",
         "toHeader": "Até",
         "durationHeader": "Duración",
-        "faNumberHeader": "Núm. FA"        
+        "faNumberHeader": "Núm. FA",
+        "logoutBtn": "PECHAR SESIÓN"        
     },
     "alerts": {
         "invalidPersonalNumber": "Número persoal non válido",
