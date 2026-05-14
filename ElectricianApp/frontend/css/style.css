@@ -1403,9 +1403,6 @@ button {
 /* Este es el boton, para comprobar que los datos están correctamente antes de enviarlos. This is the button, to check if everything is ok before saving*/
 .text-btn{   
     
-    position: absolute;
-    bottom: 30px;
-    right: 180px;
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -1424,9 +1421,6 @@ button {
 
 .logout-btn{   
     
-    position: absolute;
-    bottom: 30px;
-    right: 20px;
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -1444,7 +1438,14 @@ button {
 
 
 
-
+.worker-actions {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 
 /* ---------------------------------------------------------------- CHECK WRAPPER ------------------------------------------------------------------------- */

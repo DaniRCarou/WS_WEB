@@ -79,6 +79,7 @@
         "assemblySaved": "Muntaketa sarrera gordeta",
         "meetingSaved": "Bilera sarrera gordeta",
         "cleanupSaved": "Garbiketa sarrera gordeta",
+        "logoutPendingTasks": "Zeregin pendienteak dituzu. Sakatu CHECK saioa itxi aurretik berrikusteko.",
         "submitReady": "Datuak datu basera bidaltzeko prest",
         "registerSuccess": "Erregistroa ongi egin da",
         "registerError": "Erregistro errorea",

@@ -1038,7 +1038,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (entries.length > 0) {
 
-                    alert("Tienes tareas pendientes de enviar. Pulsa CHECK para revisarlas antes de salir");
+                    alert(window.currentLanguageData?.alerts?.logoutPendingTasks || "You have pending tasks. Press CHECK to review them before logging out.");
 
                     return; // para aquí — no cierra sesión
 

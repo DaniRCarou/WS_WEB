@@ -79,6 +79,7 @@
         "assemblySaved": "Entrada de montaxe gardada",
         "meetingSaved": "Entrada de reunión gardada",
         "cleanupSaved": "Entrada de limpeza gardada",
+        "logoutPendingTasks": "Tes tarefas pendentes. Preme CHECK para revisalas antes de pechar sesión.",
         "submitReady": "Datos listos para enviar á base de datos",
         "registerSuccess": "Rexistro exitoso",
         "registerError": "Erro no rexistro",

@@ -79,6 +79,7 @@
         "assemblySaved": "Assembly entry saved",
         "meetingSaved": "Team Meeting entry saved",
         "cleanupSaved": "Cleanup entry saved",
+        "logoutPendingTasks": "You have pending tasks. Press CHECK to review them before logging out.",
         "submitReady": "Data ready to be sent to the database",
         "registerSuccess": "Registration successful",
         "registerError": "Registration error",

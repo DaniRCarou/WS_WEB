@@ -79,6 +79,7 @@
         "assemblySaved": "Montageeintrag gespeichert",
         "meetingSaved": "Teambesprechungseintrag gespeichert",
         "cleanupSaved": "Aufräumeintrag gespeichert",
+        "logoutPendingTasks": "Du hast ausstehende Aufgaben. Drücke CHECK, um sie vor dem Abmelden zu überprüfen.",
         "submitReady": "Daten bereit zum Senden an die Datenbank",
         "registerSuccess": "Registrierung erfolgreich",
         "registerError": "Registrierungsfehler",
