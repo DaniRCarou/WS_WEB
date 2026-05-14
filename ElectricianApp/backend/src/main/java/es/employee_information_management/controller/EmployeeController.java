@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import es.employee_information_management.dto.LoginResponse;
 
 @RestController // Es una anotación de Spring Boot que combina @Controller + @ResponseBody. Significa que esta clase va a recibir solicitudes HTTP (desde el navegador o frontend) y responderá datos en formato JSON, no páginas HTML.
 @RequestMapping("/employees") // Define la ruta base de tu controlador. Todos los endpoints de esta clase comenzarán con /employees.
@@ -26,10 +27,15 @@ public class EmployeeController {
     @PostMapping("/register")
     public ResponseEntity<?> registerEmployee(@RequestBody Employee employee) {
         try {
+
             Employee savedEmployee = employeeService.saveEmployee(employee);
+
             return ResponseEntity.ok(savedEmployee);
+
         } catch (Exception e) {
+
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+
         }
     }
 
@@ -39,13 +45,17 @@ public class EmployeeController {
                                                                                                                         // {"personalNumber": 12345, "password": "abc123"} -> JSON hace internamente -> LoginRequest loginRequest = new LoginRequest(); → loginRequest.setPersonalNumber(12345); lr.setPassword("abc123");. El nombre de la variable NO importa. El tipo SÍ importa
         boolean success = employeeService.authenticate(loginRequest.getPersonalNumber(), loginRequest.getPassword());   // Se extraen los datos ya convertidos: getPersonalNumber(), getPassword(). Se delega la lógica al service. El controller no valida, solo coordina.
 
-        if (success) {                                                                                                  // Respuesta HTTP. El status code es lo importante, no solo el texto.
+        if (success) {
 
-            return ResponseEntity.ok("Login successful");                                                               // Respuesta HTTP. HTTP 200 OK. Body: "Login successful". El status code es lo importante, no solo el texto.
+            Employee employee = employeeService.findEmployeeById(loginRequest.getPersonalNumber());
+
+            LoginResponse response = new LoginResponse(employee.getEmployeeId(), employee.getFirstName());
+
+            return ResponseEntity.ok(response);
 
         } else {
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");                          // Respuesta HTTP. HTTP 401 Unauthorized. Body: "Invalid credentials". El status code es lo importante, no solo el texto.
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
 
         }
 

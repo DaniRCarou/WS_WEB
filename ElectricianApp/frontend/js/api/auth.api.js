@@ -50,9 +50,11 @@ export async function loginEmployee(personalNumber, password) {                 
         
         });
 
-        if (response.ok) {                                                          // Devuelve true si el servidor respondió con un código HTTP 200–299, indicando éxito.
+        if (response.ok) {
 
-            return { success: true };                                               // Login correcto. Devuelve un objeto que indica que el login fue exitoso.
+            const employee = await response.json();                                 // await response.json() El backend devuelve el empleado en formato JSON — es un texto que parece esto: {"employeeId": 1003, "firstName": "Dani", "surname": "Rodriguez", ...}
+
+            return { success: true, firstName: employee.firstName };
 
         } else {
 

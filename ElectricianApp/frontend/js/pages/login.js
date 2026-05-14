@@ -61,6 +61,8 @@ loginForm.addEventListener('submit', async function(e) {                        
         // sessionStorage.getItem('employeeId')
         sessionStorage.setItem('employeeId', personalNumber);
 
+        sessionStorage.setItem('firstName', result.firstName);
+
         alert('Successful login');
 
         showView('worker-view');                                        // navegación SPA correcta

@@ -44,9 +44,106 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si el usuario no ha hecho login o cerró la pestaña, devuelve null.
     const employeeId = sessionStorage.getItem('employeeId');
 
+    // Lee el nombre del empleado del sessionStorage y lo muestra en el saludo
+    // getItem('firstName') → lee el nombre guardado al hacer login
+    // textContent → escribe el texto dentro del span #user-name del HTML
+    const firstName = sessionStorage.getItem('firstName');
+    document.getElementById('user-name').textContent = firstName;
 
 
 
+
+
+
+    // ------------------------ 1b. AUTO-SALTO ENTRE INPUTS DE TIEMPO ------------------------
+    // Escucha cada tecla que el trabajador pulsa en el input task-start. Cuando el trabajador termina de escribir la hora de inicio (5 caracteres HH:MM)
+    // el cursor salta automáticamente al input de hora de fin    
+    // .addEventListener Le dice al navegador: "vigila este input y cuando ocurra algo, ejecuta este código".
+    // 'input' El tipo de evento que vigila — se activa en cada tecla que el trabajador pulsa.
+    // function() La función que se ejecuta cuando ocurre el evento.
+    // this Dentro de la función, this representa el elemento que disparó el evento — en este caso el input task-start. Es una forma de decir "yo mismo".
+    // this.value.length === 5 → comprueba si ya tiene los 5 caracteres completos
+    // document.querySelector('.task-end').focus() Busca el input task-end y le mueve el cursor — como si el trabajador hubiera hecho clic en él.
+
+    document.querySelector('.task-start').addEventListener('input', function() {
+
+        const parts = this.value.split(':');
+
+            if (parts.length === 2 && parts[1].length === 2) {
+
+                document.querySelector('.task-end').focus();
+
+            }
+
+     });
+
+
+    document.querySelector('.meeting-start').addEventListener('input', function() {
+
+        if (this.value.length === 5) {
+
+            document.querySelector('.meeting-end').focus();
+
+        }
+
+    });
+
+
+    document.querySelector('.cleanup-start').addEventListener('input', function() {
+
+        if (this.value.length === 5) {
+
+            document.querySelector('.cleanup-end').focus();
+
+        }
+
+    });
+
+
+
+    // Al pulsar Enter en task-end → ejecuta el botón Confirm del Assembly
+    // keydown → detecta cuando se pulsa una tecla
+    // e.key === 'Enter' → comprueba si la tecla pulsada es Enter
+    document.querySelector('.task-end').addEventListener('keydown', function(e) {
+
+        if (e.key === 'Enter') { // e es el objeto del evento — contiene información sobre lo que ocurrió. e.key es una propiedad de ese objeto que dice exactamente qué tecla pulsó el usuario. Por ejemplo: e.key === 'Enter' → pulsó Enter
+
+            e.preventDefault();                                         // evita que el formulario haga submit. evita el comportamiento predeterminado del navegador cuando ocurre un evento. En este caso, cuando se pulsa Enter dentro de un formulario, el navegador por defecto hace submit del formulario — lo que en tu caso navega a la pantalla de check. e.preventDefault() cancela ese comportamiento antes de que ocurra.
+
+            document.querySelector('#task-panel .confirm-btn').click(); // Busca en el HTML el botón con clase confirm-btn que esté dentro del elemento con id task-panel. 
+                                                                        // .click() Llama al método click() sobre ese elemento — simula un clic de ratón programáticamente. Es exactamente igual que si el trabajador hubiera hecho clic con el ratón en ese botón. 
+                                                                        
+        }
+
+    });
+
+
+    // Meeting
+    document.querySelector('.meeting-end').addEventListener('keydown', function(e) {
+
+        if (e.key === 'Enter') {
+
+            e.preventDefault();                                         // evita que el formulario haga submit. evita el comportamiento predeterminado del navegador cuando ocurre un evento. En este caso, cuando se pulsa Enter dentro de un formulario, el navegador por defecto hace submit del formulario — lo que en tu caso navega a la pantalla de check. e.preventDefault() cancela ese comportamiento antes de que ocurra.
+            
+            document.querySelector('#meeting-panel .confirm-btn').click();
+
+        }
+
+    });
+
+
+    // Cleanup
+    document.querySelector('.cleanup-end').addEventListener('keydown', function(e) {
+
+        if (e.key === 'Enter') {
+
+            e.preventDefault();                                         // evita que el formulario haga submit. evita el comportamiento predeterminado del navegador cuando ocurre un evento. En este caso, cuando se pulsa Enter dentro de un formulario, el navegador por defecto hace submit del formulario — lo que en tu caso navega a la pantalla de check. e.preventDefault() cancela ese comportamiento antes de que ocurra.
+           
+            document.querySelector('#cleanup-panel .confirm-btn').click();
+
+        }
+
+    }); 
 
 
 
