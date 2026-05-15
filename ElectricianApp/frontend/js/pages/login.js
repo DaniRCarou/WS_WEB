@@ -37,21 +37,62 @@ import { showView } from '../main.js';                                          
 
 const loginForm = document.querySelector('#login-form');                            // Selecciona el elemento del DOM con id="login-form" y lo guarda en la variable
 
+
+
+// Al cargar la página comprobamos si el trabajador marcó "Remember me" en el login anterior
+// localStorage.getItem('employeeId') → lee el número personal guardado
+// Si no hay nada guardado devuelve null
+const savedId = localStorage.getItem('employeeId');
+
+// Si existe un número personal guardado → lo ponemos en el input automáticamente
+// Así el trabajador no tiene que escribirlo de nuevo
+if (savedId) {
+
+    // .value → propiedad de los inputs que contiene el texto escrito dentro
+    // Es como textContent pero para inputs
+    document.querySelector('#login-personal-number').value = savedId;
+
+}
+
+
+
+
+
 loginForm.addEventListener('submit', async function(e) {                            // Agrega un listener que escucha eventos del formulario. 'submit' → Escucha el evento de enviar el formulario. async function(e) → Función asíncrona que se ejecuta al enviar el formulario. e → Objeto del evento, contiene información sobre el submit.
 
     e.preventDefault();                                                             // Evita que el navegador recargue la página al hacer submit. Esto es fundamental en apps SPA modernas.
 
     const personalNumber = document.querySelector('#login-personal-number').value;  // Selecciona el input donde el usuario escribe el número personal y lo guarda en la variable. .value → Obtiene el valor escrito por el usuario.
+                                                                                    // Lee el valor del input en ese momento — da igual si lo escribió el trabajador o lo rellenó el código desde localStorage. Se guarda en una constante para enviársela al backend en loginEmployee(personalNumber, password)
 
     const password = document.querySelector('#password').value;
    
     const result = await loginEmployee(personalNumber, password);                   // Llamamos a la función de la API. Llama a la función loginEmployee que definimos en auth.api.js. await → Espera la respuesta de la API antes de continuar. result → Guarda el objeto devuelto por la función { success: true/false, message: ... }.
                                                                                     // Aquí login.js solo procesa la respuesta y decide qué mostrar al usuario
 
-    const isChecked = document.querySelector('#remember-checkbox').checked;         // Checkbox de términos → true o false
+    const isChecked = document.querySelector('#remember-checkbox').checked;         // Checkbox de términos → true o false. 
+                                                                                    // En realidad no importa demasiado en este caso — el checkbox se podría leer dentro o fuera del if. Pero la razón por la que está fuera es organización: primero se recogen todos los datos del formulario — número personal, contraseña, checkbox — y luego se procesa el resultado. 
+                                                                                    // Es como un camarero que anota todo el pedido antes de ir a la cocina, no va y vuelve varias veces.
 
 
     if (result.success) {                                                           // result es la respuesta procesada del backend, normalmente algo como esto: { "success": true, "message": "Login OK" }. Definido en loginApi.js
+
+
+        // Si el trabajador marcó "Remember me" → guarda el número personal en localStorage
+        // localStorage persiste aunque se cierre el navegador o se apague el ordenador
+        if (isChecked) {
+
+            localStorage.setItem('employeeId', personalNumber);
+
+        } else {
+
+            // Si no marcó "Remember me" → borra los datos del login anterior si los hubiera
+            // Así la próxima vez que abra la página el input aparece vacío
+            localStorage.removeItem('employeeId');
+
+        }
+
+
 
         // sessionStorage → memoria temporal del navegador. Funciona como una caja donde puedes
         // guardar datos mientras el usuario tiene la pestaña abierta. Cuando cierra la pestaña,
