@@ -104,7 +104,7 @@ loginForm.addEventListener('submit', async function(e) {                        
 
         sessionStorage.setItem('firstName', result.firstName);
 
-        alert('Successful login');
+        alert(window.currentLanguageData?.alerts?.loginSuccess || "Successful login");
 
         showView('worker-view');                                                    // navegación SPA correcta
 
@@ -112,7 +112,7 @@ loginForm.addEventListener('submit', async function(e) {                        
 
     } else {
 
-        alert('Login failed: ' + result.message);
+        alert((window.currentLanguageData?.alerts?.loginError || "Login failed") + ": " + result.message);
 
     }
 

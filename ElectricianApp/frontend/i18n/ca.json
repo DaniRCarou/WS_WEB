@@ -66,6 +66,8 @@
         "logoutBtn": "TANCAR SESSIÓ"       
     },
     "alerts": {
+        "loginSuccess": "Inici de sessió correcte",
+        "loginError": "Error en iniciar sessió",
         "invalidPersonalNumber": "Número personal no vàlid",
         "invalidName": "El nom no és vàlid",
         "invalidSurname": "El cognom no és vàlid",

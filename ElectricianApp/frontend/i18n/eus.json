@@ -66,6 +66,8 @@
         "logoutBtn": "SAIOA ITXI"        
     },
     "alerts": {
+        "loginSuccess": "Saioa hasi da",
+        "loginError": "Errorea saioa hastean",
         "invalidPersonalNumber": "Zenbaki pertsonala ez da baliozkoa",
         "invalidName": "Izena ez da baliozkoa",
         "invalidSurname": "Abizena ez da baliozkoa",

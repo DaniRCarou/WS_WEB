@@ -66,6 +66,8 @@
         "logoutBtn": "LOGOUT"        
     },
     "alerts": {
+        "loginSuccess": "Successful login",
+        "loginError": "Login failed",
         "invalidPersonalNumber": "Invalid personal number",
         "invalidName": "The name is not valid",
         "invalidSurname": "The surname is not valid",

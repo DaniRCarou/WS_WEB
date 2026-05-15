@@ -66,6 +66,8 @@
         "logoutBtn": "ABMELDEN"        
     },
     "alerts": {
+        "loginSuccess": "Anmeldung erfolgreich",
+        "loginError": "Anmeldung fehlgeschlagen",
         "invalidPersonalNumber": "Ungültige Personalnummer",
         "invalidName": "Der Name ist ungültig",
         "invalidSurname": "Der Nachname ist ungültig",

@@ -619,6 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 7. Borra los valores de los inputs del panel Cleanup
         document.querySelector('.cleanup-start').value = ''; /* Borra la hora de inicio */
+        
         document.querySelector('.cleanup-end').value = '';   /* Borra la hora de fin */
 
     });
