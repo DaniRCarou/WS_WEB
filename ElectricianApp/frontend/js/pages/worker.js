@@ -1,7 +1,24 @@
+
+
+
+
 // Importa la función saveRecords de work.api.js
 // saveRecords → envía todos los registros del trabajador al backend
 import { saveRecords } from '../api/work.api.js';
 import { showView } from '../main.js'; // importa showView para navegar a worker-view tras el SUBMIT
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ------------------------ 1. SELECCIÓN DE FECHA ------------------------
 
@@ -147,6 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     // ------------------------ 2. BOTÓN ASSEMBLY AND WIRING ------------------------
 
 
@@ -178,8 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
             //    && → significa "y además", es decir, los tres deben ser flex a la vez
             if (prod.style.display === 'flex' && taskTime.style.display === 'flex' && taskValidation.style.display === 'flex') {
 
-                // 5. Si los tres están visibles → los oculta (el trabajador ha vuelto a pulsar el botón)
-                prod.style.display = 'none';            /* oculta el input de Prod. number */
+            // 5. Si los tres están visibles → los oculta (el trabajador ha vuelto a pulsar el botón)
+            prod.style.display = 'none';            /* oculta el input de Prod. number */
 
             taskTime.style.display = 'none';        /* oculta los inputs From y To */
 
@@ -212,6 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cleanUpValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Cleanup */
 
 
+            // Ponemos el focus en el comienzo de la tarea cuando se pulsa el botón. Con la acción de .focus(), Igual que .click() simula un clic, .focus() simula que el usuario hace clic en un input — el cursor aparece dentro listo para escribir.
+            document.querySelector('.task-start').focus();
+
+
             // 9. Solo en móvil oculta los botones de Meeting y Cleanup
             //    window.innerWidth → ancho actual de la pantalla en píxeles
             //    <= 480 → si el ancho es menor o igual a 480px estamos en móvil
@@ -226,6 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+
+
+
+
+
 
 
 
@@ -285,6 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cleanUpValidation.style.display = 'none'; /* oculta los botones Delete y Confirm del Cleanup */
 
+            // Ponemos el focus en el comienzo de la tarea cuando se pulsa el botón. Con la acción de .focus(), Igual que .click() simula un clic, .focus() simula que el usuario hace clic en un input — el cursor aparece dentro listo para escribir.
+            document.querySelector('.meeting-start').focus();
+
+
 
             // 8. Solo en móvil oculta los botones de Assembly y Cleanup
             //    window.innerWidth → ancho actual de la pantalla en píxeles
@@ -300,6 +341,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+
+
+
+
+
 
 
 
@@ -359,6 +405,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             taskValidation.style.display = 'none';    /* oculta los botones Delete y Confirm de la tarea */
 
+            // Ponemos el focus en el comienzo de la tarea cuando se pulsa el botón. Con la acción de .focus(), Igual que .click() simula un clic, .focus() simula que el usuario hace clic en un input — el cursor aparece dentro listo para escribir.
+            document.querySelector('.cleanup-start').focus();
+
+
 
             // 8. Solo en móvil oculta los botones de Assembly y Meeting
             //    window.innerWidth → ancho actual de la pantalla en píxeles
@@ -374,6 +424,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+
+
+
+
+
 
 
 
@@ -441,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         // 3. Si el trabajador hace clic FUERA del panel de Assembly and Wiring → oculta sus elementos
+        // target → es el elemento donde ocurrió el clic.
         if (!target.closest('#task-panel')) {
 
             prod.style.display = 'none';           /* oculta el input de Prod. number */
@@ -511,20 +567,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
 
-
-        // 6. Si el trabajador hace clic FUERA del check-wrapper → lo oculta
-        //    Este caso necesita una condición doble porque hay un problema especial:
-        //    Cuando el trabajador pulsa el botón CHECK para abrir el check-wrapper,
-        //    ese mismo clic también activa este document.addEventListener.
-        //    Como el check-wrapper aún no está visible en ese momento, se ocultaría
-        //    inmediatamente después de abrirse. ¡Se abriría y cerraría al instante!
-        //    La solución es excluir también el botón CHECK de la condición:
-        //    → si el clic fue en el check-wrapper O en el botón CHECK, no lo ocultes
-        if (!target.closest('.check-wrapper') && !target.closest('#check-btn')) {
-
-            checkWrapper.style.display = 'none'; /* oculta el check-wrapper */
-
-        }
 
     });
 
@@ -996,7 +1038,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const currentIndex = entries.indexOf(reg);  /* indexOf() → devuelve la posición actual del registro */
 
                     // Elimina el registro del array en la posición actual
-                    entries.splice(currentIndex, 1);            /* splice(currentIndex, 1) → elimina 1 elemento en esa posición */
+                    entries.splice(currentIndex, 1);            /* splice(currentIndex, 1) → elimina 1 elemento en esa posición. Es un método de los arrays en JavaScript que elimina elementos. Es como decir "corta y saca". currentIndex → es la posición del registro que queremos eliminar. Recuerda que indexOf(reg) nos devolvió esa posición. Por ejemplo: 1 si es el segundo registro.*/
 
                     // Elimina la fila de la tabla visualmente
                     tr.remove();                                /* remove() → elimina el <tr> del DOM */
@@ -1004,11 +1046,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Renumera todas las filas que quedan en la tabla
                     // querySelectorAll() → selecciona todos los elementos que coincidan con el selector
                     // forEach() → recorre cada fila y actualiza su número
-                    const filas = tbody.querySelectorAll('tr');             /* Selecciona todas las filas que quedan en la tabla */
+                    const filas = tbody.querySelectorAll('tr');             /* Selecciona todas las filas que quedan en la tabla. tbody → es el cuerpo de la tabla, el elemento <tbody> del HTML donde están las filas con los datos. querySelectorAll('tr') → busca todos los elementos <tr> que hay dentro del tbody. A diferencia de querySelector que solo devuelve el primero, querySelectorAll devuelve todos. const filas → guarda todos esos <tr> encontrados en una variable llamada filas. */
 
                     filas.forEach((fila, i) => {
 
-                        fila.cells[0].textContent = i + 1;  /* cells[0] → primera celda de la fila, i + 1 → nuevo número */
+                        fila.cells[0].textContent = i + 1;  /* cells[0] → primera celda de la fila, i + 1 → nuevo número. Coge la primera celda de cada fila y le pone el valor del índice más 1. textContent sobreescribe lo que había*/
 
                     }); // cierra el forEach
 

@@ -51,7 +51,7 @@ loginForm.addEventListener('submit', async function(e) {                        
     const isChecked = document.querySelector('#remember-checkbox').checked;         // Checkbox de términos → true o false
 
 
-    if (result.success) {                                               // result es la respuesta procesada del backend, normalmente algo como esto: { "success": true, "message": "Login OK" }. Definido en loginApi.js
+    if (result.success) {                                                           // result es la respuesta procesada del backend, normalmente algo como esto: { "success": true, "message": "Login OK" }. Definido en loginApi.js
 
         // sessionStorage → memoria temporal del navegador. Funciona como una caja donde puedes
         // guardar datos mientras el usuario tiene la pestaña abierta. Cuando cierra la pestaña,
@@ -65,7 +65,9 @@ loginForm.addEventListener('submit', async function(e) {                        
 
         alert('Successful login');
 
-        showView('worker-view');                                        // navegación SPA correcta
+        showView('worker-view');                                                    // navegación SPA correcta
+
+        document.getElementById('user-name').textContent = result.firstName;        // .textContent → es el texto que va dentro de ese span. El span pasa de estar vacío a contener "Daniel". result.firstName → es el nombre que devolvió el backend cuando hice login. Por ejemplo: "Daniel".
 
     } else {
 
