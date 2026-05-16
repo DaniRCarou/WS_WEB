@@ -1,7 +1,7 @@
 package es.employee_information_management.service;
 
 import es.employee_information_management.model.Record;
-
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IRecordService {
@@ -13,5 +13,7 @@ public interface IRecordService {
     public void saveRecord(Record record);  // Si el recordId NO existe en la base de datos → inserción. Si el recordId YA existe → actualización
 
     void deleteRecordById(Integer recordId);
+
+    List<Record> findByEmployeeAndDate(Integer employeeId, LocalDate date);
 
 }

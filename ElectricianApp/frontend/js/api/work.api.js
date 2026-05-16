@@ -80,6 +80,10 @@ export async function saveRecords(entries, employeeId) {
             // Ejemplo: "2026-05-07"
             date: entry.date,
 
+            startTime: entry.start,
+
+            endTime: entry.end,
+
             // totalTime → la duración de la tarea en minutos, calculada arriba
             // Ejemplo: 90 minutos
             totalTime: totalTime
@@ -137,6 +141,17 @@ export async function saveRecords(entries, employeeId) {
     }
 
     return { success: true };   // Solo llega aquí si todos los registros se enviaron correctamente. Devuelve éxito a worker.js.
+
+}
+
+
+export async function getRecordsByDate(employeeId, date) {
+
+    const response = await fetch(`http://localhost:8080/records/employee/${employeeId}/date/${date}`);
+
+    const records = await response.json();
+
+    return records;
 
 }
 

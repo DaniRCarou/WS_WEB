@@ -8,6 +8,7 @@ import es.employee_information_management.repository.RecordRepository;
 import es.employee_information_management.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.time.LocalDate;
 
 import java.util.List;
 
@@ -69,6 +70,12 @@ public class RecordServiceImpl implements IRecordService{
 
         recordRepository.deleteById(recordId);
 
+    }
+
+
+    @Override
+    public List<Record> findByEmployeeAndDate(Integer employeeId, LocalDate date) {
+        return recordRepository.findByEmployee_EmployeeIdAndDate(employeeId, date);
     }
 
 }

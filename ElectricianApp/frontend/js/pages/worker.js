@@ -2,16 +2,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // Importa la función saveRecords de work.api.js
 // saveRecords → envía todos los registros del trabajador al backend
-import { saveRecords } from '../api/work.api.js';
+import { saveRecords, getRecordsByDate } from '../api/work.api.js';
 import { showView } from '../main.js'; // importa showView para navegar a worker-view tras el SUBMIT
-
-
-
-
-
-
 
 
 
@@ -635,17 +641,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ------------------------ FUNCIÓN AUXILIAR: COMPROBAR SOLAPAMIENTO ------------------------
 
-    // Comprueba si un nuevo registro se solapa con alguno de los ya guardados en entries
-    // newStart y newEnd → horas de inicio y fin del nuevo registro en formato HH:MM
-    // Devuelve true si hay solapamiento, false si no lo hay
-    function hasSolapamiento(newStart, newEnd) {
+    async function hasSolapamiento(newStart, newEnd, date) {
 
-        return entries.some(reg => {    /* some() → recorre el array y devuelve true si algún elemento cumple la condición */
+        // Comprueba contra los registros en memoria (sesión actual)
+        const localOverlap = entries.some(reg => {
+            return newStart < reg.end && newEnd > reg.start;
+        });
 
-            // Dos registros se solapan si el nuevo empieza antes de que termine el existente
-            // Y el nuevo termina después de que empiece el existente
-            return newStart < reg.end && newEnd > reg.start;    /* < y > → compara strings HH:MM directamente */
+        if (localOverlap) return true;
 
+        // Comprueba contra los registros guardados en MySQL
+        const dbRecords = await getRecordsByDate(employeeId, date);
+
+        return dbRecords.some(reg => {
+            const dbStart = reg.startTime.substring(0, 5);  // "12:00:00" → "12:00"
+            const dbEnd = reg.endTime.substring(0, 5);
+            return newStart < dbEnd && newEnd > dbStart;
         });
 
     }
@@ -666,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //  . → busca por clase
     //  .confirm-btn → busca el elemento con class="confirm-btn" dentro del task-panel
     // .addEventListener('click', () => { }) → escucha el evento click en ese botón y ejecuta el código dentro de las llaves
-    document.querySelector('#task-panel .confirm-btn').addEventListener('click', () => {
+    document.querySelector('#task-panel .confirm-btn').addEventListener('click', async () => {
 
         // 3. Lee los valores que el trabajador ha introducido en los inputs del panel Assembly
         //    .value → obtiene el texto o número que hay escrito dentro del input en ese momento
@@ -704,7 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // hasSolapamiento(start, end) → llama a la función auxiliar que compara el nuevo registro con todos los existentes
         // Si devuelve true significa que hay solapamiento y no se puede guardar
         // return → detiene la ejecución y no guarda nada si hay solapamiento
-        if (hasSolapamiento(start, end)) {
+        if (await hasSolapamiento(start, end, date)) {
 
             alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry");
             return;
@@ -746,7 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Escucha el clic en el botón Confirm del panel Team Meeting
     //    '#meeting-panel .confirm-btn' → selector que apunta al botón Confirm dentro del panel Meeting
-    document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', () => {
+    document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', async () => {
 
         // 7. Lee los valores que el trabajador ha introducido en los inputs del panel Meeting
         const start = document.querySelector('#meeting-panel .meeting-start').value;  /* Hora de inicio */
@@ -781,7 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // hasSolapamiento(start, end) → llama a la función auxiliar que compara el nuevo registro con todos los existentes
         // Si devuelve true significa que hay solapamiento y no se puede guardar
     // return → detiene la ejecución y no guarda nada si hay solapamiento
-    if (hasSolapamiento(start, end)) {
+    if (await hasSolapamiento(start, end, date)) {
 
         alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry");
         return;
@@ -818,7 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 10. Escucha el clic en el botón Confirm del panel Cleanup
     //     '#cleanup-panel .confirm-btn' → selector que apunta al botón Confirm dentro del panel Cleanup
-    document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', () => {
+    document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', async () => {
 
         // 11. Lee los valores que el trabajador ha introducido en los inputs del panel Cleanup
         const start = document.querySelector('#cleanup-panel .cleanup-start').value;  /* Hora de inicio */
@@ -853,7 +864,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // hasSolapamiento(start, end) → llama a la función auxiliar que compara el nuevo registro con todos los existentes
         // Si devuelve true significa que hay solapamiento y no se puede guardar
         // return → detiene la ejecución y no guarda nada si hay solapamiento
-        if (hasSolapamiento(start, end)) {
+        if (await hasSolapamiento(start, end, date)) {
 
             alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry");
             return;

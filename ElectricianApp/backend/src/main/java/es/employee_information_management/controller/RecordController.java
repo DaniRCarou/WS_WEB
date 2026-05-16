@@ -1,5 +1,7 @@
 package es.employee_information_management.controller;
 
+import es.employee_information_management.dto.RecordResponse;
+
 // ─── IMPORTS ───────────────────────────────────────────────────────────────────
 // Importa el modelo Record → la clase que representa la tabla 'record' en MySQL
 import es.employee_information_management.model.Record;
@@ -18,6 +20,9 @@ import org.springframework.http.ResponseEntity;
 
 // Importa todas las anotaciones web de Spring: @RestController, @RequestMapping, @PostMapping, @RequestBody
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.List;
 
 
 // @RestController → marca esta clase como controlador REST
@@ -62,5 +67,23 @@ public class RecordController {
         }
 
     }
+
+
+    @GetMapping("/employee/{employeeId}/date/{date}")
+    public ResponseEntity<?> getRecordsByEmployeeAndDate(
+            @PathVariable Integer employeeId,
+            @PathVariable LocalDate date) {
+
+        List<Record> records = recordService.findByEmployeeAndDate(employeeId, date);
+
+        List<RecordResponse> response = records.stream()
+                .map(r -> new RecordResponse(r.getStartTime(), r.getEndTime()))
+                .collect(java.util.stream.Collectors.toList());
+
+        return ResponseEntity.ok(response);
+
+    }
+
+
 
 }

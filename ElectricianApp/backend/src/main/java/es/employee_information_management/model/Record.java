@@ -6,6 +6,8 @@ package es.employee_information_management.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Entity
 @Table(name = "record")
@@ -35,6 +37,12 @@ public class Record {
 
     @Column(name = "Date", nullable = false)
     private LocalDate date;
+
+    @Column (name = "Start_Time", nullable = false)
+    private LocalTime startTime;
+
+    @Column (name = "End_Time", nullable = false)
+    private LocalTime endTime;
 
     @Column(name = "Total_Time", nullable = false) // en minutos
     private Integer totalTime;
