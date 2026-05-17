@@ -4,7 +4,7 @@
 Aplicación web de gestión de empleados industriales llamada Employee Portal.
 SPA con frontend en HTML/CSS/JS vanilla y backend en Spring Boot 4.0.0 con MySQL.
 El frontend usa i18n con 7 idiomas (en, es, de, pt, gl, ca, eus).
-La base de datos db_company tiene las tablas: employee, department, equipment, record y task.
+La base de datos db_company tiene las tablas: employee, department, equipment, record, task y password_reset_token.
 
 ## Cómo arrancar el proyecto
 1. Arrancar MySQL
@@ -23,7 +23,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
       - register.js — formulario de registro (NO es módulo)
       - login.js — formulario de login (es módulo)
       - worker.js — vista del trabajador (es módulo, tiene DOMContentLoaded)
-      - password_reset.js — recuperación de contraseña (pendiente conectar)
+      - password_reset.js — pendiente conectar con backend
     - api/
       - auth.api.js — fetch para login, devuelve { success, firstName }
       - work.api.js — fetch para guardar registros y consultar solapamiento contra MySQL
@@ -32,18 +32,24 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 
 - BACKEND/
   - controller/
-    - EmployeeController.java — /employees/register y /employees/login (devuelve LoginResponse con employeeId y firstName)
+    - EmployeeController.java — /employees/register y /employees/login
     - RecordController.java — /records/save y GET /records/employee/{employeeId}/date/{date}
+    - PasswordResetController.java — POST /password-reset/send, GET /password-reset/validate/{token}, POST /password-reset/reset
     - DepartmentController.java, EquipmentController.java, TaskController.java — vacíos
   - service/
     - EmployeeServiceImpl.java — lógica de registro y login
     - RecordServiceImpl.java — busca Employee y Task antes de guardar; tiene findByEmployeeAndDate
+    - PasswordResetServiceImpl.java — sendResetEmail, validateToken, resetPassword
   - dto/
     - LoginRequest.java — recibe personalNumber y password
     - LoginResponse.java — devuelve employeeId y firstName
-    - RecordResponse.java — devuelve startTime y endTime (evita referencias circulares)
-  - model/ — entidades JPA: Employee, Department, Equipment, Record, Task
-  - repository/ — interfaces JPA para cada entidad; RecordRepository tiene findByEmployee_EmployeeIdAndDate
+    - RecordResponse.java — devuelve startTime y endTime
+  - model/
+    - Employee, Department, Equipment, Record, Task, PasswordResetToken
+  - repository/
+    - RecordRepository — findByEmployee_EmployeeIdAndDate
+    - EmployeeRepository — findByEmail
+    - PasswordResetTokenRepository — findByToken, findByEmployee_Email
   - config/CorsConfig.java — CORS para 127.0.0.1:5500
 
 ## Hecho ✅
@@ -73,17 +79,24 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - work.api.js envía startTime y endTime al backend
 - DTO RecordResponse creado — devuelve solo startTime y endTime
 - Endpoint GET /records/employee/{employeeId}/date/{date} creado y funcionando
-- RecordRepository tiene findByEmployee_EmployeeIdAndDate
-- IRecordService y RecordServiceImpl tienen findByEmployeeAndDate
+- Validación solapamiento contra MySQL — funciona en los 3 paneles
+- Tabla password_reset_token creada en MySQL
+- Modelo PasswordResetToken.java creado
+- PasswordResetTokenRepository creado — findByToken, findByEmployee_Email
+- EmployeeRepository — añadido findByEmail
+- IPasswordResetService y PasswordResetServiceImpl creados
+- PasswordResetController creado y funcionando — endpoints validados
 
 ## Pendiente ❌
-- Conectar endpoint de solapamiento con el frontend en work.api.js — antes de confirmar un registro, consultar los registros del día en MySQL y comparar horas
-- Equipment — conectar faNumber con tabla equipment (tabla vacía)
+- SendGrid — obtener API key y configurar en application.properties
 - password_reset.js — conectar con backend
+- Vista nueva en index.html para introducir nueva contraseña
+- passwordReset.api.js — crear fetch para los endpoints de reset
+- Equipment — conectar faNumber con tabla equipment
 - register.api.js — mover fetch de register.js
 - README profesional para reclutadores
 - Despliegue en Railway con MySQL para demo en vivo
-- Documento explicativo completo de la app — de principio a fin, cada palabra, cada concepto, en orden
+- Documento explicativo completo de la app
 
 ## Manera de aprender — MUY IMPORTANTE
 - Explicar cada cosa paso a paso antes de pedir que se ejecute
@@ -103,10 +116,11 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - El autocompletado de Firefox guarda credenciales
 - Record.java tiene startTime y endTime como LocalTime
 - work.api.js envía startTime y endTime como strings HH:MM — el backend los convierte automáticamente a LocalTime
+- SendGrid configurado en application.properties pero falta la API key real
 
 ## Git
 - GitHub: DaniRCarou/WS_WEB
 - Si se corrompe main: echo [ID] > .git/refs/heads/main
 
 ## Último commit
-feat: add startTime and endTime to record — backend endpoint and DTO created
+feat: validate time overlap against MySQL on confirm
