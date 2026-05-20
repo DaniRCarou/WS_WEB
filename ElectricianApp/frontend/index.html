@@ -221,6 +221,65 @@
             </div>                               
           
         </section>
+
+
+
+
+        <!-- ----------------------------------------------------------- NEW PASSWORD VIEW --------------------------------------------------------------- -->
+
+        <section id="new-password-view" class="view new-password-view">
+
+            <div id="new-password-wrapper" class="new-password-wrapper">
+
+                <h1 class="new-password-wrapper__title" data-i18n="newPassword.title">Set New Password</h1>
+
+
+                <form id="new-password-form" class="new-password-form" method="post" novalidate>
+
+                    <!-- Campo: Nueva contraseña -->
+                    <div class="new-password-form__password">
+
+                        <label for="new-password" class="visually-hidden" data-i18n="newPassword.password">New Password</label>
+
+
+                        <input id="new-password" class="input-base password_input" type="password" placeholder="New Password" data-i18n="newPassword.password" autocomplete="new-password"/>
+
+
+                        <button type="button" class="toggle-password" aria-label="Show password">
+
+                            <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Campo: Confirmar contraseña -->
+                    <div class="new-password-form__confirm">
+
+                        <label for="confirm-password" class="visually-hidden" data-i18n="newPassword.confirmPassword">Confirm Password</label>
+
+
+                        <input id="confirm-password" class="input-base password_input" type="password" placeholder="Confirm Password" data-i18n="newPassword.confirmPassword" autocomplete="new-password"/>
+
+
+                        <button type="button" class="toggle-password" aria-label="Show password">
+
+                            <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
+
+                        </button>
+
+                    </div>
+                    
+
+                    <!-- Botón submit -->
+                    <button type="submit" class="new-password-form__button" data-i18n="newPassword.submitButton">Reset Password</button>
+
+                </form>
+
+            </div>
+
+        </section>
              
 
 
@@ -733,7 +792,7 @@
                 
         <!-- Cada línea le dice al navegador que cargue un archivo JavaScript. El orden importa — el navegador carga los scripts en el orden en que aparecen. worker.js y register.js se cargan antes que los módulos. -->
 
-        <!-- Carga worker.js — no es módulo porque usa window para compartir datos -->
+        <!-- Carga worker.js — no es módulo porque usa window para compartir datos. Los archivos que usan import o export necesitan type="module". Los que no los usan, no lo necesitan. -->
         <script type="module" src="js/pages/worker.js"></script>
 
         <!-- Carga register.js — no es módulo porque solo escucha el submit -->
@@ -742,6 +801,9 @@
 
         <!-- Carga login.js — es módulo porque usa import/export -->
         <script type="module" src="js/pages/login.js"></script>
+
+        <!-- Carga password_reset.js — es módulo porque usa import/export -->
+        <script type="module" src="js/pages/password_reset.js"></script>
 
         <!-- Carga i18n.js — es módulo porque usa import/export -->
         <script type="module" src="js/utils/i18n.js"></script>

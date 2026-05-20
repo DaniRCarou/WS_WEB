@@ -1,6 +1,6 @@
 package es.employee_information_management.service;
 import es.employee_information_management.model.Employee;
-import es.employee_information_management.model.Equipment;
+
 import es.employee_information_management.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

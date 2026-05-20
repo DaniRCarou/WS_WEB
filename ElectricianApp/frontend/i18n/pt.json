@@ -65,6 +65,12 @@
         "faNumberHeader": "Núm. FA",
         "logoutBtn": "TERMINAR SESSIÓ"      
     },
+    "newPassword": {
+    "title": "Nova Senha",
+    "password": "Nova Senha",
+    "confirmPassword": "Confirmar Senha",
+    "submitButton": "Redefinir Senha"
+    },
     "alerts": {
         "loginSuccess": "Login bem-sucedido",
         "loginError": "Falha no login",
@@ -85,6 +91,9 @@
         "submitReady": "Dados prontos para enviar à base de dados",
         "registerSuccess": "Registo bem-sucedido",
         "registerError": "Erro no registo",
-        "serverConnectionError": "Erro de ligação ao servidor"
+        "serverConnectionError": "Erro de ligação ao servidor",
+        "resetEmailSent": "Se o seu email estiver registado, receberá um link de recuperação",
+        "passwordResetSuccess": "Senha redefinida com sucesso. Por favor inicie sessão.",
+        "invalidToken": "Este link de recuperação é inválido ou expirou"
     }
 }

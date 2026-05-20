@@ -65,6 +65,12 @@
         "faNumberHeader": "FA Number",
         "logoutBtn": "LOGOUT"        
     },
+    "newPassword": {
+    "title": "Set New Password",
+    "password": "New Password",
+    "confirmPassword": "Confirm Password",
+    "submitButton": "Reset Password"
+    },
     "alerts": {
         "loginSuccess": "Successful login",
         "loginError": "Login failed",
@@ -85,6 +91,9 @@
         "submitReady": "Data ready to be sent to the database",
         "registerSuccess": "Registration successful",
         "registerError": "Registration error",
-        "serverConnectionError": "Server connection error"
+        "serverConnectionError": "Server connection error",
+        "resetEmailSent": "If your email is registered, you will receive a reset link",
+        "passwordResetSuccess": "Password reset successfully. Please login.",
+        "invalidToken": "This reset link is invalid or has expired"
     }
 }

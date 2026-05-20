@@ -65,6 +65,12 @@
         "faNumberHeader": "FA Zenbakia",
         "logoutBtn": "SAIOA ITXI"        
     },
+    "newPassword": {
+    "title": "Pasahitz Berria",
+    "password": "Pasahitz Berria",
+    "confirmPassword": "Pasahitza Berretsi",
+    "submitButton": "Pasahitza Berrezarri"
+    },
     "alerts": {
         "loginSuccess": "Saioa hasi da",
         "loginError": "Errorea saioa hastean",
@@ -85,6 +91,9 @@
         "submitReady": "Datuak datu basera bidaltzeko prest",
         "registerSuccess": "Erregistroa ongi egin da",
         "registerError": "Erregistro errorea",
-        "serverConnectionError": "Zerbitzarirarekin konexio errorea"
+        "serverConnectionError": "Zerbitzarirarekin konexio errorea",
+        "resetEmailSent": "Zure emaila erregistratuta badago, berreskuratze esteka bat jasoko duzu",
+        "passwordResetSuccess": "Pasahitza berreskuratu da. Mesedez saioa hasi.",
+        "invalidToken": "Berreskuratze esteka hau baliogabea edo iraungita dago"
     }
 }

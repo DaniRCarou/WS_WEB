@@ -65,6 +65,12 @@
         "faNumberHeader": "FA Nummer",
         "logoutBtn": "ABMELDEN"        
     },
+    "newPassword": {
+    "title": "Neues Passwort",
+    "password": "Neues Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "submitButton": "Passwort zurücksetzen"
+    },
     "alerts": {
         "loginSuccess": "Anmeldung erfolgreich",
         "loginError": "Anmeldung fehlgeschlagen",
@@ -85,6 +91,9 @@
         "submitReady": "Daten bereit zum Senden an die Datenbank",
         "registerSuccess": "Registrierung erfolgreich",
         "registerError": "Registrierungsfehler",
-        "serverConnectionError": "Serververbindungsfehler"
+        "serverConnectionError": "Serververbindungsfehler",
+        "resetEmailSent": "Falls deine E-Mail registriert ist, erhältst du einen Link zum Zurücksetzen",
+        "passwordResetSuccess": "Passwort erfolgreich zurückgesetzt. Bitte melde dich an.",
+        "invalidToken": "Dieser Link ist ungültig oder abgelaufen"
     }
 }

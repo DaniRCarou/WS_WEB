@@ -23,12 +23,12 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
       - register.js — formulario de registro (NO es módulo)
       - login.js — formulario de login (es módulo)
       - worker.js — vista del trabajador (es módulo, tiene DOMContentLoaded)
-      - password_reset.js — pendiente conectar con backend
+      - password_reset.js — escucha submit, recoge email, llama a sendResetEmail (es módulo)
     - api/
       - auth.api.js — fetch para login, devuelve { success, firstName }
       - work.api.js — fetch para guardar registros y consultar solapamiento contra MySQL
       - register.api.js — vacío (fetch está en register.js directamente)
-      - passwordReset.api.js — vacío (pendiente)
+      - passwordReset.api.js — pendiente crear sendResetEmail
 
 - BACKEND/
   - controller/
@@ -85,13 +85,14 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - PasswordResetTokenRepository creado — findByToken, findByEmployee_Email
 - EmployeeRepository — añadido findByEmail
 - IPasswordResetService y PasswordResetServiceImpl creados
-- PasswordResetController creado y funcionando — endpoints validados
+- PasswordResetController creado y funcionando
+- password_reset.js creado — escucha submit, recoge email, llama a sendResetEmail
+- password_reset.js añadido al index.html como módulo
 
 ## Pendiente ❌
 - SendGrid — obtener API key y configurar en application.properties
-- password_reset.js — conectar con backend
-- Vista nueva en index.html para introducir nueva contraseña
-- passwordReset.api.js — crear fetch para los endpoints de reset
+- passwordReset.api.js — crear función sendResetEmail
+- Vista nueva en index.html para introducir nueva contraseña tras el reset
 - Equipment — conectar faNumber con tabla equipment
 - register.api.js — mover fetch de register.js
 - README profesional para reclutadores
@@ -107,7 +108,8 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 
 ## Notas importantes
 - worker.js es type="module" y tiene DOMContentLoaded
-- register.js NO es módulo
+- register.js NO es módulo — el fetch está directamente en register.js
+- password_reset.js es type="module"
 - employeeId y firstName se guardan en sessionStorage al hacer login
 - employeeId también se guarda en localStorage si "Remember me" está marcado
 - La tabla equipment está vacía — equipment_id se guarda como null en record
@@ -123,4 +125,4 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - Si se corrompe main: echo [ID] > .git/refs/heads/main
 
 ## Último commit
-feat: validate time overlap against MySQL on confirm
+feat: add password reset backend — model, repository, service and controller

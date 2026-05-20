@@ -1,13 +1,16 @@
 package es.employee_information_management.service;
 
+import com.resend.core.exception.ResendException;
 import es.employee_information_management.model.Employee;
 import es.employee_information_management.model.PasswordResetToken;
 import es.employee_information_management.repository.EmployeeRepository;
 import es.employee_information_management.repository.PasswordResetTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import com.resend.Resend;
+import com.resend.services.emails.model.CreateEmailOptions;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -22,11 +25,13 @@ public class PasswordResetServiceImpl implements IPasswordResetService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Autowired
-    private JavaMailSender mailSender;
+    @Value("${resend.api.key}")
+    private String resendApiKey;
+
+
 
     @Override
-    public void sendResetEmail(String email) {
+    public void sendResetEmail(String email) throws ResendException {
 
         Optional<Employee> employeeOpt = employeeRepository.findByEmail(email);
 
@@ -43,12 +48,16 @@ public class PasswordResetServiceImpl implements IPasswordResetService {
 
         tokenRepository.save(resetToken);
 
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(email);
-        message.setSubject("Password Reset");
-        message.setText("Click the link to reset your password: http://127.0.0.1:5500/reset?token=" + token);
+        Resend resend = new Resend(resendApiKey);
 
-        mailSender.send(message);
+        CreateEmailOptions sendEmailRequest = CreateEmailOptions.builder()
+                .from("onboarding@resend.dev")
+                .to(email)
+                .subject("Password Reset")
+                .html("<p>Click the link to reset your password: <a href='http://127.0.0.1:5500?token=" + token + "'>Reset Password</a></p>")
+                .build();
+
+        resend.emails().send(sendEmailRequest);
 
     }
 

@@ -65,6 +65,12 @@
         "faNumberHeader": "Núm. FA",
         "logoutBtn": "CERRAR SESIÓN"
     },
+    "newPassword": {
+    "title": "Nueva Contraseña",
+    "password": "Nueva Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "submitButton": "Restablecer Contraseña"
+    },
     "alerts": {
         "loginSuccess": "Inicio de sesión exitoso",
         "loginError": "Error al iniciar sesión",
@@ -85,6 +91,9 @@
         "submitReady": "Datos listos para enviar a la base de datos",
         "registerSuccess": "Registro exitoso",
         "registerError": "Error en el registro",
-        "serverConnectionError": "Error de conexión con el servidor"
+        "serverConnectionError": "Error de conexión con el servidor",
+        "resetEmailSent": "Si tu email está registrado, recibirás un enlace de recuperación",
+        "passwordResetSuccess": "Contraseña restablecida correctamente. Por favor inicia sesión.",
+        "invalidToken": "Este enlace de recuperación no es válido o ha expirado"
     }
 }

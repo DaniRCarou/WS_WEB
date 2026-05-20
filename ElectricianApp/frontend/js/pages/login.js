@@ -58,7 +58,7 @@ if (savedId) {
 
 
 
-loginForm.addEventListener('submit', async function(e) {                            // Agrega un listener que escucha eventos del formulario. 'submit' → Escucha el evento de enviar el formulario. async function(e) → Función asíncrona que se ejecuta al enviar el formulario. e → Objeto del evento, contiene información sobre el submit.
+loginForm.addEventListener('submit', async (e) => {                            // Agrega un listener que escucha eventos del formulario. 'submit' → Escucha el evento de enviar el formulario. async function(e) → Función asíncrona que se ejecuta al enviar el formulario. e → Objeto del evento, contiene información sobre el submit.
 
     e.preventDefault();                                                             // Evita que el navegador recargue la página al hacer submit. Esto es fundamental en apps SPA modernas.
 

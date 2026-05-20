@@ -65,6 +65,12 @@
         "faNumberHeader": "Núm. FA" ,
         "logoutBtn": "TANCAR SESSIÓ"       
     },
+    "newPassword": {
+    "title": "Nova Contrasenya",
+    "password": "Nova Contrasenya",
+    "confirmPassword": "Confirmar Contrasenya",
+    "submitButton": "Restablir Contrasenya"
+    },
     "alerts": {
         "loginSuccess": "Inici de sessió correcte",
         "loginError": "Error en iniciar sessió",
@@ -85,6 +91,9 @@
         "submitReady": "Dades llestes per enviar a la base de dades",
         "registerSuccess": "Registre correcte",
         "registerError": "Error en el registre",
-        "serverConnectionError": "Error de connexió amb el servidor"
+        "serverConnectionError": "Error de connexió amb el servidor",
+        "resetEmailSent": "Si el teu email està registrat, rebràs un enllaç de recuperació",
+        "passwordResetSuccess": "Contrasenya restablerta correctament. Si us plau inicia sessió.",
+        "invalidToken": "Aquest enllaç de recuperació no és vàlid o ha expirat"
     }
 }

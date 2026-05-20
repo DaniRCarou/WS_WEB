@@ -2,7 +2,7 @@ package es.employee_information_management.service;
 
 public interface IPasswordResetService {
 
-    void sendResetEmail(String email);
+    void sendResetEmail(String email) throws Exception;
 
     boolean validateToken(String token);
 

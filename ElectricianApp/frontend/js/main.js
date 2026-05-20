@@ -102,7 +102,12 @@ const NAV_LINKS = {
 
 };
 
+// window.location.search → es una propiedad del navegador que devuelve la parte de la URL que empieza por ?. Por ejemplo si la URL es http://127.0.0.1:5500?token=abc123, devuelve ?token=abc123.
+// new URLSearchParams(...) → es una clase de JavaScript que convierte ese texto en un objeto con el que puedes buscar parámetros fácilmente.
+const urlParams = new URLSearchParams(window.location.search);
 
+// urlParams.get('token') → busca el parámetro llamado token y devuelve su valor. Si no existe devuelve null.
+const token = urlParams.get('token');
 
 
 
@@ -198,7 +203,7 @@ function setupNavigation() {
 // Esperamos a que el HTML se cargue
 document.addEventListener('DOMContentLoaded', () => {                                           // Esto le dice al navegador: “espera a que todo el HTML se haya cargado completamente” antes de ejecutar el código dentro del () => { … }.
 
-    /* try { initLogin(); } catch (e) { console.error('initLogin falló', e); }                     // Funciones que inicializan cada sección de tu app (validaciones, botones, listeners…). try -> El navegador intenta ejecutar initLogin().
+    /* try { initLogin(); } catch (e) { console.error('initLogin falló', e); }                  // Funciones que inicializan cada sección de tu app (validaciones, botones, listeners…). try -> El navegador intenta ejecutar initLogin().
                                                                                                 // Si alguna de estas funciones lanza un error, todo el script se detiene y showView('login-view') nunca se ejecuta, por eso no se veía el login. Para evitar que un error en un módulo bloquee la app, usamos try…catch: try { … } intenta ejecutar el código. catch(e) { … } captura cualquier error que ocurra dentro del try y lo maneja sin romper el flujo.
                                                                                                 // console.error('initLogin falló', e); imprime el error en la consola para depuración. Así sabes qué módulo falló y por qué, pero el resto del código sigue ejecutándose.
 
@@ -208,10 +213,17 @@ document.addEventListener('DOMContentLoaded', () => {                           
 
     try { initPasswordReset(); } catch (e) { console.error('initPasswordReset falló', e); } */
 
-    // 👉 Mostrar login después de inicializar los módulos
-    showView('login-view');                                                                     // Esta es la llamada a la función showView que he tenido que declarar con anterioridad -> antes -> showView('worker-view');
+    if (token) {
+
+        showView('new-password-view');
+
+    } else {
+
+        showView('login-view');             // Esta es la llamada a la función showView que he tenido que declarar con anterioridad -> antes -> showView('worker-view');
+    
+    }                                                                     
 
     // Configurar navegación
-    setupNavigation();                                                                          // Llama a la función que vincula los enlaces de navegación (Sign up, Forgot password, etc.) con showView. Gracias a esto, cuando el usuario hace clic en un enlace, la sección correspondiente se muestra sin recargar la página.
+    setupNavigation();                      // Llama a la función que vincula los enlaces de navegación (Sign up, Forgot password, etc.) con showView. Gracias a esto, cuando el usuario hace clic en un enlace, la sección correspondiente se muestra sin recargar la página.
 
 });

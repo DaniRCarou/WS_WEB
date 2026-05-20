@@ -1,5 +1,6 @@
 package es.employee_information_management.controller;
 
+import com.resend.core.exception.ResendException;
 import es.employee_information_management.service.PasswordResetServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ public class PasswordResetController {
     private PasswordResetServiceImpl passwordResetService;
 
     @PostMapping("/send")
-    public ResponseEntity<?> sendResetEmail(@RequestParam String email) {
+    public ResponseEntity<?> sendResetEmail(@RequestParam String email) throws ResendException {
         passwordResetService.sendResetEmail(email);
         return ResponseEntity.ok("If the email exists, a reset link has been sent");
     }

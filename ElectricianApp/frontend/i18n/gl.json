@@ -65,6 +65,12 @@
         "faNumberHeader": "Núm. FA",
         "logoutBtn": "PECHAR SESIÓN"        
     },
+    "newPassword": {
+    "title": "Novo Contrasinal",
+    "password": "Novo Contrasinal",
+    "confirmPassword": "Confirmar Contrasinal",
+    "submitButton": "Restablecer Contrasinal"
+    },
     "alerts": {
         "loginSuccess": "Inicio de sesión exitoso",
         "loginError": "Erro ao iniciar sesión",
@@ -85,6 +91,9 @@
         "submitReady": "Datos listos para enviar á base de datos",
         "registerSuccess": "Rexistro exitoso",
         "registerError": "Erro no rexistro",
-        "serverConnectionError": "Erro de conexión co servidor"
+        "serverConnectionError": "Erro de conexión co servidor",
+        "resetEmailSent": "Se o teu email está rexistrado, recibirás unha ligazón de recuperación",
+        "passwordResetSuccess": "Contrasinal restablecido correctamente. Por favor inicia sesión.",
+        "invalidToken": "Esta ligazón de recuperación non é válida ou caducou"
     }
 }
