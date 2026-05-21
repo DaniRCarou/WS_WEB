@@ -24,12 +24,12 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
       - register.js — formulario de registro (NO es módulo)
       - login.js — formulario de login (es módulo)
       - worker.js — vista del trabajador (es módulo, tiene DOMContentLoaded)
-      - password_reset.js — escucha submit, recoge email, llama a sendResetEmail (es módulo)
+      - password_reset.js — reset completo: envío de email y cambio de contraseña (es módulo)
     - api/
       - auth.api.js — fetch para login, devuelve { success, firstName }
       - work.api.js — fetch para guardar registros y consultar solapamiento contra MySQL
       - register.api.js — vacío (fetch está en register.js directamente)
-      - passwordReset.api.js — sendResetEmail creada y funcionando
+      - passwordReset.api.js — sendResetEmail y resetPassword
 
 - BACKEND/
   - controller/
@@ -89,14 +89,14 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - PasswordResetController creado y funcionando
 - password_reset.js creado — escucha submit, recoge email, llama a sendResetEmail
 - password_reset.js añadido al index.html como módulo
-- passwordReset.api.js — sendResetEmail creada y funcionando (CORS resuelto)
+- passwordReset.api.js — sendResetEmail y resetPassword creadas y funcionando
 - Resend integrado en backend — emails de reset funcionando
 - Vista new-password-view creada en index.html
 - main.js detecta token en URL y muestra new-password-view automáticamente
 - i18n actualizado en 7 idiomas con secciones newPassword y nuevas claves de alerts
+- Flujo completo de password reset funcionando end-to-end
 
 ## Pendiente ❌
-- new-password-view — conectar formulario con backend (validar token y cambiar contraseña)
 - new-password-view — mejorar estilos CSS
 - Borrar token anterior cuando se solicita uno nuevo (acumulación de tokens en MySQL)
 - Equipment — conectar faNumber con tabla equipment
@@ -128,10 +128,11 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - En plan gratuito de Resend solo se puede enviar a danicarou.dev@gmail.com
 - Live Server debe abrirse desde la carpeta frontend/ no desde la raíz del proyecto
 - El token en la URL se lee con URLSearchParams en main.js
+- Tokens caducados se pueden limpiar con: SET SQL_SAFE_UPDATES = 0; DELETE FROM password_reset_token WHERE expiry_date < NOW(); SET SQL_SAFE_UPDATES = 1;
 
 ## Git
 - GitHub: DaniRCarou/WS_WEB
 - Si se corrompe main: echo [ID] > .git/refs/heads/main
 
 ## Último commit
-feat: add new-password view, Resend email integration and i18n for password reset
+feat: complete password reset flow — new password view and reset functionality
