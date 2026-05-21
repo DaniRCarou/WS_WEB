@@ -9,7 +9,8 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 ## Cómo arrancar el proyecto
 1. Arrancar MySQL
 2. Arrancar el backend en IntelliJ — clase EmployeeInformationManagementApplication.java
-3. Abrir el frontend con Live Server en VS Code — URL: http://127.0.0.1:5500
+3. Abrir el frontend con Live Server en VS Code — desde la carpeta frontend/
+4. URL: http://127.0.0.1:5500
 
 ## Estructura
 - FRONTEND/
@@ -17,7 +18,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
   - css/style.css — estilos completos
   - i18n/ — 7 archivos JSON de traducción (en, es, de, pt, gl, ca, eus)
   - js/
-    - main.js — navegación entre vistas (showView exportada)
+    - main.js — navegación entre vistas, detecta token en URL para mostrar new-password-view
     - utils/i18n.js — sistema de traducciones
     - pages/
       - register.js — formulario de registro (NO es módulo)
@@ -28,7 +29,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
       - auth.api.js — fetch para login, devuelve { success, firstName }
       - work.api.js — fetch para guardar registros y consultar solapamiento contra MySQL
       - register.api.js — vacío (fetch está en register.js directamente)
-      - passwordReset.api.js — pendiente crear sendResetEmail
+      - passwordReset.api.js — sendResetEmail creada y funcionando
 
 - BACKEND/
   - controller/
@@ -39,7 +40,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
   - service/
     - EmployeeServiceImpl.java — lógica de registro y login
     - RecordServiceImpl.java — busca Employee y Task antes de guardar; tiene findByEmployeeAndDate
-    - PasswordResetServiceImpl.java — sendResetEmail, validateToken, resetPassword
+    - PasswordResetServiceImpl.java — usa Resend para enviar emails, genera token, resetea contraseña
   - dto/
     - LoginRequest.java — recibe personalNumber y password
     - LoginResponse.java — devuelve employeeId y firstName
@@ -88,11 +89,16 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - PasswordResetController creado y funcionando
 - password_reset.js creado — escucha submit, recoge email, llama a sendResetEmail
 - password_reset.js añadido al index.html como módulo
+- passwordReset.api.js — sendResetEmail creada y funcionando (CORS resuelto)
+- Resend integrado en backend — emails de reset funcionando
+- Vista new-password-view creada en index.html
+- main.js detecta token en URL y muestra new-password-view automáticamente
+- i18n actualizado en 7 idiomas con secciones newPassword y nuevas claves de alerts
 
 ## Pendiente ❌
-- SendGrid — obtener API key y configurar en application.properties
-- passwordReset.api.js — crear función sendResetEmail
-- Vista nueva en index.html para introducir nueva contraseña tras el reset
+- new-password-view — conectar formulario con backend (validar token y cambiar contraseña)
+- new-password-view — mejorar estilos CSS
+- Borrar token anterior cuando se solicita uno nuevo (acumulación de tokens en MySQL)
 - Equipment — conectar faNumber con tabla equipment
 - register.api.js — mover fetch de register.js
 - README profesional para reclutadores
@@ -118,11 +124,14 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - El autocompletado de Firefox guarda credenciales
 - Record.java tiene startTime y endTime como LocalTime
 - work.api.js envía startTime y endTime como strings HH:MM — el backend los convierte automáticamente a LocalTime
-- SendGrid configurado en application.properties pero falta la API key real
+- Resend API key guardada en application.properties (excluido de Git con .gitignore)
+- En plan gratuito de Resend solo se puede enviar a danicarou.dev@gmail.com
+- Live Server debe abrirse desde la carpeta frontend/ no desde la raíz del proyecto
+- El token en la URL se lee con URLSearchParams en main.js
 
 ## Git
 - GitHub: DaniRCarou/WS_WEB
 - Si se corrompe main: echo [ID] > .git/refs/heads/main
 
 ## Último commit
-feat: add password reset backend — model, repository, service and controller
+feat: add new-password view, Resend email integration and i18n for password reset
