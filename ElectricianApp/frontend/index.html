@@ -795,9 +795,8 @@
         <!-- Carga worker.js — no es módulo porque usa window para compartir datos. Los archivos que usan import o export necesitan type="module". Los que no los usan, no lo necesitan. -->
         <script type="module" src="js/pages/worker.js"></script>
 
-        <!-- Carga register.js — no es módulo porque solo escucha el submit -->
-
-        <script src="js/pages/register.js"></script>
+        <!-- Carga register.js — es módulo porque usa import/export -->
+        <script type="module" src="js/pages/register.js"></script>
 
         <!-- Carga login.js — es módulo porque usa import/export -->
         <script type="module" src="js/pages/login.js"></script>

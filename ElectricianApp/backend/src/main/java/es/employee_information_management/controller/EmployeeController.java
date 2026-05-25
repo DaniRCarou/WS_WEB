@@ -30,7 +30,7 @@ public class EmployeeController {
 
             Employee savedEmployee = employeeService.saveEmployee(employee);
 
-            return ResponseEntity.ok(savedEmployee);
+            return ResponseEntity.ok("Employee registered successfully");
 
         } catch (Exception e) {
 

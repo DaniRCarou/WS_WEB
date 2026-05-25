@@ -9,6 +9,18 @@
 // =====================================================================
 
 
+
+
+
+// Importa la función que envía los datos de registro al backend
+import { registerEmployee } from '../api/register.api.js';
+
+
+
+
+
+
+
 // =====================================================================
 // SELECCIÓN DEL FORMULARIO
 // document.querySelector → busca el primer elemento que coincida con el selector
@@ -158,59 +170,14 @@ registerForm.addEventListener('submit', async function(e) {     // async → per
 
     try {
 
-        const response = await fetch('http://localhost:8080/employees/register', {  // URL del endpoint de registro en el backend
-           
-            method: 'POST',                                                          // POST → enviamos datos nuevos
-            
-            headers: { 'Content-Type': 'application/json' },                        // Le decimos al backend que enviamos JSON
-            
-            body: JSON.stringify({                                                   // JSON.stringify → convierte el objeto JS a texto JSON
-               
-                employeeId: personalNumber,                                          // employeeId → número personal del trabajador
-                
-                firstName: name,                                                     // firstName → nombre
-                
-                surname: surname,                                                    // surname → apellido
-                
-                email: email,                                                        // email → correo electrónico
-                
-                password: password,                                                  // password → contraseña
-                
-                department: { departmentId: department }                             // department → objeto con el id del departamento
-           
-            })
+        const result = await registerEmployee(personalNumber, name, surname, email, password, department);
 
-        });
-
-        if (response.ok) {                                                          // response.ok → true si el servidor respondió con HTTP 200-299
-
-            alert(window.currentLanguageData?.alerts?.registerSuccess); 
-                // alert() → muestra una ventana emergente con el mensaje que le pases dentro
-                // window → es el objeto global del navegador. Contiene todo lo que existe en la página.
-                // Es como una caja grande donde vive todo: variables globales, funciones, etc.
-                // window.currentLanguageData → es una variable global que creamos nosotros en i18n.js
-                // Contiene todos los textos del idioma que el usuario ha seleccionado
-                // Ejemplo: si el usuario eligió español, currentLanguageData tiene todos los textos en español
-                // ? → es el operador de encadenamiento opcional (optional chaining)
-                // Significa: "si esto existe, sigue adelante. Si no existe, devuelve undefined en vez de dar error"
-                // Sin el ?, si currentLanguageData fuera null o undefined, el navegador daría un error y pararía todo
-                // Con el ?, simplemente devuelve undefined y el alert muestra una ventana vacía, sin romper nada
-                // .alerts → es una sección dentro de currentLanguageData que agrupa todos los mensajes de alerta
-                // Ejemplo en el JSON: "alerts": { "registerSuccess": "Registration successful" }
-                // .alerts? → mismo concepto: si alerts no existe, devuelve undefined sin romper nada
-                // .registerSuccess → es la clave exacta dentro de alerts que contiene el mensaje de registro exitoso
-                // El navegador busca esa clave en el idioma actual y devuelve su valor
-                // Ejemplo: en inglés devuelve "Registration successful", en español devuelve "Registro exitoso"
-
-            registerForm.reset();                                                       // Mensaje de éxito — lo traduciremos más adelante
-        
-        } else {
-
-            const error = await response.text();                                        // response.text() → lee el mensaje de error del backend
-           
-            alert(window.currentLanguageData?.alerts?.registerError + ': ' + error);    // Muestra el error al usuario
-       
-        }
+if (result.success) {
+    alert(window.currentLanguageData?.alerts?.registerSuccess);
+    registerForm.reset();
+} else {
+    alert(window.currentLanguageData?.alerts?.registerError + ': ' + result.message);
+}
 
     } catch (err) {
 
