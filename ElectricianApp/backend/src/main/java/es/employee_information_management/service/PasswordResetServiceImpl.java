@@ -39,6 +39,10 @@ public class PasswordResetServiceImpl implements IPasswordResetService {
 
         Employee employee = employeeOpt.get();
 
+        // Borra todos los tokens anteriores de este empleado antes de crear uno nuevo
+        // Evita la acumulación de tokens caducados en la base de datos
+        tokenRepository.deleteAll(tokenRepository.findAllByEmployee(employee));
+
         String token = UUID.randomUUID().toString();
 
         PasswordResetToken resetToken = new PasswordResetToken();

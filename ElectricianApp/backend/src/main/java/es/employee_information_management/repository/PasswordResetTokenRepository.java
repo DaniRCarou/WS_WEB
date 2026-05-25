@@ -3,6 +3,8 @@ package es.employee_information_management.repository;
 import es.employee_information_management.model.PasswordResetToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
+import es.employee_information_management.model.Employee;
+import java.util.List;
 
 public interface PasswordResetTokenRepository extends JpaRepository<PasswordResetToken, Integer> {
 
@@ -13,6 +15,11 @@ public interface PasswordResetTokenRepository extends JpaRepository<PasswordRese
     Optional<PasswordResetToken> findByToken(String token);
 
     Optional<PasswordResetToken> findByEmployee_Email(String email);
+
+
+// Busca todos los tokens de un empleado concreto
+// Se usa para borrar los tokens anteriores antes de generar uno nuevo
+    List<PasswordResetToken> findAllByEmployee(Employee employee);
 
 
 }

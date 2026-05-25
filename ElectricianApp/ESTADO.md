@@ -14,8 +14,8 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 
 ## Estructura
 - FRONTEND/
-  - index.html — SPA completa con todas las vistas
-  - css/style.css — estilos completos
+  - index.html — SPA completa con todas las vistas: login, reset, new-password, register, worker
+  - css/style.css — estilos completos incluyendo new-password-view
   - i18n/ — 7 archivos JSON de traducción (en, es, de, pt, gl, ca, eus)
   - js/
     - main.js — navegación entre vistas, detecta token en URL para mostrar new-password-view
@@ -79,7 +79,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - Start_Time y End_Time añadidos al modelo Record.java (LocalTime)
 - work.api.js envía startTime y endTime al backend
 - DTO RecordResponse creado — devuelve solo startTime y endTime
-- Endpoint GET /records/employee/{employeeId}/date/{date} creado y funcionando
+- Endpoint GET /records/employee/{empleadoId}/date/{date} creado y funcionando
 - Validación solapamiento contra MySQL — funciona en los 3 paneles
 - Tabla password_reset_token creada en MySQL
 - Modelo PasswordResetToken.java creado
@@ -91,13 +91,12 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - password_reset.js añadido al index.html como módulo
 - passwordReset.api.js — sendResetEmail y resetPassword creadas y funcionando
 - Resend integrado en backend — emails de reset funcionando
-- Vista new-password-view creada en index.html
+- Vista new-password-view creada en index.html con CSS propio
 - main.js detecta token en URL y muestra new-password-view automáticamente
 - i18n actualizado en 7 idiomas con secciones newPassword y nuevas claves de alerts
 - Flujo completo de password reset funcionando end-to-end
 
 ## Pendiente ❌
-- new-password-view — mejorar estilos CSS
 - Borrar token anterior cuando se solicita uno nuevo (acumulación de tokens en MySQL)
 - Equipment — conectar faNumber con tabla equipment
 - register.api.js — mover fetch de register.js
@@ -135,4 +134,4 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - Si se corrompe main: echo [ID] > .git/refs/heads/main
 
 ## Último commit
-feat: complete password reset flow — new password view and reset functionality
+feat: style new-password-view and restore reset-view in HTML
