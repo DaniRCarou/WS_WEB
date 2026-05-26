@@ -1,13 +1,9 @@
 package es.employee_information_management.model;
 
-// UNA DE LAS CLASES QUE REPRESENTA LA BASE DE DATOS
-
-
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
 
 @Entity
 @Table(name = "record")
@@ -24,7 +20,7 @@ public class Record {
     private Integer recordId;
 
     @ManyToOne
-    @JoinColumn(name = "Equipment_ID", nullable = true) // puede ser null si la tarea no tiene equipo
+    @JoinColumn(name = "Equipment_ID", nullable = true)
     private Equipment equipment;
 
     @ManyToOne
@@ -38,13 +34,13 @@ public class Record {
     @Column(name = "Date", nullable = false)
     private LocalDate date;
 
-    @Column (name = "Start_Time", nullable = false)
+    @Column(name = "Start_Time", nullable = false)
     private LocalTime startTime;
 
-    @Column (name = "End_Time", nullable = false)
+    @Column(name = "End_Time", nullable = false)
     private LocalTime endTime;
 
-    @Column(name = "Total_Time", nullable = false) // en minutos
+    @Column(name = "Total_Time", nullable = false)
     private Integer totalTime;
-}
 
+}

@@ -1,814 +1,371 @@
-
-<!-- Este archivo contiene todas las secciones (login, register, worker…). No tiene lógica. Solo estructura HTML + data-* -->
-<!-- Esto es una SPA (Single Page Application) -->
-
 <!DOCTYPE html>
-
 <html lang="en">
 
     <head>
-
         <meta charset="UTF-8">
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <link rel ="stylesheet" href="css/style.css">
-
+        <link rel="stylesheet" href="css/style.css">
         <title>Employee Portal</title>
-        
     </head>
-
 
     <body>
 
+        <!-- Language Menu -->
 
-
-
-        <!-- ------------------------------------------------------------ LANGUAGE MENU ------------------------------------------------------------------ -->
-        
         <div class="lang-menu">
-
-            <div class="selected-lang"></div>           
-               
-            
+            <div class="selected-lang"></div>
             <ul>
-                <li>           
-                                        
-                    <button type="button" data-i18n="languageMenu.english" data-language="en"><img src="assets/icons/uk.png" alt="english flag icon" class="icon-flag"/> English</button> 
-                                    
-                </li>
-                
-
-                <li>           
-                                        
-                    <button type="button" data-i18n="languageMenu.german" data-language="de"><img src="assets/icons/germany.png" alt="german flag icon" class="icon-flag"/> German</button>
-                                    
-                </li>
-
-
-                <li>
-                                       
-                    <button type="button" data-i18n="languageMenu.spanish" data-language="es"><img src="assets/icons/spain.png" alt="spanish flag icon" class="icon-flag"/> Spanish</button>
-
-                </li>
-
-
-                <li>
-
-                    <button type="button" data-i18n="languageMenu.portuguese" data-language="pt"><img src="assets/icons/portugal.png" alt="portuguese flag icon" class="icon-flag"/> Portuguese</button>
-
-                </li>                
-
-                
-                <li>
-
-                    <button type="button" data-i18n="languageMenu.galician" data-language="gl"><img src="assets/icons/galicia.png" alt="galician flag icon" class="icon-flag"/> Galician</button>
-
-                </li>
-
-
-                <li>
-                    
-                    <button type="button" data-i18n="languageMenu.catalan" data-language="ca"><img src="assets/icons/catalonia.png" alt="Catalonia flag icon" class="icon-flag"/> Catalan</button>
-
-                </li>
-
-
-                <li>
-
-                    <button type="button" data-i18n="languageMenu.basque" data-language="eus"><img src="assets/icons/basque_country.png" alt="Basque Country flag icon" class="icon-flag"/> Basque</button>
-
-                </li>
-
+                <li><button type="button" data-i18n="languageMenu.english" data-language="en"><img src="assets/icons/uk.png" alt="english flag icon" class="icon-flag"/> English</button></li>
+                <li><button type="button" data-i18n="languageMenu.german" data-language="de"><img src="assets/icons/germany.png" alt="german flag icon" class="icon-flag"/> German</button></li>
+                <li><button type="button" data-i18n="languageMenu.spanish" data-language="es"><img src="assets/icons/spain.png" alt="spanish flag icon" class="icon-flag"/> Spanish</button></li>
+                <li><button type="button" data-i18n="languageMenu.portuguese" data-language="pt"><img src="assets/icons/portugal.png" alt="portuguese flag icon" class="icon-flag"/> Portuguese</button></li>
+                <li><button type="button" data-i18n="languageMenu.galician" data-language="gl"><img src="assets/icons/galicia.png" alt="galician flag icon" class="icon-flag"/> Galician</button></li>
+                <li><button type="button" data-i18n="languageMenu.catalan" data-language="ca"><img src="assets/icons/catalonia.png" alt="Catalonia flag icon" class="icon-flag"/> Catalan</button></li>
+                <li><button type="button" data-i18n="languageMenu.basque" data-language="eus"><img src="assets/icons/basque_country.png" alt="Basque Country flag icon" class="icon-flag"/> Basque</button></li>
             </ul>
-
         </div>
 
 
 
+        <!-- Login View -->
 
-        <!-- --------------------------------------------------------------- LOGIN VIEW -------------------------------------------------------------------- -->
-       
         <section id="login-view" class="view login-view">
-
-            <!-- Contenedor del formulario -->
-            <div id="login-wrapper" class ="login-wrapper">              
-                    
-                <!-- Título del formulario -->
-                <h1 class="login-wrapper__title" data-i18n="login.title" >Login</h1>
-
-
-                <!-- Cuerpo del formulario -->
+            <div id="login-wrapper" class="login-wrapper">
+                <h1 class="login-wrapper__title" data-i18n="login.title">Login</h1>
                 <form id="login-form" class="login-form" method="post" novalidate autocomplete="off">
-                    
-                    <!-- Campo: Personal Number -->
+
+                    <!-- Personal Number -->
                     <div class="login-form__number">
-
                         <label for="login-personal-number" class="visually-hidden" data-i18n="login.personalNumber">Personal Number</label>
-
-
                         <input type="text" id="login-personal-number" class="input-base personal-number_input" placeholder="Personal number" data-i18n="login.personalNumber" name="personalNumber"/>
-                            
                         <span class="personal-number_icon" aria-hidden="true">
-
                             <img src="assets/icons/user_circle_fill_icon.png" alt="User icon" class="input-icon">
-
-                        </span>    
-
-                    </div>  
-
-                    
-                    <!-- Campo: Password -->       
-                    <div class ="login-form__password">
-
-                        <label for="password" class="visually-hidden" data-i18n="login.password">Password</label>
-
-
-                        <input id="password" class="input-base password_input" type="password" title="Password" placeholder="Password" data-i18n="login.password" autocomplete="current-password" name="password"/>
-
-
-                        <button type="button" class="toggle-password" aria-label="Show password">
-
-                            <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
-
-                        </button>
-                        
-
-                    </div>
-                    
-                    
-                    <!-- Campo: acciones / label + input → formularios -->
-                    <div class="login-form__actions">
-
-                        <label> <input id="remember-checkbox" class="remember-checkbox" type="checkbox" name="remember"/> <span data-i18n="login.rememberMe">Remember me</span></label>
-
-
-                        <a href="#"  id="forgot-password-link" data-i18n="login.forgotPassword">Forgot password</a>
-
-                    </div> 
-
-
-                    <!-- Boton submit -->
-                    <button type = "submit" class ="button-base login-form__button" data-i18n="login.logInButton">Login</button>
-
-
-                    <!-- Link: Registro -->
-                    <div class="login-form__register">
-
-                        <span data-i18n="login.haveAccount">Do you have an account?</span>
-
-
-                        <a href="#" id="go-to-register" data-i18n="login.signUp">Sign up</a>
-                            
-                    </div>
-
-                </form>
-
-            </div>   
-        
-        </section>
-
-               
-
-        
-        <!-- ----------------------------------------------------------- PASSWORD_RESET VIEW --------------------------------------------------------------- -->
-    
-        <section id="reset-view" class="view reset-view">
-
-            <!-- Contenedor del formulario -->
-            <div id="reset-wrapper" class ="reset-wrapper">
-
-                <!-- Título del formulario -->
-                <h1 class="reset-wrapper__title" data-i18n="reset.title">Forgot Password?</h1>
-
-              
-                <!-- Cuerpo del formulario -->
-                <form id="reset-form" class="reset-form" method="post" novalidate>                    
-
-                    <!-- Campo: E-mail -->
-                    <div class ="reset-form_email">
-
-                        <label for="reset-email" class="visually-hidden" data-i18n="reset.email">E-mail</label>
-
-
-                        <input id="reset-email" class="input-base email-input" name="email" type="email" placeholder="Enter Email" data-i18n="reset.email" autocomplete="email"/> 
-
-
-                        <span class="mail_icon" aria-hidden="true">
-
-                            <img src="assets/icons/email.png" alt="email icon" class="email_input-icon"/>
-
                         </span>
-
                     </div>
 
-
-                    <!-- Boton submit -->
-                    <button type="submit" class="reset-form__button" data-i18n="reset.resetButton">E-Mail senden</button>
-
-
-                    <!-- link de retroceso / <a> → navegación -->
-                    <div class="reset-form_back">
-
-                        <a href="#" id="loginback-link" data-i18n="reset.backToLogin">Back to Login</a>                     
-
+                    <!-- Password -->
+                    <div class="login-form__password">
+                        <label for="password" class="visually-hidden" data-i18n="login.password">Password</label>
+                        <input id="password" class="input-base password_input" type="password" title="Password" placeholder="Password" data-i18n="login.password" autocomplete="current-password" name="password"/>
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
+                        </button>
                     </div>
-                    
+
+                    <!-- Remember me / Forgot password -->
+                    <div class="login-form__actions">
+                        <label><input id="remember-checkbox" class="remember-checkbox" type="checkbox" name="remember"/> <span data-i18n="login.rememberMe">Remember me</span></label>
+                        <a href="#" id="forgot-password-link" data-i18n="login.forgotPassword">Forgot password</a>
+                    </div>
+
+                    <button type="submit" class="button-base login-form__button" data-i18n="login.logInButton">Login</button>
+
+                    <!-- Register link -->
+                    <div class="login-form__register">
+                        <span data-i18n="login.haveAccount">Do you have an account?</span>
+                        <a href="#" id="go-to-register" data-i18n="login.signUp">Sign up</a>
+                    </div>
+
                 </form>
-
-            </div>                               
-          
+            </div>
         </section>
 
 
 
+        <!-- Password Reset View -->
 
-        <!-- ----------------------------------------------------------- NEW PASSWORD VIEW --------------------------------------------------------------- -->
+        <section id="reset-view" class="view reset-view">
+            <div id="reset-wrapper" class="reset-wrapper">
+                <h1 class="reset-wrapper__title" data-i18n="reset.title">Forgot Password?</h1>
+                <form id="reset-form" class="reset-form" method="post" novalidate>
+
+                    <!-- Email -->
+                    <div class="reset-form_email">
+                        <label for="reset-email" class="visually-hidden" data-i18n="reset.email">E-mail</label>
+                        <input id="reset-email" class="input-base email-input" name="email" type="email" placeholder="Enter Email" data-i18n="reset.email" autocomplete="email"/>
+                        <span class="mail_icon" aria-hidden="true">
+                            <img src="assets/icons/email.png" alt="email icon" class="email_input-icon"/>
+                        </span>
+                    </div>
+
+                    <button type="submit" class="reset-form__button" data-i18n="reset.resetButton">Send Email</button>
+
+                    <!-- Back link -->
+                    <div class="reset-form_back">
+                        <a href="#" id="loginback-link" data-i18n="reset.backToLogin">Back to Login</a>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+
+
+        <!-- New Password View -->
 
         <section id="new-password-view" class="view new-password-view">
-
             <div id="new-password-wrapper" class="new-password-wrapper">
-
                 <h1 class="new-password-wrapper__title" data-i18n="newPassword.title">Set New Password</h1>
-
-
                 <form id="new-password-form" class="new-password-form" method="post" novalidate>
 
-                    <!-- Campo: Nueva contraseña -->
+                    <!-- New Password -->
                     <div class="new-password-form__password">
-
                         <label for="new-password" class="visually-hidden" data-i18n="newPassword.password">New Password</label>
-
-
                         <input id="new-password" class="input-base password_input" type="password" placeholder="New Password" data-i18n="newPassword.password" autocomplete="new-password"/>
-
-
                         <button type="button" class="toggle-password" aria-label="Show password">
-
                             <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
-
                         </button>
-
                     </div>
 
-
-                    <!-- Campo: Confirmar contraseña -->
+                    <!-- Confirm Password -->
                     <div class="new-password-form__confirm">
-
                         <label for="confirm-password" class="visually-hidden" data-i18n="newPassword.confirmPassword">Confirm Password</label>
-
-
                         <input id="confirm-password" class="input-base password_input" type="password" placeholder="Confirm Password" data-i18n="newPassword.confirmPassword" autocomplete="new-password"/>
-
-
                         <button type="button" class="toggle-password" aria-label="Show password">
-
                             <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
-
                         </button>
-
                     </div>
-                    
 
-                    <!-- Botón submit -->
                     <button type="submit" class="new-password-form__button" data-i18n="newPassword.submitButton">Reset Password</button>
 
                 </form>
-
             </div>
-
         </section>
-             
 
 
 
-        <!-- ----------------------------------------------------------- REGISTER VIEW --------------------------------------------------------------------- -->
+        <!-- Register View -->
 
         <section id="register-view" class="view register-view">
-        
-            <!-- Contenedor del formulario -->
-            <div id="register-wrapper" class ="register-wrapper">
-
-
-                <!-- Título del formulario -->
+            <div id="register-wrapper" class="register-wrapper">
                 <h1 class="register__title" data-i18n="register.title">Sign Up</h1>
+                <form id="register-form" class="register-form" method="post" novalidate autocomplete="off">
 
-
-                <!-- Cuerpo del formulario -->
-                <form id="register-form" class="register-form" method="post" novalidate autocomplete="off"> 
-
-                    <!-- Campo: Personal Number -->
+                    <!-- Personal Number -->
                     <div class="register-form_number">
-
                         <label for="register-personal-number" class="visually-hidden" data-i18n="register.personalNumber">Personal Number</label>
-
-
-                        <input type="text" id="register-personal-number" class="input-base register-personal-number_input" placeholder="Personal number" data-i18n="register.personalNumber" name="personalNumber"/> 
-
-                            
+                        <input type="text" id="register-personal-number" class="input-base register-personal-number_input" placeholder="Personal number" data-i18n="register.personalNumber" name="personalNumber"/>
                         <span class="personal-number_icon" aria-hidden="true">
-
                             <img src="assets/icons/id_card.png" alt="user icon" class="input-icon"/>
-
-                        </span>  
-                        
+                        </span>
                     </div>
 
-
-                    <!-- Fila 2. Campos: Nombre - Apellidos -->
+                    <!-- Name / Surname -->
                     <div class="form-row-group">
-
-                        <!-- Campo: Name -->
                         <div class="input-field">
-
                             <label for="name" class="visually-hidden" data-i18n="register.name">Name</label>
-
-
                             <input type="text" id="name" class="input-base register-name_input" placeholder="Name" data-i18n="register.name" name="name">
-
-                            
                             <span class="name_icon" aria-hidden="true">
-
-                                <img src="assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
-
+                                <img src="assets/icons/user_circle_fill_icon.png" alt="user icon" class="input-icon"/>
                             </span>
-
                         </div>
-                    
-
-                        <!-- Campo: Surname -->
                         <div class="input-field">
-
                             <label for="surname" class="visually-hidden" data-i18n="register.surname">Surname</label>
-
-
                             <input type="text" id="surname" class="input-base register-surname_input" placeholder="Surname" data-i18n="register.surname" name="surname">
-                            
-                            
                             <span class="surname_icon" aria-hidden="true">
-                            
-                                <img src="assets/icons/user_circle_fill_icon.png" alt="Benutzerymbol" class="input-icon"/>
-
+                                <img src="assets/icons/user_circle_fill_icon.png" alt="user icon" class="input-icon"/>
                             </span>
-
                         </div>
-
                     </div>
-                    
 
-                    <!-- Fila 3. Campos: Email - Departamento -->
+                    <!-- Email / Department -->
                     <div class="form-row-group">
-
-                        <!-- Campo: Email -->
                         <div class="input-field">
-
                             <label for="register-email" class="visually-hidden" data-i18n="register.email">Email</label>
-
-
                             <input type="email" id="register-email" class="input-base register-email_input" placeholder="Email" data-i18n="register.email" name="email">
-                            
-                            
                             <span class="email_icon" aria-hidden="true">
-
-                                <img src="assets/icons/email.png" alt="E-Mailsymbol" class="input-icon"/>
-
+                                <img src="assets/icons/email.png" alt="email icon" class="input-icon"/>
                             </span>
-
                         </div>
-                    
-                        
-                        <!-- Campo: Department -->
-                        <div class="input-department-number">  
-
-                            <div class="input-field-number">                              
-                                                                
-                                <input type="number" id="department" class="input-base register-department_input" name="department" value="1" min="1" max="4" step="1">  
-                                
-                                
-                                <label for="department" data-i18n="register.department">Department</label>    
-                                
+                        <div class="input-department-number">
+                            <div class="input-field-number">
+                                <input type="number" id="department" class="input-base register-department_input" name="department" value="1" min="1" max="4" step="1">
+                                <label for="department" data-i18n="register.department">Department</label>
                             </div>
-
-                            
                             <span class="department_icon" aria-hidden="true">
-
-                                <img src="assets/icons/department.png" alt="department symbol" class="input-icon"/>
-
+                                <img src="assets/icons/department.png" alt="department icon" class="input-icon"/>
                             </span>
-
                         </div>
-
                     </div>
 
-
-                    <!-- Fila 4. Campos: Password - Confirmación de password -->
+                    <!-- Password / Confirm Password -->
                     <div class="form-row-group">
-
-                        <!-- Campo: password -->
                         <div class="input-field">
-
                             <label for="register-password" class="visually-hidden" data-i18n="register.password">Password</label>
-
-
                             <input type="password" id="register-password" class="input-base register-password_input" placeholder="Password" data-i18n="register.password" autocomplete="new-password" name="password">
-
-                            
                             <button type="button" class="toggle-password" aria-label="Show password">
-
                                 <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
-
                             </button>
-
-                        </div>          
-
-
-                        <!-- Campo: confirmación del password -->
-                        <div class="input-field">
-
-                            
-                            <label for="password-confirmation" class="visually-hidden" data-i18n="register.passwordConfirmation">Password confirmation</label>
-
-
-                            <input type="password" id="password-confirmation" placeholder="Password confirmation" class="input-base register-password-confirm_input" data-i18n="register.passwordConfirmation" autocomplete="new-password" name="password">
-                            
-
-                            <button type="button" class="toggle-password" aria-label="Show password">
-
-                                <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
-
-                            </button>
-
                         </div>
+                        <div class="input-field">
+                            <label for="password-confirmation" class="visually-hidden" data-i18n="register.passwordConfirmation">Password confirmation</label>
+                            <input type="password" id="password-confirmation" placeholder="Password confirmation" class="input-base register-password-confirm_input" data-i18n="register.passwordConfirmation" autocomplete="new-password" name="password">
+                            <button type="button" class="toggle-password" aria-label="Show password">
+                                <img src="assets/icons/eye-off.svg" class="input-icon" alt="show password"/>
+                            </button>
+                        </div>
+                    </div>
 
-                    </div>     
-                        
-                    <!-- Términos para aceptar con el checkbox -->   
+                    <!-- Terms -->
                     <label class="terms-text">
-
                         <input id="check-point" type="checkbox" name="terms"/> <span data-i18n="register.terms">I hereby declare that the information provided above is true and correct</span>
-
                     </label>
 
+                    <button type="submit" id="registerBtn" class="button-base register-btn" data-i18n="register.signUp">Sign Up</button>
 
-                    <!-- Botón para ewnviar los datos -->
-                    <button type="submit" id="registerBtn" class="button-base register-btn" data-i18n="register.signUp">Sign Up</button>  
-
-
-                    <!-- link de retroceso / <a> → navegación -->
+                    <!-- Back link -->
                     <div class="reset-form_back">
-
-                        <a href="#" id="register-loginback-link" data-i18n="register.backToLogin">Back to Login</a>                     
-
+                        <a href="#" id="register-loginback-link" data-i18n="register.backToLogin">Back to Login</a>
                     </div>
 
                 </form>
-
             </div>
-
         </section>
 
 
 
-
-        <!----------------------------------------------------------------------- WORKER VIEW ----------------------------------------------------------------------------->
+        <!-- Worker View -->
 
         <section id="worker-view" class="view worker-view">
+            <div id="worker-wrapper" class="worker-wrapper">
+                <form id="worker-form" class="worker-form" method="post">
 
-
-            <!-- Contenedor del formulario -->
-            <div id="worker-wrapper" class="worker-wrapper">       
-                
-                
-                <!-- Cuerpo del formulario -->
-                <form id="worker-form" class="worker-form" method="post">   
-
-
-
-                    <!-- Greeting -->
+                    <!-- Greeting / Total time -->
                     <div class="worker-form-greeting">
-
                         <h1 id="greeting"><span data-i18n="worker.greeting">Hello</span>, <span id="user-name"></span>!</h1>
-
-
-                        <!-- Total time -->
                         <div class="totaltime-panel">
-
-                            <label for="total-time" data-i18n="worker.totalTime">TOTAL TIME:</label>               
-                            
-                            
+                            <label for="total-time" data-i18n="worker.totalTime">TOTAL TIME:</label>
                             <output id="total-time" class="totaltime">00:00</output>
-                        
                         </div>
+                    </div>
 
-                    </div>         
-
-
-                    <!-- Where the date is selected -->
+                    <!-- Date selector -->
                     <div class="task-header">
-
-                        <h2 data-i18n="worker.tasksPerformed">Tasks performed:</h2> 
-
-                        
+                        <h2 data-i18n="worker.tasksPerformed">Tasks performed:</h2>
                         <div class="calendar">
-
-                            <h2 class="calendar-title" data-i18n="worker.date">Date:</h2> <!-- solo visual -->
-
-
+                            <h2 class="calendar-title" data-i18n="worker.date">Date:</h2>
                             <label for="date" class="visually-hidden" data-i18n="worker.selectDate">Select Date</label>
-
-
                             <input type="date" id="date" name="date" required>
-
                         </div>
+                    </div>
 
-                    </div>   
-
-
-
-
-                <!------------------------------------------------------------------------- Buttons ------------------------------------------------------------------>
-
-
-
-                    
-                    <!-- 1. The first Button's functionality -->                     
-                    <div class="task-panel" id="task-panel">            
-                        
+                    <!-- Assembly and Wiring panel -->
+                    <div class="task-panel" id="task-panel">
                         <button type="button" class="button-base task-btn" id="task-btn" data-i18n="worker.assemblyBtn">Assembly and Wiring</button>
-                        
-                        <div class ="prod" id="product">
-
+                        <div class="prod" id="product">
                             <label for="prod-number" data-i18n="worker.prodNumber">Prod. number:</label>
-
-
                             <input type="number" id="prod-number" name="prod">
-        
-                        </div>                   
-                            
-
+                        </div>
                         <div class="task-time" id="task-time">
-
                             <label for="task-start" data-i18n="worker.from">From:</label>
-
-
                             <input type="time" id="task-start" name="startTime" class="task-start" required><br><br>
-
-                                
                             <label for="task-end" data-i18n="worker.to">To:</label>
-
-
                             <input type="time" id="task-end" name="endTime" class="task-end" required><br><br>
-                    
                         </div>
-
-
-
                         <div class="validation" id="task-validation">
-
                             <button type="button" class="delete-btn" id="task-delete-btn" data-i18n="worker.deleteBtn">Delete</button>
-
-
                             <button type="button" class="confirm-btn" id="task-confirm-btn" data-i18n="worker.confirmBtn">Confirm</button>
-
-                        </div>                     
-                        
+                        </div>
                     </div>
 
-
-
-
-
-                    <!-- 2. The second Button's functionality -->                    
+                    <!-- Team Meeting panel -->
                     <div class="meeting-panel" id="meeting-panel">
-                                            
                         <button type="button" class="button-base meeting-btn" id="meeting-btn" data-i18n="worker.meetingBtn">Team Meeting</button>
-
                         <div class="meeting-time" id="meeting-time">
-
                             <label for="meeting-start" data-i18n="worker.from">From:</label>
-
-
                             <input type="time" id="meeting-start" name="startTime" required class="meeting-start"><br><br>
-
-                        
                             <label for="meeting-end" data-i18n="worker.to">To:</label>
-
-
                             <input type="time" id="meeting-end" name="endTime" required class="meeting-end"><br><br>
-            
                         </div>
-
-
                         <div class="validation" id="meeting-validation">
-
                             <button type="button" class="delete-btn" id="meeting-delete-btn" data-i18n="worker.deleteBtn">Delete</button>
-                            
-                            
                             <button type="button" class="confirm-btn" id="meeting-confirm-btn" data-i18n="worker.confirmBtn">Confirm</button>
-
-                        </div>                      
-
-                    </div>
-
-
-
-                                        
-                    <!-- 3. The third Button's functionality -->
-                    <div class="cleanup-panel" id="cleanup-panel">
-            
-                        <button type="button" class="button-base cleanup-btn" id="cleanup-btn" data-i18n="worker.cleanupBtn">Cleanup</button>             
-                        
-
-                        <div class = "cleanup-time">
-
-                            <label for="cleanup-start" data-i18n="worker.from">From:</label>
-
-
-                            <input type="time" id="cleanup-start" name="startTime" class="cleanup-start" required><br><br>
-
-                        
-                            <label for="cleanup-end" data-i18n="worker.to">To:</label>
-
-
-                            <input type="time" id="cleanup-end" name="endTime" required class="cleanup-end"><br><br>
-            
                         </div>
-
-
-                        <div class="validation" id="cleanup-validation">
-
-                            <button type="button" class="button-base delete-btn" id="cleanup-delete-btn" data-i18n="worker.deleteBtn">Delete</button>
-
-                            
-                            <button type="button" class="button-base confirm-btn" id="cleanup-confirm-btn" data-i18n="worker.confirmBtn">Confirm</button>
-
-                        </div>   
-                    
-                    </div>              
-            
-            
-                    <div class="worker-actions">
-
-                        <button class="text-btn" id="check-btn" data-i18n="worker.checkBtn">CHECK</button>
-
-
-                        <button type="button" class="logout-btn" id="logout-btn" aria-label="Logout">
-
-                            <span data-i18n="worker.logoutBtn">Logout</span>
-                            
-
-                            <img src="assets/icons/log-out.svg" class="input-icon" alt="Logout"/>
-
-                        </button>
-
                     </div>
-                    
+
+                    <!-- Cleanup panel -->
+                    <div class="cleanup-panel" id="cleanup-panel">
+                        <button type="button" class="button-base cleanup-btn" id="cleanup-btn" data-i18n="worker.cleanupBtn">Cleanup</button>
+                        <div class="cleanup-time">
+                            <label for="cleanup-start" data-i18n="worker.from">From:</label>
+                            <input type="time" id="cleanup-start" name="startTime" class="cleanup-start" required><br><br>
+                            <label for="cleanup-end" data-i18n="worker.to">To:</label>
+                            <input type="time" id="cleanup-end" name="endTime" required class="cleanup-end"><br><br>
+                        </div>
+                        <div class="validation" id="cleanup-validation">
+                            <button type="button" class="button-base delete-btn" id="cleanup-delete-btn" data-i18n="worker.deleteBtn">Delete</button>
+                            <button type="button" class="button-base confirm-btn" id="cleanup-confirm-btn" data-i18n="worker.confirmBtn">Confirm</button>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="worker-actions">
+                        <button class="text-btn" id="check-btn" data-i18n="worker.checkBtn">CHECK</button>
+                        <button type="button" class="logout-btn" id="logout-btn" aria-label="Logout">
+                            <span data-i18n="worker.logoutBtn">Logout</span>
+                            <img src="assets/icons/log-out.svg" class="input-icon" alt="Logout"/>
+                        </button>
+                    </div>
 
                 </form>
 
-
-                <!--------------------- 4. Este es el div que mostrará los datos para comprobarlos antes de enviarlos a la BBDD ------------------------>
-
+                <!-- Review panel — displays entries before submitting to the database -->
                 <div class="check-wrapper">
-
-                    <!-- Título -->
                     <h2 class="check-wrapper__title" data-i18n="worker.checkTitle">Review your data before sending</h2>
-
-                    
-                    <!-- Tabla de registros → JS llenará los <tr> dentro del <tbody> -->
                     <div class="check-table-container">
-
                         <table class="check-table">
-
                             <thead>
-
                                 <tr>
-
                                     <th>#</th>
-
-
                                     <th data-i18n="worker.taskHeader">Task</th>
-                                    
-
                                     <th data-i18n="worker.dateHeader">Date</th>
-
-
                                     <th data-i18n="worker.fromHeader">From</th>
-
-
                                     <th data-i18n="worker.toHeader">To</th>
-
-
                                     <th data-i18n="worker.durationHeader">Duration</th>
-
-                                        
                                     <th data-i18n="worker.faNumberHeader">FA Number</th>
-
                                     <th></th>
-
                                 </tr>
-
                             </thead>
-
-                            <tbody class="check-table__body">       
-
-                                <!-- Se insertarán las filas aquí -->
-
-                            </tbody>
-
+                            <tbody class="check-table__body"></tbody>
                         </table>
-
                     </div>
-
-
-                    <!-- Totales -->
                     <div class="check-totals">
-
                         <p class="check-totals__time"><span data-i18n="worker.totalTimeFormatted">Total time:</span> <span id="total-time-formatted">0h 00min</span></p>
-
-
                         <span class="check-totals__separator">|</span>
-
-
                         <p class="check-totals__minutes"><span data-i18n="worker.totalTimeMinutes">Total time in min:</span> <span id="total-time-minutes">0 min</span></p>
-
-                    </div>  
-
-
-                    <!-- Botones -->
-                    <div class="check-actions">
-
-                        <!-- Boton para regresar  -->
-                        <button class="check-back_btn" data-i18n="worker.backBtn">BACK</button>
-                        
-
-                        <!-- Boton para enviar la info  -->
-                        <button class="check-submit_btn" data-i18n="worker.submitBtn">SUBMIT</button>    
-                    
                     </div>
-                    
+                    <div class="check-actions">
+                        <button class="check-back_btn" data-i18n="worker.backBtn">BACK</button>
+                        <button class="check-submit_btn" data-i18n="worker.submitBtn">SUBMIT</button>
+                    </div>
                 </div>
 
-
-
             </div>
-
-
-
         </section>
 
 
 
+        <!-- CSS Validator Badge -->
 
-
-
-
-        <!---------------------------------------------------------------- valid CSS icon ---------------------------------------------------------------->
-
-       
-        
-
-        <div class="validation-badge">  <!-- target="_blank" Hace que el enlace se abra en una nueva pestaña. rel="noopener" Evita un problema de seguridad llamado: tabnabbing. Evitando que se conecte a otra página maliciosa. -->
-
+        <div class="validation-badge">
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
-
-                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!"/>
-
+                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"/>
             </a>
-            
         </div>
 
-
-        
         <img src="assets/images/indca_app.png" alt="indca image" class="indca"/>
 
-            
 
-        
 
-              
-                
-        <!-- Cada línea le dice al navegador que cargue un archivo JavaScript. El orden importa — el navegador carga los scripts en el orden en que aparecen. worker.js y register.js se cargan antes que los módulos. -->
+        <!-- JavaScript modules -->
 
-        <!-- Carga worker.js — no es módulo porque usa window para compartir datos. Los archivos que usan import o export necesitan type="module". Los que no los usan, no lo necesitan. -->
         <script type="module" src="js/pages/worker.js"></script>
-
-        <!-- Carga register.js — es módulo porque usa import/export -->
         <script type="module" src="js/pages/register.js"></script>
-
-        <!-- Carga login.js — es módulo porque usa import/export -->
         <script type="module" src="js/pages/login.js"></script>
-
-        <!-- Carga password_reset.js — es módulo porque usa import/export -->
-        <script type="module" src="js/pages/password_reset.js"></script>
-
-        <!-- Carga i18n.js — es módulo porque usa import/export -->
+        <script type="module" src="js/pages/password-reset.js"></script>
         <script type="module" src="js/utils/i18n.js"></script>
-
-        <!-- Carga main.js — es módulo porque usa import/export -->
-        <script type="module" src="js/main.js"></script> 
+        <script type="module" src="js/main.js"></script>
 
     </body>
 

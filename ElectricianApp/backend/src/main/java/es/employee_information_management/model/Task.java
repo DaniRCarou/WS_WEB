@@ -1,13 +1,10 @@
 package es.employee_information_management.model;
 
-// UNA DE LAS CLASES QUE REPRESENTA LA BASE DE DATOS
-
-
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "task") // Nombre de la tabla en la base de datos
+@Table(name = "task")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,10 +13,11 @@ import lombok.*;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Clave primaria autoincrementable
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TASK_ID", nullable = false)
     private Integer taskId;
 
-    @Column(name = "TASK_NAME", nullable = false, length = 25) // Nombre de la tarea
+    @Column(name = "TASK_NAME", nullable = false, length = 25)
     private String taskName;
+
 }

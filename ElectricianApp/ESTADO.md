@@ -21,19 +21,19 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
     - main.js — navegación entre vistas, detecta token en URL para mostrar new-password-view
     - utils/i18n.js — sistema de traducciones
     - pages/
-      - register.js — formulario de registro (NO es módulo)
+      - register.js — formulario de registro (es módulo, usa import)
       - login.js — formulario de login (es módulo)
       - worker.js — vista del trabajador (es módulo, tiene DOMContentLoaded)
       - password_reset.js — reset completo: envío de email y cambio de contraseña (es módulo)
     - api/
       - auth.api.js — fetch para login, devuelve { success, firstName }
       - work.api.js — fetch para guardar registros y consultar solapamiento contra MySQL
-      - register.api.js — vacío (fetch está en register.js directamente)
+      - register.api.js — registerEmployee funcionando
       - passwordReset.api.js — sendResetEmail y resetPassword
 
 - BACKEND/
   - controller/
-    - EmployeeController.java — /employees/register y /employees/login
+    - EmployeeController.java — /employees/register (devuelve texto) y /employees/login
     - RecordController.java — /records/save y GET /records/employee/{employeeId}/date/{date}
     - PasswordResetController.java — POST /password-reset/send, GET /password-reset/validate/{token}, POST /password-reset/reset
     - DepartmentController.java, EquipmentController.java, TaskController.java — vacíos
@@ -50,7 +50,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
   - repository/
     - RecordRepository — findByEmployee_EmployeeIdAndDate
     - EmployeeRepository — findByEmail
-    - PasswordResetTokenRepository — findByToken, findByEmployee_Email
+    - PasswordResetTokenRepository — findByToken, findByEmployee, findAllByEmployee
   - config/CorsConfig.java — CORS para 127.0.0.1:5500
 
 ## Hecho ✅
@@ -79,30 +79,31 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - Start_Time y End_Time añadidos al modelo Record.java (LocalTime)
 - work.api.js envía startTime y endTime al backend
 - DTO RecordResponse creado — devuelve solo startTime y endTime
-- Endpoint GET /records/employee/{empleadoId}/date/{date} creado y funcionando
+- Endpoint GET /records/employee/{employeeId}/date/{date} creado y funcionando
 - Validación solapamiento contra MySQL — funciona en los 3 paneles
 - Tabla password_reset_token creada en MySQL
 - Modelo PasswordResetToken.java creado
-- PasswordResetTokenRepository creado — findByToken, findByEmployee_Email
+- PasswordResetTokenRepository creado
 - EmployeeRepository — añadido findByEmail
 - IPasswordResetService y PasswordResetServiceImpl creados
 - PasswordResetController creado y funcionando
-- password_reset.js creado — escucha submit, recoge email, llama a sendResetEmail
-- password_reset.js añadido al index.html como módulo
-- passwordReset.api.js — sendResetEmail y resetPassword creadas y funcionando
+- password_reset.js creado y funcionando
+- passwordReset.api.js — sendResetEmail y resetPassword funcionando
 - Resend integrado en backend — emails de reset funcionando
 - Vista new-password-view creada en index.html con CSS propio
 - main.js detecta token en URL y muestra new-password-view automáticamente
 - i18n actualizado en 7 idiomas con secciones newPassword y nuevas claves de alerts
 - Flujo completo de password reset funcionando end-to-end
+- Tokens anteriores se borran al solicitar uno nuevo
+- register.api.js — registerEmployee creada y funcionando
+- register.js convertido a módulo
+- EmployeeController devuelve texto en lugar de objeto Employee (evita referencia circular)
 
 ## Pendiente ❌
-- Borrar token anterior cuando se solicita uno nuevo (acumulación de tokens en MySQL)
-- Equipment — conectar faNumber con tabla equipment
-- register.api.js — mover fetch de register.js
+- Crear rama `production` en GitHub con código limpio (sin comentarios de aprendizaje)
 - README profesional para reclutadores
 - Despliegue en Railway con MySQL para demo en vivo
-- Documento explicativo completo de la app
+- Documento explicativo completo de la app — de principio a fin
 
 ## Manera de aprender — MUY IMPORTANTE
 - Explicar cada cosa paso a paso antes de pedir que se ejecute
@@ -113,7 +114,7 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 
 ## Notas importantes
 - worker.js es type="module" y tiene DOMContentLoaded
-- register.js NO es módulo — el fetch está directamente en register.js
+- register.js es type="module" desde el refactor
 - password_reset.js es type="module"
 - employeeId y firstName se guardan en sessionStorage al hacer login
 - employeeId también se guarda en localStorage si "Remember me" está marcado
@@ -122,16 +123,14 @@ La base de datos db_company tiene las tablas: employee, department, equipment, r
 - OneDrive puede corromper archivos de Git — considerar mover el proyecto fuera
 - El autocompletado de Firefox guarda credenciales
 - Record.java tiene startTime y endTime como LocalTime
-- work.api.js envía startTime y endTime como strings HH:MM — el backend los convierte automáticamente a LocalTime
 - Resend API key guardada en application.properties (excluido de Git con .gitignore)
 - En plan gratuito de Resend solo se puede enviar a danicarou.dev@gmail.com
 - Live Server debe abrirse desde la carpeta frontend/ no desde la raíz del proyecto
 - El token en la URL se lee con URLSearchParams en main.js
-- Tokens caducados se pueden limpiar con: SET SQL_SAFE_UPDATES = 0; DELETE FROM password_reset_token WHERE expiry_date < NOW(); SET SQL_SAFE_UPDATES = 1;
 
 ## Git
 - GitHub: DaniRCarou/WS_WEB
 - Si se corrompe main: echo [ID] > .git/refs/heads/main
 
 ## Último commit
-feat: style new-password-view and restore reset-view in HTML
+fix: fix register endpoint circular reference and refactor to register.api.js
