@@ -45,7 +45,7 @@ export async function saveRecords(entries, employeeId) {
 
 // Fetches all records for a given employee and date — used for overlap validation
 export async function getRecordsByDate(employeeId, date) {
-    const response = await fetch(`http://localhost:8080/records/employee/${employeeId}/date/${date}`);
+    const response = await fetch(`http://localhost:8080/records/employee/${parseInt(employeeId)}/date/${date}`);
     const records = await response.json();
     return records;
 }
