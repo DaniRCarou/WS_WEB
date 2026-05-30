@@ -6,7 +6,7 @@
 // Sends a password reset email to the given address
 export async function sendResetEmail(email) {
     try {
-        const response = await fetch(`http://localhost:8080/password-reset/send?email=${encodeURIComponent(email)}`, {
+        const response = await fetch(`https://employee-portal-drc.onrender.com/password-reset/send?email=${encodeURIComponent(email)}`, {
             method: 'POST'
         });
         if (response.ok) {
@@ -24,7 +24,7 @@ export async function sendResetEmail(email) {
 // Resets the employee's password using the token from the reset link
 export async function resetPassword(password, token) {
     try {
-        const response = await fetch(`http://localhost:8080/password-reset/reset?token=${encodeURIComponent(token)}&newPassword=${encodeURIComponent(password)}`, {
+        const response = await fetch(`https://employee-portal-drc.onrender.com/password-reset/reset?token=${encodeURIComponent(token)}&newPassword=${encodeURIComponent(password)}`, {
             method: 'POST'
         });
         if (response.ok) {

@@ -6,7 +6,7 @@
 export async function registerEmployee(employeeId, firstName, surname, email, password, department) {
     const data = { employeeId, firstName, surname, email, password, department: { departmentId: department } };
     try {
-        const response = await fetch('http://localhost:8080/employees/register', {
+        const response = await fetch('https://employee-portal-drc.onrender.com/employees/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
