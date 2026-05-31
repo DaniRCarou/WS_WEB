@@ -17,7 +17,7 @@ if (savedId) {
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const personalNumber = document.querySelector('#login-personal-number').value;
+    const personalNumber = parseInt(document.querySelector('#login-personal-number').value);
     const password = document.querySelector('#password').value;
     const isChecked = document.querySelector('#remember-checkbox').checked;
 
