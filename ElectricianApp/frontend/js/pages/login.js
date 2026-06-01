@@ -31,7 +31,7 @@ loginForm.addEventListener('submit', async (e) => {
             localStorage.removeItem('employeeId');
         }
 
-        sessionStorage.setItem('employeeId', personalNumber);
+        sessionStorage.setItem('employeeId', parseInt(personalNumber));
         sessionStorage.setItem('firstName', result.firstName);
 
         alert(window.currentLanguageData?.alerts?.loginSuccess || "Successful login");
