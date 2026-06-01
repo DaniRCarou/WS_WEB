@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const formattedDate = `${yyyy}-${mm}-${dd}`;
     dateInput.value = formattedDate;
 
-    const employeeId = sessionStorage.getItem('employeeId');
     const firstName = sessionStorage.getItem('firstName');
     document.getElementById('user-name').textContent = firstName;
 
@@ -175,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check for time overlap against in-memory entries and database
     async function hasSolapamiento(newStart, newEnd, date) {
+        const employeeId = sessionStorage.getItem('employeeId');
         const localOverlap = entries.some(reg => newStart < reg.end && newEnd > reg.start);
         if (localOverlap) return true;
         const dbRecords = await getRecordsByDate(employeeId, date);
@@ -299,6 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Submit button
     submitBtn.addEventListener('click', async () => {
+        const employeeId = sessionStorage.getItem('employeeId');
         const result = await saveRecords(entries, employeeId);
         if (result.success) {
             entries.length = 0;
