@@ -7,6 +7,7 @@ public interface IEmployeeService {
 
     List<Employee> listEmployees();
     Employee findEmployeeById(Integer employeeId);
+    boolean existsById(Integer employeeId);
     Employee saveEmployee(Employee employee);
     void deleteEmployeeById(Integer employeeId);
     boolean authenticate(Integer personalNumber, String password);

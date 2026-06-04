@@ -24,6 +24,9 @@ public class EmployeeController {
     @PostMapping("/register")
     public ResponseEntity<?> registerEmployee(@RequestBody Employee employee) {
         try {
+            if (employeeService.existsById(employee.getEmployeeId())) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Employee ID already exists");
+            }
             employeeService.saveEmployee(employee);
             return ResponseEntity.ok("Employee registered successfully");
         } catch (Exception e) {

@@ -24,6 +24,11 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Override
+    public boolean existsById(Integer employeeId) {
+        return employeeRepository.existsById(employeeId);
+    }
+
+    @Override
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
