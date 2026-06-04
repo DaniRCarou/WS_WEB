@@ -192,60 +192,69 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#task-panel .confirm-btn').addEventListener('click', async () => {
         const btn = document.querySelector('#task-panel .confirm-btn');
         btn.disabled = true;
-        const faNumber = document.querySelector('#prod-number').value;
-        const start = document.querySelector('.task-start').value;
-        const end = document.querySelector('.task-end').value;
-        const date = document.querySelector('#date').value;
-        if (!start || !end) { alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format"); return; }
-        if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
-        if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
-        entries.push({ type: "Assembly and Wiring", date, start, end, faNumber });
-        document.querySelector('#prod-number').value = '';
-        document.querySelector('.task-start').value = '';
-        document.querySelector('.task-end').value = '';
-        prod.style.display = 'none';
-        taskTime.style.display = 'none';
-        taskValidation.style.display = 'none';
-        alert(window.currentLanguageData?.alerts?.assemblySaved || "Assembly entry saved");
-        btn.disabled = false;
+        try {
+            const faNumber = document.querySelector('#prod-number').value;
+            const start = document.querySelector('.task-start').value;
+            const end = document.querySelector('.task-end').value;
+            const date = document.querySelector('#date').value;
+            if (!start || !end) { alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format"); return; }
+            if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
+            if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
+            entries.push({ type: "Assembly and Wiring", date, start, end, faNumber });
+            document.querySelector('#prod-number').value = '';
+            document.querySelector('.task-start').value = '';
+            document.querySelector('.task-end').value = '';
+            prod.style.display = 'none';
+            taskTime.style.display = 'none';
+            taskValidation.style.display = 'none';
+            alert(window.currentLanguageData?.alerts?.assemblySaved || "Assembly entry saved");
+        } finally {
+            btn.disabled = false;
+        }
     });
 
     // Meeting Confirm
     document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', async () => {
-        const btn = document.querySelector('#task-panel .confirm-btn');
+        const btn = document.querySelector('#meeting-panel .confirm-btn');
         btn.disabled = true;
-        const start = document.querySelector('#meeting-panel .meeting-start').value;
-        const end = document.querySelector('#meeting-panel .meeting-end').value;
-        const date = document.querySelector('#date').value;
-        if (!start || !end) { alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format"); return; }
-        if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
-        if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
-        entries.push({ type: "Team Meeting", date, start, end });
-        document.querySelector('.meeting-start').value = '';
-        document.querySelector('.meeting-end').value = '';
-        meetingTime.style.display = 'none';
-        meetingValidation.style.display = 'none';
-        alert(window.currentLanguageData?.alerts?.meetingSaved || "Team Meeting entry saved");
-        btn.disabled = false;
+        try {
+            const start = document.querySelector('#meeting-panel .meeting-start').value;
+            const end = document.querySelector('#meeting-panel .meeting-end').value;
+            const date = document.querySelector('#date').value;
+            if (!start || !end) { alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format"); return; }
+            if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
+            if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
+            entries.push({ type: "Team Meeting", date, start, end });
+            document.querySelector('.meeting-start').value = '';
+            document.querySelector('.meeting-end').value = '';
+            meetingTime.style.display = 'none';
+            meetingValidation.style.display = 'none';
+            alert(window.currentLanguageData?.alerts?.meetingSaved || "Team Meeting entry saved");
+        } finally {
+            btn.disabled = false;
+        }
     });
 
     // Cleanup Confirm
     document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', async () => {
-        const btn = document.querySelector('#task-panel .confirm-btn');
+        const btn = document.querySelector('#cleanup-panel .confirm-btn');
         btn.disabled = true;
-        const start = document.querySelector('#cleanup-panel .cleanup-start').value;
-        const end = document.querySelector('#cleanup-panel .cleanup-end').value;
-        const date = document.querySelector('#date').value;
-        if (!start || !end) { alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format"); return; }
-        if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
-        if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
-        entries.push({ type: "Cleanup", date, start, end });
-        document.querySelector('.cleanup-start').value = '';
-        document.querySelector('.cleanup-end').value = '';
-        cleaninUpTime.style.display = 'none';
-        cleanUpValidation.style.display = 'none';
-        alert(window.currentLanguageData?.alerts?.cleanupSaved || "Cleanup entry saved");
-        btn.disabled = false;
+        try {
+            const start = document.querySelector('#cleanup-panel .cleanup-start').value;
+            const end = document.querySelector('#cleanup-panel .cleanup-end').value;
+            const date = document.querySelector('#date').value;
+            if (!start || !end) { alert(window.currentLanguageData?.alerts?.emptyTimeError || "Please enter a valid time in HH:MM format"); return; }
+            if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
+            if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
+            entries.push({ type: "Cleanup", date, start, end });
+            document.querySelector('.cleanup-start').value = '';
+            document.querySelector('.cleanup-end').value = '';
+            cleaninUpTime.style.display = 'none';
+            cleanUpValidation.style.display = 'none';
+            alert(window.currentLanguageData?.alerts?.cleanupSaved || "Cleanup entry saved");
+        } finally {
+            btn.disabled = false;
+        }
     });
 
     // Check button
