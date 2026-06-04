@@ -190,6 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Assembly Confirm
     document.querySelector('#task-panel .confirm-btn').addEventListener('click', async () => {
+        const btn = document.querySelector('#task-panel .confirm-btn');
+        btn.disabled = true;
         const faNumber = document.querySelector('#prod-number').value;
         const start = document.querySelector('.task-start').value;
         const end = document.querySelector('.task-end').value;
@@ -205,10 +207,13 @@ document.addEventListener('DOMContentLoaded', () => {
         taskTime.style.display = 'none';
         taskValidation.style.display = 'none';
         alert(window.currentLanguageData?.alerts?.assemblySaved || "Assembly entry saved");
+        btn.disabled = false;
     });
 
     // Meeting Confirm
     document.querySelector('#meeting-panel .confirm-btn').addEventListener('click', async () => {
+        const btn = document.querySelector('#task-panel .confirm-btn');
+        btn.disabled = true;
         const start = document.querySelector('#meeting-panel .meeting-start').value;
         const end = document.querySelector('#meeting-panel .meeting-end').value;
         const date = document.querySelector('#date').value;
@@ -221,10 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
         meetingTime.style.display = 'none';
         meetingValidation.style.display = 'none';
         alert(window.currentLanguageData?.alerts?.meetingSaved || "Team Meeting entry saved");
+        btn.disabled = false;
     });
 
     // Cleanup Confirm
     document.querySelector('#cleanup-panel .confirm-btn').addEventListener('click', async () => {
+        const btn = document.querySelector('#task-panel .confirm-btn');
+        btn.disabled = true;
         const start = document.querySelector('#cleanup-panel .cleanup-start').value;
         const end = document.querySelector('#cleanup-panel .cleanup-end').value;
         const date = document.querySelector('#date').value;
@@ -237,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cleaninUpTime.style.display = 'none';
         cleanUpValidation.style.display = 'none';
         alert(window.currentLanguageData?.alerts?.cleanupSaved || "Cleanup entry saved");
+        btn.disabled = false;
     });
 
     // Check button
