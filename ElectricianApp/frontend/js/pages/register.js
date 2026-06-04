@@ -4,6 +4,8 @@
 // =====================================================================
 
 import { registerEmployee } from '../api/register.api.js';
+import { showView } from '../main.js';
+
 
 const registerForm = document.querySelector('#register-form');
 
@@ -69,6 +71,7 @@ registerForm.addEventListener('submit', async function(e) {
         if (result.success) {
             alert(window.currentLanguageData?.alerts?.registerSuccess);
             registerForm.reset();
+            showView('login-view');
         } else {
             alert(window.currentLanguageData?.alerts?.registerError + ': ' + result.message);
         }
