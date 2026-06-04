@@ -50,7 +50,7 @@ public class PasswordResetServiceImpl implements IPasswordResetService {
                 .from("onboarding@resend.dev")
                 .to(email)
                 .subject("Password Reset")
-                .html("<p>Click the link to reset your password: <a href='http://127.0.0.1:5500?token=" + token + "'>Reset Password</a></p>")
+                .html("<p>Click the link to reset your password: <a href='https://employee-portal-frontend.onrender.com?token=" + token + "'>Reset Password</a></p>")
                 .build();
         resend.emails().send(sendEmailRequest);
     }
