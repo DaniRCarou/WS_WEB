@@ -6,7 +6,7 @@
 export async function loginEmployee(personalNumber, password) {
     const data = { personalNumber, password };
     try {
-        const response = await fetch('https://employee-portal-drc.onrender.com/employees/login', {
+        const response = await fetch('https://employee-portal.up.railway.app/employees/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

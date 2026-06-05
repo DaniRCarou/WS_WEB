@@ -6,7 +6,7 @@
 // Sends a password reset email to the given address
 export async function sendResetEmail(email) {
     try {
-        const response = await fetch(`https://employee-portal-drc.onrender.com/password-reset/send?email=${encodeURIComponent(email)}`, {
+        const response = await fetch(`https://employee-portal.up.railway.app/password-reset/send?email=${encodeURIComponent(email)}`, {
             method: 'POST'
         });
         if (response.ok) {
