@@ -1861,6 +1861,12 @@ button {
     }
 
 
+    .worker-wrapper {
+            backdrop-filter: none;
+    }
+
+
+
 
     /* Reduce el tamaño del saludo y total time en móvil */
     .worker-form-greeting h1 {
@@ -1928,7 +1934,8 @@ button {
 
 
     /* Reduce el tamaño del botón CHECK en móvil */
-    .text-btn {
+    .text-btn,
+    .logout-btn {
 
         font-size: 16px;    /* 16px → reduce el tamaño del texto CHECK, que en escritorio era 20px */
         right: 10px;        /* 10px → lo acerca más al borde derecho de la pantalla */
