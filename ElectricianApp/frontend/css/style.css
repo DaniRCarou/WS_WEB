@@ -1852,6 +1852,16 @@ button {
 
 
 
+    /* Saca los botones CHECK y LOGOUT del wrapper en móvil y los coloca debajo */
+    .worker-actions {
+        position: fixed;        /* fixed → se posiciona respecto a la pantalla, no al wrapper */
+        bottom: 20px;           /* 20px → separación desde el borde inferior de la pantalla */
+        right: 20px;            /* 20px → separación desde el borde derecho */
+        z-index: 10;            /* 10 → queda por encima de otros elementos */
+    }
+
+
+
     /* Reduce el tamaño del saludo y total time en móvil */
     .worker-form-greeting h1 {
 
