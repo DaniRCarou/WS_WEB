@@ -1,67 +1,58 @@
 # ESTADO DEL PROYECTO — Employee Portal
 
 ## Descripción
-Aplicación web de gestión de empleados industriales llamada Employee Portal.
-SPA con frontend en HTML/CSS/JS vanilla y backend en Spring Boot 4.0.0 con PostgreSQL.
-El frontend usa i18n con 7 idiomas (en, es, de, pt, gl, ca, eus).
-La base de datos db_company tiene las tablas: employee, department, equipment, record, task y password_reset_token.
-
-## Cómo arrancar el proyecto en local
-1. Arrancar PostgreSQL (puerto 5432)
-2. Arrancar el backend en IntelliJ — clase EmployeeInformationManagementApplication.java
-3. Abrir el frontend con Live Server en VS Code — desde la carpeta frontend/
-4. URL: http://127.0.0.1:5500
+SPA con frontend HTML/CSS/JS vanilla y backend Spring Boot 4.0.0 con PostgreSQL.
+i18n con 7 idiomas (en, es, de, pt, gl, ca, eus).
 
 ## Ramas
-- main → código completo con comentarios de aprendizaje — NO tocar
-- production → código limpio para reclutadores — rama activa
+- main → código con comentarios de aprendizaje — NO tocar
+- production → código limpio — rama activa
 
-## Cambios importantes realizados
-- Migración de MySQL a PostgreSQL — pom.xml, application.properties actualizados
-- DevTools comentado en pom.xml — causaba conflicto con el driver de PostgreSQL
-- getRecordsByDate en work.api.js — parseInt(employeeId) añadido para evitar error con "0001"
-- Dockerfile en ElectricianApp/backend/Dockerfile
-- Permisos de ejecución añadidos a mvnw
+## URLs de producción
+- Backend: https://employee-portal-drc.onrender.com
+- Frontend: https://employee-portal-frontend.onrender.com
+- Base de datos Render: dpg-d8cssiojs32c73asi6n0-a.frankfurt-postgres.render.com
+  - DB: employee_portal_db_lkrc
+  - User: employee_portal_db_lkrc_user
+  - Password: GH0oue1yAG1PUBQMd2w41nxjWPqBznk0
+  - EXPIRA: 28 de junio de 2026
 
-## Pendiente ❌ — EN ORDEN
+## Cómo arrancar en local
+1. Arrancar PostgreSQL local (puerto 5432, usuario postgres, password: Putosql1)
+2. Arrancar backend en IntelliJ — EmployeeInformationManagementApplication.java
+3. Live Server desde frontend/ → http://127.0.0.1:5500
 
-1. Configurar variables de entorno en Render para PostgreSQL:
-   - DATABASE_URL → postgresql://employee_portal_db_lkrc_user:GH0oue1yAG1PUBQMd2w41nxjWPqBznk0@dpg-d8cssiojs32c73asi6n0-a/employee_portal_db_lkrc
-   - RESEND_API_KEY → ya configurada
+## Estado del despliegue ✅
+- Backend desplegado en Render
+- Frontend desplegado en Render
+- Tablas creadas en base de datos de Render
+- Datos iniciales insertados (4 managers, 4 departamentos)
+- CORS configurado correctamente
+- Login funcionando en producción
+- Submit de tareas funcionando en producción
+- Validación de solapamiento funcionando correctamente por empleado
 
-2. Crear las tablas en la base de datos de Render PostgreSQL
-   - Conectarse desde pgAdmin a la base de datos externa de Render
-   - Ejecutar el SQL de creación de tablas
+## Bugs resueltos ✅
+1. Sobreescritura en registro — validación de ID duplicado con existsById
+2. Redirect al login tras registro exitoso
+3. Doble confirm con try/finally — botón se rehabilita siempre
+4. Enlace email de reset apunta a URL de producción
+5. Autofill amarillo en input email — resuelto con autocomplete="off"
 
-3. Hacer deploy en Render y verificar que funciona
-
-4. Desplegar el frontend como Static Site en Render
-   - Actualizar las URLs del backend en los archivos api/*.js
-   - De localhost:8080 a la URL de Render
-
-5. Actualizar el README con la URL de la demo en vivo
-
-6. Explicar pull request en GitHub — PENDIENTE IMPORTANTE prometido
-
-7. Documento explicativo completo de la app
-
-## Manera de aprender — MUY IMPORTANTE
-- Explicar cada cosa paso a paso antes de pedir que se ejecute
-- Explicar cada palabra del código — no asumir nada
-- Hacer preguntas para que el estudiante piense antes de dar la solución
-- No dar código sin explicar qué hace cada línea
-- El objetivo es aprender, no solo que funcione
+## Pendiente ❌
+1. README con URLs de producción y nota sobre lentitud del plan gratuito
+2. Explicar pull request en GitHub — PROMETIDO
+3. Documento explicativo completo de la app — archivo para estudiar
 
 ## Notas importantes
-- PostgreSQL versión 18 instalado en local, puerto 5432, usuario postgres
-- application.properties excluido de Git — contiene credenciales PostgreSQL y Resend API key
-- El plan gratuito de Render PostgreSQL expira el 28 de junio de 2026
-- El plan gratuito de Render Web Service duerme tras 15 minutos de inactividad
-- SessionStorage se borra al cerrar la pestaña — siempre hay que hacer login de nuevo
-- employeeId puede venir con ceros delante (ej: "0001") — parseInt() lo convierte a número
-- DevTools comentado en pom.xml — no descomentar sin probar primero
+- application.properties excluido de Git
+- DevTools comentado en pom.xml
+- Plan gratuito Render duerme tras 15 min — primera petición tarda ~2 min
+- Plan gratuito Render PostgreSQL expira 28 junio 2026
+- Resend API: solo puede enviar a danicarou.dev@gmail.com (plan gratuito)
+- parseInt en login.js y work.api.js para IDs con ceros delante (ej: "0001")
+- employeeId se lee de sessionStorage dentro de las funciones, no al inicio
 
 ## Git
 - GitHub: DaniRCarou/WS_WEB
-- Ramas: main (aprendizaje) y production (limpia)
-- Último commit: feat: migrate from MySQL to PostgreSQL
+- Último commit: fix: disable autocomplete on password reset email input

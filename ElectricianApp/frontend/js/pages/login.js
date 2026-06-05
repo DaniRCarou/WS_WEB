@@ -17,6 +17,10 @@ if (savedId) {
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    const submitBtn = document.querySelector('.login-form__button');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Loading...';   
+
     const personalNumber = parseInt(document.querySelector('#login-personal-number').value);
     const password = document.querySelector('#password').value;
     const isChecked = document.querySelector('#remember-checkbox').checked;
@@ -24,6 +28,9 @@ loginForm.addEventListener('submit', async (e) => {
     const result = await loginEmployee(personalNumber, password);
 
     if (result.success) {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Login';
 
         if (isChecked) {
             localStorage.setItem('employeeId', personalNumber);
@@ -39,6 +46,8 @@ loginForm.addEventListener('submit', async (e) => {
         document.getElementById('user-name').textContent = result.firstName;
 
     } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Login';
         alert((window.currentLanguageData?.alerts?.loginError || "Login failed") + ": " + result.message);
     }
 });
