@@ -1,3 +1,6 @@
 ESTADO.md
 NOTAS.md
 application.properties
+
+# Archivos temporales de desarrollo / Los **/ significan "en cualquier carpeta" — así funciona aunque el archivo esté en una ruta profunda.
+**/HashGenerator.java
