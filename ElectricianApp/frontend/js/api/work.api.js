@@ -26,7 +26,7 @@ export async function saveRecords(entries, employeeId) {
         };
 
         try {
-            const response = await fetch('https://employee-portal.up.railway.app/records/save', {
+            const response = await fetch('https://employee-portal-drc.onrender.com/records/save', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(record)

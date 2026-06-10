@@ -3,6 +3,7 @@ package es.employee_information_management.service;
 import es.employee_information_management.model.Employee;
 import es.employee_information_management.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public List<Employee> listEmployees() {
@@ -30,6 +33,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public Employee saveEmployee(Employee employee) {
+        String password = passwordEncoder.encode(employee.getPassword());
+        employee.setPassword(password);
         return employeeRepository.save(employee);
     }
 
@@ -42,7 +47,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public boolean authenticate(Integer personalNumber, String password) {
         Employee employee = employeeRepository.findById(personalNumber).orElse(null);
         if (employee != null) {
-            return employee.getPassword().equals(password);
+            String passwordE = employee.getPassword();
+            return passwordEncoder.matches(password, passwordE);
         }
         return false;
     }
