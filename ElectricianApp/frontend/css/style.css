@@ -1794,6 +1794,18 @@ button {
 
 
 
+    /* Fuerza las flechas del input number en móvil — Chrome Android las oculta con fondo transparente */
+    .register-department_input::-webkit-inner-spin-button,
+    .register-department_input::-webkit-outer-spin-button {
+
+        -webkit-appearance: inner-spin-button;
+        
+        opacity: 1;
+
+    }
+
+
+
     /* Modifica los checkbox para que se vean bien sobre el fondo blanco */
     .login-form__actions label input,
     .terms-text input {
