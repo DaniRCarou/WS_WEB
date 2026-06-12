@@ -1794,6 +1794,15 @@ button {
 
 
 
+    /* Modifica los checkbox para que se vean bien sobre el fondo blanco */
+    .login-form__actions label input,
+    .terms-text input {
+
+        accent-color: #36409b; 
+
+    }
+
+
     /* Los tres wrappers pasan de ancho fijo a ocupar toda la pantalla disponible en móvil */
     .login-wrapper,
     .reset-wrapper,
