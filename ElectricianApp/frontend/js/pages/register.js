@@ -16,11 +16,11 @@ document.querySelectorAll('.toggle-password').forEach(button => {
         if (input.type === 'password') {
             input.type = 'text';
             const img = button.querySelector('img');
-            if (img) img.src = 'assets/icons/eye-off.svg';
+            if (img) img.src = 'assets/icons/eye.svg';
         } else {
             input.type = 'password';
             const img = button.querySelector('img');
-            if (img) img.src = 'assets/icons/eye.svg';
+            if (img) img.src = 'assets/icons/eye-off.svg';
         }
     });
 });
