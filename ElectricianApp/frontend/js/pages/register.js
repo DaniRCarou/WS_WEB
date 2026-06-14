@@ -8,6 +8,39 @@ import { showView } from '../main.js';
 
 
 const registerForm = document.querySelector('#register-form');
+const department = document.querySelector('#department');
+const minusButton = document.querySelector('.minus-button');
+const plusButton = document.querySelector('.plus-button');
+
+
+
+plusButton.addEventListener('click', () => {
+
+const currentValue = parseInt(department.value);
+
+if(currentValue < 4) {
+
+    department.value = currentValue + 1;
+
+}
+
+});
+
+
+
+minusButton.addEventListener('click', () => {
+
+const currentValue = parseInt(department.value);
+
+if(currentValue > 1) {
+
+    department.value = currentValue - 1;
+
+}
+
+});
+
+
 
 // Toggle password visibility for all password inputs
 document.querySelectorAll('.toggle-password').forEach(button => {
@@ -32,7 +65,7 @@ registerForm.addEventListener('submit', async function(e) {
     const name = document.querySelector('#name').value;
     const surname = document.querySelector('#surname').value;
     const email = document.querySelector('#register-email').value;
-    const department = parseInt(document.querySelector('#department').value);
+    const departmentFinalValue = parseInt(document.querySelector('#department').value);
     const password = document.querySelector('#register-password').value;
     const passConfirm = document.querySelector('#password-confirmation').value;
     const isChecked = document.querySelector('#check-point').checked;
@@ -67,7 +100,7 @@ registerForm.addEventListener('submit', async function(e) {
     }
 
     try {
-        const result = await registerEmployee(personalNumber, name, surname, email, password, department);
+        const result = await registerEmployee(personalNumber, name, surname, email, password, departmentFinalValue);
         if (result.success) {
             alert(window.currentLanguageData?.alerts?.registerSuccess);
             registerForm.reset();

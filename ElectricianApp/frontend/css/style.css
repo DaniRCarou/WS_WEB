@@ -842,6 +842,15 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 
+.minus-button,
+.plus-button {
+
+    display: none;
+
+}
+
+
+
 /* Esto indica la posición y el tamaño de las letras dentro de la etiqueta label */
 .input-department-number .input-field-number label{    
         
@@ -1790,17 +1799,14 @@ button {
 
         display: none;  /* el elemento desaparece completamente y no ocupa espacio */
 
-    }
+    }   
 
 
 
-    /* Fuerza las flechas del input number en móvil — Chrome Android las oculta con fondo transparente */
-    .register-department_input::-webkit-inner-spin-button,
-    .register-department_input::-webkit-outer-spin-button {
+    .minus-button,
+    .plus-button {
 
-        -webkit-appearance: inner-spin-button;
-        
-        opacity: 1;
+        display: flex;
 
     }
 
