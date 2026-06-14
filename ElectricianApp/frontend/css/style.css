@@ -879,14 +879,14 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 /* Esto estiliza el input del departamento que tiene las flechas para seleccionar el número y la etiqueta que contiene la palabra Departamento*/
 .register-department_input {
 
-    width:30%;                      /* Controlan el tamaño general del input, flechas y número */
+    width:20%;                      /* Controlan el tamaño general del input, flechas y número */
     height:100%;                    /* Controlan el tamaño general del input, flechas y número */
     background: transparent;
     border: transparent;
     outline:none;
     font-size: 16px;                /* Controla el tamaño del número que ves. */
     color: #fff;    
-    padding:15px 15px 15px 40px;    /* Controla el espacio alrededor del número dentro del input. */
+    padding: 15px 15px 15px 10px;    /* Controla el espacio alrededor del número dentro del input. */
     
 }
 
@@ -1753,6 +1753,7 @@ button {
 
 /* Pantallas grandes */
 @media (min-width: 1200px) {
+
     .worker-wrapper {
         max-width: 1400px;  /* Limitar que no se estire demasiado */
         padding: 50px 60px;
@@ -1762,6 +1763,7 @@ button {
         max-width: 1000px;
         padding: 50px 60px;
     }
+
 }
 
 
@@ -1825,7 +1827,27 @@ button {
         padding: 0 40px 0 0;
         flex: 1;
         text-align: center;
-        
+
+    }
+
+
+
+    .register-department_input {
+
+        width:30%;  
+        padding: 15px 15px 15px 40px;
+
+    }
+
+
+
+    .minus-button,
+    .plus-button {
+
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+
     }
 
 
