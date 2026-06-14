@@ -1863,7 +1863,9 @@ button {
 
         position: static;
         padding: 0 0 0 10px;
-        
+        flex: 1;
+        text-align: center;
+
     }
 
 
