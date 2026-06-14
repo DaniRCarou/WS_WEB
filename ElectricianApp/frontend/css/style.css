@@ -872,6 +872,7 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     color: #fff;    
     display: flex;
     align-items: center;
+    padding-left: 10px;
     
 }
 
