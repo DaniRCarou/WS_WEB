@@ -869,9 +869,7 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
     height:100%; 
     border: 2px solid rgba(244, 244, 253, 0.363);
     border-radius: 10px;
-    color: #fff;    
-    display: flex;
-    align-items: center;
+    color: #fff;       
     padding-left: 10px;
     
 }
@@ -895,9 +893,8 @@ Además, cada input-field tiene position: relative;, lo que hace que cualquier i
 
 
 /* Esto afecta sobre la etiqueta label que contiene la palabra Departamento */
-.input-field-number label{    
-        
-    position:absolute;    
+.input-field-number label{         
+     
     font-size: 16px;   
     padding:5px 0px 0px 5px;        
     
@@ -1815,6 +1812,24 @@ button {
 
 
 
+    .input-field-number {
+
+        display: flex;
+        align-items: center;
+
+    }
+
+    .input-department-number .input-field-number label {
+
+        position: static;
+        padding: 0 40px 0 0;
+        flex: 1;
+        text-align: center;
+        
+    }
+
+
+
     /* Modifica los checkbox para que se vean bien sobre el fondo blanco */
     .login-form__actions label input,
     .terms-text input {
@@ -1857,16 +1872,6 @@ button {
         
     }
 
-
-
-    .input-department-number .input-field-number label {
-
-        position: static;
-        padding: 0;
-        flex: 1;
-        text-align: center;
-
-    }
 
 
     /* Recoloca y reduce el menú de idiomas en móvil para que no tape el contenido */
