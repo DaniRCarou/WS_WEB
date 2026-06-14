@@ -1862,7 +1862,7 @@ button {
     .input-department-number .input-field-number label {
 
         position: static;
-        padding: 0 0 0 10px;
+        padding: 0;
         flex: 1;
         text-align: center;
 
