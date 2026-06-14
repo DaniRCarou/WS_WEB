@@ -1859,6 +1859,14 @@ button {
 
 
 
+    .input-field-number label {
+
+        position: static;
+        padding: 0 0 0 10px;
+        
+    }
+
+
     /* Recoloca y reduce el menú de idiomas en móvil para que no tape el contenido */
     .lang-menu {
 
