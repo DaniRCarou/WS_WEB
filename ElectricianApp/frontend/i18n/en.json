@@ -89,6 +89,7 @@
         "cleanupSaved": "Cleanup entry saved",
         "logoutPendingTasks": "You have pending tasks. Press CHECK to review them before logging out.",
         "submitReady": "Data ready to be sent to the database",
+        "noEntries": "No tasks to submit",
         "registerSuccess": "Registration successful",
         "registerError": "Registration error",
         "serverConnectionError": "Server connection error",

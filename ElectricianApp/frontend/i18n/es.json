@@ -89,6 +89,7 @@
         "cleanupSaved": "Entrada de limpieza guardada",
         "logoutPendingTasks": "Tienes tareas pendientes. Pulsa CHECK para revisarlas antes de salir.",
         "submitReady": "Datos listos para enviar a la base de datos",
+        "noEntries": "No hay tareas para enviar",
         "registerSuccess": "Registro exitoso",
         "registerError": "Error en el registro",
         "serverConnectionError": "Error de conexión con el servidor",

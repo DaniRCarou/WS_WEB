@@ -89,6 +89,7 @@
         "cleanupSaved": "Garbiketa sarrera gordeta",
         "logoutPendingTasks": "Zeregin pendienteak dituzu. Sakatu CHECK saioa itxi aurretik berrikusteko.",
         "submitReady": "Datuak datu basera bidaltzeko prest",
+        "noEntries": "Ez dago bidaltzeko zereginik",
         "registerSuccess": "Erregistroa ongi egin da",
         "registerError": "Erregistro errorea",
         "serverConnectionError": "Zerbitzarirarekin konexio errorea",

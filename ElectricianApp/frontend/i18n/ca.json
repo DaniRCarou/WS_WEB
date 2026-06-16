@@ -89,6 +89,7 @@
         "cleanupSaved": "Entrada de neteja desada",
         "logoutPendingTasks": "Tens tasques pendents. Prem CHECK per revisar-les abans de tancar sessió.",
         "submitReady": "Dades llestes per enviar a la base de dades",
+        "noEntries": "No hi ha tasques per enviar",
         "registerSuccess": "Registre correcte",
         "registerError": "Error en el registre",
         "serverConnectionError": "Error de connexió amb el servidor",

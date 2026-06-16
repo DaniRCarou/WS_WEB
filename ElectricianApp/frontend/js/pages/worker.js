@@ -317,6 +317,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Submit button
     submitBtn.addEventListener('click', async () => {
+        if (entries.length === 0) {
+        alert(window.currentLanguageData?.alerts?.noEntries || "No tasks to submit");
+        return;
+        }
         const employeeId = sessionStorage.getItem('employeeId');
         const result = await saveRecords(entries, employeeId);
         if (result.success) {
