@@ -129,6 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener("click", (e) => {
         const target = e.target;
         if (!target.closest('#task-panel')) {
+            if (window.innerWidth <= 480) {
+                teamMeetingButton.style.display = 'flex';
+                cleanUpButton.style.display = 'flex';
+            }
             prod.style.display = 'none';
             taskTime.style.display = 'none';
             taskValidation.style.display = 'none';
@@ -140,6 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (taskEnd) taskEnd.value = '';
         }
         if (!target.closest('#meeting-panel')) {
+            if (window.innerWidth <= 480) {
+                taskButton.style.display = 'flex';
+                cleanUpButton.style.display = 'flex';
+            }
             meetingTime.style.display = 'none';
             meetingValidation.style.display = 'none';
             const meetingStart = document.querySelector('.meeting-start');
@@ -148,6 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (meetingEnd) meetingEnd.value = '';
         }
         if (!target.closest('#cleanup-panel')) {
+            if (window.innerWidth <= 480) {
+                teamMeetingButton.style.display = 'flex';
+                taskButton.style.display = 'flex';
+            }
             cleaninUpTime.style.display = 'none';
             cleanUpValidation.style.display = 'none';
             const cleanupStart = document.querySelector('.cleanup-start');
@@ -201,6 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
             if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
             entries.push({ type: "Assembly and Wiring", date, start, end, faNumber });
+            if (window.innerWidth <= 480) {
+                teamMeetingButton .style.display = 'flex';
+                cleanUpButton.style.display = 'flex';
+            }
             document.querySelector('#prod-number').value = '';
             document.querySelector('.task-start').value = '';
             document.querySelector('.task-end').value = '';
@@ -225,6 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
             if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
             entries.push({ type: "Team Meeting", date, start, end });
+            if (window.innerWidth <= 480) {
+                taskButton.style.display = 'flex';
+                cleanUpButton.style.display = 'flex';
+            }
             document.querySelector('.meeting-start').value = '';
             document.querySelector('.meeting-end').value = '';
             meetingTime.style.display = 'none';
@@ -247,6 +267,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (start >= end) { alert(window.currentLanguageData?.alerts?.endTimeError || "The end time must be later than the start time"); return; }
             if (await hasSolapamiento(start, end, date)) { alert(window.currentLanguageData?.alerts?.overlapError || "This time slot overlaps with an existing entry"); return; }
             entries.push({ type: "Cleanup", date, start, end });
+            if (window.innerWidth <= 480) {
+                taskButton.style.display = 'flex';
+                teamMeetingButton .style.display = 'flex';
+            }
             document.querySelector('.cleanup-start').value = '';
             document.querySelector('.cleanup-end').value = '';
             cleaninUpTime.style.display = 'none';
