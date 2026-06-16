@@ -78,7 +78,7 @@
         "invalidName": "O nome non é válido",
         "invalidSurname": "O apelido non é válido",
         "invalidEmail": "O correo electrónico non é válido",
-        "invalidPassword": "O contrasinal non é válido. Debe ter polo menos 8 caracteres, sen espazos, incluír unha maiúscula, un número e un carácter especial.",
+        "invalidPassword": "O contrasinal non é válido. Debe ter polo menos 8 caracteres, sen espazos, incluír unha maiúscula, un número e un carácter especial (!@#$%^&*).",
         "passwordsDoNotMatch": "Os contrasinais non coinciden",
         "termsNotAccepted": "Debe aceptar os termos",
         "endTimeError": "A hora de fin debe ser posterior á hora de inicio",

@@ -78,7 +78,7 @@
         "invalidName": "O nome não é válido",
         "invalidSurname": "O apelido não é válido",
         "invalidEmail": "O e-mail não é válido",
-        "invalidPassword": "A palavra-passe não é válida. Deve ter pelo menos 8 caracteres, sem espaços, incluir uma maiúscula, um número e um carácter especial.",
+        "invalidPassword": "A palavra-passe não é válida. Deve ter pelo menos 8 caracteres, sem espaços, incluir uma maiúscula, um número e um carácter especial (!@#$%^&*).",
         "passwordsDoNotMatch": "As palavras-passe não coincidem",
         "termsNotAccepted": "Deve aceitar os termos",
         "endTimeError": "A hora de fim deve ser posterior à hora de início",

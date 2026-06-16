@@ -78,7 +78,7 @@
         "invalidName": "The name is not valid",
         "invalidSurname": "The surname is not valid",
         "invalidEmail": "The email address is not valid",
-        "invalidPassword": "The password is not valid. It must be at least 8 characters long, contain no spaces, and include an uppercase letter, a number, and a special character.",
+        "invalidPassword": "The password is not valid. It must be at least 8 characters long, contain no spaces, and include an uppercase letter, a number, and a special character (!@#$%^&*).",
         "passwordsDoNotMatch": "Passwords do not match",
         "termsNotAccepted": "You must accept the terms",
         "endTimeError": "The end time must be later than the start time",
