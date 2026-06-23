@@ -110,12 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Cleanup button toggle
-    cleanUpButton.addEventListener('click', () => {
+    cleanUpButton.addEventListener('click', () => {       
         if (cleaninUpTime.style.display === 'flex' && cleanUpValidation.style.display === 'flex') {
             cleaninUpTime.style.display = 'none';
             cleanUpValidation.style.display = 'none';
             taskButton.style.display = 'flex';
             teamMeetingButton.style.display = 'flex';
+            if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+                workerActions.style.display = 'flex';
+            }
         } else {
             cleaninUpTime.style.display = 'flex';
             cleanUpValidation.style.display = 'flex';
@@ -128,6 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth <= 480) {
                 taskButton.style.display = 'none';
                 teamMeetingButton.style.display = 'none';
+            }
+            if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+            document.querySelector('.worker-actions').style.display = 'none';
             }
         }
     });
@@ -166,6 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth <= 480) {
                 teamMeetingButton.style.display = 'flex';
                 taskButton.style.display = 'flex';
+            }
+            if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+                workerActions.style.display = 'flex';
             }
             cleaninUpTime.style.display = 'none';
             cleanUpValidation.style.display = 'none';
@@ -277,6 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth <= 480) {
                 taskButton.style.display = 'flex';
                 teamMeetingButton .style.display = 'flex';
+            }
+            if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+                workerActions.style.display = 'flex';
             }
             document.querySelector('.cleanup-start').value = '';
             document.querySelector('.cleanup-end').value = '';

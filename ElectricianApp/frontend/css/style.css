@@ -1747,6 +1747,91 @@ button {
         width: 90%;   /* Ajuste para tablets */
         padding: 30px;
     }
+
+    #task-validation {
+        justify-content: center;
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .check-table thead {
+        display: none;
+    }
+
+    .check-table tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .check-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+    }
+
+    .check-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .check-table tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .check-actions {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        padding: 20px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .check-wrapper ~ .validation-badge,
+    .validation-badge{
+        display: none;
+    }
+
+    .indca {
+        display: none !important;
+    }
+
+    .lang-menu {
+        top: 10px;        
+    }
+
+    .lang-menu ul {
+        background: white;
+        color: #333;
+    }
+    
+    .lang-menu ul li button {
+        color: #333;
+    }
+
+    .form-row-group .input-field {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .input-department-number,
+    .register-form_number {
+        width: 80%;
+        margin: 10px auto;
+    }
+    .terms-text {
+        width: 80%;
+        margin: 10px auto;
+        display: block;
+    }
+
 }
 
 
