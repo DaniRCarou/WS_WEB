@@ -1740,7 +1740,7 @@ button {
 @media (min-width: 768px) and (max-width: 992px) {
     .form-row-group .input-field {
         width: 80%;
-        margin: 10px 0;
+        margin: 10px auto;
     }
 
     .worker-wrapper {
@@ -1804,7 +1804,7 @@ button {
     }
 
     .lang-menu {
-        top: 10px;        
+        top: 30px;        
     }
 
     .lang-menu ul {
