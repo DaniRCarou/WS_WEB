@@ -1816,11 +1816,6 @@ button {
         color: #333;
     }
 
-    .form-row-group .input-field {
-        width: 80%;
-        margin: 10px auto;
-    }
-
     .input-department-number,
     .register-form_number {
         width: 80%;
@@ -2185,18 +2180,7 @@ button {
         margin-right: 0;    /* 0 → elimina el margen derecho de 50px que tenían en escritorio, igualándolos con task-time */
 
     }
-
-
-
-    /* Reduce el espacio entre los inputs From y To en móvil */
-    .task-start,
-    .meeting-start,
-    .cleanup-start {
-
-        margin-right: 10px;     /* 10px → iguala el espacio entre From y To en los tres paneles */
-
-    }
-
+    
 
 
     /* Elimina el margen derecho del input To en móvil */
