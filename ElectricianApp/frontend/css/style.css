@@ -1925,13 +1925,7 @@ button {
         bottom: 20px;           /* 20px → separación desde el borde inferior de la pantalla */
         right: 20px;            /* 20px → separación desde el borde derecho */
         z-index: 10;            /* 10 → queda por encima de otros elementos */
-    }
-
-
-    .worker-wrapper {
-            backdrop-filter: none;
-    }
-
+    }    
 
 
 

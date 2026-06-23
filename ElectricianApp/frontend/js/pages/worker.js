@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const formattedDate = `${yyyy}-${mm}-${dd}`;
     dateInput.value = formattedDate;
 
+    const workerActions = document.querySelector('.worker-actions');
+
+    if (window.innerWidth <= 480) {
+        const workerSection = document.querySelector('#worker-view');
+        workerSection.appendChild(workerActions);
+    }
+
     const firstName = sessionStorage.getItem('firstName');
     document.getElementById('user-name').textContent = firstName;
 
