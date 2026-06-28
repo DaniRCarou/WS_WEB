@@ -73,6 +73,8 @@ Check View
 
 <img src="screenshots/login-mobile.png" width="300" alt="Login Mobile"/>
 
+<br/><br/>
+
 **Worker View**
 
 <img src="screenshots/worker-view-mobile.png" width="300" alt="Worker View Mobile"/>
@@ -177,6 +179,8 @@ Vista de revisión
 
 <img src="screenshots/login-mobile.png" width="300" alt="Login Mobile"/>
 
+<br/><br/>
+
 **Vista del trabajador**
 
 <img src="screenshots/worker-view-mobile.png" width="300" alt="Worker View Mobile"/>
@@ -280,6 +284,8 @@ Arbeiteransicht — Aufgabenerfassung
 **Login**
 
 <img src="screenshots/login-mobile.png" width="300" alt="Login Mobile"/>
+
+<br/><br/>
 
 **Arbeiteransicht**
 
