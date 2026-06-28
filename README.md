@@ -67,11 +67,17 @@ Check View
 
 **Mobile**
 
-Login
+<div align="center">
+
+**Login**
+
 <img src="screenshots/login-mobile.png" width="300" alt="Login Mobile"/>
 
-Worker View
+**Worker View**
+
 <img src="screenshots/worker-view-mobile.png" width="300" alt="Worker View Mobile"/>
+
+</div>
 
 ### Running Locally
 
@@ -165,11 +171,17 @@ Vista de revisión
 
 **Móvil**
 
-Login
+<div align="center">
+
+**Login**
+
 <img src="screenshots/login-mobile.png" width="300" alt="Login Mobile"/>
 
-Vista del trabajador
+**Vista del trabajador**
+
 <img src="screenshots/worker-view-mobile.png" width="300" alt="Worker View Mobile"/>
+
+</div>
 
 ### Ejecutar en local
 
@@ -263,11 +275,17 @@ Arbeiteransicht — Aufgabenerfassung
 
 **Mobil**
 
-Login
+<div align="center">
+
+**Login**
+
 <img src="screenshots/login-mobile.png" width="300" alt="Login Mobile"/>
 
-Arbeiteransicht
+**Arbeiteransicht**
+
 <img src="screenshots/worker-view-mobile.png" width="300" alt="Worker View Mobile"/>
+
+</div>
 
 ### Lokale Ausführung
 
