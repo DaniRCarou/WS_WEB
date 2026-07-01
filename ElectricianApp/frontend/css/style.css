@@ -1809,7 +1809,6 @@ button {
 
     .lang-menu ul {
         background: white;
-        color: #333;
     }
     
     .lang-menu ul li button {
@@ -1984,6 +1983,18 @@ button {
         font-size: 14px;    /* reduce el tamaño del texto */
         width: 120px;       /* reduce el ancho del menú desplegable */
 
+    }
+
+
+
+     .lang-menu ul {
+        background: white;
+    }
+
+
+    
+    .lang-menu ul li button {
+        color: #333;
     }
 
 
