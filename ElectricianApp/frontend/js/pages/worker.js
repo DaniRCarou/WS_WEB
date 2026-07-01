@@ -311,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     check.addEventListener('click', (event) => {
         event.stopPropagation();
         workerWrapper.innerHTML = "";
+        workerActions.style.display = 'none';
         checkWrapper.style.display = 'flex';
         workerWrapper.appendChild(checkWrapper);
 
@@ -355,6 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkWrapper.style.display = 'none';
             workerWrapper.appendChild(workerForm);
             dateInput.value = formattedDate;
+            workerActions.style.display = 'flex';
         });
     });
 
