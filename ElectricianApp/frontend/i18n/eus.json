@@ -73,7 +73,7 @@
     },
     "alerts": {
         "loginSuccess": "Saioa hasi da",
-        "loginError": "Errorea saioa hastean",
+        "loginError": "Saioa hastean errorea, erabiltzaile edo pasahitz okerra",
         "invalidPersonalNumber": "Zenbaki pertsonala ez da baliozkoa",
         "invalidName": "Izena ez da baliozkoa",
         "invalidSurname": "Abizena ez da baliozkoa",

@@ -73,7 +73,7 @@
     },
     "alerts": {
         "loginSuccess": "Anmeldung erfolgreich",
-        "loginError": "Anmeldung fehlgeschlagen",
+        "loginError": "Anmeldung fehlgeschlagen, Anmeldung fehlgeschlagen, falscher Benutzername oder Passwort",
         "invalidPersonalNumber": "Ungültige Personalnummer",
         "invalidName": "Der Name ist ungültig",
         "invalidSurname": "Der Nachname ist ungültig",

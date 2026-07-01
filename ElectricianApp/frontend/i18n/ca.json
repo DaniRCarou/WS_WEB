@@ -73,7 +73,7 @@
     },
     "alerts": {
         "loginSuccess": "Inici de sessió correcte",
-        "loginError": "Error en iniciar sessió",
+        "loginError": "Error en iniciar sessió, usuari o contrasenya incorrecte",
         "invalidPersonalNumber": "Número personal no vàlid",
         "invalidName": "El nom no és vàlid",
         "invalidSurname": "El cognom no és vàlid",

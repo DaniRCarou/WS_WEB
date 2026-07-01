@@ -73,7 +73,7 @@
     },
     "alerts": {
         "loginSuccess": "Inicio de sesión exitoso",
-        "loginError": "Error al iniciar sesión",
+        "loginError": "Error al iniciar sesión, usuario o contraseña incorrecto",
         "invalidPersonalNumber": "Número personal no válido",
         "invalidName": "El nombre no es válido",
         "invalidSurname": "El apellido no es válido",

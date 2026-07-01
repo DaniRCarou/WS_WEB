@@ -48,6 +48,6 @@ loginForm.addEventListener('submit', async (e) => {
     } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Login';
-        alert((window.currentLanguageData?.alerts?.loginError || "Login failed") + ": " + result.message);
+        alert((window.currentLanguageData?.alerts?.loginError || "Login failed"));
     }
 });

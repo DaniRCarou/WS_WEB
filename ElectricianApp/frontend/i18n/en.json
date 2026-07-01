@@ -73,7 +73,7 @@
     },
     "alerts": {
         "loginSuccess": "Successful login",
-        "loginError": "Login failed",
+        "loginError": "Login failed, incorrect username or password",
         "invalidPersonalNumber": "Invalid personal number",
         "invalidName": "The name is not valid",
         "invalidSurname": "The surname is not valid",

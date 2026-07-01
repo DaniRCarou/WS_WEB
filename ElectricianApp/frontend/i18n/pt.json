@@ -73,7 +73,7 @@
     },
     "alerts": {
         "loginSuccess": "Login bem-sucedido",
-        "loginError": "Falha no login",
+        "loginError": "Erro ao iniciar sessão, utilizador ou palavra-passe incorreto",
         "invalidPersonalNumber": "Número pessoal inválido",
         "invalidName": "O nome não é válido",
         "invalidSurname": "O apelido não é válido",
