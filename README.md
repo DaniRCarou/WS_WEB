@@ -18,7 +18,7 @@ A web application designed for production industry companies that allows employe
 
 - **Languages:** Java, JavaScript, CSS, HTML, SQL
 - **Framework:** Spring Boot
-- **Database:** PostgreSQL (Neon)
+- **Database:** PostgreSQL (Render)
 - **Deployment:** Render
 - **Other:** JSON, BCrypt, Resend
 
@@ -124,7 +124,7 @@ Una aplicación web diseñada para empresas del sector industrial que permite a 
 
 - **Lenguajes:** Java, JavaScript, CSS, HTML, SQL
 - **Framework:** Spring Boot
-- **Base de datos:** PostgreSQL (Neon)
+- **Base de datos:** PostgreSQL (Render)
 - **Despliegue:** Render
 - **Otros:** JSON, BCrypt, Resend
 
@@ -230,7 +230,7 @@ Eine Webanwendung für Unternehmen der Produktionsindustrie, mit der Mitarbeiter
 
 - **Sprachen:** Java, JavaScript, CSS, HTML, SQL
 - **Framework:** Spring Boot
-- **Datenbank:** PostgreSQL (Neon)
+- **Datenbank:** PostgreSQL (Render)
 - **Deployment:** Render
 - **Weitere:** JSON, BCrypt, Resend
 
