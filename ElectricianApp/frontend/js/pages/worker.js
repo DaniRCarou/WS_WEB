@@ -375,6 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkWrapper.style.display = 'none';
             workerWrapper.appendChild(workerForm);
             dateInput.value = formattedDate;
+            workerActions.style.display = 'flex';
         } else {
             alert('Error: ' + result.message);
         }
