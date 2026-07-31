@@ -6,6 +6,19 @@
 import { loginEmployee } from '../api/auth.api.js';
 import { showView } from '../main.js';
 
+
+// Elimina el fondo amarillo del autofill en Firefox
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.style.backgroundColor = 'transparent';
+            input.style.color = '#fff';
+        });
+    }, 500);
+});
+
+
 const loginForm = document.querySelector('#login-form');
 
 // Restore saved personal number if "Remember me" was checked previously
